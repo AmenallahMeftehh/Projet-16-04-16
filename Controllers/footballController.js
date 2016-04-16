@@ -5,8 +5,8 @@ angular.module('app').controller('footballController',['$scope', '$http',functio
 }]);
 angular.module('app').controller('DetailsControllerFoot', ['$scope', '$http','$routeParams',
     function($scope, $http, $routeParams){
-    $http.get('data/dataFoot.json').success(function(foot){
-        $scope.foot = foot;
+    $http.get('data/dataFoot.json').success(function(footballs){
+        $scope.footballs = footballs;
         $scope.whichItem = $routeParams.itemId;
     });
 }]);

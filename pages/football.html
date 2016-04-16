@@ -1,11 +1,12 @@
-<fieldset class="col-md-12 ">
+<fieldset class=" col-md-12 ">
 <input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-
+<input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
+Filter by price interval: <b>€ 10</b> <input id="ex2" type="text" class="span2" value="foot.price" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
 </fieldset>
 <table class="table">
 <tr ....>
-  <tr ng-repeat="foot in footballs | filter:lettres ">
-    <td><a href="#/detailsF/{{foot.indexOf(foot)}}" class="btn btn-info btn-lg" role="button"><strong>Détails</strong>
+  <tr ng-repeat="foot in footballs | filter:lettres | limitTo:limitation ">
+    <td><a href="#/detailsF/{{footballs.indexOf(foot)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong>
       <img ng-src="../images/football/{{foot.image}}" /></a>
     </td>
     <td><h4>{{foot.nom}}</h4>

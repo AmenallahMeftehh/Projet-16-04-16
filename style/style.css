@@ -24,6 +24,12 @@ padding: 1em;
 font-size: 15px;
 color: #fff;
 }
+.info{
+color: white;
+font-size: 29px;
+text-align: center;
+
+}
 .buttondrop{
   margin: 0.7em;
   background: black;

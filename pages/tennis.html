@@ -4,18 +4,19 @@
 
 <fieldset class="col-md-12 ">
 <input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-
+<input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
 </fieldset>
-<div ng-repeat="ten in tennis | filter:lettres ">
+<div ng-repeat="ten in tennis | filter:lettres | limitTo:limitation ">
 <table class="table" >
   <tr  class="trarticle" >
-    <td><img ng-src="../images/tennis/{{ten.image}}" />
+    <td><a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
+      <img ng-src="../images/tennis/{{ten.image}}" /></a>
     </td>
     <td><h4>{{ten.nom}}</h4>
     </td>
     <td><h5 class='prix'>PRICE : {{ten.prix}} $</h5>
     </td>
-<a data-toggle="modal" data-target="#modal-2"><button type="submit">Panier</button></a>
+
   </tr>
 </table>
 <!-- modal -->

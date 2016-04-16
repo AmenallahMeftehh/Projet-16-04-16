@@ -1,11 +1,12 @@
 <fieldset class="col-md-12 ">
 <input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-
+<input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
 </fieldset>
 <table class="table">
 <tr ....>
-  <tr ng-repeat="golf in golfs | filter:lettres ">
-    <td><img ng-src="../images/golf/{{golf.image}}" />
+  <tr ng-repeat="golf in golfs | filter:lettres | limitTo:limitation">
+    <td><a href="#/detailsG/{{golfs.indexOf(golf)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
+      <img ng-src="../images/golf/{{golf.image}}"/></a>
     </td>
     <td><h4>{{golf.nom}}</h4>
     </td>

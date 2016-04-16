@@ -42,7 +42,14 @@ $routeProvider
               templateUrl : 'pages/details/detailsFoot.html',
               controller : 'DetailsControllerFoot'
           })
-
+  .when('/detailsG/:itemId', {
+              templateUrl : 'pages/details/detailsGolf.html',
+              controller : 'DetailsControllerGolf'
+                  })
+  .when('/detailsT/:itemId', {
+              templateUrl : 'pages/details/detailsTennis.html',
+              controller : 'DetailsControllerTennis'
+                  })
 
 .otherwise({
     redirectTo: '/home'
