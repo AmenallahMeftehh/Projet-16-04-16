@@ -19,6 +19,7 @@ $routeProvider
 })
 .when('/golf',{
   templateUrl:'pages/golf.html',
+  controller:'golfController'
 
 })
 .when('/cyclisme',{
@@ -28,6 +29,7 @@ $routeProvider
 })
 .when('/tennis',{
   templateUrl:'pages/tennis.html',
+  controller:'tennisController'
 
 })
 .otherwise({

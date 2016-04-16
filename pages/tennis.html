@@ -1,1 +1,15 @@
-<h1>tennis</h1>
+<fieldset class="col-md-12 ">
+<input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+
+</fieldset>
+<table class="table">
+<tr ....>
+  <tr ng-repeat="ten in tennis | filter:lettres ">
+    <td><img ng-src="../images/tennis/{{ten.image}}" />
+    </td>
+    <td><h4>{{ten.nom}}</h4>
+    </td>
+    <td><h5 class='prix'>PRICE : {{ten.prix}} $</h5>
+    </td>
+  </tr>
+</table>

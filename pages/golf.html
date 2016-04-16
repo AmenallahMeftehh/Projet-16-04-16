@@ -1,1 +1,15 @@
-<h1>golf</h1>
+<fieldset class="col-md-12 ">
+<input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+
+</fieldset>
+<table class="table">
+<tr ....>
+  <tr ng-repeat="golf in golfs | filter:lettres ">
+    <td><img ng-src="../images/golf/{{golf.image}}" />
+    </td>
+    <td><h4>{{golf.nom}}</h4>
+    </td>
+    <td><h5 class='prix'>PRICE : {{golf.prix}} $</h5>
+    </td>
+  </tr>
+</table>
