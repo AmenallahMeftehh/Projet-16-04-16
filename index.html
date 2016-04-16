@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="style/style.css" charset="utf-8">
     <link rel="stylesheet" href="style/bootstrap.css" charset="utf-8">
     <!-- js integration de bootstrap et jquery-->
-
+<script type="text/javascript">$('#ex1').slider({
+	formatter: function(value) {
+		return 'Current value: ' + value;
+	}
+});</script>
+<script type="text/javascript">
+// Without JQuery
+var slider = new Slider('#ex1', {
+	formatter: function(value) {
+		return 'Current value: ' + value;
+	}
+}); </script>
     <script src="libs/jquery-2.2.2.min.js">  </script>
     <script src="libs/bootstrap.js">  </script>
     <!-- integration d'angular et app.js -->
