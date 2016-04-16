@@ -1,7 +1,7 @@
 angular.module('app').controller('homeController',['$scope',function($scope){
      $(document).ready(function() {
                  $('.carousel').carousel({
-                     interval: 5000
+                     interval: 1000
                  })
              });
 

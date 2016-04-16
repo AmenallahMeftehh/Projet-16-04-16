@@ -66,3 +66,20 @@ h1{
   height: 3em;
   padding: 1em;
 }
+.imgcarousel{
+  background-size: cover;
+  width: auto;
+  max-height: 500px;
+  min-width: 100%;
+}
+.description{
+  text-shadow: 2px 2px 4px red;
+}
+.table{
+  max-width: 200px;
+  margin: auto;
+}
+.trarticle{
+  width:50%;
+  margin: auto;
+}
