@@ -14,6 +14,7 @@ $routeProvider
 })
 .when('/football',{
   templateUrl:'pages/football.html',
+  controller:'footballController'
 
 })
 .when('/golf',{
