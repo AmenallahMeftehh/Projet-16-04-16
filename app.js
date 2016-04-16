@@ -6,6 +6,7 @@ $routeProvider
 })
 .when('/home',{
   templateUrl:'pages/home.html',
+  controller:'homeController'
 
 })
 .when('/panier',{
