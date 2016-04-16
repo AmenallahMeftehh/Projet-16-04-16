@@ -3,3 +3,10 @@ angular.module('app').controller('footballController',['$scope', '$http',functio
      $scope.footballs= data;
 })
 }]);
+angular.module('app').controller('DetailsControllerFoot', ['$scope', '$http','$routeParams',
+    function($scope, $http, $routeParams){
+    $http.get('data/dataFoot.json').success(function(foot){
+        $scope.foot = foot;
+        $scope.whichItem = $routeParams.itemId;
+    });
+}]);

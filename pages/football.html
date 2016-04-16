@@ -5,7 +5,8 @@
 <table class="table">
 <tr ....>
   <tr ng-repeat="foot in footballs | filter:lettres ">
-    <td><img ng-src="../images/football/{{foot.image}}" />
+    <td><a href="#/detailsF/{{foot.indexOf(foot)}}" class="btn btn-info btn-lg" role="button"><strong>Détails</strong>
+      <img ng-src="../images/football/{{foot.image}}" /></a>
     </td>
     <td><h4>{{foot.nom}}</h4>
     </td>

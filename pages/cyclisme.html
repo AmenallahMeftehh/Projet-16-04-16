@@ -5,7 +5,8 @@
 <table class="table">
 <tr ....>
   <tr ng-repeat="cyc in cyclismes | filter:lettres | orderBy : sort">
-    <td><img ng-src="../images/cyclisme/{{cyc.image}}" />
+    <td> <a href="#/details/{{cyclismes.indexOf(cyc)}}" class="btn btn-info btn-lg" role="button"><strong>Détails</strong>
+      <img ng-src="../images/cyclisme/{{cyc.image}}" /></a>
     </td>
     <td><h4>{{cyc.nom}}</h4>
     </td>

@@ -22,7 +22,7 @@ right: 43px;
 background: #d2232a;
 padding: 1em;
 font-size: 15px;
-color: #ffffff;
+color: #fff;
 }
 .buttondrop{
   margin: 0.7em;
@@ -59,6 +59,7 @@ h1{
   font-size: 25px;
   font-style: oblique;
   font-weight: bold;
+  text-align: center;
 }
 .textrecherche{
   margin: 1em 0;
@@ -82,4 +83,31 @@ h1{
 .trarticle{
   width:50%;
   margin: auto;
+}
+.fieldset1{
+  background-color: black;
+}
+.buttom{
+    padding: 14px;
+    width: 30%;
+    background: #fff;
+    border: none;
+    outline: none;
+    color: #464646;
+    font-size: 1em;
+    margin-bottom: 3em;
+    margin: 2em 35em;
+
+}
+.buttom1{
+    padding: 14px;
+    width: 10%;
+    background: #d2232a;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    margin-bottom: 3em;
+    margin: 2em 45em;
+
 }

@@ -2,6 +2,7 @@ angular.module('app',['ngRoute']).config(['$routeProvider',function($routeProvid
 $routeProvider
 .when('/login',{
   templateUrl:'pages/login.html',
+  controller:'loginController'
 
 })
 .when('/home',{
@@ -33,6 +34,16 @@ $routeProvider
   controller:'tennisController'
 
 })
+.when('/details/:itemId', {
+            templateUrl : 'pages/details/detailsCyclisme.html',
+            controller : 'DetailsController'
+        })
+  .when('/detailsF/:itemId', {
+              templateUrl : 'pages/details/detailsFoot.html',
+              controller : 'DetailsControllerFoot'
+          })
+
+
 .otherwise({
     redirectTo: '/home'
           })
