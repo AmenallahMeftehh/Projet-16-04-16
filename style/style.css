@@ -43,5 +43,26 @@ color: #ffffff;
 h1{
   color: white;
 }
-.div1{background-color: white;
-width: 300px;}
+.cadreimage{
+  width: auto;
+  height: 25em;
+  background-color: white;
+
+  margin: 1.5em;
+  float: left;
+  border: 2px groove ;
+  border-radius: 4px;
+  border-color: grey;
+}
+.prix{
+  color: red;
+  font-size: 25px;
+  font-style: oblique;
+  font-weight: bold;
+}
+.textrecherche{
+  margin-top: 1em;
+  width: 25em;
+  height: 3em;
+  padding: 1em;
+}

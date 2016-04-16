@@ -22,6 +22,7 @@ $routeProvider
 })
 .when('/cyclisme',{
   templateUrl:'pages/cyclisme.html',
+  controller:'cyclismeController'
 
 })
 .when('/tennis',{

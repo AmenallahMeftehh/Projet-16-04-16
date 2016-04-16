@@ -1,4 +1,17 @@
-<h1>cyclisme</h1>
-<div class="div1">
+<fieldset class="col-md-12 ">
+<input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+<input class="textrecherche"type="text" ng-model="lettres">
+</fieldset>
+<table class="table">
 
+</table>
+<div ng-repeat="cyc in cyclismes | filter:lettres | orderby">
+<div class="cadreimage col-md-2">
+
+  <img ng-src="../images/cyclisme/{{cyc.image}}" />
+  <h4>{{cyc.nom}}</h4>
+  <br>
+  <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
+
+</div>
 </div>
