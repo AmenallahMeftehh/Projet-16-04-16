@@ -18,23 +18,30 @@ html, body , header {
 margin: 1em;
 width:100%;
 height: 40px;
-
-top: 0;
 right: 43px;
-border: none;
-
 background: #d2232a;
 padding: 1em;
 font-size: 15px;
 color: #ffffff;
+}
+.buttondrop{
+  margin: 0.7em;
+  background: black;
+  border: none;
+  color: white;
 }
 .nav{
   float: right;
   padding-left: 10em;
 }
 .linav{
-  margin-left: 5em;
+  margin-left: 3em;
 }
 .a-li{
   color: white;
 }
+h1{
+  color: white;
+}
+.div1{background-color: white;
+width: 300px;}

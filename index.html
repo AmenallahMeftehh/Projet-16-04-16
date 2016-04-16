@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>Vente en ligne</title>
     <link rel="stylesheet" href="style/style.css" charset="utf-8">
     <link rel="stylesheet" href="style/bootstrap.css" charset="utf-8">
+    <!-- js integration de bootstrap et jquery-->
+
+    <script src="libs/jquery-2.2.2.min.js">  </script>
+    <script src="libs/bootstrap.js">  </script>
+    <!-- integration d'angular et app.js -->
+    <script src="libs/angular.js"></script>
+    <script src="libs/angular-route.js"></script>
+    <script src="app.js"></script>
+
+    </script>
   </head>
   <header class=" navbar-collapse">
     <div class="logo img-responsive">
-      <a href="#"><img src="images/logo.png"  /></a>
+      <a href="#home"><img src="images/logo.png"  /></a>
     </div>
     <div class="container-fluid">
       <ul class="nav nav-tabs ">
-        <li class="linav"><input type="text" class="inputrecherche" placeholder="Cherchez votre produit"></li>
-        <li class="linav"><a class="a-li" href="#">FOOTBALL</a></li>
-        <li class="linav"><a class="a-li" href="#">TENNIS</a></li>
-        <li class="linav"><a class="a-li" href="#">GOLF</a></li>
-        <li class="linav"><a class="a-li" href="#">CYCLISME</a></li>
-        <li></li>
-        <li></li>
+        <li class="linav"><input type="text" class="inputrecherche" placeholder="Cherchez votre produit"><span class="sb-icon-search"> </span></li>
+        <li class="linav"><a class="a-li" href="#football">FOOTBALL</a></li>
+        <li class="linav"><a class="a-li" href="#tennis">TENNIS</a></li>
+        <li class="linav"><a class="a-li" href="#golf">GOLF</a></li>
+        <li class="linav"><a class="a-li" href="#cyclisme">CYCLISME</a></li>
+        <li class="linav">
+          <div class="dropdown">
+            <button class=" buttondrop dropdown-toggle" type="button" data-toggle="dropdown">MORE
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#login">Account</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">MAIL US</a></li>
+              </ul>
+            </div>
+        </li>
+        <li><a href="#panier"><img src="images/panier.png" /></a></li>
       </ul>
     </div>
   </header>
   <body>
+<div ng-view >
 
+</div>
   </body>
 </html>
