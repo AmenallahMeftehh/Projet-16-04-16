@@ -3,7 +3,6 @@ $routeProvider
 .when('/login',{
   templateUrl:'pages/login.html',
   controller:'loginController'
-
 })
 .when('/home',{
   templateUrl:'pages/home.html',
