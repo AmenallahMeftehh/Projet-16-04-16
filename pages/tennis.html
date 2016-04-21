@@ -5,8 +5,10 @@
 <fieldset class="col-md-12 ">
 <input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
 <input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
+
+<b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="teb.prix"style="width:100px;float:right"/> <b>€ 1000</b>
 </fieldset>
-<div ng-repeat="ten in tennis | filter:lettres | limitTo:limitation ">
+<div ng-repeat="ten in tennis | filter:lettres |filter:ten.prix| limitTo:limitation ">
 <table class="table" >
   <tr  class="trarticle" >
     <td><a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
