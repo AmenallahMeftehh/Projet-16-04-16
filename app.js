@@ -1,52 +1,52 @@
 angular.module('app',['ngRoute']).config(['$routeProvider',function($routeProvider){
 $routeProvider
 .when('/login',{
-  templateUrl:'pages/login.html',
+  templateUrl:'public/pages/login.html',
   controller:'loginController'
 })
 .when('/home',{
-  templateUrl:'pages/home.html',
+  templateUrl:'public/pages/home.html',
   controller:'homeController'
 
 })
 .when('/panier',{
-  templateUrl:'pages/panier.html',
+  templateUrl:'public/pages/panier.html',
 
 })
 .when('/football',{
-  templateUrl:'pages/football.html',
+  templateUrl:'public/pages/football.html',
   controller:'footballController'
 
 })
 .when('/golf',{
-  templateUrl:'pages/golf.html',
+  templateUrl:'public/pages/golf.html',
   controller:'golfController'
 
 })
 .when('/cyclisme',{
-  templateUrl:'pages/cyclisme.html',
+  templateUrl:'public/pages/cyclisme.html',
   controller:'cyclismeController'
 
 })
 .when('/tennis',{
-  templateUrl:'pages/tennis.html',
+  templateUrl:'public/pages/tennis.html',
   controller:'tennisController'
 
 })
 .when('/details/:itemId', {
-            templateUrl : 'pages/details/detailsCyclisme.html',
+            templateUrl : 'public/pages/details/detailsCyclisme.html',
             controller : 'DetailsController'
         })
   .when('/detailsF/:itemId', {
-              templateUrl : 'pages/details/detailsFoot.html',
+              templateUrl : 'public/pages/details/detailsFoot.html',
               controller : 'DetailsControllerFoot'
           })
   .when('/detailsG/:itemId', {
-              templateUrl : 'pages/details/detailsGolf.html',
+              templateUrl : 'public/pages/details/detailsGolf.html',
               controller : 'DetailsControllerGolf'
                   })
   .when('/detailsT/:itemId', {
-              templateUrl : 'pages/details/detailsTennis.html',
+              templateUrl : 'public/pages/details/detailsTennis.html',
               controller : 'DetailsControllerTennis'
                   })
 

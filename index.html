@@ -5,20 +5,7 @@
     <title>Vente en ligne</title>
     <link rel="stylesheet" href="style/style.css" charset="utf-8">
     <link rel="stylesheet" href="style/bootstrap.css" charset="utf-8">
-    <!-- js integration de bootstrap et jquery-->
-<script type="text/javascript">
-  $('#ex1').slider({
-	formatter: function(value) {
-		return 'Current value: ' + value;
-	}
-});</script>
-<script type="text/javascript">
-// Without JQuery
-var slider = new Slider('#ex1', {
-	formatter: function(value) {
-		return 'Current value: ' + value;
-	}
-}); </script>
+   
     <script src="libs/jquery-2.2.2.min.js">  </script>
     <script src="libs/bootstrap.js">  </script>
     <!-- integration d'angular et app.js -->
@@ -26,18 +13,18 @@ var slider = new Slider('#ex1', {
     <script src="libs/angular-route.js"></script>
     <script src="app.js"></script>
     <!-- directive pagination -->
-    <script src="directives/dirPagination.js"></script>
+   
 <!-- integration des controllers -->
-    <script src="Controllers/cyclismeController.js"></script>
-    <script src="Controllers/footballController.js"></script>
-    <script src="Controllers/golfController.js"></script>
-    <script src="Controllers/tennisController.js"></script>
-    <script src="Controllers/homeController.js"></script>
-    <script src="Controllers/loginController.js"></script>
+    <script src="public/Controllers/cyclismeController.js"></script>
+    <script src="public/Controllers/footballController.js"></script>
+    <script src="public/Controllers/golfController.js"></script>
+    <script src="public/Controllers/tennisController.js"></script>
+    <script src="public/Controllers/homeController.js"></script>
+    <script src="public/Controllers/loginController.js"></script>
   </head>
   <header class=" navbar-collapse">
     <div class="logo img-responsive">
-      <a href="#home"><img src="images/logo.png"  /></a>
+      <a href="#home"><img src="public/images/logo.png"  /></a>
     </div>
     <div class="container-fluid">
       <ul class="nav nav-tabs ">
@@ -57,7 +44,7 @@ var slider = new Slider('#ex1', {
               </ul>
             </div>
         </li>
-        <li><a href="#panier"><img src="images/panier.png" /></a></li>
+        <li><a href="#panier"><img src="public/images/panier.png" /></a></li>
       </ul>
     </div>
   </header>

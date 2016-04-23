@@ -1,11 +1,15 @@
-html, body , header {
+html,
+body,
+header {
     font-size: 100%;
     background: #000;
     font-family: 'Open Sans', sans-serif;
 }
+
 .header-bottom {
-  padding: 0.7em 1em;
+    padding: 0.7em 1em;
 }
+
 .logo {
     background: #000;
     width: 10%;
@@ -14,86 +18,108 @@ html, body , header {
     float: left;
     text-align: center;
 }
-.inputrecherche{
-margin: 1em;
-width:100%;
-height: 40px;
-right: 43px;
-background: #d2232a;
-padding: 1em;
-font-size: 15px;
-color: #fff;
-}
-.info{
-color: white;
-font-size: 29px;
-text-align: center;
 
+.inputrecherche {
+    margin: 1em;
+    width: 100%;
+    height: 40px;
+    right: 43px;
+    background: #d2232a;
+    padding: 1em;
+    font-size: 15px;
+    color: #fff;
 }
-.buttondrop{
-  margin: 0.7em;
-  background: black;
-  border: none;
-  color: white;
-}
-.nav{
-  float: right;
-  padding-left: 10em;
-}
-.linav{
-  margin-left: 3em;
-}
-.a-li{
-  color: white;
-}
-h1{
-  color: white;
-}
-.cadreimage{
-  width: auto;
-  height: 25em;
-  background-color: white;
 
-  margin: 1.5em;
-  float: left;
-  border: 2px groove ;
-  border-radius: 4px;
-  border-color: grey;
+.info {
+    color: white;
+    font-size: 29px;
+    text-align: center;
 }
-.prix{
-  color: red;
-  font-size: 25px;
-  font-style: oblique;
-  font-weight: bold;
-  text-align: center;
+
+.buttondrop {
+    margin: 0.7em;
+    background: black;
+    border: none;
+    color: white;
 }
-.textrecherche{
-  margin: 1em 0;
-  width: 25em;
-  height: 3em;
-  padding: 1em;
+
+.nav {
+    float: right;
+    padding-left: 10em;
 }
-.imgcarousel{
-  background-size: cover;
-  width: auto;
-  max-height: 500px;
-  min-width: 100%;
+
+.linav {
+    margin-left: 3em;
 }
-.description{
-  text-shadow: 2px 2px 4px red;
+
+.a-li {
+    color: white;
 }
-.table{
-  max-width: 200px;
-  margin: auto;
+
+h1 {
+    color: white;
 }
-.trarticle{
-  width:50%;
-  margin: auto;
+
+.cadreimage {
+    width: auto;
+    height: 25em;
+    background-color: white;
+    margin: 1.5em;
+    float: left;
+    border: 2px groove;
+    border-radius: 4px;
+    border-color: grey;
 }
-.fieldset1{
-  background-color: black;
+
+.prix {
+    color: darkred;
+    font-size: 25px;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
 }
-.buttom{
+
+.textrecherche {
+    margin: 1em;
+    width: 25em;
+    height: 3em;
+    padding: 1em;
+}
+
+.imgcarousel {
+    background-size: cover;
+    width: auto;
+    max-height: 500px;
+    min-width: 100%;
+}
+
+.description {
+    text-shadow: 2px 2px 4px red;
+}
+
+.tableproduit {
+    margin: auto;
+    position: absolute;
+    height: 100%;
+    background-color: #212121;
+}
+
+tr {
+    border: 1px groove;
+    width: 10%;
+    margin-left: 20em;
+}
+
+.trarticle {
+    width: 50%;
+    margin: auto;
+}
+
+.fieldset1 {
+    background-color: black;
+}
+
+.buttom {
     padding: 14px;
     width: 30%;
     background: #fff;
@@ -103,9 +129,9 @@ h1{
     font-size: 1em;
     margin-bottom: 3em;
     margin: 2em 35em;
-
 }
-.buttom1{
+
+.buttom1 {
     padding: 14px;
     width: 10%;
     background: #d2232a;
@@ -115,9 +141,20 @@ h1{
     font-size: 1em;
     margin-bottom: 3em;
     margin: 2em 45em;
-
 }
-.title{
-  font-size: 2em;
-  text-shadow: 1px 1px 2px red;
+
+.title {
+    font-size: 2em;
+    color: beige;
+    text-align: center;
+}
+
+.divproduit {
+    width: 30em;
+    height: 28em;
+    margin: 6em;
+    padding: 1em;
+}
+.span2{
+    width:100px;
 }

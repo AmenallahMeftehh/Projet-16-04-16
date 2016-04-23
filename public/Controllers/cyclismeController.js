@@ -1,6 +1,6 @@
 angular.module('app').controller('cyclismeController',['$scope', '$http',function($scope,$http){
-  $http.get('data/dataCycl.json').success(function(data) {
-   $scope.cyclismes= data;
+  $http.get('bdchallenge/').success(function(data) {
+   $scope.cyclisme= data;
 })
 }]);
 angular.module('app').controller('DetailsController', ['$scope', '$http','$routeParams',
