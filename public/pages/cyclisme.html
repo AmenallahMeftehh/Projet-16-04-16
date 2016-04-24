@@ -6,13 +6,12 @@
 
 </fieldset>
 <div ng-repeat="cyc in cyclisme | filter:lettres | filter:cyc.prix | limitTo:limitation">
-    <div class=" col-md-3" style="margin-top:6em"ng-repeat="c in cyc.produits| filter:lettres | filter:c.prix | limitTo:limitation">
-        <a href="#/details/{{cyclisme.indexOf(cyc)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong><img ng-src="public/images/cyclisme/{{c.image}}" />
+    
+        <a href="#/details/{{cyclisme.indexOf(cyc)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong><img ng-src="public/images/cyclisme/{{cyc.produits.image}}" />
       </a>
 
-        <h4 class="title">{{c.nom}}</h4>
-        <h5 class='prix'>PRICE : {{c.prix}} $</h5>
+        <h4 class="title">{{cyc.nom}}</h4>
+        <h5 class='prix'>PRICE : {{cyc.produits.nom}} $</h5>
 
     </div>
 
-</div>

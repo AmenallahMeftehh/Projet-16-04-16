@@ -11,12 +11,18 @@ header {
 }
 
 .logo {
-    background: #000;
-    width: 10%;
-    height: 3%;
-    margin: 0 auto;
-    float: left;
+    
+    width: 40px;
+    height: 40px;
+    
+    float: right;
     text-align: center;
+    margin-left: 200px;
+}
+.logo1{
+    width: 100px;
+    height:50px;
+    float: left
 }
 
 .inputrecherche {
@@ -29,7 +35,9 @@ header {
     font-size: 15px;
     color: #fff;
 }
-
+.drop{
+    background-color: transparent;
+}
 .info {
     color: white;
     font-size: 29px;

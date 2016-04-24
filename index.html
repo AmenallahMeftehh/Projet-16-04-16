@@ -1,56 +1,78 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Vente en ligne</title>
     <link rel="stylesheet" href="style/style.css" charset="utf-8">
     <link rel="stylesheet" href="style/bootstrap.css" charset="utf-8">
-   
-    <script src="libs/jquery-2.2.2.min.js">  </script>
-    <script src="libs/bootstrap.js">  </script>
+
+    <script src="libs/jquery-2.2.2.min.js">
+    </script>
+    <script src="libs/bootstrap.js">
+    </script>
     <!-- integration d'angular et app.js -->
     <script src="libs/angular.js"></script>
     <script src="libs/angular-route.js"></script>
     <script src="app.js"></script>
     <!-- directive pagination -->
-   
-<!-- integration des controllers -->
+
+    <!-- integration des controllers -->
     <script src="public/Controllers/cyclismeController.js"></script>
     <script src="public/Controllers/footballController.js"></script>
     <script src="public/Controllers/golfController.js"></script>
     <script src="public/Controllers/tennisController.js"></script>
     <script src="public/Controllers/homeController.js"></script>
     <script src="public/Controllers/loginController.js"></script>
-  </head>
-  <header class=" navbar-collapse">
-    <div class="logo img-responsive">
-      <a href="#home"><img src="public/images/logo.png"  /></a>
-    </div>
-    <div class="container-fluid">
-      <ul class="nav nav-tabs ">
-        <li class="linav"><input type="text" class="inputrecherche" placeholder="Cherchez votre produit"><span class="sb-icon-search"> </span></li>
-        <li class="linav"><a class="a-li" href="#football">FOOTBALL</a></li>
-        <li class="linav"><a class="a-li" href="#tennis">TENNIS</a></li>
-        <li class="linav"><a class="a-li" href="#golf">GOLF</a></li>
-        <li class="linav"><a class="a-li" href="#cyclisme">CYCLISME</a></li>
-        <li class="linav">
-          <div class="dropdown">
-            <button class=" buttondrop dropdown-toggle" type="button" data-toggle="dropdown">MORE
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#login">Login In</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">MAIL US</a></li>
-              </ul>
-            </div>
-        </li>
-        <li><a href="#panier"><img src="public/images/panier.png" /></a></li>
-      </ul>
-    </div>
-  </header>
-  <body>
-<div ng-view >
+</head>
+<header>
 
-</div>
-  </body>
+    <nav class="navbar navbar-inverse " style="margin:0px;" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+                <a href="#home"><img class="logo1" src="public/images/logo.png" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav ">
+                    
+                    <li class="linav"><a class="a-li" href="#football">FOOTBALL</a></li>
+                    <li class="linav"><a class="a-li" href="#tennis">TENNIS</a></li>
+                    <li class="linav"><a class="a-li" href="#golf">GOLF</a></li>
+                    <li class="linav"><a class="a-li" href="#cyclisme">CYCLISME</a></li>
+                    <li class="linav">
+                        <div class="dropdown">
+                            <button class="drop buttondrop dropdown-toggle" type="button" data-toggle="dropdown">Plus d'informations
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#login">Login In</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">MAIL US</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#panier"><img class="logo" src="public/images/sign.png" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+<body>
+    <div ng-view>
+
+    </div>
+</body>
+
 </html>

@@ -1,18 +1,15 @@
 <fieldset class=" col-md-12 ">
-<input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-<input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
-<b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="foot.prix"style="width:100px;float:right"/> <b>€ 1000</b>
+    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+    <input class="textrecherche" type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
+    <b>€ 0</b>
+    <input id="ex2" type="range" class="span2" ng-model="foot.prix" style="width:100px;float:right" /> <b>€ 1000</b>
 
 </fieldset>
-<table class="table">
-<tr ....>
-  <tr ng-repeat="foot in footballs | filter:foot.prix | limitTo:limitation |filter : lettres">
-    <td><a href="#/detailsF/{{footballs.indexOf(foot)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong>
-      <img ng-src="../images/football/{{foot.image}}" /></a>
-    </td>
-    <td><h4 class="title">{{foot.nom}}</h4>
-    </td>
-    <td><h5 class='prix'>PRICE : {{foot.prix}} $</h5>
-    </td>
-  </tr>
-</table>
+<div class=" col-md-3" style="margin-top:6em" ng-repeat="foot in footballs | filter:foot.prix | limitTo:limitation |filter : lettres">
+    <a href="#/detailsF/{{footballs.indexOf(foot)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong>
+      <img ng-src="public/images/football/{{foot.image}}" /></a>
+
+    <h4 class="title">{{foot.nom}}</h4>
+    <h5 class='prix'>PRICE : {{foot.prix}} $</h5>
+
+</div>

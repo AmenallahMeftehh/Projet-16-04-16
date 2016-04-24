@@ -1,42 +1,15 @@
-
-
-
-
 <fieldset class="col-md-12 ">
 <input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
 <input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
-
-<b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="teb.prix"style="width:100px;float:right"/> <b>€ 1000</b>
+<b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="ten.prix"style="width:100px;float:right"/> <b>€ 1000</b>
 </fieldset>
-<div ng-repeat="ten in tennis | filter:lettres |filter:ten.prix| limitTo:limitation ">
-<table class="table" >
-  <tr  class="trarticle" >
-    <td><a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
+
+<div class="col-md-3" style="margin-top:6em;background-color:black;" ng-repeat="ten in tennis | filter:lettres |filter:ten.prix| limitTo:limitation ">
+    <a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
       <img ng-src="public/images/tennis/{{ten.image}}" /></a>
-    </td>
-    <td><h4 class="title">{{ten.nom}}</h4>
-    </td>
-    <td><h5 class='prix'>PRICE : {{ten.prix}} $</h5>
-    </td>
 
-  </tr>
-</table>
-<!-- modal -->
-    <div class="container">
-      <div class="modal fade" id="modal-2">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button class="close" type="button" data-dismiss="modal">&times</button>
-              <h3 class="modal-title">Photo de profil</h3>
-            </div>
-            <div class="modal-body col-md-12 ">
-                <img ng-src="public/images/tennis/{{ten.image}}">
+    <h4 class="title">{{ten.nom}}</h4>
 
-    </div>
-           </div>
-          </div>
-        </div>
-      </div>
-<!-- fin modal -->
+    <h5 class='prix'>PRICE : {{ten.prix}} $</h5>
 </div>
+

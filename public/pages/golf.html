@@ -3,15 +3,12 @@
 <input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
 <b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="golf.prix"style="width:100px;float:right"/> <b>€ 1000</b>
 </fieldset>
-<table class="table">
-<tr ....>
-  <tr ng-repeat="golf in golfs | filter:lettres | limitTo:limitation |filter:golf.prix">
-    <td><a href="#/detailsG/{{golfs.indexOf(golf)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
-      <img ng-src="../images/golf/{{golf.image}}"/></a>
-    </td>
-    <td><h4 class="title">{{golf.nom}}</h4>
-    </td>
-    <td><h5 class='prix'>PRICE : {{golf.prix}} $</h5>
-    </td>
-  </tr>
-</table>
+
+  <div class=" col-md-3" style="margin-top:6em" ng-repeat="golf in golfs | filter:lettres | limitTo:limitation |filter:golf.prix">
+    <a href="#/detailsG/{{golfs.indexOf(golf)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
+      <img style="width:200px;height:200px"ng-src="public/images/golf/{{golf.image}}"/></a>
+    
+   <h4 class="title">{{golf.nom}}</h4>
+   
+    <h5 class='prix'>PRICE : {{golf.prix}} $</h5>
+</div>

@@ -3,6 +3,10 @@ var app = express();
 var mongojs = require('mongojs');
 var db = mongojs('localhost/bdchallenge', ['bdchallenge']);
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+require('./models/Cyclisme');
+require('./models/produitsCyc');
+mongoose.connect('mongodb://localhost/bdchallenge');
 
 app.use(express.static(__dirname + '/'));
 app.use(bodyParser.json());
@@ -12,7 +16,7 @@ app.use(bodyParser.json());
 app.get('/bdchallenge', function (req, res) {
     console.log('I received a GET request');
 
-    db.bdchallenge.find(function (err, docs) {
+    db.bdchallenge.findOne({nom:"cyclisme"},function (err, docs) {
         console.log(docs);
         res.json(docs);
     });
@@ -25,6 +29,7 @@ app.post('/bdchallenge', function (req, res) {
     db.bdchallenge.insert(req.body
         , function (err, doc) {
             res.json(doc);
+            
         });
 });
 //methode delete de http pour supprimer une voiture de la liste des voitures
