@@ -1,17 +1,18 @@
 <section class="fieldset1">
     <form name="myform" ng-submit="log()" novalidate>
-        <div class="info">
-            <h1 class="title">Welcome Here!!</h1>
+
+        
+
             <p class="title">Please Log-In</p>
-        </div>
-
-
-            <input class="buttom" type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true"/>
+    
+        <div class="col-md-6 col-md-offset-1">
+            <input class="buttom" type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true" />
             <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched"> Please enter a valid Email</p>
-
-            <input class="buttom"type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true"/>
-            <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
-
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+        <input class="buttom" type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true" />
+        <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
+        </div>
 
         <button type="submit" class="buttom1" ng-disabled="myform.$invalid">Login</button>
         <a href="#panier"></a>

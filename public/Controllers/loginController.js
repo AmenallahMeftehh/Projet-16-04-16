@@ -1,7 +1,7 @@
 angular.module('app').controller('loginController',['$scope', '$http', '$location', '$rootScope' ,
 function($scope, $http, $location, $rootScope) {
-    $http.get('data/dataUser.json').success(function(data) {
-       $scope.data= data;
+    $http.get('/bdchallenge').success(function(data) {
+       $scope.data= data[4].users;
        $scope.log=function(){
          $rootScope.isLogin =false;
 

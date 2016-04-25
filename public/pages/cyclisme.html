@@ -1,17 +1,19 @@
 <fieldset class="col-md-12 ">
     <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
     <input class="textrecherche" type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
+<!--
     <b>€ 0</b>
     <input id="ex2" type="range" class="span2" ng-model="c.prix" /> <b>€ 1000</b>
+-->
 
 </fieldset>
-<div ng-repeat="cyc in cyclisme | filter:lettres | filter:cyc.prix | limitTo:limitation">
+<div class=" col-md-3" style="margin-top:6em"ng-repeat="cyc in cyclisme | filter:lettres | filter:cyc.prix | limitTo:limitation">
     
-        <a href="#/details/{{cyclisme.indexOf(cyc)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong><img ng-src="public/images/cyclisme/{{cyc.produits.image}}" />
+        <a href="#/details/{{cyclisme.indexOf(cyc)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong><img ng-src="public/images/cyclisme/{{cyc.image}}" />
       </a>
 
         <h4 class="title">{{cyc.nom}}</h4>
-        <h5 class='prix'>PRICE : {{cyc.produits.nom}} $</h5>
+        <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
 
     </div>
 

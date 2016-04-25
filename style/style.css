@@ -43,7 +43,12 @@ header {
     font-size: 29px;
     text-align: center;
 }
-
+.error{
+    font-size: 15px;
+    position: fixed;
+   
+    color:red;
+}
 .buttondrop {
     margin: 0.7em;
     background: black;
@@ -111,7 +116,13 @@ h1 {
     height: 100%;
     background-color: #212121;
 }
-
+.thumbnail{
+    margin-top: 1em;
+    min-height:30em;
+    padding: 10em;
+    
+    
+}
 tr {
     border: 1px groove;
     width: 10%;
