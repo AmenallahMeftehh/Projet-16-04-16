@@ -4,6 +4,10 @@ $routeProvider
   templateUrl:'public/pages/login.html',
   controller:'loginController'
 })
+.when('/register',{
+  templateUrl:'public/pages/register.html',
+  controller:'registerController'
+})
 .when('/home',{
   templateUrl:'public/pages/home.html',
   controller:'homeController'

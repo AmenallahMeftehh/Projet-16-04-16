@@ -1,20 +1,22 @@
 <section class="fieldset1">
     <form name="myform" ng-submit="log()" novalidate>
 
-        
 
-            <p class="title">Please Log-In</p>
-    
-        <div class="col-md-6 col-md-offset-1">
-            <input class="buttom" type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true" />
+
+        <p class="title">Please Log-In</p>
+
+        <div class="col-md-4 col-md-offset-4">
+            <input class="form-control form-controlcss" type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true" />
             <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched"> Please enter a valid Email</p>
-        </div>
-        <div class="col-md-6 col-md-offset-3">
-        <input class="buttom" type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true" />
-        <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
+            <br>
+            <br>
+            <input class="form-control" type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true" />
+            <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
         </div>
 
-        <button type="submit" class="buttom1" ng-disabled="myform.$invalid">Login</button>
-        <a href="#panier"></a>
+        <div class="col-md-4 col-md-offset-4">
+            <button style="width:130px;margin-top:2em;margin-left:40%;" type="submit" class="btn btn-primary" ng-disabled="myform.$invalid">Login</button>
+            <a href="#panier"></a>
+        </div>
     </form>
 </section>
