@@ -1,79 +1,49 @@
+// declaration d'express
 var express = require('express');
+// declaration de mongoose pour se connecter a mongodb
+var mongoose = require('mongoose');
+// declaration de bodyParser pour lire body et le parser en jason object
+var  bodyParser = require('body-parser');
+// declaration de port
+var port = process.env.PORT || 3000;
+// connexion a mongodb avec la Base de données bookAPI
+mongoose.connect('mongodb://localhost/bdchallenge');
+// instantiation d'express
 var app = express();
-var mongojs = require('mongojs');
-var db = mongojs('localhost/bdchallenge', ['bdchallenge']);
-var bodyParser = require('body-parser');
-//var mongoose = require('mongoose');
-//require('./models/Cyclisme');
-//require('./models/produitsCyc');
-//mongoose.connect('mongodb://localhost/bdchallenge');
+// declaration de passport pour l'authentification
+var passport = require('passport');
+var hash = require('bcrypt-nodejs');
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+var localStrategy = require('passport-local' ).Strategy;
 
-app.use(express.static(__dirname + '/'));
+// declaration de model produit
+var Product = require ('./models/productModel');
+productRouter = require('./Routes/productRoutes')(Product);
+app.use('/api/product', routes);
+
+// pour le logging on a utiliser morgan
+app.use(logger('dev'));
+// body-parser pour parser en json
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+// initialisation et declaration de session pour utiliser passport
+app.use(passport.initialize());
+app.use(passport.session());
+// configure passport
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// routes
 
-// methode get de http pour recuperer la liste des voitures
 
-app.get('/bdchallenge', function (req, res) {
-    console.log('I received a GET request');
-
-    db.bdchallenge.find(function (err, docs) {
-        console.log(docs);
-        res.json(docs);
-    });
-});
-// methode post de http pour ajouter une voiture dans la liste des voitures
-
-app.post('/bdchallenge', function (req, res) {
-    console.log(req.body);
-
-    db.bdchallenge.insert(req.body
-        , function (err, doc) {
-            res.json(doc);
-            
-        });
-});
-//methode delete de http pour supprimer une voiture de la liste des voitures
-app.delete('/bdchallenge/:id', function (req, res) {
-    var id = req.params.id;
-    console.log(id);
-    db.bdchallenge.remove({
-            _id: mongojs.ObjectId(id)
-        }
-        , function (err, doc) {
-            res.json(doc);
-        });
+app.use(express.static(__dirname));
+app.get('/', function(req, res){
+	res.sendFile(__dirname+'/index.html');
 });
 
-app.get('/bdchallenge/:id', function (req, res) {
-    var id = req.params.id;
-    console.log(id);
-    db.bdchallenge.findOne({
-            _id: mongojs.ObjectId(id)
-        }
-        , function (err, doc) {
-            res.json(doc);
-        });
+app.listen(port, function(){
+	console.log("gulp is running Server on port "+port);
 });
-//app.put('/bdchallenge/:id', function (req, res) {
-//    var id = req.params.id;
-//    console.log(req.body.nom);
-//    db.listvoiture.findAndModify({
-//        query: {
-//            _id: mongojs.ObjectId(id)
-//        }
-//        , update: {
-//            $set: {
-//                nom: req.body.nom
-//                , couleur: req.body.couleur
-//                , type: req.body.type
-//                , prix: req.body.prix
-//            }
-//        }
-//        , new: true
-//    }, function (err, doc) {
-//        res.json(doc);
-//    });
-//});
-
-app.listen(3000);
-console.log("Server running on port 3000");
