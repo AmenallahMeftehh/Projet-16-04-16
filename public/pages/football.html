@@ -7,7 +7,7 @@
 </fieldset>
 <div class=" col-md-3" style="margin-top:6em" ng-repeat="foot in footballs | filter:foot.prix | limitTo:limitation |filter : lettres">
     <a href="#/detailsF/{{footballs.indexOf(foot)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong>
-      <img ng-src="public/images/football/{{foot.image}}" /></a>
+      <img ng-src="{{foot.image}}" /></a>
 
     <h4 class="title">{{foot.nom}}</h4>
     <h5 class='prix'>PRICE : {{foot.prix}} $</h5>

@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 // declaration de bodyParser pour lire body et le parser en jason object
 var  bodyParser = require('body-parser');
 // declaration de port
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8000;
 // connexion a mongodb avec la Base de données bookAPI
 mongoose.connect('mongodb://localhost/bdchallenge');
 // instantiation d'express
@@ -20,9 +20,9 @@ var expressSession = require('express-session');
 var localStrategy = require('passport-local' ).Strategy;
 
 // declaration de model produit
-var Product = require ('./models/productModel');
-productRouter = require('./Routes/productRoutes')(Product);
-app.use('/api/product', routes);
+var Produit = require ('./models/productModel');
+produitRouter = require('./routes/productRoutes')(Produit);
+app.use('/produits', produitRouter);
 
 // pour le logging on a utiliser morgan
 app.use(logger('dev'));
@@ -30,12 +30,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 // initialisation et declaration de session pour utiliser passport
-app.use(passport.initialize());
-app.use(passport.session());
-// configure passport
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// // configure passport
+// passport.use(new localStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 // routes
 
 

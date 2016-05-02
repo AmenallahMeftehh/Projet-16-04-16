@@ -6,10 +6,9 @@
 
 <div class="col-md-3" style="margin-top:6em;background-color:black;" ng-repeat="ten in tennis | filter:lettres |filter:ten.prix| limitTo:limitation ">
     <a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
-      <img ng-src="public/images/tennis/{{ten.image}}" /></a>
+      <img ng-src="{{ten.image}}" /></a>
 
     <h4 class="title">{{ten.nom}}</h4>
 
     <h5 class='prix'>PRICE : {{ten.prix}} $</h5>
 </div>
-

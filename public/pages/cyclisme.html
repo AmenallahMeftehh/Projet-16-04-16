@@ -8,12 +8,11 @@
 
 </fieldset>
 <div class=" col-md-3" style="margin-top:6em"ng-repeat="cyc in cyclisme | filter:lettres | filter:cyc.prix | limitTo:limitation">
-    
-        <a href="#/details/{{cyclisme.indexOf(cyc)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong><img ng-src="public/images/cyclisme/{{cyc.image}}" />
+
+        <a href="#/details/{{cyclisme.indexOf(cyc)}}" class="btn btn-default btn-lg" role="button"><strong>Détails</strong><img ng-src="{{cyc.image}}" />
       </a>
 
         <h4 class="title">{{cyc.nom}}</h4>
         <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
 
     </div>
-

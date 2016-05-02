@@ -1,4 +1,4 @@
-angular.module('app',['ngRoute']).config(['$routeProvider',function($routeProvider){
+angular.module('app',['ngRoute', 'ui.bootstrap']).config(['$routeProvider',function($routeProvider){
 $routeProvider
 .when('/login',{
   templateUrl:'public/pages/login.html',
@@ -15,6 +15,7 @@ $routeProvider
 })
 .when('/panier',{
   templateUrl:'public/pages/panier.html',
+  controller:'produitController'
 
 })
 .when('/football',{
