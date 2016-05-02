@@ -10,14 +10,9 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   $scope.currentPage = 1;
   $scope.totalItems = 0;
   $scope.prix=500
-// var addpanier=function(productid){
-//   $http.get('/users/session').success(function(response){
-// $scope.user=response;
-//     console.log("aaaaaa"+response);
-//
-//   })}
 
 }]);
+// filter pour le slider de prix
 angular.module('app').filter('displayMe', function () {
   return function (produits,prix) {
     return _.filter(produits, function (produit) {
@@ -25,3 +20,24 @@ angular.module('app').filter('displayMe', function () {
     });
   }
 });
+// controlleur details produit
+angular.module('app').controller('DetailsProduitController', ['$location','$scope', '$http','$routeParams',
+    function($location,$scope, $http, $routeParams){
+        var id =$routeParams.itemId;
+        console.log(id);
+        $http.get('/produits/'+id).success(function(data){
+          $scope.produit = data;
+      });
+
+      $scope.addpanier=function(idproduct){
+        console.log("aaaaaaaa");
+        console.log(idproduct);
+        $http.get('/users/session').success(function(response){
+          console.log(response);
+          $http.get('/users/'+response._id+'/panier/'+idproduct).success(function(res){
+            console.log(res);
+            $location.path('/panier');
+          })
+        })}
+
+}]);

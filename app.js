@@ -44,25 +44,14 @@ $routeProvider
 
 })
 .when('/details/:itemId', {
-            templateUrl : 'public/pages/details/detailsCyclisme.html',
-            controller : 'DetailsController'
+            templateUrl : 'public/pages/details/details.html',
+            controller : 'DetailsProduitController'
         })
-  .when('/detailsF/:itemId', {
-              templateUrl : 'public/pages/details/detailsFoot.html',
-              controller : 'DetailsControllerFoot'
-          })
-  .when('/detailsG/:itemId', {
-              templateUrl : 'public/pages/details/detailsGolf.html',
-              controller : 'DetailsControllerGolf'
-                  })
-  .when('/detailsT/:itemId', {
-              templateUrl : 'public/pages/details/detailsTennis.html',
-              controller : 'DetailsControllerTennis'
-                  })
 
-// .otherwise({
-//     redirectTo: '/home'
-//           })
+
+.otherwise({
+    redirectTo: '/home'
+          })
 
 }]);
 // affichage de popup pour se connecter a facebook

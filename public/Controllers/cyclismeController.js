@@ -7,10 +7,3 @@ $scope.currentPage = 1;
 $scope.totalItems = 0;
 $scope.prix=500;
 }]);
-angular.module('app').controller('DetailsController', ['$scope', '$http','$routeParams',
-    function($scope, $http, $routeParams){
-      var id =$routeParams.itemId;
-      console.log(id);
-      $http.get('/produits/'+id).success(function(data){
-        $scope.produit = data;});
-}]);
