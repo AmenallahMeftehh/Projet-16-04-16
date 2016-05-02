@@ -3,7 +3,7 @@
 
 
 
-        <p class="title">Please Log-In</p>
+        <h2 style="color:white;text-align:center">Please Log-In</h2>
 
         <div class="col-md-4 col-md-offset-4">
             <input class="form-control form-controlcss" type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true" />
@@ -15,8 +15,10 @@
         </div>
 
         <div class="col-md-4 col-md-offset-4">
-            <button style="width:130px;margin-top:2em;margin-left:40%;" type="submit" class="btn btn-primary" ng-disabled="myform.$invalid">Login</button>
-            <a href="#panier"></a>
+          <button type="submit" class="btn1 btn btn-default" ng-click="loginAuthen()">Se connecter</button>
+
+                 <button type="submit" class="btn1 btn btn-default" ng-click="FBLogin()"><span><img src="public\images\social (2).png" />&nbsp FACEBOOK</span></button>
+
         </div>
     </form>
 </section>
