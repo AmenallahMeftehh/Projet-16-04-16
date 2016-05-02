@@ -13,9 +13,14 @@ $routeProvider
   controller:'homeController'
 
 })
+.when('/produits',{
+  templateUrl:'public/pages/produits.html',
+  controller:'produitController'
+
+})
 .when('/panier',{
   templateUrl:'public/pages/panier.html',
-  controller:'produitController'
+  // controller:'produitController'
 
 })
 .when('/football',{

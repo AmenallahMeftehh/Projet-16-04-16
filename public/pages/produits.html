@@ -1,0 +1,38 @@
+
+<div class="col-md-6">
+<input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+</div>
+  <div class="col-md-6" >
+<h4>Prix</h4>
+    <b>$ 0</b><md-slider flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+    </md-slider><b>$ 500</b>
+  </div>
+
+
+
+<md-content class="col-md-12">
+    <div >
+<md-card  class="portion col-md-3" ng-repeat="product in produits | displayMe:prix | filter:lettres
+| limitTo:maxSize:(currentPage - 1) * maxSize">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">  <h4 class="title">{{product.nom}}</h4></span>
+            <span class="md-subhead"><h5 class='prix'>PRICE : {{product.prix}} $</h5></span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-md card-media">  <img ng-src="{{product.image}}"/></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+
+
+        </md-card-actions>
+      </md-card>
+    </div>
+</md-content>
+
+
+
+<div class="col-md-12">
+  <uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>

@@ -4,11 +4,14 @@
 <b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="ten.prix"style="width:100px;float:right"/> <b>€ 1000</b>
 </fieldset>
 
-<div class="col-md-3" style="margin-top:6em;background-color:black;" ng-repeat="ten in tennis | filter:lettres |filter:ten.prix| limitTo:limitation ">
-    <a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
-      <img ng-src="{{ten.image}}" /></a>
+<div class="col-md-3" ng-repeat="ten in tennis | filter:lettres |filter:ten.prix| limitTo:limitation ">
+<div style="margin:2em;">
+  <a href="#/detailsT/{{tennis.indexOf(ten)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
+    <img ng-src="{{ten.image}}" /></a>
 
-    <h4 class="title">{{ten.nom}}</h4>
+  <h4 class="title">{{ten.nom}}</h4>
 
-    <h5 class='prix'>PRICE : {{ten.prix}} $</h5>
+  <h5 class='prix'>PRICE : {{ten.prix}} $</h5>
+</div>
+
 </div>

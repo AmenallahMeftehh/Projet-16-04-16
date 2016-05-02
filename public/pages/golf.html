@@ -5,10 +5,11 @@
 </fieldset>
 
   <div class=" col-md-3" style="margin-top:6em" ng-repeat="golf in golfs | filter:lettres | limitTo:limitation |filter:golf.prix">
+<div style="margin:1em;">
     <a href="#/detailsG/{{golfs.indexOf(golf)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
       <img style="width:200px;height:200px"ng-src="{{golf.image}}"/></a>
 
    <h4 class="title">{{golf.nom}}</h4>
 
     <h5 class='prix'>PRICE : {{golf.prix}} $</h5>
-</div>
+</div></div>

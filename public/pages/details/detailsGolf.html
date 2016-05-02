@@ -3,7 +3,7 @@
     <div ng-model="golfs" class="dtl col-xs-6 col-lg-offset-3">
         <div class="thumbnail">
             <h1 style="text-align:center">{{golfs[whichItem].nom}}</h1>
-            <img ng-src="public/images/golf/{{golfs[whichItem].image}}"/>
+            <img ng-src="{{golfs[whichItem].image}}"/>
             <h2 class="prix">PRICE : {{golfs[whichItem].prix}} $</h2>
             <div class="caption">
                 <a href="#/panier"  role="button"><strong><img src="public/images/shopping.png"></strong></a>

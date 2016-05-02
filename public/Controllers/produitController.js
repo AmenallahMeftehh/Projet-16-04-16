@@ -6,7 +6,7 @@ angular.module('app').controller('produitController',['$scope', '$http',function
       });
   };
   getAll();
-  $scope.maxSize = 8;
+  $scope.maxSize = 9;
   $scope.currentPage = 1;
   $scope.totalItems = 0;
   $scope.prix=500
