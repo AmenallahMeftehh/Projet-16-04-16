@@ -2,11 +2,11 @@ angular.module('app',['ngRoute', 'ui.bootstrap','ngMaterial']).config(['$routePr
 $routeProvider
 .when('/login',{
   templateUrl:'public/pages/login.html',
-  controller:'loginController'
+  controller:'LoginCtrl'
 })
 .when('/register',{
   templateUrl:'public/pages/register.html',
-  controller:'registerController'
+  controller:'RegisterCtrl'
 })
 .when('/home',{
   templateUrl:'public/pages/home.html',
@@ -60,8 +60,24 @@ $routeProvider
               controller : 'DetailsControllerTennis'
                   })
 
-.otherwise({
-    redirectTo: '/home'
-          })
+// .otherwise({
+//     redirectTo: '/home'
+//           })
 
 }]);
+// affichage de popup pour se connecter a facebook
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '485968178269032',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));

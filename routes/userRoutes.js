@@ -8,6 +8,7 @@ var User = require('../models/user.js');
   *create a new User instance,and add it to the database
   *on this step a user is created and if we attempt ti add a user with the same "username we'll have the error "A user with the given username is already registered" */
 router.post('/register', function(req, res) {
+  console.log(req);
     User.register (new User({firstname: req.body.firstname,
                             lastname: req.body.lastname,
                             username: req.body.username

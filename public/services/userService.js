@@ -1,6 +1,6 @@
 //Set an angular Service for handling authentication
 
-app.factory('AuthService',
+angular.module('app').factory('AuthService',
     ['$q', '$timeout', '$http',
         function ($q, $timeout, $http) {
 
@@ -25,7 +25,7 @@ app.factory('AuthService',
             }
 
             function getUserStatus() {
-                return $http.get('api/user/status')
+                return $http.get('/users/status')
                     // handle success
                     .success(function (data) {
                         if(data.status){
@@ -46,7 +46,7 @@ app.factory('AuthService',
                 var deferred = $q.defer();
 
                 // send a post request to the server
-                $http.post('api/user/login',
+                $http.post('/users/login',
                     {username: username, password: password})
                     // handle success
                     .success(function (data, status) {
@@ -75,7 +75,7 @@ app.factory('AuthService',
                 var deferred = $q.defer();
 
                 // send a get request to the server
-                $http.get('api/user/logout')
+                $http.get('/users/logout')
                     // handle success
                     .success(function (data) {
                         user = false;
@@ -98,7 +98,7 @@ app.factory('AuthService',
                 var deferred = $q.defer();
 
                 // send a post request to the server
-                $http.post('api/user/register',
+                $http.post('/users/register',
                     {
                         firstname: firstname,
                         lastname : lastname,

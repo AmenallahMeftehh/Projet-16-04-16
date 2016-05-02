@@ -12,7 +12,8 @@ var User = new Schema({
     lastname : String,
     username : String,
     password : String,
-    panier:[]
+    panier:[String]
+
 });
 
 // Passport Local Mongoose

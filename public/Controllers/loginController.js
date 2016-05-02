@@ -1,36 +1,13 @@
+//Login Controller
 angular.module('app').controller('LoginCtrl',
     ['$scope', '$location', 'AuthService','$rootScope',
         function ($scope, $location, AuthService,$rootScope) {
 
           $scope.FBLogin=function(){
-            FB.login(function(response) {
-              if (response.authResponse) {
-                console.log('Welcome!  Fetching your information.... ');
-
-                FB.api('/me', function(response) {
-                  console.log('Good to see you, ' + response.name + '.');
-                  console.log(response);
-                  $location.path('/home');
-                  $scope.disabled = false;
-                  $scope.loginForm = {};
-                  $rootScope.islogged = true;
-                });
-              } else {
-                console.log('User cancelled login or did not fully authorize.');
-
-              }
-}
-, {
-    scope: 'publish_actions',
-    return_scopes: true
-
-});
-
-
-
+            $location.path('/panier')
           }
 
-          $scope.loginAuthen = function () {
+          $scope.login1 = function () {
 
               // initial values
               $scope.error = false;
@@ -68,7 +45,7 @@ angular.module('app').controller('LoginCtrl',
     ])
 
 
-app.controller('RegisterCtrl',
+angular.module('app').controller('RegisterCtrl',
     ['$scope', '$location', 'AuthService',
         function ($scope, $location, AuthService) {
 
