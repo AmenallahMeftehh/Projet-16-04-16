@@ -10,7 +10,7 @@ var hash = require('bcrypt-nodejs');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var expressSession = require('express-session');
+var session = require('express-session');
 var localStrategy = require('passport-local' ).Strategy;
 // declaration de port
 var port = process.env.PORT || 8000;
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 // initialisation et declaration de session pour utiliser passport
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(session({secret:"ui2hf893hf232ofn3023fp",resave:false,saveUninitialized:true}));
 // declaration d'un model et route de produit
 var Produit = require ('./models/productModel');
 produitRouter = require('./routes/productRoutes')(Produit);

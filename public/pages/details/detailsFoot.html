@@ -6,7 +6,9 @@
             <img ng-src="{{produit.image}}" alt="{{p.nom}}"/>
             <h2 class="prix">PRICE : {{produit.prix}} $</h2>
             <div class="caption">
-                <a href="#/panier" role="button"><strong><img src="public/images/shopping.png" ></strong></a>
+              <md-button ng-click="addpanier(produit._id)">
+                <strong><img src="public/images/shopping.png" ></strong>
+</md-button>
             </div>
             </div>
         </div>

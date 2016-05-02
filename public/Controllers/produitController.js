@@ -10,6 +10,12 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   $scope.currentPage = 1;
   $scope.totalItems = 0;
   $scope.prix=500
+// var addpanier=function(productid){
+//   $http.get('/users/session').success(function(response){
+// $scope.user=response;
+//     console.log("aaaaaa"+response);
+//
+//   })}
 
 }]);
 angular.module('app').filter('displayMe', function () {

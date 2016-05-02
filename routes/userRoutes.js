@@ -44,6 +44,7 @@ router.post('/login', function(req,res,next){
                     err: 'Could not log in user'
                 });
             }
+            req.session.user=user;
             res.status(200).json({
                 status : 'Login Successful!!',
             });
@@ -58,6 +59,16 @@ router.get('/logout', function(req, res) {
         status: 'User Logged Out..Bye!!'
     });
 });
+
+router.get('/session',function(req,res){
+  console.log(req.session.user);
+if(!req.session.user){
+  return res.status(404).send("no session");
+}
+return res.json(req.session.user);
+
+})
+
 
 //persist the user session after refresh
 router.get('/status', function(req, res) {

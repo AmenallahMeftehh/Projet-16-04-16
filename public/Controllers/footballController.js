@@ -12,6 +12,8 @@ $scope.recup=function(id){
     $scope.produit = data;
 
 });}
+
+
 }]);
 angular.module('app').controller('DetailsControllerFoot', ['$scope', '$http','$routeParams',
     function($scope, $http, $routeParams){
@@ -22,5 +24,16 @@ angular.module('app').controller('DetailsControllerFoot', ['$scope', '$http','$r
           $scope.produit = data;
 
       });
+
+      $scope.addpanier=function(idproduct){
+        console.log("aaaaaaaa");
+        console.log(idproduct);
+        $http.get('/users/session').success(function(response){
+          console.log(response);
+          $http.get('/users/'+response._id+'/panier/'+idproduct).success(function(res){
+            console.log(res);
+          })
+
+        })}
 
 }]);
