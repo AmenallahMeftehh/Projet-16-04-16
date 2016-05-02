@@ -95,5 +95,18 @@ User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
 });
 
 })
+router.delete('/:id/panier/:prodid',function(req, res){
+  id=req.params.id;
+  prodid=req.params.prodid;
+
+  User.update({_id:id},{$pull:{panier:prodid}},function(err){
+    if(err)
+      res.status(500).send(err);
+    else
+    console.log("aaaa");
+      res.status(204).send('Removed');
+  });
+});
+
 
 module.exports = router;

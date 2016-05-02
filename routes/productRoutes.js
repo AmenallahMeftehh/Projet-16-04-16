@@ -29,7 +29,6 @@ console.log("aaaaa");
 
 
 
-
   //definir un middleware pour ne pas répéter
 
   produitRouter.use('/:produitId', function(req,res,next){

@@ -39,8 +39,9 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
             $location.path('/panier');
           })
         })};
-
-      $scope.produits = [] ;
+        $scope.somme =0;
+        $scope.quantite=0;
+        $scope.produits = [] ;
       var panier=function(){
          $http.get('/users/session').success(function(response){
             for (var i = 0; i < response.panier.length; i++) {
@@ -50,4 +51,17 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
             }
         })};
         panier();
+
+
+
+
+
+        $scope.delete= function () {
+            $http.get('/users/session').success(function(response){
+               for (var i = 0; i < response.panier.length; i++) {
+                 $http.get('/produits/'+response.panier[i]).success(function(data){
+                   $scope.produits.push(data);
+               });
+               }
+        };
 }]);

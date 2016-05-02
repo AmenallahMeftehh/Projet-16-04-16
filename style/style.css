@@ -32,8 +32,8 @@ header {
   color: white;
 }
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 5em;
+    height: 5em;
     float: right;
 
     margin-left: 5em;
@@ -46,9 +46,10 @@ margin: 2em;
 }
 
 .logo1 {
-    width: 100px;
-    height: 50px;
-    float: left
+  width: 7em;
+  height: 5em;
+    float: left;
+    margin-right: 8em;
 }
 
 .inputrecherche {
