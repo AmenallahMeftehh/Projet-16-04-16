@@ -34,9 +34,8 @@ router.post('/login', function(req,res,next){
             return next(err);
         }
         if (!user) {
-            return res.status(401).json({
-                err: info
-            });
+          return res.redirect('/login');
+
         }
         //logging in the user depending on its status
         req.logIn(user, function(err) {
@@ -46,7 +45,7 @@ router.post('/login', function(req,res,next){
                 });
             }
             res.status(200).json({
-                status : 'Login Successful!!'
+                status : 'Login Successful!!',
             });
         });
     })(req,res,next);//passport.authenticate method
@@ -71,6 +70,19 @@ router.get('/status', function(req, res) {
         status: true
     });
 });
+router.get('/:id/panier/:idproduct',function(req,res){
+var idproduct= req.params.idproduct;
+var iduser=req.params.id;
+console.log("aaaaa");
+User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("sucess");
+  }
 
+});
+
+})
 
 module.exports = router;
