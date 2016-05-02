@@ -1,10 +1,9 @@
-
-<div class="col-md-6">
+<div class="col-md-5">
 <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
 </div>
-  <div class="col-md-6" >
-<h4>Prix</h4>
-    <b>$ 0</b><md-slider flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+  <div class="col-md-7" >
+
+    <b style="float:left">$ 0</b><md-slider style="float:left"flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
     </md-slider><b>$ 500</b>
   </div>
 
@@ -24,7 +23,7 @@
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-
+          <md-button href="#/detailsF/{{product._id}}">Details </md-button>
 
         </md-card-actions>
       </md-card>

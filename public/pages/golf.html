@@ -1,15 +1,32 @@
-<fieldset class="col-md-12 ">
-<input class="textrecherche"type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-<input class="textrecherche"type="text" placeholder="Limiter le nombre de produits" ng-model="limitation">
-<b>€ 0</b> <input id="ex2" type="range" class="span2" ng-model="golf.prix"style="width:100px;float:right"/> <b>€ 1000</b>
-</fieldset>
+<div class="col-md-5">
+<input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+</div>
+  <div class="col-md-7" >
 
-  <div class=" col-md-3" style="margin-top:6em" ng-repeat="golf in golfs | filter:lettres | limitTo:limitation |filter:golf.prix">
-<div style="margin:1em;">
-    <a href="#/detailsG/{{golfs.indexOf(golf)}}" class="btn btn-default btn-md" role="button"><strong>Détails</strong>
-      <img style="width:200px;height:200px"ng-src="{{golf.image}}"/></a>
+    <b style="float:left">$ 0</b><md-slider style="float:left"flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+    </md-slider><b>$ 500</b>
+  </div>
 
-   <h4 class="title">{{golf.nom}}</h4>
+<md-content class="col-md-12">
+    <div>
+<md-card  class="portion col-md-3" ng-repeat="golf in golfs | displayMe:prix | filter:lettres
+| limitTo:maxSize:(currentPage - 1) * maxSize">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">  <h4 class="title">{{golf.nom}}</h4></span>
+            <span class="md-subhead"><h5 class='prix'>PRICE : {{golf.prix}} $</h5></span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-md card-media"><img ng-src="{{golf.image}}" /></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button href="#/detailsF/{{golf._id}}">Details </md-button>
 
-    <h5 class='prix'>PRICE : {{golf.prix}} $</h5>
-</div></div>
+        </md-card-actions>
+      </md-card>
+    </div>
+</md-content>
+<div class="col-md-12">
+  <uib-pagination total-items="golfs.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>

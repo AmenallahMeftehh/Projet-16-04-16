@@ -1,1 +1,25 @@
 <h1>panier</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <td>Article</td>
+      <td>Prix</td>
+      <td>Quantité</td>
+      <td>Total</td>
+      <td>Retirer</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="produit in panier | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>
+        <a href="#/detailsF/{{produit._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+
+        <button class="btn btn-danger" ng-click="deleteArticle(produit._id)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+      </td>
+    </tr>
+  </tbody>
+</table>

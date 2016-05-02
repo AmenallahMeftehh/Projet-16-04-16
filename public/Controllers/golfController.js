@@ -9,8 +9,8 @@ $scope.prix=500
 }]);
 angular.module('app').controller('DetailsControllerGolf', ['$scope', '$http','$routeParams',
     function($scope, $http, $routeParams){
-    $http.get('/produits/categorie/golf').success(function(data){
-        $scope.golfs = data;
-        $scope.whichItem = $routeParams.itemId;
-    });
+      var id =$routeParams.itemId;
+      console.log(id);
+      $http.get('/produits/'+id).success(function(data){
+        $scope.produit = data;});
 }]);
