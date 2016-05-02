@@ -1,18 +1,43 @@
 [
   {
-    "name" : "amenallah",
-    "email" : "amenallah.mefteh@esprit.tn",
-    "password" : "mefteh"
-  },
+          "_id" : "5726d7e05744cdc3944c69ce",
+          "firstname" : "amenallah",
+          "lastname" : "mefteh",
+          "username" : "amenallahmefteh",
+          "password" : "mefteh",
+          "panier" : [ ]
+  }
   {
-    "name" : "admin",
-    "email" : "admin@ad.com",
-    "password" : "admin"
-
-  },
+          "_id" : "57270b4e70b1e5b42638a1bf",
+          "salt" : "e60b8531cf2ef185711aeaacac0b20ad1493dcb85110abe9b08bb2186769bbcb",
+          "hash" : "8584c574ed086b680e662135f85e449cd2234bb182bd166420a2b4c772dbc801d18e1fe27f3429a929ff0dd58ca3f21beef06e7ecb48e29038d34a60c2d82e00349084890b1fc99833d118111b2111e8e097a3ac58f0bfecdd9ffc4fc3e9bcbf11d867bbee3f2096fc00b6b6223a5a5824f5c08aaa2062ddbb8df4accaef83f5bcd18a7a0ca95310a0817702f81390066b3d2cd8339e5b04931cc69fc3159e7a9bbed7c00ec3bdab67e9c0b84ceb8f1825c21aae165f0b2f90456a4a169e09cade1fd78762f7ab3343d81d2d6a651fa8fb53d1be9574c0b5c4f9df5a1ab32e93680991daa669733057b16df1d74f729cd25e9f16612e7319d3f7aac5e4a12c5243cb7adcd8a63eb826ac9b76b6982b1368fc23104d15f7b60f155be9362243339394d5c88b971d36295d1a62d9abab4f1e967df1583b84e17d74ea7a0247057e60c61a59563439eea45856cf160692335a64b1d586a8b7bc92fc6e012dc4ad11f4273dd35729638ee352016bcd7c8438b41109d173bbd15e24432ea1780312ba4fcc84cafe912f07f93f7d70523b9db2eb9c5309d8a4cc6e4a9226a5a4f5c5509ac20e0f5087843c0666e3f65cd1c928e95bbd84b37f31d5eab6b703dbefac676d62e95bd54e476b40e5bfea5715b245604da0b152d3989ac633d5ee2b06a7689bd2a8351aef5ab0c2861c06c564756d22ba49ac471add7eeb9e04bbd81137c6",
+          "firstname" : "Neji",
+          "lastname" : "Mefteh",
+          "username" : "nejimefteh",
+          "panier" : [
+                  "5726764afae3a7c45aa7b433",
+                  "5726764afae3a7c45aa7b433",
+                  "57267889fae3a7c45aa7b442",
+                  "5726778ffae3a7c45aa7b43a",
+                  "57267889fae3a7c45aa7b443",
+                  "5726764afae3a7c45aa7b432",
+                  "57267889fae3a7c45aa7b441",
+                  "57267889fae3a7c45aa7b441"
+          ],
+          "__v" : 0
+  }
   {
-    "name" : "bilel",
-    "email" : "bilel@me.com",
-    "password" : "bilel"
+          "_id" : "5727655b6bf275e8000d590f",
+          "salt" : "382a4a7069e6cb4bbb4e62e41c5746efc917bc9a7fce4a9ac3333a1cd1ccd9f1",
+          "hash" : "56232cf1329d4aec715103084f1690cce89cba399a73e09e08ad68770a9d3a7c209199c98d5c90b3cda4366aec83222361f46fc3ffcb81903cd1393a42ded28d051562a396a5cbbcf4206c6e757b2180cdda1fb665a38aec3cbecaddb9c2795497eb919119432ce757ae8e6d254a407d666a28310905aa4091f64558e46302e3f2d952d43db602c0451b2a503d2720244ac7aec2f08ced6ed000bc3affa1bd2bf31041e5a0dafeb82d63529f05b5bde2274f5487a10a423149c7ab1698a1dbc17ff3dd2e00102837aad88688163bcd5c982ba4d31e28b25cef3d27179adaaad053da6e1c665f1a495acb06fec39886f5349f1d404833eae56da0d8a5b72ac6b01d680c5b9e70ea82d4cac48b12f453e4519467289a4a9a06f50b69e6f4fc5bf476816db9dfb77d2bba27587625862dd577f599a4d12f91691d8a94c9315d7db9cba01db5e87670439e27ed7934cb19df2563b1a0a0bb532662fc86b773b0d3b8db6b63e40d2d495334be51d005667e96edb71754189bf2c9ddf57c1449077d3f434995dbeafca481dcaad20fbf3e63029e197c475e2944f8b3ed4b72da8d74aeb28da34b4fa2be5509f1c8305216d1285f732ab84d86bb438fb3fc7b250b291bdab67e77be9ef2fd6209168398b69620763e4977e510c816630dceb6c60e53f57344400ba836f7c0bb9bddc5300fa2716e093650d79546d5f177f0001fc6a353",
+          "firstname" : "aaaa",
+          "lastname" : "a",
+          "username" : "a",
+          "panier" : [
+                  "5726778ffae3a7c45aa7b439",
+                  "5726778ffae3a7c45aa7b439",
+                  "5726778ffae3a7c45aa7b439"
+          ],
+          "__v" : 0
   }
 ]

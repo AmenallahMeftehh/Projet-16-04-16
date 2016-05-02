@@ -29,13 +29,14 @@
       <td>
       <md-input-container >
                 <label> Quantité </label>
-                <input type="number" ng-model="quantite" placeholder="age" aria-label="age" required/>
+                <input type="number" min="1" max="{{produit.quantite}}" ng-model="quantite" placeholder="age" aria-label="age" required/>
               </md-input-container></td>
       <td><label style="color:black" >{{quantite*produit.prix}}</label></td>
 
       <td>
+        <button type="button" ng-click="delete()">
         <a href="#/details/{{prod._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
-
+</button>
         <!-- <button class="btn btn-danger" ng-click="deleteArticle(prod._id)"><span class="glyphicon glyphicon-remove-sign"></span></button> -->
       </td>
     </tr>
