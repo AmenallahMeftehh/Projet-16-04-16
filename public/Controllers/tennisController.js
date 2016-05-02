@@ -5,8 +5,8 @@ angular.module('app').controller('tennisController',['$scope', '$http',function(
 }]);
 angular.module('app').controller('DetailsControllerTennis', ['$scope', '$http','$routeParams',
     function($scope, $http, $routeParams){
-    $http.get('bdchallenge').success(function(data){
-        $scope.tennis = data[2].produits;
+    $http.get('/produits/categorie/tennis').success(function(data){
+        $scope.tennis = data;
         $scope.whichItem = $routeParams.itemId;
     });
 }]);

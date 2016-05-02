@@ -5,8 +5,8 @@ angular.module('app').controller('cyclismeController',['$scope', '$http',functio
 }]);
 angular.module('app').controller('DetailsController', ['$scope', '$http','$routeParams',
     function($scope, $http, $routeParams){
-    $http.get('bdchallenge').success(function(data){
-      $scope.cyclismes = data[0].produits;
+    $http.get('/produits/categorie/cyclisme').success(function(data){
+      $scope.cyclismes = data;
       $scope.whichItem = $routeParams.itemId;
     });
 }]);

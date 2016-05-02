@@ -14,7 +14,7 @@ header {
     width: 40px;
     height: 40px;
     float: right;
-    
+
     margin-left: 15em;
 }
 
@@ -88,10 +88,10 @@ h1 {
 
 .prix {
     color: darkred;
-    font-size: 25px;
+    font-size: 1.2em;
     font-style: oblique;
     font-weight: bold;
-    text-align: center;
+
 }
 
 .textrecherche {
@@ -141,7 +141,7 @@ tr {
     background-size: cover;
     min-height: 39em;
     padding-top: 8em;
-    
+
 }
 .form-controlcss{
     width: 100px;
@@ -172,11 +172,11 @@ tr {
 }
 
 .title {
-    font-size: 2em;
+    font-size: 1.4em;
     color: beige;
-    text-align: center;
 }
-
+.carddemoBasicUsage .card-media {
+  background-color: #999999; }
 .divproduit {
     width: 30em;
     height: 28em;
@@ -184,7 +184,7 @@ tr {
     padding: 1em;
 }
 .buttondrop{
-    background-color: #222; 
+    background-color: #222;
 }
 .span2 {
     width: 100px;
@@ -244,12 +244,12 @@ tr {
     font-size: 1em;
     -webkit-appearance: none;
     cursor: pointer;
-    background: none;	
+    background: none;
 }
 .login-do label{
 	font-weight:400;
 }
 .register{
-    
+
     min-height: 40em;
 }

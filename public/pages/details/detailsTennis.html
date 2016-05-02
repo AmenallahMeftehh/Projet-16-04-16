@@ -3,13 +3,13 @@
     <div ng-model="tennis" class="dtl col-xs-6 col-lg-offset-3">
         <div class="thumbnail">
             <h1 style="text-align:center">{{tennis[whichItem].nom}}</h1>
-            <img ng-src="public/images/tennis/{{tennis[whichItem].image}}" />
+            <img ng-src="{{tennis[whichItem].image}}" />
             <h2 class="prix">PRICE : {{tennis[whichItem].prix}} $</h2>
             <div class="caption">
-                <a href="#/login" role="button"><strong><img src="public/images/shopping.png"></strong></a>
+                <a href="#/panier" role="button"><strong><img src="public/images/shopping.png"></strong></a>
             </div>
             </div>
         </div>
 
-  
+
 </section>

@@ -5,8 +5,8 @@ angular.module('app').controller('golfController',['$scope', '$http',function($s
 }]);
 angular.module('app').controller('DetailsControllerGolf', ['$scope', '$http','$routeParams',
     function($scope, $http, $routeParams){
-    $http.get('bdchallenge').success(function(data){
-        $scope.golfs = data[3].produits;
+    $http.get('/produits/categorie/golf').success(function(data){
+        $scope.golfs = data;
         $scope.whichItem = $routeParams.itemId;
     });
 }]);
