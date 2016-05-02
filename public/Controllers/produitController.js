@@ -29,15 +29,25 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
           $scope.produit = data;
       });
 
-      $scope.addpanier=function(idproduct){
+      $scope.addpanier=function(produit){
         console.log("aaaaaaaa");
-        console.log(idproduct);
+        console.log(produit._id);
         $http.get('/users/session').success(function(response){
           console.log(response);
-          $http.get('/users/'+response._id+'/panier/'+idproduct).success(function(res){
+          $http.get('/users/'+response._id+'/panier/'+produit._id).success(function(res){
             console.log(res);
             $location.path('/panier');
           })
-        })}
+        })};
 
+      $scope.produits = [] ;
+      var panier=function(){
+         $http.get('/users/session').success(function(response){
+            for (var i = 0; i < response.panier.length; i++) {
+              $http.get('/produits/'+response.panier[i]).success(function(data){
+                $scope.produits.push(data);
+            });
+            }
+        })};
+        panier();
 }]);

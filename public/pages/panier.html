@@ -11,14 +11,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="produit in panier | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
-      <td>{{book.title}}</td>
-      <td>{{book.author}}</td>
-      <td>{{book.genre}}</td>
-      <td>
-        <a href="#/detailsF/{{produit._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+    <tr ng-repeat="produit in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+      <td>{{produit.nom}}</td>
+      <td>{{produit.prix}}</td>
+      <td><input type="button" name="name" ng-model={{quantite}}></td>
+      <td><input type="button" name="name" ng-model={{quantite*prix}}></td>
 
-        <button class="btn btn-danger" ng-click="deleteArticle(produit._id)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+      <td>
+        <a href="#/details/{{prod._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+
+        <!-- <button class="btn btn-danger" ng-click="deleteArticle(prod._id)"><span class="glyphicon glyphicon-remove-sign"></span></button> -->
       </td>
     </tr>
   </tbody>

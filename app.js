@@ -20,7 +20,7 @@ $routeProvider
 })
 .when('/panier',{
   templateUrl:'public/pages/panier.html',
-  // controller:'produitController'
+  controller:'DetailsProduitController'
 
 })
 .when('/football',{
