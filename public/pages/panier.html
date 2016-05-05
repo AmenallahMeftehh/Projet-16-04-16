@@ -34,10 +34,10 @@
       <td><label style="color:black" >{{quantite*produit.prix}}</label></td>
 
       <td>
-        <button type="button" ng-click="delete()">
-        <a href="#/details/{{prod._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+
+        <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
 </button>
-        <!-- <button class="btn btn-danger" ng-click="deleteArticle(prod._id)"><span class="glyphicon glyphicon-remove-sign"></span></button> -->
+        <button class="btn btn-danger" ng-click="delete(produit)"><span class="glyphicon glyphicon-remove-sign"></span></button>
       </td>
     </tr>
     <tr>

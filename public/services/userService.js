@@ -30,7 +30,7 @@ angular.module('app').factory('AuthService',
                     .success(function (data) {
                         if(data.status){
                             user = true;
-                          
+
                         } else {
                             user = false;
                         }
@@ -122,5 +122,4 @@ angular.module('app').factory('AuthService',
                 return deferred.promise;
 
             }
-
         }]);

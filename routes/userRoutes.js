@@ -2,30 +2,29 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-var User = require('../models/user.js');
+var User = require('../models/user');
 //User Registration
  /**grab the values sent with the POST request (from the client-side) "req.body"
   *create a new User instance,and add it to the database
   *on this step a user is created and if we attempt ti add a user with the same "username we'll have the error "A user with the given username is already registered" */
-router.post('/register', function(req, res) {
-  console.log(req);
-    User.register (new User({firstname: req.body.firstname,
-                            lastname: req.body.lastname,
-                            username: req.body.username
-                             }),
-        req.body.password, function(err, account) {
-            if (err) {
-                return res.status(500).json({
-                    err: err
-                });
-            }
-            passport.authenticate('local')(req, res, function () {
-                return res.status(200).json({
-                    status: 'Registration successful!'
-                });
-            });
-        });
-    });
+  router.post('/register', function(req, res) {
+      User.register (new User({firstname: req.body.firstname,
+                              lastname: req.body.lastname,
+                              username: req.body.username
+                               }),
+          req.body.password, function(err, account) {
+              if (err) {
+                  return res.status(500).json({
+                      err: err
+                  });
+              }
+              passport.authenticate('local')(req, res, function () {
+                  return res.status(200).json({
+                      status: 'Registration successful!'
+                  });
+              });
+          });
+      });
 
 //User Login
 router.post('/login', function(req,res,next){
@@ -81,6 +80,7 @@ router.get('/status', function(req, res) {
         status: true
     });
 });
+// ajouter un produit au panier
 router.get('/:id/panier/:idproduct',function(req,res){
 var idproduct= req.params.idproduct;
 var iduser=req.params.id;
@@ -95,11 +95,27 @@ User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
 });
 
 })
+// recuperer tous les produit d'un panier
+router.get('/:id',function(req,res){
+
+var iduser=req.params.id;
+console.log("aaaaa");
+User.findById({_id:iduser},function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("sucess");
+  }
+
+});
+
+})
+// supprimer un produit du panier
 router.delete('/:id/panier/:prodid',function(req, res){
-  id=req.params.id;
+  User.id=req.params.id;
   prodid=req.params.prodid;
 
-  User.update({_id:id},{$pull:{panier:prodid}},function(err){
+  User.update({_id:User.id},{$pull:{panier:prodid}},function(err){
     if(err)
       res.status(500).send(err);
     else
@@ -107,6 +123,5 @@ router.delete('/:id/panier/:prodid',function(req, res){
       res.status(204).send('Removed');
   });
 });
-
 
 module.exports = router;

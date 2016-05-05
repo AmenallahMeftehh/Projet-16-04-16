@@ -48,25 +48,28 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
         // recuperer les produits d'un panier
       var panier=function(){
          $http.get('/users/session').success(function(response){
-            for (var i = 0; i < response.panier.length; i++) {
-              $http.get('/produits/'+response.panier[i]).success(function(data){
-                $scope.produits.push(data);
+
+              $http.get('/users/'+response._id).success(function(data){
+                $scope.produits=data;
 
             });
-            }
+
         })};
-        panier();
+      panier();
 
 
 
 
+        $scope.delete= function (produit) {
+          $http.get('/users/session').success(function(response){
+            $scope.user=response;
+            console.log($scope.user);
+            $http.delete('/users/'+response._id+'/panier/'+produit._id).success(function(data){
+              console.log('delete ok');
+              panier();
 
-        $scope.delete= function (id) {
-            $http.get('/users/session').success(function(response){
-               for (var i = 0; i < response.panier.length; i++) {
-                 $http.delete('/produits/'+response.panier[i]).success(function(data){
+            });
 
-               });
-               }
-        }); }
+                });
+         }
 }]);

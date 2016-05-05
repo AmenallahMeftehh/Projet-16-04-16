@@ -30,8 +30,8 @@ var Produit = require ('./models/productModel');
 produitRouter = require('./routes/productRoutes')(Produit);
 app.use('/produits', produitRouter);
 // declaration d'un model et route de user
-var User = require('./models/user.js');
-routes = require('./routes/userRoutes.js');
+var User = require('./models/user');
+routes = require('./routes/userRoutes');
 app.use('/users', routes);
 // pour le logging on a utiliser morgan
 app.use(logger('dev'));
