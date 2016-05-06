@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 
 var User = require('../models/user');
+var Produit = require('../models/productModel');
 //User Registration
  /**grab the values sent with the POST request (from the client-side) "req.body"
   *create a new User instance,and add it to the database
@@ -80,7 +81,6 @@ router.get('/status', function(req, res) {
         status: true
     });
 });
-// ajouter un produit au panier
 router.get('/:id/panier/:idproduct',function(req,res){
 var idproduct= req.params.idproduct;
 var iduser=req.params.id;
@@ -95,12 +95,11 @@ User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
 });
 
 })
-// recuperer tous les produit d'un panier
-router.get('/:id',function(req,res){
-
+router.get('/:id/',function(req,res){
+user= req.body.user;
 var iduser=req.params.id;
 console.log("aaaaa");
-User.findById({_id:iduser},function (err) {
+User.find({_id:iduser},{},function (err) {
   if (err) {
     console.log(err);
   } else {
@@ -110,7 +109,6 @@ User.findById({_id:iduser},function (err) {
 });
 
 })
-// supprimer un produit du panier
 router.delete('/:id/panier/:prodid',function(req, res){
   User.id=req.params.id;
   prodid=req.params.prodid;
@@ -121,6 +119,17 @@ router.delete('/:id/panier/:prodid',function(req, res){
     else
     console.log("aaaa");
       res.status(204).send('Removed');
+  });
+});
+router.get('/:id/panier',function(req, res){
+  User.id=req.params.id;
+
+  User.find({_id:User.id},{panier:[]},function(err){
+    if(err)
+      res.status(500).send(err);
+    else
+    console.log("aaaa");
+      res.status(204).send('reup');
   });
 });
 

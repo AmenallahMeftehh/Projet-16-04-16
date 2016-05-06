@@ -9,6 +9,14 @@ header {
 .header-bottom {
     padding: 0.7em 1em;
 }
+#top{
+  background-color: black;
+  width: 100%;
+  display: block;
+  border: 1px groove;
+  border-radius: 4px;
+
+}
 .signin {
     width: 50% !important;
     margin: 8em auto ;
@@ -21,6 +29,12 @@ header {
 	-webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);*/
 	box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
 	border-bottom: none;
+}
+.form-control1 {
+
+margin: 3em;
+width: 15em;
+
 }
 .btn1{
   height:40px;
@@ -43,6 +57,11 @@ width: 32em;
 height: 19em;
 margin: 2em;
 
+}
+.navbar-btn{
+  height: 3em;
+  width: 10em;
+  margin-left: 5em;
 }
 
 .logo1 {
@@ -80,11 +99,11 @@ margin: 2em;
 }
 
 .buttondrop {
-    margin-left: 10em;
+
     margin-top: 1em;
-    background: black;
+    background: #333;
     border: none;
-    color: white;
+    color: grey;
 }
 
 .nav {
@@ -97,7 +116,7 @@ margin: 2em;
 }
 
 .a-li {
-    color: white;
+    color: black;
 }
 
 h1 {

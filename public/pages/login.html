@@ -7,10 +7,10 @@
             <form name="myform" ng-submit="login()" novalidate>
             <h2 class="error validationerror">{{errorMessage}}</h2>
 
-            <input type="text"  class="user" name="username" placeholder="User Name" ng-model="loginForm.username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'meftah.amenallah@gmail.com';}" />
+            <input type="text"  class="form-control1 form-control" name="username" placeholder="User Name" ng-model="loginForm.username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'meftah.amenallah@gmail.com';}" />
             <p class="error validationerror" style='color:red;'ng-show="myform.username.$invalid && myform.username.$touched"> Please enter a valid UserName</p>
 
-            <input type="password" class="pass" name="password" placeholder="Password" ng-model="loginForm.password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" />
+            <input type="password" class="form-control1 form-control" name="password" placeholder="Password" ng-model="loginForm.password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" />
             <p class="error validationerror" style='color:red;'ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
 
         <label>

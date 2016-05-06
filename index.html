@@ -42,7 +42,7 @@
 </head>
 <header>
 
-    <nav class="navbar navbar-inverse " style="margin:0px;" role="navigation">
+    <nav class="navbar navbar-link " style="margin:0px;" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,20 +51,61 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-
-                <a href="#home"><img class="logo1" src="public/images/logo.png" /></a>
             </div>
+
+
+            <div id="top">
+              <div class="container">
+                <div class="col-md-6 offer" data-animate="fadeInDown">
+                  <a href="#produits" class="a-li btn btn-success btn-sm" style="margin-top:1em;"data-animate-hover="shake">Offer of the day</a> <a href="#produits"></a></div>
+                <div class="col-md-6" data-animate="fadeInDown">
+                  <ul class="nav navbar-nav">
+                  <li ng-hide="islogged" ng-class="{active: isActive('/signup')}" class=" a-li ng-hide" style=""><a href="/#register">Sign up</a></li>
+                  <li ng-hide="islogged" ng-class="{active: isActive('/login')}" class="a-li ng-hide"><a href="/#login">Login</a></li><li ng-show="islogged" class=""><a href="" class="ng-binding">Hello Admin</a></li>
+                  <li class="dropdown" ng-show="islogged" dropdown=""><a href="#" dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>More<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li ng-show="isAdmin" ng-class="{active: isActive('/product')}" class=""><a href="/#product"><i class="fa fa-truck">&nbsp;</i>Products</a></li>
+                      <li ng-show="isAdmin" ng-class="{active: isActive('/coupon')}" class=""><a href="/#paniers"><i class="fa fa-tag">&nbsp;</i>Coupons</a></li>
+                      <li ng-show="isAdmin" ng-class="{active: isActive('/customer')}" class=""><a href="/#users"><i class="fa fa-user">&nbsp;</i>Customers</a></li>
+                      <li ng-show="isAdmin" ng-class="{active: isActive('/shipping')}" class=""><a href="/#offre"><i class="fa fa-wrench">&nbsp;</i>Shipping Settings</a></li>
+                      <li ng-show="islogged" ng-class="{active: isActive('/logout')}" class=""><a href="/#login" ng-click="logout()"><i class="fa fa-sign-out">&nbsp;</i>Logout</a></li>
+                      <li class="divider"></li>
+                  </ul>
+                </li>
+              <li><a href="/contact">Contact</a></li><li><a href="/documentation">Documentation</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="Login">Customer login</h4>
+              </div>
+                <div class="modal-body"><form action="customer-orders.html" method="post" class="ng-pristine ng-valid">
+                  <div class="form-group"><input class="form-control" id="email-modal" placeholder="email">
+                  </div>
+                  <div class="form-group"><input type="password" class="form-control" id="password-modal" placeholder="password">
+                  </div><p class="text-center"><button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button></p></form><p class="text-center text-muted">Not registered yet?</p><p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav ">
-
+                    <li><a class="a-li" href="#home"><img class="logo1" src="public/images/logo.png" /></a></li>
                     <li ><a class="a-li" href="#football">FOOTBALL</a></li>
                     <li ><a class="a-li" href="#tennis">TENNIS</a></li>
                     <li ><a class="a-li" href="#golf">GOLF</a></li>
                     <li ><a class="a-li" href="#cyclisme">CYCLISME</a></li>
                     <li ><a class="a-li" href="#produits">ALL PRODUCTS</a></li>
-                    <li class="linav">
+                    <!-- <li class="linav">
                         <div class="dropdown">
                             <button class="buttondrop dropdown-toggle" type="button" data-toggle="dropdown">MORE
                                 <span class="caret"></span></button>
@@ -74,9 +115,9 @@
                                 <li><a href="#">MAIL US</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="#login"><img class="logo" src="public/images/ecommerce-panier-shoping-webshop-icone-6530-96.png" /></a>
+                        <a class="btn btn-info navbar-btn" ng-click="openCart(cart,'lg');" href=""><i class="fa fa-shopping-cart">&nbsp;</i> <span class="hidden-sm ng-binding">Cart (0) - $0.00</span></a>
                     </li>
                 </ul>
             </div>

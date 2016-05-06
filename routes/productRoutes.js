@@ -1,5 +1,5 @@
 var express = require ('express');
-
+var User = require('../models/user');
 var routes = function(Produit){
   var produitRouter = express.Router();
   produitRouter.route('/').get(function(req, res){
@@ -15,7 +15,7 @@ var routes = function(Produit){
       });
     });
 // recuperation par categorie
-produitRouter.route('/categorie/:categorie').get(function(req, res){
+produitRouter.get('/categorie/:categorie',function(req, res){
   var categorie = req.params.categorie;
 console.log("aaaaa");
     Produit.find({"categorie":categorie}, function(err, produits){
@@ -49,10 +49,20 @@ console.log("aaaaa");
         }
       });
   });
+produitRouter.get('/idUser/panier',function(req,res){
+idUser= req.params.id;
+User.find({_id:idUser},{panier},function(data){
+  if(err)
+    res.status(500).send(err);
+  else
+  console.log("aaaa");
+    res.status(204).send('recuper');
+  });
+})
+
 
   //definir le product router pour recuperer un seul produit à partir de la liste des produits
-  produitRouter.route('/:id')
-    .get(function(req, res){
+  produitRouter.get('/:id',function(req, res){
         res.json(req.produit);
     });
     return produitRouter;

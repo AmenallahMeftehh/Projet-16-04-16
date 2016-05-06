@@ -37,10 +37,11 @@ angular.module('app').controller('LoginCtrl',
               AuthService.login($scope.loginForm.username, $scope.loginForm.password)
                   // handle success
                   .then(function () {
-                      $location.path('/panier');
+                      $location.path('/home');
                       $scope.disabled = false;
                       $scope.loginForm = {};
                       $rootScope.islogged = true;
+                      
                   })
                   // handle error
                   .catch(function () {

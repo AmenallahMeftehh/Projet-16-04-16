@@ -12,6 +12,7 @@ var User = new Schema({
     lastname : String,
     username : String,
     password : String,
+    statut : {type:Boolean,default:false },
     panier:[String]
 
 });

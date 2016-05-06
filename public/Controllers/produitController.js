@@ -48,14 +48,15 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
         // recuperer les produits d'un panier
       var panier=function(){
          $http.get('/users/session').success(function(response){
-
-              $http.get('/users/'+response._id).success(function(data){
-                $scope.produits=data;
+            for (var i = 0; i < response.panier.length; i++) {
+              $http.get('/produits/'+response.panier[i]).success(function(data){
+                $scope.produits.push(data);
 
             });
-
+            }
         })};
-      panier();
+        panier();
+
 
 
 
@@ -66,7 +67,7 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
             console.log($scope.user);
             $http.delete('/users/'+response._id+'/panier/'+produit._id).success(function(data){
               console.log('delete ok');
-              panier();
+              
 
             });
 
