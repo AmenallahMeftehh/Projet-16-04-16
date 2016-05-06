@@ -11,33 +11,42 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   $scope.totalItems = 0;
   $scope.prix=500
 
+  $scope.recup = function (id) {
+      console.log(id);
+      $http.get('/produits/' + id).success(function (response) {
+        $scope.produit = response;
+        console.log($scope.produit);
 
+      });
+    };
 
   $scope.addProduct = function () {
       console.log($scope.produit);
+      console.log('aaaa');
       $http.post('/produits', $scope.produit).success(function (response) {
           console.log(response);
+          console.log('bbb');
           getAll();
-        $scope.book.nom="";
-        $scope.book.image="";
-        $scope.book.prix="";
-        $scope.book.quantite="";
-        $scope.book.categorie="";
+        $scope.produit.nom="";
+        $scope.produit.image="";
+        $scope.produit.prix="";
+        $scope.produit.quantite="";
+        $scope.produit.categorie="";
 
       });
   };
-  $scope.deleteBook = function (id) {
+  $scope.deleteProduct = function (id) {
       console.log(id);
-      $http.delete('/api/books/' +id).success(function (response) {
+      $http.delete('/produits/' +id).success(function (response) {
         getAll();
       })
   };
   // fonction pour mettre a jour un livre
-  $scope.update = function (book) {
-      console.log($scope.book._id);
-      $http.put('/api/books/' + $scope.book._id, $scope.book).success(function (response) {
+  $scope.update = function (produit) {
+      console.log($scope.produit._id);
+      $http.put('/produits/' + $scope.produit._id, $scope.produit).success(function (response) {
           getAll();
-          $scope.book = "";
+          $scope.produit = "";
 
       });
   };
@@ -45,19 +54,6 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   $scope.deselect = function () {
       $scope.book = "";
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

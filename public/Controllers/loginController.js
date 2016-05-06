@@ -44,6 +44,7 @@ angular.module('app').controller('LoginCtrl',
                       $rootScope.islogged = true;
 
                       $scope.loginForm = {};
+                    $location.path('/home');
 
                   })
                   // handle error

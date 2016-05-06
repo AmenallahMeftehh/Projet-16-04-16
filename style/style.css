@@ -59,11 +59,14 @@ margin: 2em;
 
 }
 .navbar-btn{
-  height: 4em;
-  width: 10em;
+  height: 3.5em;
+  width: 8em;
   margin-left: 5em;
 }
 
+.slider{
+  margin-top: 1em;
+}
 .logo1 {
 
     float: left;

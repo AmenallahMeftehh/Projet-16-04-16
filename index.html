@@ -22,6 +22,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+ <script src="http//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
  <!-- Angular Material Library -->
  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
@@ -56,17 +57,17 @@
 
             <div id="top">
               <div class="container">
-                <div class="col-md-6 offer" data-animate="fadeInDown">
-                  <a href="#produits" class="btn btn-success btn-sm" style="margin-top:1em;"data-animate-hover="shake">Offer of the day</a> <a href="#produits"></a></div>
-                <div class="col-md-6" data-animate="fadeInDown">
+                <div class="col-md-8 offer" data-animate="fadeInDown">
+                  <a href="#produits" class="btn btn-default btn-sm" style="margin-top:1em;"data-animate-hover="shake">Offer of the day</a> <a href="#produits"></a></div>
+                <div class="col-md-4" data-animate="fadeInDown">
                   <ul class="nav navbar-nav">
-                  <li ng-hide="islogged" ng-class="{active: isActive('/signup')}" class="ng-hide" ><a href="/#register">Sign up</a></li>
-                  <li ng-hide="islogged" ng-class="{active: isActive('/login')}" class="ng-hide"><a href="/#login">Login</a></li>
-                  <li ng-show="islogged" class=""><a href="" class="ng-binding">Hello {{loginForm.username}}</a></li>
-                  <li class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>More<b class="caret"></b></a>
+                  <li style="float:rigth" ng-hide="islogged" ng-class="{active: isActive('/signup')}" class="ng-hide" ><a href="/#register">Sign up</a></li>
+                  <li style="float:rigth"ng-hide="islogged" ng-class="{active: isActive('/login')}" class="ng-hide"><a href="/#login">Login</a></li>
+                  <li style="float:rigth"ng-show="islogged" class=""><a href="" class="ng-binding">Hello {{loginForm.username}}</a></li>
+                  <li style="float:rigth"class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>More<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                       <li ng-show="islogged" ng-class="{active: isActive('/user')}" class=""><a href="/#profil"><img ng-src="{{user.photo}}" alt="as" /></a></li>
-                      <li ng-show="isAdmin" ng-class="{active: isActive('/produits')}" class=""><a href="/#product"><i class="fa fa-truck">&nbsp;</i>Products</a></li>
+                      <li  ng-class="{active: isActive('/produits')}" class=""><a href="/#products"><i class="fa fa-truck">&nbsp;</i>Products</a></li>
                       <li ng-show="isAdmin" ng-class="{active: isActive('/coupon')}" class=""><a href="/#paniers"><i class="fa fa-tag">&nbsp;</i>Coupons</a></li>
                       <li ng-show="isAdmin" ng-class="{active: isActive('/customer')}" class=""><a href="/#users"><i class="fa fa-user">&nbsp;</i>Customers</a></li>
                       <li ng-show="isAdmin" ng-class="{active: isActive('/shipping')}" class=""><a href="/#offre"><i class="fa fa-wrench">&nbsp;</i>Shipping Settings</a></li>
@@ -74,8 +75,7 @@
                       <li class="divider"></li>
                   </ul>
                 </li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/documentation">Documentation</a></li>
+              <li style="float:rigth"><a href="/#contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -106,7 +106,7 @@
 </header>
 
 <body>
-    <div ng-view>
+      <div class="container" ng-view>
 
     </div>
 </body>

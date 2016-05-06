@@ -2,33 +2,45 @@
   <h1>{{viewName}}</h1>
   <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin-bottom: 10px">
   <!-- <pagination total-items="{{produits.length}}" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination> -->
-  <table class="table table-bordered table-striped">
+  <table class="col-md-12 col-xs-12 table table-bordered table-striped">
         <thead>
           <tr>
             <th>Nom</th>
             <th>Image</th>
             <th>Prix</th>
             <th>Quantité</th>
+            <th>Categorie</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" id="title" placeholder="Produit title" class="form-control" ng-model="produit.title"></td>
-            <td><input type="text" id="title" placeholder="Produit author" class="form-control" ng-model="produit.author"></td>
-            <td><input type="text" id="title" placeholder="Produit genre" class="form-control" ng-model="produit.genre"></td>
-            <td><button placeholder="Produit add" class="btn btn-success" ng-click="addProduit()"><span class="glyphicon glyphicon-plus-sign"></button>
-              <button placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span class="glyphicon glyphicon-ok-circle"></span></button>
+            <td class="col-md-2"><input type="text" id="title" placeholder="Produit title" class="form-control" ng-model="produit.nom"></td>
+            <td class="col-md-2"><input type="text" id="title" placeholder="Produit author" class="form-control" ng-model="produit.image"></td>
+            <td class="col-md-2"><input type="number" id="title" placeholder="Produit genre" class="form-control" ng-model="produit.prix"></td>
+            <td class="col-md-2"><input type="number" id="title" placeholder="Produit genre" class="form-control" ng-model="produit.quantite"></td>
+            <td class="col-md-2">
+              <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="produit.categorie" multiple>
+                    <option value="football">Football</option>
+                    <option value="cyclisme">Cyclisme</option>
+                    <option value="tennis">Tennis</option>
+                    <option value="golf">Golf</option>
+                  </select>
+            </td>
+             <td class="col-md-2"><button placeholder="Produit add" class="btn btn-success" ng-click="addProduct()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
+              <button placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
             </td>
           </tr>
           <tr ng-repeat="produit in produits | filter:searchProduit | limitTo:maxSize:(currentPage - 1) * maxSize">
-            <td>{{produit.title}}</td>
-            <td>{{produit.author}}</td>
-            <td>{{produit.genre}}</td>
+            <td>{{produit.nom}}</td>
+            <td><img style="width:50%;height:50%"ng-src='{{produit.image}}'/></td>
+            <td>{{produit.prix}}</td>
+            <td>{{produit.quantite}}</td>
+            <td>{{produit.categorie}}</td>
             <td>
-              <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+              <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>
               <button class="btn btn-warning" ng-click="recup(produit._id)"><span class="glyphicon glyphicon-pencil"></span></button>
-              <button class="btn btn-danger" ng-click="deleteProduit(produit._id)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+              <button class="btn btn-danger" ng-click="deleteProduct(produit._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span></button>
             </td>
           </tr>
         </tbody>

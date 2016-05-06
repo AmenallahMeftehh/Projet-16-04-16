@@ -2,7 +2,8 @@ var express = require ('express');
 var User = require('../models/user');
 var routes = function(Produit){
   var produitRouter = express.Router();
-  produitRouter.route('/').get(function(req, res){
+  produitRouter.route('/')
+  .get(function(req, res){
       var query = {};
       if(req.query.id){
         query.id = req.query.id;
@@ -49,7 +50,7 @@ console.log("aaaaa");
         }
       });
   });
-produitRouter.get('/idUser/panier',function(req,res){
+produitRouter.route('/idUser/panier').get(function(req,res){
 idUser= req.params.id;
 User.find({_id:idUser},{panier},function(data){
   if(err)
@@ -67,12 +68,17 @@ User.find({_id:idUser},{panier},function(data){
     });
 
 // Ajouter modifier supprimer un produit
-produitRouter
+produitRouter.route('/')
 .post(function(req, res){
   var produit = new Produit(req.body);
   produit.save();
   res.status(201).send(produit);
-})
+});
+
+produitRouter.route('/:id')
+  .get(function(req, res){
+      res.json(req.produit);
+  })
 .put(function(req, res){
     Produit.id=req.params.id;
 
@@ -83,8 +89,8 @@ produitRouter
                 nom: req.body.nom
                 , image: req.body.image
                 , prix: req.body.prix
-                , quantite: req.body.quantite,
-                categorie :req.body.categorie
+                , quantite: req.body.quantite
+                , categorie :req.body.categorie
 
         }
 
@@ -99,7 +105,7 @@ produitRouter
   .delete(function(req, res){
     Produit.id=req.params.id;
     console.log(req.Produit);
-    Book.findOneAndRemove({_id:Produit.id},function(err){
+    Produit.findOneAndRemove({_id:Produit.id},function(err){
       if(err)
         res.status(500).send(err);
       else
