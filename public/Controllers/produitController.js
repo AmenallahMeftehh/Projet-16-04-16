@@ -11,6 +11,56 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   $scope.totalItems = 0;
   $scope.prix=500
 
+
+
+  $scope.addProduct = function () {
+      console.log($scope.produit);
+      $http.post('/produits', $scope.produit).success(function (response) {
+          console.log(response);
+          getAll();
+        $scope.book.nom="";
+        $scope.book.image="";
+        $scope.book.prix="";
+        $scope.book.quantite="";
+        $scope.book.categorie="";
+
+      });
+  };
+  $scope.deleteBook = function (id) {
+      console.log(id);
+      $http.delete('/api/books/' +id).success(function (response) {
+        getAll();
+      })
+  };
+  // fonction pour mettre a jour un livre
+  $scope.update = function (book) {
+      console.log($scope.book._id);
+      $http.put('/api/books/' + $scope.book._id, $scope.book).success(function (response) {
+          getAll();
+          $scope.book = "";
+
+      });
+  };
+  //    fonction deselectionner un livre
+  $scope.deselect = function () {
+      $scope.book = "";
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }]);
 // filter pour le slider de prix
 angular.module('app').filter('displayMe', function () {
@@ -67,7 +117,7 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
             console.log($scope.user);
             $http.delete('/users/'+response._id+'/panier/'+produit._id).success(function(data){
               console.log('delete ok');
-              
+
 
             });
 

@@ -1,4 +1,4 @@
-db.books.insert([
+db.produits.insert([
 {
 
         nom : "Nitro 700C Nostalgia Vintage Women's Bike",
@@ -111,140 +111,141 @@ db.books.insert([
         categorie : "football"
 },
 {
-        "_id" : "5726764afae3a7c45aa7b438",
-        "nom" : "Crampons ADIDAS N1458",
-        "image" : "public/images/football/8.jpg",
-        "prix" : 240,
-        "quantite" : 25,
-        "categorie" : "football"
+        _id : "5726764afae3a7c45aa7b438",
+        nom : "Crampons ADIDAS N1458",
+        image : "public/images/football/8.jpg",
+        prix : 240,
+        quantite : 25,
+        categorie : "football"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b439",
-        "nom" : "Asics Gel Game 5 Women's Tennis Shoes",
-        "image" : "public/images/tennis/1.jpg",
-        "prix" : 89,
-        "quantite" : 30,
-        "categorie" : "tennis"
+        _id: "5726778ffae3a7c45aa7b439",
+        nom : "Asics Gel Game 5 Women's Tennis Shoes",
+        image : "public/images/tennis/1.jpg",
+        prix : 89,
+        quantite : 30,
+        categorie : "tennis"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b43a",
-        "nom" : "Head MX Spark Pro Tennis Racquet",
-        "image" : "public/images/tennis/2.jpg",
-        "prix" : 110,
-        "quantite" : 37,
-        "categorie" : "tennis"
+        _id : "5726778ffae3a7c45aa7b43a",
+        nom: "Head MX Spark Pro Tennis Racquet",
+        image : "public/images/tennis/2.jpg",
+        prix : 110,
+        quantite : 37,
+        categorie : "tennis"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b43b",
-        "nom" : "adidas Tennis Headband",
-        "image" : "public/images/tennis/3.jpg",
-        "prix" : 15,
-        "quantite" : 32,
-        "categorie" : "tennis"
+        _id : "5726778ffae3a7c45aa7b43b",
+        nom : "adidas Tennis Headband",
+        image : "public/images/tennis/3.jpg",
+        prix : 15,
+        quantite : 32,
+        categorie : "tennis"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b43c",
-        "nom" : "ANZ Hot Shots Girl's Tennis Polo",
-        "image" : "public/images/tennis/4.jpg",
-        "prix" : 75,
-        "quantite" : 30,
-        "categorie" : "tennis"
+
+        _id : "5726778ffae3a7c45aa7b43c",
+        nom : "ANZ Hot Shots Girl's Tennis Polo",
+        image : "public/images/tennis/4.jpg",
+        prix : 75,
+        quantite : 30,
+        categorie : "tennis"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b43d",
-        "nom" : "Nike Featherlight Cap",
-        "image" : "public/images/tennis/5.jpg",
-        "prix" : 47,
-        "quantite" : 30,
-        "categorie" : "tennis"
+      _id : "5726778ffae3a7c45aa7b43d",
+        nom : "Nike Featherlight Cap",
+        image : "public/images/tennis/5.jpg",
+        prix : 47,
+        quantite : 30,
+        categorie : "tennis"
 },
 
 {
-        "_id" : "5726778ffae3a7c45aa7b43e",
-        "nom" : "Nike Men's Court Polo",
-        "image" : "public/images/tennis/6.jpg",
-        "prix" : 88,
-        "quantite" : 30,
-        "categorie" : "tennis"
+        _id : "5726778ffae3a7c45aa7b43e",
+        nom : "Nike Men's Court Polo",
+        image : "public/images/tennis/6.jpg",
+        prix : 88,
+        quantite : 30,
+        categorie : "tennis"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b43f",
-        "nom" : "Wilson Single Tennis Ball",
-        "image" : "public/images/tennis/7.jpg",
-        "prix" : 9,
-        "quantite" : 30,
-        "categorie" : "tennis"
+      _id : "5726778ffae3a7c45aa7b43f",
+        nom : "Wilson Single Tennis Ball",
+        image : "public/images/tennis/7.jpg",
+      prix : 9,
+        quantite : 30,
+        categorie : "tennis"
 },
 {
-        "_id" : "5726778ffae3a7c45aa7b440",
-        "nom" : "Wilson Tour Slam Tennis Racquet",
-        "image" : "public/images/tennis/8.jpg",
-        "prix" : 149,
-        "quantite" : 40,
-        "categorie" : "tennis"
+        _id : "5726778ffae3a7c45aa7b440",
+      nom : "Wilson Tour Slam Tennis Racquet",
+        image : "public/images/tennis/8.jpg",
+      prix : 149,
+      quantite : 40,
+        categorie : "tennis"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b441",
-        "nom" : "Nike Lunar Prevail Men's Golf Shoes",
-        "image" : "public/images/golf/1.jpg",
-        "prix" : 119,
-        "quantite" : 51,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b441",
+        nom : "Nike Lunar Prevail Men's Golf Shoes",
+        image : "public/images/golf/1.jpg",
+        prix : 119,
+        quantite : 51,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b442",
-        "nom" : "Nike Men's Dri-Fit Tech Polo Shirt",
-        "image" : "public/images/golf/2.jpg",
-        "prix" : 100,
-        "quantite" : 41,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b442",
+        nom : "Nike Men's Dri-Fit Tech Polo Shirt",
+        image : "public/images/golf/2.jpg",
+        prix : 100,
+        quantite : 41,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b443",
-        "nom" : "Taylor Made Tour Radar Visor",
-        "image" : "public/images/golf/3.jpg",
-        "prix" : 25,
-        "quantite" : 51,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b443",
+        nom : "Taylor Made Tour Radar Visor",
+        image : "public/images/golf/3.jpg",
+        prix : 25,
+        quantite : 51,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b444",
-        "nom" : "Nike Sun Tech Bucket Hat",
-        "image" : "public/images/golf/4.jpg",
-        "prix" : 39,
-        "quantite" : 55,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b444",
+        nom : "Nike Sun Tech Bucket Hat",
+        image : "public/images/golf/4.jpg",
+        prix : 39,
+        quantite : 55,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b445",
-        "nom" : "Hand 2 Pack Golf Glove",
-        "image" : "public/images/golf/5.jpg",
-        "prix" : 43,
-        "quantite" : 70,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b445",
+        nom : "Hand 2 Pack Golf Glove",
+        image : "public/images/golf/5.jpg",
+        prix : 43,
+        quantite : 70,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b446",
-        "nom" : "Maxfli General Cart Golf Bag",
-        "image" : "public/images/golf/6.jpg",
-        "prix" : 109,
-        "quantite" : 61,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b446",
+        nom : "Maxfli General Cart Golf Bag",
+        image : "public/images/golf/6.jpg",
+        prix : 109,
+        quantite : 61,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b447",
-        "nom" : "Nike Power Distance Soft Golf Balls",
-        "image" : "public/images/golf/7.jpg",
-        "prix" : 39,
-        "quantite" : 47,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b447",
+        nom : "Nike Power Distance Soft Golf Balls",
+        image : "public/images/golf/7.jpg",
+        prix : 39,
+        quantite : 47,
+        categorie : "golf"
 },
 {
-        "_id" : "57267889fae3a7c45aa7b448",
-        "nom" : "On Par Telescopic Golf Ball Retriever",
-        "image" : "public/images/golf/8.jpg",
-        "prix" : 190,
-        "quantite" : 56,
-        "categorie" : "golf"
+        _id : "57267889fae3a7c45aa7b448",
+        nom : "On Par Telescopic Golf Ball Retriever",
+        image : "public/images/golf/8.jpg",
+        prix : 190,
+        quantite : 56,
+        categorie : "golf"
 }
 ])

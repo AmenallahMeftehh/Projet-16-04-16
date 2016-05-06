@@ -59,16 +59,17 @@ margin: 2em;
 
 }
 .navbar-btn{
-  height: 3em;
+  height: 4em;
   width: 10em;
   margin-left: 5em;
 }
 
 .logo1 {
-  width: 7em;
-  height: 5em;
+
     float: left;
     margin-right: 8em;
+    margin-left: 7em;
+
 }
 
 .inputrecherche {
@@ -258,11 +259,11 @@ h1 {
 }
 
 .signin {
-    width: 50% !important;
-    margin: 8em auto ;
+
+    margin: 5em auto ;
     background-color: rgba(56, 49, 49, 0.13);
     padding: 1em;
-text-align: center;
+    text-align: center;
     border: 2px ridge rgba(238, 238, 238, 0.13);
     border-radius: 5px;
     -moz-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
@@ -270,6 +271,6 @@ text-align: center;
 	box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
 	border-bottom: none;
 }
-li .a{
-
+a{
+color: red;
 }

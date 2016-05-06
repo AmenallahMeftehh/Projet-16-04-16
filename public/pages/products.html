@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>{{viewName}}</h1>
+  <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin-bottom: 10px">
+  <!-- <pagination total-items="{{produits.length}}" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination> -->
+  <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Image</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" id="title" placeholder="Produit title" class="form-control" ng-model="produit.title"></td>
+            <td><input type="text" id="title" placeholder="Produit author" class="form-control" ng-model="produit.author"></td>
+            <td><input type="text" id="title" placeholder="Produit genre" class="form-control" ng-model="produit.genre"></td>
+            <td><button placeholder="Produit add" class="btn btn-success" ng-click="addProduit()"><span class="glyphicon glyphicon-plus-sign"></button>
+              <button placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span class="glyphicon glyphicon-ok-circle"></span></button>
+            </td>
+          </tr>
+          <tr ng-repeat="produit in produits | filter:searchProduit | limitTo:maxSize:(currentPage - 1) * maxSize">
+            <td>{{produit.title}}</td>
+            <td>{{produit.author}}</td>
+            <td>{{produit.genre}}</td>
+            <td>
+              <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+              <button class="btn btn-warning" ng-click="recup(produit._id)"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-danger" ng-click="deleteProduit(produit._id)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>

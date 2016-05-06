@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 // initialisation et declaration de session pour utiliser passport
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(session({secret:"ui2hf893hf232ofn3023fp",resave:false,saveUninitialized:true}));
+app.use(session({secret:"ui2hf893hf232ofn3023fp",resave:true,saveUninitialized:true}));
 // declaration d'un model et route de produit
 var Produit = require ('./models/productModel');
 produitRouter = require('./routes/productRoutes')(Produit);

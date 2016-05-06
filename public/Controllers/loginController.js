@@ -29,7 +29,7 @@ angular.module('app').controller('LoginCtrl',
           }
 
           $scope.login1 = function () {
-
+              $rootScope.isAdmin=false;
               // initial values
               $scope.error = false;
               $scope.disabled = true;
@@ -37,11 +37,14 @@ angular.module('app').controller('LoginCtrl',
               AuthService.login($scope.loginForm.username, $scope.loginForm.password)
                   // handle success
                   .then(function () {
-                      $location.path('/home');
+                    if($scope.loginForm.statut == "admin"){
+                      $rootScope.isAdmin=true;
+                    };
                       $scope.disabled = false;
-                      $scope.loginForm = {};
                       $rootScope.islogged = true;
-                      
+
+                      $scope.loginForm = {};
+
                   })
                   // handle error
                   .catch(function () {
@@ -51,6 +54,7 @@ angular.module('app').controller('LoginCtrl',
                       $scope.loginForm = {};
                       $rootScope.islogged = false;
                   });
+
 
           };
             $scope.logout = function () {

@@ -62,9 +62,52 @@ User.find({_id:idUser},{panier},function(data){
 
 
   //definir le product router pour recuperer un seul produit à partir de la liste des produits
-  produitRouter.get('/:id',function(req, res){
+  produitRouter.route('/:id',function(req, res){
         res.json(req.produit);
     });
+
+// Ajouter modifier supprimer un produit
+produitRouter
+.post(function(req, res){
+  var produit = new Produit(req.body);
+  produit.save();
+  res.status(201).send(produit);
+})
+.put(function(req, res){
+    Produit.id=req.params.id;
+
+      Produit.findOneAndUpdate({_id:Produit.id}
+        ,{
+
+            $set: {
+                nom: req.body.nom
+                , image: req.body.image
+                , prix: req.body.prix
+                , quantite: req.body.quantite,
+                categorie :req.body.categorie
+
+        }
+
+    },    function(err){
+        if(err)
+          res.status(500).send(err);
+        else{
+            res.json(req.produit);
+          }
+      });
+  })
+  .delete(function(req, res){
+    Produit.id=req.params.id;
+    console.log(req.Produit);
+    Book.findOneAndRemove({_id:Produit.id},function(err){
+      if(err)
+        res.status(500).send(err);
+      else
+        res.status(204).send('Removed');
+    });
+  });
+
+
     return produitRouter;
 };
 module.exports = routes;
