@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+
 var passport = require('passport');
 
 var User = require('../models/user');
@@ -8,6 +8,8 @@ var Produit = require('../models/productModel');
  /**grab the values sent with the POST request (from the client-side) "req.body"
   *create a new User instance,and add it to the database
   *on this step a user is created and if we attempt ti add a user with the same "username we'll have the error "A user with the given username is already registered" */
+var routes = function(User){
+  var router = express.Router();
   router.post('/register', function(req, res) {
       User.register (new User({firstname: req.body.firstname,
                               lastname: req.body.lastname,
@@ -55,9 +57,8 @@ router.post('/login', function(req,res,next){
 //Logging Out the user
 router.get('/logout', function(req, res) {
     req.logout();
-    res.status(200).json({
-        status: 'User Logged Out..Bye!!'
-    });
+    res.redirect('/');
+
 });
 
 router.get('/session',function(req,res){
@@ -96,20 +97,20 @@ User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
 });
 
 })
-router.get('/:id/',function(req,res){
-user= req.body.user;
-var iduser=req.params.id;
-console.log("aaaaa");
-User.find({_id:iduser},{},function (err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("sucess");
-  }
+// router.get('/:id/',function(req,res){
+// user= req.body.user;
+// var iduser=req.params.id;
+// console.log("aaaaa");
+// User.find({_id:iduser},{},function (err) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("sucess");
+//   }
+//
+// });
 
-});
-
-})
+// })
 // delete product from panier
 router.delete('/:id/panier/:prodid',function(req, res){
   User.id=req.params.id;
@@ -136,17 +137,36 @@ router.get('/:id/panier',function(req, res){
   });
 });
 
-//  Ajouter modifier supprimer un produit
-
-router.post('/',function(req, res){
+//  Ajouter modifier supprimer un utilisateur
+// recuperer tous les utilisateurs
+router.get('/',function(req, res){
+    var query = {};
+    if(req.query.id){
+      query.id = req.query.id;
+    }
+    User.find(query, function(err, users){
+      if(err)
+        res.status(500).send(err);
+      else
+        res.json(users);
+    });
+  });
+  //definir le product router pour recuperer un seul produit à partir de la liste des produits
+  router.route('/:id',function(req, res){
+        res.json(req.user);
+    });
+// ajouter un utilisateur
+router.route('/').post(function(req, res){
   var user = new User(req.body);
   user.save();
   res.status(201).send(user);
 });
-
-router.get('/:id',function(req, res){
+// recuperer un utilisateur par id
+router.route('/:id')
+.get(function(req, res){
       res.json(req.user);
   })
+  // modifier un utilisateur
 .put(function(req, res){
     User.id=req.params.id;
 
@@ -156,8 +176,9 @@ router.get('/:id',function(req, res){
             $set: {
                 firstname: req.body.firstname
                 , lastname: req.body.lastname
-                , photo: req.body.photo
                 , username: req.body.username
+                , password: req.body.password
+                , photo: req.body.photo
                 , statut :req.body.statut
                 , panier:req.body.panier
 
@@ -171,6 +192,7 @@ router.get('/:id',function(req, res){
           }
       });
   })
+  // supprimer un utilisateur
   .delete(function(req, res){
     User.id=req.params.id;
     console.log(req.User);
@@ -182,4 +204,6 @@ router.get('/:id',function(req, res){
     });
   });
 
-module.exports = router;
+      return router;
+  };
+module.exports = routes;

@@ -1,7 +1,29 @@
 //Login Controller
-angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthService', '$rootScope'
-        , function ($scope, $location, AuthService, $rootScope) {
+angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthService', '$rootScope','$http'
+        , function ($scope, $location, AuthService, $rootScope,$http) {
+        
+          var getAll = function () {
+              $http.get('/users').success(function (response) {
+                  $scope.users = response;
+                  console.log('i received the data i requested');
+              });
+          };
+          getAll();
+          $scope.maxSize = 9;
+          $scope.currentPage = 1;
+          $scope.totalItems = 0;
+          $scope.prix=500
+          // fonction pour recuperer un utilisateur
 
+          $scope.recup = function (id) {
+              console.log(id);
+              $http.get('/users/' + id).success(function (response) {
+                $scope.user = response;
+                console.log($scope.user);
+
+              });
+            };
+// se connecter avec facebook
         $scope.FBLogin = function () {
             FB.login(function (response) {
                     if (response.authResponse) {
@@ -13,7 +35,7 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
                             $rootScope.islogged = true;
                             $location.path('/panier');
                             $scope.disabled = false;
-                            $scope.loginForm = {};
+                            $scope.user = {};
                         });
                     } else {
                         console.log('User cancelled login or did not fully authorize.');
@@ -33,17 +55,17 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
             $scope.error = false;
             $scope.disabled = true;
             // call login from service
-            AuthService.login($scope.loginForm.username, $scope.loginForm.password)
+            AuthService.login($scope.user.username, $scope.user.password)
                 // handle success
                 .then(function () {
                     console.log('edd');
                     $scope.disabled = false;
                     $rootScope.islogged = true;
 
-                    $scope.loginForm = {};
                     $location.path('/home');
-                    if ($scope.loginForm.statut ==="admin") {
+                    if ($scope.user.statut ==="admin") {
                       $rootScope.isAdmin = true;
+                      $scope.user = {};
 
                     }
                                   })
@@ -52,7 +74,7 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
                     $scope.error = true;
                     $scope.errorMessage = "Invalid username and/or password";
                     $scope.disabled = false;
-                    $scope.loginForm = {};
+                    $scope.user = {};
                     $rootScope.islogged = false;
                 });
 
@@ -61,41 +83,26 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
 
 
         $scope.logout = function () {
-
+          console.log("aaa");
             // call logout from service
             AuthService.logout()
                 .then(function () {
+                  $scope.user={};
                     $rootScope.islogged = false;
                     $scope.disabled = false;
                     $location.path('/login');
-
+                    console.log(islogged);
+                    console.log("aaaa");
                 });
 
         };
-        }
+
 
 // crud des utilisateurs
-var getAll = function () {
-    $http.get('/users').success(function (response) {
-        $scope.users = response;
-        console.log('i received the data i requested');
-    });
-};
-getAll();
-$scope.maxSize = 9;
-$scope.currentPage = 1;
-$scope.totalItems = 0;
-$scope.prix=500
 
-$scope.recup = function (id) {
-    console.log(id);
-    $http.get('/users/' + id).success(function (response) {
-      $scope.user = response;
-      console.log($scope.user);
 
-    });
-  };
 
+// fonction pour ajouter un utilisateur
 $scope.add = function () {
     console.log($scope.user);
     console.log('aaaa');
@@ -112,13 +119,14 @@ $scope.add = function () {
 
     });
 };
+// fonction pour supprimer un utilisateur
 $scope.delete = function (id) {
     console.log(id);
     $http.delete('/users/' +id).success(function (response) {
       getAll();
     })
 };
-// fonction pour mettre a jour un livre
+// fonction pour mettre a jour un utilisateur
 $scope.update = function (user) {
     console.log($scope.user._id);
     $http.put('/users/' + $scope.user._id, $scope.user).success(function (response) {
@@ -129,19 +137,9 @@ $scope.update = function (user) {
 };
 //    fonction deselectionner un livre
 $scope.deselect = function () {
-    $scope.produit = "";
+    $scope.user = "";
 }
-
-
-
-
-
-
-
-
-
-
-    ]);
+    }]);
 
 
 

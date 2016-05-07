@@ -20,18 +20,23 @@ $routeProvider
 })
 .when('/contact',{
   templateUrl:'public/pages/contact.html'
-  
+
 
 })
 .when('/nav',{
   templateUrl:'public/pages/nav.html',
     controller:'LoginCtrl'
-  
+
 
 })
 .when('/products',{
   templateUrl:'public/pages/products.html',
   controller:'produitController'
+
+})
+.when('/user',{
+  templateUrl:'public/pages/users.html',
+  controller:'LoginCtrl'
 
 })
 .when('/panier',{

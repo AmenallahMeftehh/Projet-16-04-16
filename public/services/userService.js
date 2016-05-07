@@ -9,7 +9,7 @@ angular.module('app').factory('AuthService',
 
             // return available functions for use in the controllers
             return ({
-                isAdmin:isAdmin,
+                isAdmin:  isAdmin,
                 isLoggedIn: isLoggedIn,
                 getUserStatus: getUserStatus,
                 login: login,

@@ -20,18 +20,22 @@ mongoose.connect('mongodb://localhost/bdchallenge');
 var app = express();
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 // initialisation et declaration de session pour utiliser passport
+app.use(session({secret: process.env.SESSION_SECRET || 'secret',
+resave:false,
+saveUninitialized:false}));
+
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(session({secret:"ui2hf893hf232ofn3023fp",resave:true,saveUninitialized:true}));
 // declaration d'un model et route de produit
 var Produit = require ('./models/productModel');
 produitRouter = require('./routes/productRoutes')(Produit);
 app.use('/produits', produitRouter);
 // declaration d'un model et route de user
 var User = require('./models/user');
-routes = require('./routes/userRoutes');
+routes = require('./routes/userRoutes')(User);
 app.use('/users', routes);
 // pour le logging on a utiliser morgan
 app.use(logger('dev'));

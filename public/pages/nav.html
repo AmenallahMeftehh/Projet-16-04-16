@@ -10,17 +10,17 @@
                     <ul class="nav navbar-nav">
                         <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a href="/#register">Sign up</a></li>
                         <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a href="/#login">Login</a></li>
-                        <li style="float:rigth" ng-if="islogged" class=""><a href="" class="ng-binding">Hello {{loginForm.username}}</a></li>
+                        <li style="float:rigth" ng-if="islogged" class=""><a href="" class="ng-binding">Hello {{user.username}}</a></li>
                         <li style="float:rigth" class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>More<b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li ng-if="islogged" class="">
-                                    <a href="/#profil"><img ng-src="{{loginForm.photo}}" alt="as" /></a>
+                                    <a href="/#profil"><img ng-src="{{user.photo}}" alt="as" /></a>
                                 </li>
-                                <li ng-if="isAdmin" class=""><a href="/#products"><i class="fa fa-truck">&nbsp;</i>Products</a></li>
-                                <li ng-if="isAdmin" class=""><a href="/#paniers"><i class="fa fa-tag">&nbsp;</i>Coupons</a></li>
-                                <li ng-if="isAdmin" class=""><a href="/#users"><i class="fa fa-user">&nbsp;</i>Customers</a></li>
+                                <li  ng-show="isAdmin"class=""><a href="/#products"><i class="fa fa-truck">&nbsp;</i>Products</a></li>
+                                <li ng-show="isAdmin"class=""><a href="/#paniers"><i class="fa fa-tag">&nbsp;</i>Coupons</a></li>
+                                <li  ng-show="isAdmin"class=""><a href="/#user"><i class="fa fa-user">&nbsp;</i>Customers</a></li>
                                 <li ng-if="isAdmin" class=""><a href="/#offre"><i class="fa fa-wrench">&nbsp;</i>Shipping Settings</a></li>
-                                <li ng-if="islogged" class=""><a href="/#login" ng-click="logout()"><i class="fa fa-sign-out">&nbsp;</i>Logout</a></li>
+                                <li ng-if="islogged" class=""><button type="button" ng-click="logout()"><i class="fa fa-sign-out">&nbsp;</i>Logout</button></li>
                                 <li class="divider"></li>
                             </ul>
                         </li>

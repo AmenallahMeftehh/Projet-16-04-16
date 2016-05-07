@@ -18,27 +18,26 @@
           <tr>
             <td class="col-md-2"><input type="text" id="title" placeholder="User firstname" class="form-control" ng-model="user.firstname"></td>
             <td class="col-md-2"><input type="text" id="title" placeholder="User lastname" class="form-control" ng-model="user.lastname"></td>
-            <td class="col-md-2"><input type="number" id="title" placeholder="User username" class="form-control" ng-model="user.username"></td>
-            <td class="col-md-2"><input type="number" id="title" placeholder="User password" class="form-control" ng-model="user.password"></td>
-            <td class="col-md-2"><input type="number" id="title" placeholder="User genre" class="form-control" ng-model="user.photo"></td>
+            <td class="col-md-2"><input type="text" id="title" placeholder="User username" class="form-control" ng-model="user.username"></td>
+            <td class="col-md-2"><input type="text" id="title" placeholder="User password" class="form-control" ng-model="user.password"></td>
+            <td class="col-md-2"><input type="text" id="title" placeholder="User photo" class="form-control" ng-model="user.photo"></td>
             <td class="col-md-2">
-              <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="user.categorie" multiple>
-                    <option value="football">Football</option>
-                    <option value="cyclisme">Cyclisme</option>
-                    <option value="tennis">Tennis</option>
-                    <option value="golf">Golf</option>
+              <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="user.statut" multiple>
+                    <option value="admin">Admin</option>
+                    <option value="customer">Simple User</option>
                   </select>
             </td>
              <td class="col-md-2"><button placeholder="User add" class="btn btn-success" ng-click="add()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
-              <button placeholder="User add" class="btn btn-info" ng-click="update(user)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
+              <button placeholder="User ipdate" class="btn btn-info" ng-click="update(user)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
             </td>
           </tr>
           <tr ng-repeat="user in users | filter:searchUser | limitTo:maxSize:(currentPage - 1) * maxSize">
-            <td>{{user.nom}}</td>
-            <td><img style="width:50%;height:50%"ng-src='{{user.image}}'/></td>
-            <td>{{user.prix}}</td>
-            <td>{{user.quantite}}</td>
-            <td>{{user.categorie}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td><img style="width:50%;height:50%"ng-src='{{user.photo}}'/></td>
+            <td>{{user.statut}}</td>
             <td>
               <a href="#/details/{{user._id}}" class="btn btn-primary" ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>
               <button class="btn btn-warning" ng-click="recup(user._id)"><span class="glyphicon glyphicon-pencil"></span></button>
