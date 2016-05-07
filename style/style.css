@@ -21,7 +21,7 @@ header {
     width: 50% !important;
     margin: 8em auto ;
     background-color:white;
-    padding: 1em;
+    padding: 2em;
     text-align: center;
     border: 2px ridge rgba(238, 238, 238, 0.13);
     border-radius: 5px;
@@ -31,9 +31,9 @@ header {
 	border-bottom: none;
 }
 .form-control1 {
+width: 150px;
+margin: 1em auto;
 
-margin: 3em;
-width: 15em;
 
 }
 .btn1{
@@ -60,7 +60,7 @@ margin: 2em;
 }
 .navbar-btn{
   height: 3.5em;
-  width: 8em;
+  width: 8.5em;
   margin-left: 5em;
 }
 

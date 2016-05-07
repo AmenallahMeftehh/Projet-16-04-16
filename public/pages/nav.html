@@ -1,0 +1,60 @@
+<nav class="navbar navbar-link " style="margin:0px;" role="navigation">
+    <div class="container">
+        <div id="top">
+            <div class="container">
+                <div class="col-md-8 offer" data-animate="fadeInDown">
+                    <a href="#produits" class="btn btn-default btn-sm" style="margin-top:1em;" data-animate-hover="shake">Offer of the day</a>
+                    <a href="#produits"></a>
+                </div>
+                <div class="col-md-4" data-animate="fadeInDown">
+                    <ul class="nav navbar-nav">
+                        <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a href="/#register">Sign up</a></li>
+                        <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a href="/#login">Login</a></li>
+                        <li style="float:rigth" ng-show="islogged" class=""><a href="" class="ng-binding">Hello {{loginForm.username}}</a></li>
+                        <li style="float:rigth" class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>More<b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li ng-show="islogged" class="">
+                                    <a href="/#profil"><img ng-src="{{loginForm.photo}}" alt="as" /></a>
+                                </li>
+                                <li ng-show="isAdmin" class=""><a href="/#products"><i class="fa fa-truck">&nbsp;</i>Products</a></li>
+                                <li ng-show="isAdmin" class=""><a href="/#paniers"><i class="fa fa-tag">&nbsp;</i>Coupons</a></li>
+                                <li ng-show="isAdmin" class=""><a href="/#users"><i class="fa fa-user">&nbsp;</i>Customers</a></li>
+                                <li ng-show="isAdmin" class=""><a href="/#offre"><i class="fa fa-wrench">&nbsp;</i>Shipping Settings</a></li>
+                                <li ng-show="islogged" class=""><a href="/#login" ng-click="logout()"><i class="fa fa-sign-out">&nbsp;</i>Logout</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                        <li style="float:rigth"><a href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav ">
+                <a class="a-li" href="#home"><img class="logo1" src="public/images/gym.png" /></a>
+                <li><a class="a-li" href="#football">FOOTBALL</a></li>
+                <li><a class="a-li" href="#tennis">TENNIS</a></li>
+                <li><a class="a-li" href="#golf">GOLF</a></li>
+                <li><a class="a-li" href="#cyclisme">CYCLISME</a></li>
+                <li><a class="a-li" href="#produits">ALL PRODUCTS</a></li>
+
+                <li>
+                    <a class="btn btn-info navbar-btn" ng-click="panier()" href="/#panier"><i class="fa fa-shopping-cart">&nbsp;</i> <img src="public/images/shopping-cart.png" style="margin-right:1em;" />Panier</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

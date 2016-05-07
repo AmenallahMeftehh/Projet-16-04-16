@@ -19,7 +19,13 @@ $routeProvider
 
 })
 .when('/contact',{
-  templateUrl:'public/pages/contact.html',
+  templateUrl:'public/pages/contact.html'
+  
+
+})
+.when('/nav',{
+  templateUrl:'public/pages/nav.html',
+    controller:'LoginCtrl'
   
 
 })

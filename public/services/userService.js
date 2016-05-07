@@ -9,6 +9,7 @@ angular.module('app').factory('AuthService',
 
             // return available functions for use in the controllers
             return ({
+                isAdmin:isAdmin,
                 isLoggedIn: isLoggedIn,
                 getUserStatus: getUserStatus,
                 login: login,
@@ -18,6 +19,13 @@ angular.module('app').factory('AuthService',
 
             function isLoggedIn() {
                 if(user) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function isAdmin(user) {
+                if(user.statut === "admin") {
                     return true;
                 } else {
                     return false;
