@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>{{viewName}}</h1>
+  <input type="text" class="form-control" placeholder="Search user" ng-model="searchUser" style="width: 30%; margin-bottom: 10px">
+  <!-- <pagination total-items="{{users.length}}" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination> -->
+  <table class="col-md-12 col-xs-12 table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Photo</th>
+            <th>Statut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-md-2"><input type="text" id="title" placeholder="User firstname" class="form-control" ng-model="user.firstname"></td>
+            <td class="col-md-2"><input type="text" id="title" placeholder="User lastname" class="form-control" ng-model="user.lastname"></td>
+            <td class="col-md-2"><input type="number" id="title" placeholder="User username" class="form-control" ng-model="user.username"></td>
+            <td class="col-md-2"><input type="number" id="title" placeholder="User password" class="form-control" ng-model="user.password"></td>
+            <td class="col-md-2"><input type="number" id="title" placeholder="User genre" class="form-control" ng-model="user.photo"></td>
+            <td class="col-md-2">
+              <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="user.categorie" multiple>
+                    <option value="football">Football</option>
+                    <option value="cyclisme">Cyclisme</option>
+                    <option value="tennis">Tennis</option>
+                    <option value="golf">Golf</option>
+                  </select>
+            </td>
+             <td class="col-md-2"><button placeholder="User add" class="btn btn-success" ng-click="add()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
+              <button placeholder="User add" class="btn btn-info" ng-click="update(user)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
+            </td>
+          </tr>
+          <tr ng-repeat="user in users | filter:searchUser | limitTo:maxSize:(currentPage - 1) * maxSize">
+            <td>{{user.nom}}</td>
+            <td><img style="width:50%;height:50%"ng-src='{{user.image}}'/></td>
+            <td>{{user.prix}}</td>
+            <td>{{user.quantite}}</td>
+            <td>{{user.categorie}}</td>
+            <td>
+              <a href="#/details/{{user._id}}" class="btn btn-primary" ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>
+              <button class="btn btn-warning" ng-click="recup(user._id)"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-danger" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <uib-pagination total-items="users.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>

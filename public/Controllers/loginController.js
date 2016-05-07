@@ -42,8 +42,11 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
 
                     $scope.loginForm = {};
                     $location.path('/home');
-                    $rootScope.isAdmin=AuthService.isAdmin($scope.loginForm);
-                })
+                    if ($scope.loginForm.statut ==="admin") {
+                      $rootScope.isAdmin = true;
+
+                    }
+                                  })
                 // handle error
                 .catch(function () {
                     $scope.error = true;
@@ -55,8 +58,8 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
 
 
         };
-            
-     
+
+
         $scope.logout = function () {
 
             // call logout from service
@@ -65,11 +68,79 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
                     $rootScope.islogged = false;
                     $scope.disabled = false;
                     $location.path('/login');
-                    
+
                 });
 
         };
         }
+
+// crud des utilisateurs
+var getAll = function () {
+    $http.get('/users').success(function (response) {
+        $scope.users = response;
+        console.log('i received the data i requested');
+    });
+};
+getAll();
+$scope.maxSize = 9;
+$scope.currentPage = 1;
+$scope.totalItems = 0;
+$scope.prix=500
+
+$scope.recup = function (id) {
+    console.log(id);
+    $http.get('/users/' + id).success(function (response) {
+      $scope.user = response;
+      console.log($scope.user);
+
+    });
+  };
+
+$scope.add = function () {
+    console.log($scope.user);
+    console.log('aaaa');
+    $http.post('/users', $scope.user).success(function (response) {
+        console.log(response);
+        console.log('ajout user');
+        getAll();
+      $scope.user.firstname="";
+      $scope.user.lastname="";
+      $scope.user.photo="";
+      $scope.user.username="";
+      $scope.user.statut="";
+      $scope.user.password="";
+
+    });
+};
+$scope.delete = function (id) {
+    console.log(id);
+    $http.delete('/users/' +id).success(function (response) {
+      getAll();
+    })
+};
+// fonction pour mettre a jour un livre
+$scope.update = function (user) {
+    console.log($scope.user._id);
+    $http.put('/users/' + $scope.user._id, $scope.user).success(function (response) {
+        getAll();
+        $scope.user = "";
+
+    });
+};
+//    fonction deselectionner un livre
+$scope.deselect = function () {
+    $scope.produit = "";
+}
+
+
+
+
+
+
+
+
+
+
     ]);
 
 

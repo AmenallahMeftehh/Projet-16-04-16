@@ -81,6 +81,7 @@ router.get('/status', function(req, res) {
         status: true
     });
 });
+// add product in panier
 router.get('/:id/panier/:idproduct',function(req,res){
 var idproduct= req.params.idproduct;
 var iduser=req.params.id;
@@ -109,6 +110,7 @@ User.find({_id:iduser},{},function (err) {
 });
 
 })
+// delete product from panier
 router.delete('/:id/panier/:prodid',function(req, res){
   User.id=req.params.id;
   prodid=req.params.prodid;
@@ -121,6 +123,7 @@ router.delete('/:id/panier/:prodid',function(req, res){
       res.status(204).send('Removed');
   });
 });
+// recuperer les produits d'un panier
 router.get('/:id/panier',function(req, res){
   User.id=req.params.id;
 
@@ -132,5 +135,51 @@ router.get('/:id/panier',function(req, res){
       res.status(204).send('reup');
   });
 });
+
+//  Ajouter modifier supprimer un produit
+
+router.post('/',function(req, res){
+  var user = new User(req.body);
+  user.save();
+  res.status(201).send(user);
+});
+
+router.get('/:id',function(req, res){
+      res.json(req.user);
+  })
+.put(function(req, res){
+    User.id=req.params.id;
+
+      User.findOneAndUpdate({_id:User.id}
+        ,{
+
+            $set: {
+                firstname: req.body.firstname
+                , lastname: req.body.lastname
+                , photo: req.body.photo
+                , username: req.body.username
+                , statut :req.body.statut
+                , panier:req.body.panier
+
+        }
+
+    },    function(err){
+        if(err)
+          res.status(500).send(err);
+        else{
+            res.json(req.user);
+          }
+      });
+  })
+  .delete(function(req, res){
+    User.id=req.params.id;
+    console.log(req.User);
+    User.findOneAndRemove({_id:User.id},function(err){
+      if(err)
+        res.status(500).send(err);
+      else
+        res.status(204).send('Removed');
+    });
+  });
 
 module.exports = router;

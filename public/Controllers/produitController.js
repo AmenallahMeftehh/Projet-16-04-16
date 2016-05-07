@@ -52,7 +52,7 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   };
   //    fonction deselectionner un livre
   $scope.deselect = function () {
-      $scope.book = "";
+      $scope.produit = "";
   }
 
 
