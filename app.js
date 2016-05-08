@@ -25,7 +25,7 @@ $routeProvider
 })
 .when('/nav',{
   templateUrl:'public/pages/nav.html',
-    controller:'LoginCtrl'
+    controller:'MenuController'
 
 
 })
@@ -36,7 +36,7 @@ $routeProvider
 })
 .when('/user',{
   templateUrl:'public/pages/users.html',
-  controller:'LoginCtrl'
+  controller:'AdminUserCtrl'
 
 })
 .when('/panier',{

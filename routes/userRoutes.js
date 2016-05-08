@@ -57,9 +57,10 @@ router.post('/login', function(req,res,next){
 //Logging Out the user
 router.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
-
-});
+    res.status(200).json({
+      status: 'Bye!'
+    });
+  });
 
 router.get('/session',function(req,res){
   console.log(req.session.user);
@@ -70,7 +71,16 @@ return res.json(req.session.user);
 
 })
 
-
+router.get('/:id', function(req, res) {
+  User.id=req.params.id
+  User.find({_id:User.id},function(err){
+    if(err)
+      res.status(500).send(err);
+    else
+    console.log("aaaa");
+      res.status(204).send('recup');
+  });
+});
 //persist the user session after refresh
 router.get('/status', function(req, res) {
     if (!req.isAuthenticated()) {

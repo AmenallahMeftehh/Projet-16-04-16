@@ -1,7 +1,7 @@
 //Login Controller
 angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthService', '$rootScope','$http'
         , function ($scope, $location, AuthService, $rootScope,$http) {
-        
+// recuperer tous les utilisateurs
           var getAll = function () {
               $http.get('/users').success(function (response) {
                   $scope.users = response;
@@ -9,13 +9,14 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
               });
           };
           getAll();
+          // pagination
           $scope.maxSize = 9;
           $scope.currentPage = 1;
           $scope.totalItems = 0;
-          $scope.prix=500
-          // fonction pour recuperer un utilisateur
+          $scope.prix=500;
 
-          $scope.recup = function (id) {
+          // fonction pour recuperer un utilisateur
+            $scope.recup = function (id) {
               console.log(id);
               $http.get('/users/' + id).success(function (response) {
                 $scope.user = response;
@@ -23,9 +24,9 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
 
               });
             };
-// se connecter avec facebook
-        $scope.FBLogin = function () {
-            FB.login(function (response) {
+            // se connecter avec facebook
+            $scope.FBLogin = function () {
+              FB.login(function (response) {
                     if (response.authResponse) {
                         console.log('Welcome!  Fetching your information.... ');
 
@@ -39,18 +40,14 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
                         });
                     } else {
                         console.log('User cancelled login or did not fully authorize.');
-
                     }
-                }
-                , {
+                },{
                     scope: 'publish_actions'
                     , return_scopes: true
-
                 });
         }
-
-        $scope.login1 = function () {
-
+// fonction se connecter avec login et password
+            $scope.loginConnect = function () {
             // initial values
             $scope.error = false;
             $scope.disabled = true;
@@ -81,97 +78,18 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
 
         };
 
-
+        // fonction pour se deconnecter
         $scope.logout = function () {
-          console.log("aaa");
-            // call logout from service
-            AuthService.logout()
-                .then(function () {
-                  $scope.user={};
-                    $rootScope.islogged = false;
-                    $scope.disabled = false;
-                    $location.path('/login');
-                    console.log(islogged);
-                    console.log("aaaa");
-                });
+          console.log("Fonction logout");
+          // appel de la fonction logout
+          AuthService.logout()
+          .then(function () {
+            $rootScope.islogged = false;
+            $location.path('/login');
+          });
 
-        };
-
-
-// crud des utilisateurs
+     };
 
 
 
-// fonction pour ajouter un utilisateur
-$scope.add = function () {
-    console.log($scope.user);
-    console.log('aaaa');
-    $http.post('/users', $scope.user).success(function (response) {
-        console.log(response);
-        console.log('ajout user');
-        getAll();
-      $scope.user.firstname="";
-      $scope.user.lastname="";
-      $scope.user.photo="";
-      $scope.user.username="";
-      $scope.user.statut="";
-      $scope.user.password="";
-
-    });
-};
-// fonction pour supprimer un utilisateur
-$scope.delete = function (id) {
-    console.log(id);
-    $http.delete('/users/' +id).success(function (response) {
-      getAll();
-    })
-};
-// fonction pour mettre a jour un utilisateur
-$scope.update = function (user) {
-    console.log($scope.user._id);
-    $http.put('/users/' + $scope.user._id, $scope.user).success(function (response) {
-        getAll();
-        $scope.user = "";
-
-    });
-};
-//    fonction deselectionner un livre
-$scope.deselect = function () {
-    $scope.user = "";
-}
     }]);
-
-
-
-angular.module('app').controller('RegisterCtrl', ['$scope', '$location', 'AuthService'
-        , function ($scope, $location, AuthService) {
-
-        $scope.register = function () {
-
-            // initial values
-            $scope.error = false;
-            $scope.disabled = true;
-
-            // call register from service
-            AuthService.register($scope.registerForm.firstname
-                    , $scope.registerForm.lastname
-                    , $scope.registerForm.username
-                    , $scope.registerForm.password)
-                // handle success
-                .then(function () {
-                    $location.path('/login');
-                    $scope.disabled = false;
-                    $scope.registerForm = {};
-                })
-                // handle error
-                .catch(function () {
-                    $scope.error = true;
-                    $scope.errorMessage = "Sorry, Username exists already";
-                    $scope.disabled = false;
-                    $scope.registerForm = {};
-                });
-
-        };
-
-
-        }]);

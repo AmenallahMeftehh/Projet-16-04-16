@@ -80,25 +80,23 @@ angular.module('app').factory('AuthService',
 
             function logout() {
 
-                // create a new instance of deferred
-                var deferred = $q.defer();
+              // création d'une nouvelle instance de deferred
+              var deferred = $q.defer();
 
-                // send a get request to the server
-                $http.get('/users/logout')
-                    // handle success
-                    .success(function (data) {
-                        user = false;
-                        deferred.resolve();
-                    })
-                    // handle error
-                    .error(function (data) {
-                        user = false;
-                        deferred.reject();
-                    });
-
-                // return promise object
-                return deferred.promise;
-
+              // envoie une post request au serveur
+              $http.get('/users/logout')
+                // en cas de success
+                .success(function (data) {
+                  user = false;
+                  deferred.resolve();
+                })
+                // en cas d'echec
+                .error(function (data) {
+                  user = false;
+                  deferred.reject();
+                });
+                // retourne l'objet promise
+              return deferred.promise;
             }
 
             function register(firstname,lastname,username,password) {

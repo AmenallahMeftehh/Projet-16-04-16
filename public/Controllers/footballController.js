@@ -7,11 +7,6 @@ $scope.currentPage = 1;
 $scope.totalItems = 0;
 $scope.prix=500;
 
-$scope.recup=function(id){
-  $http.get('/produits/'+id).success(function(data){
-    $scope.produit = data;
-
-});}
 
 
 }]);
