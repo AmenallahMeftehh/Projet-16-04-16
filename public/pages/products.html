@@ -15,11 +15,11 @@
         </thead>
         <tbody>
           <tr>
-            <td class="col-md-2"><input type="text" id="title" placeholder="Produit title" class="form-control" ng-model="produit.nom"></td>
-            <td class="col-md-2"><input type="text" id="title" placeholder="Produit author" class="form-control" ng-model="produit.image"></td>
-            <td class="col-md-2"><input type="number" id="title" placeholder="Produit genre" class="form-control" ng-model="produit.prix"></td>
-            <td class="col-md-2"><input type="number" id="title" placeholder="Produit genre" class="form-control" ng-model="produit.quantite"></td>
-            <td class="col-md-2">
+            <td class="col-md-2-col-xs-3"><input type="text" id="title" placeholder="Produit nom" class="form-control" ng-model="produit.nom"></td>
+            <td class="col-md-3-col-xs-5"><input type="text" id="title" placeholder="Produit url-image" class="form-control" ng-model="produit.image"></td>
+            <td class="col-md-1 col-xs-1"><input type="number" id="title" placeholder="Produit prix" class="form-control" ng-model="produit.prix"></td>
+            <td class="col-md-1 col-xs-1"><input type="number" id="title" placeholder="Produit quantité" class="form-control" ng-model="produit.quantite"></td>
+            <td class="col-md-2 col-xs-1">
               <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="produit.categorie" multiple>
                     <option value="football">Football</option>
                     <option value="cyclisme">Cyclisme</option>
@@ -27,7 +27,7 @@
                     <option value="golf">Golf</option>
                   </select>
             </td>
-             <td class="col-md-2"><button placeholder="Produit add" class="btn btn-success" ng-click="addProduct()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
+             <td class="col-md-2 col-xs-1"><button placeholder="Produit add" class="btn btn-success" ng-click="addProduct()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
               <button placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
             </td>
           </tr>
