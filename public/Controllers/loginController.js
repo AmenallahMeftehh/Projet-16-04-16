@@ -2,13 +2,27 @@
 angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthService', '$rootScope','$http'
         , function ($scope, $location, AuthService, $rootScope,$http) {
 // recuperer tous les utilisateurs
+$(document).ready(function() {
+            $('.carousel').carousel({
+                interval: 2000
+            })
+        });
+
+$rootScope.islogged = false;
+
+$http.get('/users/session').success(function(response){
+console.log(response);
+  if(response){
+           $rootScope.islogged = true;
+}
+  });
           var getAll = function () {
               $http.get('/users').success(function (response) {
                   $scope.users = response;
                   console.log('i received the data i requested');
               });
           };
-          getAll();
+
           // pagination
           $scope.maxSize = 9;
           $scope.currentPage = 1;
@@ -80,16 +94,17 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
 
         // fonction pour se deconnecter
         $scope.logout = function () {
-          console.log("Fonction logout");
+console.log("gggg")
           // appel de la fonction logout
           AuthService.logout()
           .then(function () {
-            $rootScope.islogged = false;
             $location.path('/login');
+            $rootScope.islogged = false;
+
           });
 
      };
 
 
 
-    }]);
+    }])

@@ -1,5 +1,5 @@
 var express = require('express');
-
+var session = require('express-session');
 var passport = require('passport');
 
 var User = require('../models/user');
@@ -50,6 +50,7 @@ router.post('/login', function(req,res,next){
             res.status(200).json({
                 status : 'Login Successful!!',
             });
+            console.log(user);
         });
     })(req,res,next);//passport.authenticate method
 });//router.post method
@@ -57,6 +58,7 @@ router.post('/login', function(req,res,next){
 //Logging Out the user
 router.get('/logout', function(req, res) {
     req.logout();
+      req.session.user=null;
     res.status(200).json({
       status: 'Bye!'
     });
@@ -73,12 +75,16 @@ return res.json(req.session.user);
 
 router.get('/:id', function(req, res) {
   User.id=req.params.id
-  User.find({_id:User.id},function(err){
-    if(err)
-      res.status(500).send(err);
-    else
-    console.log("aaaa");
-      res.status(204).send('recup');
+  User.find({_id:User.id},function(err,data){
+    if(err){
+        res.status(500).send(err);
+    }
+
+    else{
+      res.json(data);
+      console.log("aaaa");
+    }
+
   });
 });
 //persist the user session after refresh
@@ -96,12 +102,13 @@ router.get('/status', function(req, res) {
 router.get('/:id/panier/:idproduct',function(req,res){
 var idproduct= req.params.idproduct;
 var iduser=req.params.id;
-console.log("aaaaa");
 User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
   if (err) {
     console.log(err);
   } else {
-    console.log("sucess");
+    res.status(200).json({
+        status: true
+    });
   }
 
 });

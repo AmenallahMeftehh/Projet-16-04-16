@@ -1,7 +1,6 @@
 
 angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$rootScope','$http'
         , function ($scope, $location, AuthService, $rootScope,$http) {
-
 // recuperer tous les utilisateurs
           var getAll = function () {
               $http.get('/users').success(function (response) {

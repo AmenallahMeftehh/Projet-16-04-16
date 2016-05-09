@@ -42,15 +42,19 @@
     <script src="public/Controllers/menuController.js"></script>
     <script src="public/Controllers/registerController.js"></script>
     <script src="public/Controllers/produitsLocationController.js"></script>
+    <script src="public/Controllers/logoutController.js"></script>
 
     <!-- integration des services -->
     <script src="public/services/userService.js"></script>
     <!-- filter pour le slider des prix -->
     <script src="public/filter/filterSlider.js"></script>
+    <!-- directive -->
+    <script src="public/directives/directivenav.js"></script>
+
 </head>
 <header>
 
-   <nav  ng-include="'public/pages/nav.html'"></nav>
+   <navmenu ></navmenu>
 </header>
 
 <body>

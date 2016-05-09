@@ -23,12 +23,14 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 // initialisation et declaration de session pour utiliser passport
-app.use(session({secret: process.env.SESSION_SECRET || 'secret',
-resave:false,
+app.use(session({secret: 'secrhnfgdbdbdbgbgdbdet',
+resave:true,
 saveUninitialized:false}));
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 // declaration d'un model et route de produit
 var Produit = require ('./models/productModel');
 produitRouter = require('./routes/productRoutes')(Produit);

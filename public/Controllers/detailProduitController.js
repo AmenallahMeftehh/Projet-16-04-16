@@ -10,21 +10,25 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
 
       var getAll = function () {
         $scope.produits = [] ;
+        console.log("getAll");
         $http.get('/users/session').success(function(response){
-              console.log(response);
-              $scope.cart = response.panier;
+          console.log(response._id);
+          $http.get('/users/'+response._id).success(function(user){
+            console.log(user);
+              $scope.cart = user[0].panier;
+              console.log($scope.cart);
               for (var i = 0; i < $scope.cart.length; i++) {
                  $http.get('/produits/'+$scope.cart[i]).success(function(data){
                     console.log(data);
                      $scope.produits.push(data);
 
-
+                     console.log('aaaaa');
 
                });
 
                    }
               console.log('i received the data i requested');
-          });
+          });});
       };
       getAll();
       $scope.maxSize = 9;
@@ -34,20 +38,12 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
 
 // ajouter un produit dans un panier
       $scope.addpanier=function(produit){
-        console.log("aaaaaaaa");
         console.log(produit._id);
         $http.get('/users/session').success(function(response){
-          console.log(response);
           $scope.user=response;
-
           $http.get('/users/'+$scope.user._id+'/panier/'+produit._id).success(function(res){
-            console.log(res);
-            $scope.produits.push(produit._id)
-            $location.path('/panier');
+            console.log("callback ajout produit au panier");
             getAll();
-
-
-
           })
 
         })};
@@ -81,13 +77,13 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
             $http.delete('/users/'+$scope.user._id+'/panier/'+produit._id).success(function(data){
               $scope.produit=null;
               console.log('delete ok');
-
+              getAll();
 
 
 
 
             });
-getAll();
+
                 });
          }
 }]);

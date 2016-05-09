@@ -1,6 +1,8 @@
-angular.module('app',['ngRoute', 'ui.bootstrap','ngMaterial']).config(['$routeProvider',function($routeProvider){
-$routeProvider
-.when('/login',{
+angular.module('app',['ngRoute', 'ui.bootstrap','ngMaterial']).config(['$routeProvider','$mdThemingProvider',function($routeProvider,$mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+  .primaryPalette('blue-grey')
+  .accentPalette('light-blue');
+$routeProvider.when('/login',{
   templateUrl:'public/pages/login.html',
   controller:'LoginCtrl'
 })
@@ -10,7 +12,7 @@ $routeProvider
 })
 .when('/home',{
   templateUrl:'public/pages/home.html',
-  controller:'homeController'
+  controller:'LoginCtrl'
 
 })
 .when('/produits',{
@@ -30,13 +32,16 @@ $routeProvider
 })
 .when('/nav',{
   templateUrl:'public/pages/nav.html',
-    controller:'MenuController'
-
-
+    controller:'LoginCtrl'
 })
 .when('/products',{
   templateUrl:'public/pages/products.html',
   controller:'produitController'
+
+})
+.when('/logout',{
+  templateUrl:'public/pages/vide.html',
+  controller:'LogoutCtrl'
 
 })
 .when('/user',{
