@@ -1,12 +1,29 @@
 // controlleur details produit
 angular.module('app').controller('DetailsProduitController', ['$location','$scope', '$http','$routeParams',
     '$rootScope',function($location,$scope, $http, $routeParams,$rootScope){
+$scope.produit={};
         var id =$routeParams.itemId;
         // console.log(id);
         $http.get('/produits/'+id).success(function(data){
           $scope.produit = data;});
 
         $scope.quantite=1;
+        $scope.myDate = new Date();
+        $scope.onlyAvailable = function(date) {
+          var available = true;
+          if($scope.produit.reservation)
+          {
+            for (var i=0 ; i<$scope.produit.reservation.length;i++){
+            if ((new Date($scope.produit.reservation[i].dateReservation).getFullYear()===date.getFullYear())
+            &&(new Date($scope.produit.reservation[i].dateReservation).getMonth()===date.getMonth())
+            &&(new Date($scope.produit.reservation[i].dateReservation).getDate()===date.getDate()))
+            {
+              available = false;
+            }
+          }}
+          return available;
+        };
+
 
       var getAll = function () {
         $scope.produits = [] ;
