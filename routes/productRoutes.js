@@ -27,6 +27,18 @@ console.log("aaaaa");
     });
   });
 
+  // recuperation les produits a louer
+  produitRouter.get('/location',function(req, res){
+    var location = req.params.location;
+  console.log("aaaaa");
+      Produit.find({"location":true}, function(err, locations){
+        if(err)
+          res.status(500).send(err);
+        else
+          res.json(locations);
+      });
+    });
+
 
 
 
@@ -89,8 +101,10 @@ produitRouter.route('/:id')
                 nom: req.body.nom
                 , image: req.body.image
                 , prix: req.body.prix
+                , prixlocation: req.body.prixlocation
                 , quantite: req.body.quantite
                 , categorie :req.body.categorie
+                , location: req.body.location
 
         }
 

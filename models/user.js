@@ -13,7 +13,8 @@ var User = new Schema({
     username : String,
     password : String,
     photo:String,
-    statut : { type:String , default:"customer"},
+    
+    statut : { type:Boolean , default:false},
     panier:[String]
 
 });

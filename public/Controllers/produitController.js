@@ -32,6 +32,8 @@ angular.module('app').controller('produitController',['$scope', '$http',function
         $scope.produit.prix="";
         $scope.produit.quantite="";
         $scope.produit.categorie="";
+        $scope.produit.prixlocation="";
+        $scope.produit.location="";
 
       });
   };

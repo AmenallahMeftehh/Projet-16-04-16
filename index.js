@@ -18,7 +18,7 @@ var port = process.env.PORT || 8000;
 mongoose.connect('mongodb://localhost/bdchallenge');
 // instantiation d'express
 var app = express();
-
+var http = require('http').Server(app);
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));

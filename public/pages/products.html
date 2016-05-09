@@ -9,17 +9,26 @@
             <th>Image</th>
             <th>Prix</th>
             <th>Quantité</th>
+            <th>Location</th>
+            <th>Prix location</th>
             <th>Categorie</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="col-md-2-col-xs-3"><input type="text" id="title" placeholder="Produit nom" class="form-control" ng-model="produit.nom"></td>
-            <td class="col-md-3-col-xs-5"><input type="text" id="title" placeholder="Produit url-image" class="form-control" ng-model="produit.image"></td>
-            <td class="col-md-1 col-xs-1"><input type="number" id="title" placeholder="Produit prix" class="form-control" ng-model="produit.prix"></td>
-            <td class="col-md-1 col-xs-1"><input type="number" id="title" placeholder="Produit quantité" class="form-control" ng-model="produit.quantite"></td>
-            <td class="col-md-2 col-xs-1">
+            <td class="col-md-1"><input type="text" id="title" placeholder="nom" class="form-control" ng-model="produit.nom"></td>
+            <td class="col-md-3"><input type="text" id="title" placeholder="url-image" class="form-control" ng-model="produit.image"></td>
+            <td class="col-md-1 "><input type="number" id="title" placeholder="prix" class="form-control" ng-model="produit.prix"></td>
+            <td class="col-md-1 "><input type="number" id="title" placeholder="quantité" class="form-control" ng-model="produit.quantite"></td>
+            <td class="col-md-1 "> <div flex-xs flex="50">
+          <md-checkbox ng-model="produit.location" aria-label="Checkbox 1">
+            A louer: {{ produit.location }}
+          </md-checkbox>
+        </div></td>
+            <td class="col-md-1 "><input type="number" id="title" placeholder="prix location" class="form-control" ng-model="produit.prixlocation"></td>
+
+            <td class="col-md-2 ">
               <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="produit.categorie" multiple>
                     <option value="football">Football</option>
                     <option value="cyclisme">Cyclisme</option>
@@ -36,6 +45,8 @@
             <td><img style="width:50%;height:50%"ng-src='{{produit.image}}'/></td>
             <td>{{produit.prix}}</td>
             <td>{{produit.quantite}}</td>
+            <td>{{produit.location}}</td>
+            <td>{{produit.prixlocation}}</td>
             <td>{{produit.categorie}}</td>
             <td>
               <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>

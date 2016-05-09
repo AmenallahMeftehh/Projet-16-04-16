@@ -18,6 +18,11 @@ $routeProvider
   controller:'produitController'
 
 })
+.when('/prodlocation',{
+  templateUrl:'public/pages/prodlocation.html',
+  controller:'produitLocationController'
+
+})
 .when('/contact',{
   templateUrl:'public/pages/contact.html'
 

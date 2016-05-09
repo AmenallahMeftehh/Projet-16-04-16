@@ -138,12 +138,13 @@ router.delete('/:id/panier/:prodid',function(req, res){
 router.get('/:id/panier',function(req, res){
   User.id=req.params.id;
 
-  User.find({_id:User.id},{panier:[]},function(err){
+  User.find({_id:User.id},{panier:User.id},function(err,data){
     if(err)
       res.status(500).send(err);
     else
+    res.json(data);
     console.log("aaaa");
-      res.status(204).send('reup');
+
   });
 });
 
