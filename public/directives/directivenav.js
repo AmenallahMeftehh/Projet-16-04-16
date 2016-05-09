@@ -4,13 +4,23 @@ angular.module('app').directive('navmenu', function() {
     templateUrl:'public/pages/nav.html',
     controller:['$scope','$http','$rootScope', function($scope,$http,$rootScope) {
       $rootScope.islogged = false;
+      $rootScope.isadmin = false;
 
       $http.get('/users/session').success(function(response){
       console.log(response);
-        if(response){
-                 $rootScope.islogged = true;
+      $scope.user=response;
+      $http.get('/users/'+$scope.user._id).success(function(user){
+        console.log(user);
+        if(user){
+       $rootScope.islogged = true;
+       if(user[0].statut){
+         $rootScope.isadmin = true;
+
+       }
       }
+
         });
+          });
     }]
   };
 });
