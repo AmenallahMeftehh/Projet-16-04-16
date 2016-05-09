@@ -10,7 +10,7 @@
                     <ul class="nav navbar-nav">
                         <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a ng-href="/#register">Sign up</a></li>
                         <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a ng-href="/#login">Login</a></li>
-                        <li style="float:rigth" ng-if="islogged" class=""><a href="" class="ng-binding" >Hello {{user.username}}</a></li>
+                        <li style="float:rigth" ng-show="islogged" class=""><a href="" class="ng-binding" >Hello {{user.username}}</a></li>
                         <li style="float:rigth" class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>More<b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li ng-if="islogged" class="">

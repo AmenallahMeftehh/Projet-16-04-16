@@ -8,7 +8,9 @@ prix:{type:Number},
 prixlocation:{type:Number},
 quantite: {type:Number},
 categorie:{type:String},
-location: { type:Boolean , default:false}
+location: { type:Boolean , default:false},
+reservation:[{idUser:{type:String},idProduit:{type:String},
+  dateReservation:{type:Date,default:Date.now()}]
 });
 
 module.exports=mongoose.model('Produit',produitModel);

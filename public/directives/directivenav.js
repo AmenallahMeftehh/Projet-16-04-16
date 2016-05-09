@@ -13,7 +13,7 @@ angular.module('app').directive('navmenu', function() {
         console.log(user);
         if(user){
        $rootScope.islogged = true;
-       if(user[0].statut){
+       if(user.statut){
          $rootScope.isadmin = true;
 
        }

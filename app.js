@@ -1,7 +1,8 @@
 angular.module('app',['ngRoute', 'ui.bootstrap','ngMaterial']).config(['$routeProvider','$mdThemingProvider',function($routeProvider,$mdThemingProvider) {
   $mdThemingProvider.theme('default')
   .primaryPalette('blue-grey')
-  .accentPalette('light-blue');
+  .accentPalette('blue');
+
 $routeProvider.when('/login',{
   templateUrl:'public/pages/login.html',
   controller:'LoginCtrl'
@@ -30,10 +31,7 @@ $routeProvider.when('/login',{
 
 
 })
-.when('/nav',{
-  templateUrl:'public/pages/nav.html',
-    controller:'LoginCtrl'
-})
+
 .when('/products',{
   templateUrl:'public/pages/products.html',
   controller:'produitController'

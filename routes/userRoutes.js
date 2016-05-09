@@ -79,7 +79,6 @@ router.get('/:id', function(req, res) {
     if(err){
         res.status(500).send(err);
     }
-
     else{
       res.json(data);
       console.log("aaaa");
