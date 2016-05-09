@@ -36,8 +36,8 @@
                     <option value="golf">Golf</option>
                   </select>
             </td>
-             <td class="col-md-2 col-xs-1"><button placeholder="Produit add" class="btn btn-success" ng-click="addProduct()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
-              <button placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
+             <td class="col-md-2 col-xs-1"><md-button class="md-raised md-primary"  placeholder="Produit add" class="btn btn-success" ng-click="addProduct()"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>Add</md-button>
+            <md-button class="md-raised md-primary"  placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span><img style="width:15px;height:15px;"src="public/images/update-arrows.png" alt="" /></span>Update</md-button>
             </td>
           </tr>
           <tr ng-repeat="produit in produits | filter:searchProduit | limitTo:maxSize:(currentPage - 1) * maxSize">
@@ -49,9 +49,9 @@
             <td>{{produit.prixlocation}}</td>
             <td>{{produit.categorie}}</td>
             <td>
-              <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>
-              <button class="btn btn-warning" ng-click="recup(produit._id)"><span class="glyphicon glyphicon-pencil"></span></button>
-              <button class="btn btn-danger" ng-click="deleteProduct(produit._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span></button>
+              <md-button class="md-raised md-primary"><a href="#/details/{{produit._id}}"  ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>Find</md-button>
+              <md-button  class="md-raised md-primary" ng-click="recup(produit._id)"><span class="glyphicon glyphicon-pencil"></span>Edit</md-button>
+              <md-button class="md-raised md-primary" ng-click="deleteProduct(produit._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
             </td>
           </tr>
         </tbody>

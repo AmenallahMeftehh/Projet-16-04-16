@@ -3,13 +3,26 @@
     <div ng-model="produit" class="dtl col-xs-6 col-lg-offset-3">
         <div class="thumbnail">
             <h1 style="text-align:center">{{produit.nom}}</h1>
+            <h2 style="text-align:center"ng-hide="produit.location"class="prix">PRICE : {{produit.prix}} $</h2>
+            <h2 style="text-align:center"ng-show="produit.location"class="prix">Prix Location : {{produit.prixlocation}} $</h2>
+
             <img ng-src="{{produit.image}}" alt="{{p.nom}}"/>
-            <h2 class="prix">PRICE : {{produit.prix}} $</h2>
+
             <div class="caption">
-            <md-button ng-click="addpanier(produit)">
-                <strong><img src="public/images/shopping.png" ></strong>
+            <md-button ng-hide="produit.location"ng-click="addpanier(produit)">
+                <strong><img src="public/images/shopping.png" ></strong></div>
 </md-button>
-            </div>
+<div class="details" ng-show="produit.location">
+  <md-datepicker ng-model="user.submissionDate" md-placeholder="Date debut">
+            </md-datepicker>
+            <md-datepicker ng-model="user.submissionDate" md-placeholder="Date fin">
+            </md-datepicker>
+            <md-button  class="md-primary"style="margin-left:25%;margin-top:2em"ng-click="" >
+                <strong>Reserver votre article</strong>
+            </md-button>
+</div>
+
+
             </div>
         </div>
 

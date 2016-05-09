@@ -41,21 +41,40 @@
             </button>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <md-content class="md-padding">
+    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+      <md-tab> <a href="#home"><img  src="public/images/gym.png" /></a></md-tab>
+<md-tab><a  href="#football">FOOTBALL</a></md-tab>
+<md-tab><a  href="#tennis">TENNIS</a></md-tab>
+<md-tab><a  href="#golf">GOLF</a></md-tab>
+<md-tab><a  href="#cyclisme">CYCLISME</a></md-tab>
+<md-tab><a  href="#produits">ALL PRODUCTS</a></md-tab>
+<md-tab><a  href="#prodlocation">PRODUCTS FOR RENTING</a></md-tab>
+<md-tab><a  ng-click="panier()" href="/#panier">  <strong><img src="public/images/shopping-cart.png" style="margin-right:1em;" />Panier</strong></a></md-tab>
 
-            <ul class="nav navbar-nav ">
+
+
+        <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+          <div ng-bind="tab.content"></div>
+          <br/>
+          <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
+        </div>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+            <!-- <ul class="nav navbar-nav ">
                 <a class="a-li" href="#home"><img class="logo1" src="public/images/gym.png" /></a>
-                <li><a class="a-li" href="#football">FOOTBALL</a></li>
-                <li><a class="a-li" href="#tennis">TENNIS</a></li>
-                <li><a class="a-li" href="#golf">GOLF</a></li>
-                <li><a class="a-li" href="#cyclisme">CYCLISME</a></li>
-                <li><a class="a-li" href="#produits">ALL PRODUCTS</a></li>
-                <li><a class="a-li" href="#prodlocation">PRODUCTS FOR RENTING</a></li>
+                <li><a  href="#football">FOOTBALL</a></li>
+                <li><a  href="#tennis">TENNIS</a></li>
+                <li><a  href="#golf">GOLF</a></li>
+                <li><a  href="#cyclisme">CYCLISME</a></li>
+                <li><a  href="#produits">ALL PRODUCTS</a></li>
+                <li><a  href="#prodlocation">PRODUCTS FOR RENTING</a></li>
 
                 <li>
                     <a class="btn btn-info navbar-btn" ng-click="panier()" href="/#panier"><i class="fa fa-shopping-cart">&nbsp;</i> <img src="public/images/shopping-cart.png" style="margin-right:1em;" />Panier</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
 </nav>

@@ -11,7 +11,7 @@
 
 <md-content class="col-md-12">
     <div >
-<md-card  class="portion col-md-3" ng-repeat="produit in produits | displayMe:prix | filter:lettres
+<md-card  class="portion col-md-3 col-xs-12" ng-repeat="produit in produits | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize">
         <md-card-title>
           <md-card-title-text>
@@ -23,8 +23,7 @@
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button href="#/details/{{produit._id}}" style="background-color:grey"><span class="glyphicon glyphicon-zoom-in"></span>Details </md-button>
-
+  <md-button href="#/details/{{produit._id}}" class="md-raised md-primary">Details </md-button>
         </md-card-actions>
       </md-card>
     </div>

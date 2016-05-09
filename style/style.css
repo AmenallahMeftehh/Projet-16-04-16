@@ -59,9 +59,12 @@ margin: 2em;
 
 }
 .navbar-btn{
-  height: 3.5em;
+  height: 8.5em;
   width: 8.5em;
-  margin-left: 5em;
+  margin-left: 1em;
+  background-color: #3a5795;
+  border: 1px groove;
+  border-radius: 4px 2px;
 }
 
 .slider{
@@ -70,11 +73,15 @@ margin: 2em;
 .logo1 {
 
     float: left;
-    margin-right: 8em;
+    margin-right: 2em;
     margin-left: 7em;
-
 }
-
+.details{
+  margin: 1em;
+  padding: 3em;
+  border: 2px groove;
+  border-radius: 4px 2px;
+}
 .inputrecherche {
     margin: 1em;
     width: 100%;

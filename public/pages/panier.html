@@ -34,10 +34,11 @@
       <td><label style="color:black" >{{quantite*produit.prix}}</label></td>
 
       <td>
+        <md-button class="md-raised md-primary" ng-click="" >
+            <strong><a href="#/details/{{produit._id}}"></a>Details</strong>
+        </md-button>
 
-        <a href="#/details/{{produit._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
-
-        <button class="btn btn-danger" ng-click="delete(produit)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+        <md-button class="md-raised md-warn" ng-click="delete(produit)">Delete</md-button>
       </td>
 
 
