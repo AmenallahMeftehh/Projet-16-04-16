@@ -1,6 +1,6 @@
 // controlleur details produit
 angular.module('app').controller('DetailsProduitController', ['$location','$scope', '$http','$routeParams',
-    '$rootScope',function($location,$scope, $http, $routeParams,$rootScope){
+    '$rootScope','$mdDialog',function($location,$scope, $http, $routeParams,$rootScope,$mdDialog){
         $scope.produit={};
         var id =$routeParams.itemId;
         // console.log(id);
@@ -8,7 +8,7 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
           $scope.produit = data;});
 
         $scope.quantite=1;
-        $scope.myDate = new Date();
+        $scope.date = new Date();
 
         // fonction pour enlever les dates déja reservé pour cet article
         $scope.onlyAvailable = function(date) {
@@ -52,7 +52,7 @@ angular.module('app').controller('DetailsProduitController', ['$location','$scop
       // appel au fonction getAll()
       getAll();
       // parametres de pagination
-      $scope.maxSize = 9;
+      $scope.maxSize = 6;
       $scope.currentPage = 1;
       $scope.totalItems = 0;
       $scope.prix=500
@@ -68,16 +68,32 @@ $scope.reserver=function(date,produit){
       console.log(user[0]);
 
       $http.post('produits/'+produit._id+'/reservation/'+user[0]._id+'/date/'+date).success(function(res){
-        $scope.date=Date.now();
-        $scope.message = "produit réservé";
+        $scope.onlyAvailable(date);
+        $scope.date="";
+
         console.log("callback produit reservé pour la date"+date);
       });
     });
   });
 }
 
+// fonction pour le dialog pour la reservation
+  $scope.showConfirm = function(ev,date,produit) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Voulez vous reserver cet produit?')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Reserver!')
+          .cancel('Annuler');
 
-
+    $mdDialog.show(confirm).then(function() {
+      $scope.status = 'reservation confirmée.';
+      $scope.reserver(date,produit);
+    }, function() {
+      $scope.status = 'You decided to keep your debt.';
+    });
+  };
 
 
 

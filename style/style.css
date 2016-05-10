@@ -36,6 +36,14 @@ margin: 1em auto;
 
 
 }
+.drop{
+  background-color: blue;
+  font-size: 22px;
+  font-family: sans-serif;
+  color:white;
+  border: 2px groove;
+  border-radius: 2px 4px;
+}
 .btn1{
   height:38px;
   width: 120px;
