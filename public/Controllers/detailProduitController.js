@@ -1,7 +1,7 @@
 // controlleur details produit
 angular.module('app').controller('DetailsProduitController', ['$location','$scope', '$http','$routeParams',
     '$rootScope',function($location,$scope, $http, $routeParams,$rootScope){
-$scope.produit={};
+        $scope.produit={};
         var id =$routeParams.itemId;
         // console.log(id);
         $http.get('/produits/'+id).success(function(data){
@@ -9,6 +9,8 @@ $scope.produit={};
 
         $scope.quantite=1;
         $scope.myDate = new Date();
+
+        // fonction pour enlever les dates déja reservé pour cet article
         $scope.onlyAvailable = function(date) {
           var available = true;
           if($scope.produit.reservation)
@@ -24,7 +26,7 @@ $scope.produit={};
           return available;
         };
 
-
+// fonction pour recuperer tous les produits dans le panier d'un user
       var getAll = function () {
         $scope.produits = [] ;
         console.log("getAll");
@@ -47,11 +49,31 @@ $scope.produit={};
               console.log('i received the data i requested');
           });});
       };
+      // appel au fonction getAll()
       getAll();
+      // parametres de pagination
       $scope.maxSize = 9;
       $scope.currentPage = 1;
       $scope.totalItems = 0;
       $scope.prix=500
+
+// reserver un produit par un utilisateur a une date bien détérminée
+$scope.reserver=function(date,produit){
+  console.log(produit._id);
+  console.log(date);
+  $http.get('/users/session').success(function(response){
+    console.log(response._id);
+    $http.get('/users/'+response._id).success(function(user){
+      console.log(user[0]);
+
+      $http.post('produits/'+produit._id+'/reservation/'+user[0]._id+'/date/'+date+1).success(function(res){
+
+        console.log("callback produit reservé pour la date"+date);
+      });
+    });
+  });
+}
+
 
 // ajouter un produit dans un panier
       $scope.addpanier=function(produit){

@@ -13,10 +13,10 @@
                 <strong><img src="public/images/shopping.png" ></strong></div>
 </md-button>
         <div class="details" ng-show="produit.location" >
-        <md-datepicker md-date-filter="onlyAvailable" ng-model="myDate" md-placeholder="Date debut">
+        <md-datepicker md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut">
           </md-datepicker>
 
-            <md-button  class="md-primary"style="margin-left:25%;margin-top:2em"ng-click="" >
+            <md-button  class="md-primary"style="margin-left:25%;margin-top:2em"ng-click="reserver(date,produit)" >
                 <strong>Reserver votre article</strong>
             </md-button>
 </div>

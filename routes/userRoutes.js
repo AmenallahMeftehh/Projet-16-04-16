@@ -13,8 +13,9 @@ var routes = function(User){
   router.post('/register', function(req, res) {
       User.register (new User({firstname: req.body.firstname,
                               lastname: req.body.lastname,
-                              username: req.body.username
-                               }),
+                              username: req.body.username,
+                              photo: req.body.photo,
+                              statut:req.body.statut}),
           req.body.password, function(err, account) {
               if (err) {
                   return res.status(500).json({

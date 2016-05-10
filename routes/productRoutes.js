@@ -128,6 +128,40 @@ produitRouter.route('/:id')
   });
 
 
+
+  // reservation
+  // recuperer les reservations sur un produit
+  produitRouter.get('/:id/reservation',function(req, res){
+    Produit.id=req.params.id;
+
+    Produit.find({_id:Produit.id},{reservation:Produit.id},function(err,data){
+      if(err)
+        res.status(500).send(err);
+      else
+      res.json(data);
+      console.log("aaaa");
+
+    });
+  });
+// ajouter une reservation sur un produit par un user dans le tableau des reservations
+  produitRouter.post('/:idProduit/reservation/:idUser/date/:dateReservation',function(req,res){
+  var idProduit= req.params.idProduit;
+  var idUser=req.params.idUser;
+  var dateReservation= req.params.dateReservation;
+
+  Produit.update({_id:idProduit},{$push:{reservation:{idProduit:idProduit,idUser:idUser,dateReservation:dateReservation}}},function (err,data) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+
+  });
+
+  })
+
+
+
     return produitRouter;
 };
 module.exports = routes;

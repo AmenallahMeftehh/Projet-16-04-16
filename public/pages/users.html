@@ -27,21 +27,21 @@
                     <option value="customer">Simple User</option>
                   </select>
             </td>
-             <td class="col-md-2"><button placeholder="User add" class="btn btn-success" ng-click="add()"><span><img src="public/images/plus-button.png" alt="" /></span></button>
-              <button placeholder="User ipdate" class="btn btn-info" ng-click="update(user)"><span><img src="public/images/update-arrows.png" alt="" /></span></button>
-            </td>
+            <td class="col-md-2 col-xs-1"><md-button class="md-raised md-primary"  placeholder="add user" class="btn btn-success" ng-click="add()"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>Add</md-button>
+           </td>
           </tr>
           <tr ng-repeat="user in users | filter:searchUser | limitTo:maxSize:(currentPage - 1) * maxSize">
             <td>{{user.firstname}}</td>
             <td>{{user.lastname}}</td>
             <td>{{user.username}}</td>
             <td>{{user.password}}</td>
-            <td><img style="width:50%;height:50%"ng-src='{{user.photo}}'/></td>
+            <td><img class="img-circle"style="width:100px;height:100px"ng-src='{{user.photo}}'/></td>
             <td>{{user.statut}}</td>
             <td>
-              <a href="#/details/{{user._id}}" class="btn btn-primary" ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>
-              <button class="btn btn-danger" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span></button>
-            </td>
+
+                <md-button class="md-raised md-primary" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
+              </td>
+
           </tr>
         </tbody>
       </table>

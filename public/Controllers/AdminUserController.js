@@ -24,24 +24,54 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
               });
             };
 
-
-            // fonction pour ajouter un utilisateur
+            //
+            // // fonction pour ajouter un utilisateur
+            // $scope.add = function () {
+            //   console.log($scope.user);
+            //   console.log('aaaa');
+            //   $http.post('/users', $scope.user).success(function (response) {
+            //     console.log(response);
+            //     console.log('ajout user');
+            //     getAll();
+            //     $scope.user.firstname="";
+            //     $scope.user.lastname="";
+            //     $scope.user.photo="";
+            //     $scope.user.username="";
+            //     $scope.user.statut="";
+            //     $scope.user.password="";
+            //
+            //   });
+            // };
             $scope.add = function () {
-              console.log($scope.user);
-              console.log('aaaa');
-              $http.post('/users', $scope.user).success(function (response) {
-                console.log(response);
-                console.log('ajout user');
-                getAll();
-                $scope.user.firstname="";
-                $scope.user.lastname="";
-                $scope.user.photo="";
-                $scope.user.username="";
-                $scope.user.statut="";
-                $scope.user.password="";
 
-              });
+                // initial values
+                $scope.error = false;
+                $scope.disabled = true;
+
+                // call register from service
+                AuthService.register($scope.user.firstname
+                        , $scope.user.lastname
+                        , $scope.user.username
+                        , $scope.user.password
+                        , $scope.user.photo
+                        , $scope.user.statut)
+                    // handle success
+                    .then(function () {
+
+                        $scope.disabled = false;
+                        $scope.user = {};
+                    })
+                    // handle error
+                    .catch(function () {
+                        $scope.error = true;
+                        $scope.errorMessage = "Sorry, Username exists already";
+                        $scope.disabled = false;
+                        $scope.user = {};
+                    });
+
             };
+
+
 // fonction pour supprimer un utilisateur
 $scope.delete = function (id) {
     console.log(id);
