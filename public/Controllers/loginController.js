@@ -48,7 +48,8 @@ console.log(response);
                             console.log('Good to see you, ' + response.name + '.');
                             console.log(response);
                             $rootScope.islogged = true;
-                            $location.path('/panier');
+                            $location.path('/home');
+                            console.log("aa")
                             $scope.disabled = false;
                             $scope.user = {};
                         });
@@ -57,6 +58,7 @@ console.log(response);
                     }
                 },{
                     scope: 'publish_actions'
+
                     , return_scopes: true
                 });
         }

@@ -9,7 +9,7 @@
 <md-content class="col-md-12">
     <div>
 <md-card  class="portion col-md-3" ng-repeat="ten in tennis | displayMe:prix | filter:lettres
-| limitTo:maxSize:(currentPage - 1) * maxSize">
+| limitTo:maxSize:(currentPage - 1) * maxSize"ng-show="!ten.location">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">  <h3>{{ten.nom}}</h3></span>

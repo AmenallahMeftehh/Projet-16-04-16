@@ -10,8 +10,8 @@
 <md-content class="col-md-12">
     <div>
 <md-card  class="portion col-md-3" ng-repeat="golf in golfs | displayMe:prix | filter:lettres
-| limitTo:maxSize:(currentPage - 1) * maxSize">
-        <md-card-title>
+| limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!golf.location">
+        <md-card-title >
           <md-card-title-text>
             <span class="md-headline">  <h3>{{golf.nom}}</h3></span>
             <span class="md-subhead"><h5 class='prix'>PRICE : {{golf.prix}} $</h5></span>

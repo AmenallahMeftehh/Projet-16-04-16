@@ -21,7 +21,7 @@ angular.module('app').controller('RegisterCtrl', ['$scope', '$location', 'AuthSe
                 // handle error
                 .catch(function () {
                     $scope.error = true;
-                    $scope.errorMessage = "Sorry, Username exists already";
+                    $scope.errorMessage = "Désolé ce nom d'utilisateur existe déja";
                     $scope.disabled = false;
                     $scope.registerForm = {};
                 });

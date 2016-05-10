@@ -20,6 +20,18 @@ angular.module('app').controller('produitController',['$scope', '$http',function
       });
     };
 
+    $scope.reservation=function(produit){
+       $http.get('/produits/'+$scope.produit._id+'/reservation').success(function(data){
+         console.log(data);
+         $scope.reservations=data[1];
+        for (var i=0 ; i<$scope.reservations.length;i++){
+          $scope.reservation=$scope.reservations[i];
+          $scope.reservations.push(reservation);
+          // $http.get('/produits/'+$scope.produit+'reservation')
+
+        }
+      })};
+
   $scope.addProduct = function () {
       console.log($scope.produit);
       console.log('aaaa');

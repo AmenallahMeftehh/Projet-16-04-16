@@ -12,7 +12,7 @@
 <md-content class="col-md-12">
     <div >
 <md-card  class="portion col-md-3 col-xs-12" ng-repeat="produit in produits | displayMe:prix | filter:lettres
-| limitTo:maxSize:(currentPage - 1) * maxSize">
+| limitTo:maxSize:(currentPage - 1) * maxSize"ng-show="!produit.location">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">  <h3>{{produit.nom}}</h3></span>

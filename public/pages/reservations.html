@@ -1,54 +1,28 @@
-<div class="container">
-  <h1>{{viewName}}</h1>
-  <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin-bottom: 10px">
-  <!-- <pagination total-items="{{produits.length}}" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination> -->
-  <table class="col-md-12 col-xs-12 table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Utilisateur</th>
-            <th>produit</th>
-            <th>Date de réservation</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr>
-            <td class="col-md-1"><input type="text" id="title" placeholder="nom" class="form-control" ng-model="produit.nom"></td>
-            <td class="col-md-3"><input type="text" id="title" placeholder="url-image" class="form-control" ng-model="produit.image"></td>
-            <td class="col-md-1 "><input type="number" id="title" placeholder="prix" class="form-control" ng-model="produit.prix"></td>
-            <td class="col-md-1 "><input type="number" id="title" placeholder="quantité" class="form-control" ng-model="produit.quantite"></td>
-            <td class="col-md-1 "> <div flex-xs flex="50">
-          <md-checkbox ng-model="produit.location" aria-label="Checkbox 1">
-            A louer: {{ produit.location }}
-          </md-checkbox>
-        </div></td>
-            <td class="col-md-1 "><input type="number" id="title" placeholder="prix location" class="form-control" ng-model="produit.prixlocation"></td>
 
-            <td class="col-md-2 ">
-              <select class="form-control"name="multipleSelect" id="multipleSelect" ng-model="produit.categorie" multiple>
-                    <option value="football">Football</option>
-                    <option value="cyclisme">Cyclisme</option>
-                    <option value="tennis">Tennis</option>
-                    <option value="golf">Golf</option>
-                  </select>
-            </td>
-             <td class="col-md-2 col-xs-1"><md-button class="md-raised md-primary"  placeholder="Produit add" class="btn btn-success" ng-click="addProduct()"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>Add</md-button>
-            <md-button class="md-raised md-primary"  placeholder="Produit add" class="btn btn-info" ng-click="update(produit)"><span><img style="width:15px;height:15px;"src="public/images/update-arrows.png" alt="" /></span>Update</md-button>
-            </td>
-          </tr> -->
-          <tr ng-repeat="reservation in reservations | limitTo:maxSize:(currentPage - 1) * maxSize">
-            <td>{{reservation.idUser}}</td>
-            <td><img style="width:50%;height:50%"ng-src='{{produit.image}}'/></td>
-            <td>{{reservation.idProduit}}</td>
-            <td>{{reservation.dateReservation}}</td>
 
-            <!-- <td>
-              <md-button class="md-raised md-primary"><a href="#/details/{{produit._id}}"  ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>Find</md-button>
-              <md-button  class="md-raised md-primary" ng-click="recup(produit._id)"><span class="glyphicon glyphicon-pencil"></span>Edit</md-button>
-              <md-button class="md-raised md-primary" ng-click="deleteProduct(produit._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
-            </td> -->
-          </tr>
-        </tbody>
-      </table>
-      <uib-pagination total-items="reservations.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
-</div>
+
+
+
+          <div class="container col-md-8 col-lg-offset-2" ng-model="produit" style="margin-top:5em;">
+
+            <table class="col-md-8 col-xs-12 table table-responsive table-hover ">
+                  <thead>
+                    <tr>
+                      <th>Utilisateur</th>
+                      <th>produit</th>
+                      <th>Date de réservation</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr ng-repeat="reservation in produit.reservation  | limitTo:maxSize:(currentPage - 1) * maxSize">
+                      <td>{{reservation.idUser}}</td>
+                      <td>{{reservation.idProduit}}</td>
+                      <td>{{reservation.dateReservation}}</td>
+
+                    </tr>
+                  </tbody>
+                </table>
+                <uib-pagination total-items="reservations.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+          </div>

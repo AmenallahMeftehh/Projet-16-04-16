@@ -67,7 +67,8 @@ $scope.reserver=function(date,produit){
       console.log(user[0]);
 
       $http.post('produits/'+produit._id+'/reservation/'+user[0]._id+'/date/'+date).success(function(res){
-
+        date=null
+        $scope.message = "produit réservé";
         console.log("callback produit reservé pour la date"+date);
       });
     });

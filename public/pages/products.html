@@ -49,7 +49,9 @@
             <td>{{produit.prixlocation}}</td>
             <td>{{produit.categorie}}</td>
             <td>
-              <md-button class="md-raised md-primary"><a href="#/reservations/{{produit._id}}"  ><span ><img style="width:15px;height:15px;"src="public/images/searching-magnifying-glass.png" alt="" /></span></a>Find</md-button>
+              <md-card-actions layout="row" >
+              <md-button ng-show="produit.location"href="#/reservations/{{produit._id}}" class="md-raised md-primary">Liste des réservations</md-button>
+              </md-card-actions>
               <md-button  class="md-raised md-primary" ng-click="recup(produit._id)"><span class="glyphicon glyphicon-pencil"></span>Edit</md-button>
               <md-button class="md-raised md-primary" ng-click="deleteProduct(produit._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
             </td>
