@@ -147,7 +147,7 @@ produitRouter.route('/:id')
   produitRouter.post('/:idProduit/reservation/:idUser/date/:dateReservation',function(req,res){
   var idProduit= req.params.idProduit;
   var idUser=req.params.idUser;
-  var dateReservation= req.params.dateReservation;
+  var dateReservation= req.params.dateReservation+1;
 
   Produit.update({_id:idProduit},{$push:{reservation:{idProduit:idProduit,idUser:idUser,dateReservation:dateReservation}}},function (err,data) {
     if (err) {

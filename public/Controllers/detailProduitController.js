@@ -66,13 +66,17 @@ $scope.reserver=function(date,produit){
     $http.get('/users/'+response._id).success(function(user){
       console.log(user[0]);
 
-      $http.post('produits/'+produit._id+'/reservation/'+user[0]._id+'/date/'+date+1).success(function(res){
+      $http.post('produits/'+produit._id+'/reservation/'+user[0]._id+'/date/'+date).success(function(res){
 
         console.log("callback produit reservé pour la date"+date);
       });
     });
   });
 }
+
+
+
+
 
 
 // ajouter un produit dans un panier

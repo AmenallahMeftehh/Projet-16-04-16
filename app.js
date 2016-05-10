@@ -16,6 +16,11 @@ $routeProvider.when('/login',{
   controller:'LoginCtrl'
 
 })
+.when('/reservations',{
+  templateUrl:'public/pages/reservations.html',
+  controller:'produitLocationController'
+
+})
 .when('/produits',{
   templateUrl:'public/pages/produits.html',
   controller:'produitController'

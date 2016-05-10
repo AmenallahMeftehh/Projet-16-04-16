@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 // initialisation et declaration de session pour utiliser passport
-app.use(session({secret: 'secrhnfgdbdbdbgbgdbdet',
+app.use(session({secret: 'secrhnfghhhdbdbdbgbgdbdet',
 resave:true,
 saveUninitialized:true}));
 
