@@ -6,20 +6,30 @@
 
             <form name="myform" ng-submit="login()" novalidate>
             <h2 class="error validationerror">{{errorMessage}}</h2>
-
-            <input type="text"  class="form-control1 form-control" name="username" placeholder="User Name" ng-model="user.username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'meftah.amenallah@gmail.com';}" />
+            <md-input-container class="md-block" flex-gt-sm>
+                    <label>Username</label>
+                    <input type="text"  class="form-control1 form-control" name="Username"
+                           placeholder="Username"
+                        ng-model="user.username"
+                           required md-no-asterisk>
             <p class="error validationerror" style='color:red;'ng-show="myform.user.$invalid && myform.username.$touched"> Please enter a valid UserName</p>
+          </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                    <label>Password</label>
+                    <input type="password"  class="form-control1 form-control" name="Password"
+                           placeholder="password"
+                        ng-model="user.password"
+                           required md-no-asterisk>
+                           <p class="error validationerror" style='color:red;'ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
 
-            <input type="password" class="form-control1 form-control" name="password" placeholder="Password" ng-model="user.password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" />
-            <p class="error validationerror" style='color:red;'ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
-
+                   </md-input-container>
         <label>
         <input type="checkbox" style="margin-top:1em"value="Remember-Me" /> Remember Me?
       </label>
       <div style="text-align:center">
 
 <br>
-    <button type="submit" class="btn1 btn btn-default" ng-click="loginConnect()">LOGIN</button>
+    <md-button type="submit" class="md-raised md-primary" ng-click="loginConnect()">LOGIN</md-button>
 
         <a href="#home"><button type="submit" class="btn1 btn btn-primary" ng-click="FBLogin()"><span><img src="public\images\social (2).png" />&nbsp FACEBOOK</span></button>
           </a>

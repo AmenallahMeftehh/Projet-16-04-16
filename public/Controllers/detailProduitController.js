@@ -63,11 +63,12 @@ $scope.reserver=function(date,produit){
   console.log(date);
   $http.get('/users/session').success(function(response){
     console.log(response._id);
+    $scope.messageUser = "Il faut s'authentifier";
     $http.get('/users/'+response._id).success(function(user){
       console.log(user[0]);
 
       $http.post('produits/'+produit._id+'/reservation/'+user[0]._id+'/date/'+date).success(function(res){
-        date=null
+        $scope.date=Date.now();
         $scope.message = "produit réservé";
         console.log("callback produit reservé pour la date"+date);
       });
