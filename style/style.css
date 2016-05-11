@@ -3,6 +3,7 @@ body,
 header {
     background: #fff;
     font-family: 'Open Sans', sans-serif;
+
 }
 
 .header-bottom {
@@ -32,7 +33,7 @@ button.button {
 
 .signin {
     width: 50% !important;
-    margin: 1em auto;
+    margin: 2em auto;
     background-color: white;
     padding: 2em;
     text-align: center;
@@ -287,6 +288,7 @@ h1 {
     font-family: Lemon-Regular;
     color: #105986;
 }
+
 
 /*footer*/
 

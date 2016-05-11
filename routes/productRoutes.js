@@ -18,7 +18,6 @@ var routes = function (Produit) {
     // recuperation par categorie
     produitRouter.get('/categorie/:categorie', function (req, res) {
         var categorie = req.params.categorie;
-        console.log("aaaaa");
         Produit.find({
             "categorie": categorie
         }, function (err, produits) {
@@ -32,7 +31,6 @@ var routes = function (Produit) {
     // recuperation les produits a louer
     produitRouter.get('/location', function (req, res) {
         var location = req.params.location;
-        console.log("aaaaa");
         Produit.find({
             "location": true
         }, function (err, locations) {
@@ -50,13 +48,11 @@ var routes = function (Produit) {
 
     produitRouter.use('/:produitId', function (req, res, next) {
         Produit.findById(req.params.produitId, function (err, produit) {
-            console.log(req.params.produitId);
 
             if (err)
                 res.status(500).send(err);
             else if (produit) {
                 req.produit = produit;
-                console.log(req.produit);
                 next();
             } else {
                 res.status(404).send("no produit found");
@@ -73,7 +69,6 @@ var routes = function (Produit) {
             if (err)
                 res.status(500).send(err);
             else
-                console.log("aaaa");
             res.status(204).send('recuper');
         });
     })
@@ -126,7 +121,6 @@ var routes = function (Produit) {
         })
         .delete(function (req, res) {
             Produit.id = req.params.id;
-            console.log(req.Produit);
             Produit.findOneAndRemove({
                 _id: Produit.id
             }, function (err) {
@@ -153,14 +147,13 @@ var routes = function (Produit) {
                 res.status(500).send(err);
             else
                 res.json(data);
-            console.log("aaaa");
 
         });
     });
     // ajouter une reservation sur un produit par un user dans le tableau des reservations
-    produitRouter.post('/:idProduit/reservation/:idUser/date/:dateReservation', function (req, res) {
+    produitRouter.post('/:idProduit/reservation/:username/date/:dateReservation', function (req, res) {
         var idProduit = req.params.idProduit;
-        var idUser = req.params.idUser;
+        var username = req.params.username;
         var dateReservation = req.params.dateReservation + 1;
 
         Produit.update({
@@ -169,7 +162,7 @@ var routes = function (Produit) {
             $push: {
                 reservation: {
                     idProduit: idProduit
-                    , idUser: idUser
+                    , username: username
                     , dateReservation: dateReservation
                 }
             }

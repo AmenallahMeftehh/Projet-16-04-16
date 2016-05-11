@@ -12,7 +12,7 @@
         <tbody>
 
             <tr ng-repeat="reservation in produit.reservation  | limitTo:maxSize:(currentPage - 1) * maxSize">
-                <td>{{reservation.idUser}}</td>
+                <td>{{reservation.username}}</td>
                 <td>{{reservation.idProduit}}</td>
                 <td>{{reservation.dateReservation}}</td>
 

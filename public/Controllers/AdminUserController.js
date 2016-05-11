@@ -1,14 +1,14 @@
-angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$rootScope', '$http'
+angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$http'
 
+    , function ($scope, $location, AuthService, $http) {
 
-    
-    , function ($scope, $location, AuthService, $rootScope, $http) {
 
         // recuperer tous les utilisateurs
         var getAll = function () {
             $http.get('/users').success(function (response) {
                 $scope.users = response;
                 console.log('i received the data i requested');
+
             });
         };
         getAll();
@@ -26,9 +26,10 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
 
             });
         };
+
+
         //fonction pour ajouter un utilisateur
         $scope.add = function () {
-
             // initial values
             $scope.error = false;
             $scope.disabled = true;

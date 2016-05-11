@@ -13,7 +13,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var localStrategy = require('passport-local').Strategy;
 // declaration de port
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 3000;
 // connexion a mongodb avec la Base de données bookAPI
 mongoose.connect('mongodb://localhost/bdchallenge');
 // instantiation d'express

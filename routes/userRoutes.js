@@ -54,7 +54,6 @@ var routes = function (User) {
                 res.status(200).json({
                     status: 'Login Successful!!'
                 , });
-                console.log(user);
             });
         })(req, res, next); //passport.authenticate method
     }); //router.post method
@@ -69,28 +68,42 @@ var routes = function (User) {
     });
 
     router.get('/session', function (req, res) {
-        console.log(req.session.user);
         if (!req.session.user) {
             return res.status(404).send("no session");
         }
         return res.json(req.session.user);
 
     })
+    //definir un middleware pour ne pas répéter
 
-    router.get('/:id', function (req, res) {
-        User.id = req.params.id
-        User.find({
-            _id: User.id
-        }, function (err, data) {
-            if (err) {
+    router.use('/:id', function (req, res, next) {
+        User.findById(req.params.id, function (err, user) {
+
+            if (err)
                 res.status(500).send(err);
+            else if (user) {
+                req.user = user;
+                next();
             } else {
-                res.json(data);
-                console.log("aaaa");
+                res.status(404).send("no user found");
             }
-
         });
     });
+
+    // recuperer un utilisateur
+        router.get('/:id', function (req, res) {
+            User.id = req.params.id
+            User.find({
+                _id: User.id
+            }, function (err, data) {
+                if (err) {
+                    res.status(500).send(err);
+                } else {
+                    res.json(data);
+                }
+
+            });
+        });
     //persist the user session after refresh
     router.get('/status', function (req, res) {
         if (!req.isAuthenticated()) {
@@ -114,7 +127,6 @@ var routes = function (User) {
                 }
             }, function (err) {
                 if (err) {
-                    console.log(err);
                     alert("il faut s'authentifier pour effecturer cette operation");
                 } else {
                     res.status(200).json({
@@ -125,20 +137,9 @@ var routes = function (User) {
             });
 
         })
-        // router.get('/:id/',function(req,res){
-        // user= req.body.user;
-        // var iduser=req.params.id;
-        // console.log("aaaaa");
-        // User.find({_id:iduser},{},function (err) {
-        //   if (err) {
-        //     console.log(err);
-        //   } else {
-        //     console.log("sucess");
-        //   }
-        //
-        // });
 
-    // })
+
+
     // delete product from panier
     router.delete('/:id/panier/:prodid', function (req, res) {
         User.id = req.params.id;
@@ -154,10 +155,29 @@ var routes = function (User) {
             if (err)
                 res.status(500).send(err);
             else
-                console.log("aaaa");
             res.status(204).send('Removed');
         });
     });
+
+    router.delete('/:id/panier', function (req, res) {
+        User.id = req.params.id;
+
+        User.update({
+            _id: User.id
+        }, {
+            $pull: {
+                panier:User.id
+            }
+        }, function (err) {
+            if (err)
+                res.status(500).send(err);
+            else
+            res.status(204).send('panier validé ');
+        });
+    });
+
+
+
     // recuperer les produits d'un panier
     router.get('/:id/panier', function (req, res) {
         User.id = req.params.id;
@@ -171,7 +191,6 @@ var routes = function (User) {
                 res.status(500).send(err);
             else
                 res.json(data);
-            console.log("aaaa");
 
         });
     });
@@ -190,17 +209,14 @@ var routes = function (User) {
                 res.json(users);
         });
     });
-    //definir le product router pour recuperer un seul produit à partir de la liste des produits
-    router.route('/:id', function (req, res) {
-        res.json(req.user);
-    });
+
     // ajouter un utilisateur
     router.route('/').post(function (req, res) {
         var user = new User(req.body);
         user.save();
         res.status(201).send(user);
     });
-    // recuperer un utilisateur par id
+    //definir le product router pour recuperer un seul produit à partir de la liste des produits
     router.route('/:id')
         .get(function (req, res) {
             res.json(req.user);
@@ -237,7 +253,6 @@ var routes = function (User) {
         // supprimer un utilisateur
         .delete(function (req, res) {
             User.id = req.params.id;
-            console.log(req.User);
             User.findOneAndRemove({
                 _id: User.id
             }, function (err) {

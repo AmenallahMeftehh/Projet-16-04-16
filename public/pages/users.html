@@ -39,6 +39,7 @@
                 </td>
                 <td class="col-md-2 col-xs-1">
                     <md-button class="md-raised md-primary" placeholder="add user" class="btn btn-success" ng-click="add()"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>Add</md-button>
+                    <md-button class="md-raised md-primary" placeholder="update user" class="btn btn-success" ng-click="update(user)"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>UPDATE</md-button>
                 </td>
             </tr>
             <tr ng-repeat="user in users | filter:searchUser | limitTo:maxSize:(currentPage - 1) * maxSize">
@@ -51,6 +52,7 @@
                 <td>
 
                     <md-button class="md-raised md-primary" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
+                    <md-button class="md-raised md-primary" ng-click="recup(user._id)"><span><img src="public/images/sign.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>EDIT</md-button>
                 </td>
 
             </tr>

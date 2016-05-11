@@ -25,7 +25,7 @@ var produitModel = new Schema({
         , default: false
     }
     , reservation: [{
-        idUser: {
+        username: {
             type: String
         }
         , idProduit: {

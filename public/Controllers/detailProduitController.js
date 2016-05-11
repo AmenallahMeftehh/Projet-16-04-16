@@ -30,19 +30,15 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
             $scope.produits = [];
-            console.log("getAll");
             $http.get('/users/session').success(function (response) {
-                console.log(response._id);
                 $http.get('/users/' + response._id).success(function (user) {
-                    console.log(user);
                     $scope.cart = user[0].panier;
                     console.log($scope.cart);
                     for (var i = 0; i < $scope.cart.length; i++) {
                         $http.get('/produits/' + $scope.cart[i]).success(function (data) {
-                            console.log(data);
                             $scope.produits.push(data);
 
-                            console.log('aaaaa');
+                            console.log("c'est bon !!");
 
                         });
 
@@ -69,7 +65,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
                 $http.get('/users/' + response._id).success(function (user) {
                     console.log(user[0]);
 
-                    $http.post('produits/' + produit._id + '/reservation/' + user[0]._id + '/date/' + date).success(function (res) {
+                    $http.post('produits/' + produit._id + '/reservation/' + user[0].username + '/date/' + date).success(function (res) {
                         $scope.onlyAvailable(date);
                         $scope.date = "";
 
@@ -130,41 +126,38 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         };
 
 
-        // recuperer les produits d'un panier
-        //       var panier=function(){
-        //          $http.get('/users/session').success(function(response){
-        //            $scope.usercart=response.panier;
-        //
-        //             for (var i = 0; i < $scope.usercart.length; i++) {
-        //               $http.get('/produits/'+$scope.usercart[i]).success(function(data){
-        //                 $rootScope.produits.push(data);
-        //
-        //
-        //
-        //             });
-        //             }
-        //         })};
-        // panier();
+$scope.validePanier = function(){
+  $http.get('/users/session').success(function (response) {
+      $http.get('/users/' + response._id).success(function (data) {
+          console.log(data[0]);
+          $scope.user=data[0];
+      console.log($scope.user);
+      for(var i =0;i<$scope.user.panier.length;i++){
+        $http.get('/produits/' + $scope.user.panier[i]).success(function (data) {
+            $scope.produit = data;
+        console.log($scope.produit.quantite);
+        console.log($scope.quantite);
 
+        $scope.produit.quantite-=$scope.quantite;
+      });
+      }
+        $scope.user.panier = null;
+        console.log('panier validé');
+        getAll();
+      });  });
 
-
-
+      }
 
         $scope.delete = function (produit) {
             $http.get('/users/session').success(function (response) {
                 $scope.user = response;
-
-                console.log($scope.user);
                 $http.delete('/users/' + $scope.user._id + '/panier/' + produit._id).success(function (data) {
                     $scope.produit = null;
-                    console.log('delete ok');
+                    console.log('panier validé');
                     getAll();
-
-
-
-
                 });
-
             });
         }
+
+
 }]);
