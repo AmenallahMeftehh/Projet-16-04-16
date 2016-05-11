@@ -2,25 +2,27 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-/* "passportLocalMongoose" a Mongoose plugin that simplifies building username
-and password login with Passport */
+//"passportLocalMongoose" un plugin de Mongoose  qui simplifie la manipulation du login et mot de passe avec passport
 var passportLocalMongoose = require('passport-local-mongoose');
 
 //The User mongoose Schema
 var User = new Schema({
-    firstname : String,
-    lastname : String,
-    username : String,
-    password : String,
-    photo:String,
-    
-    statut : { type:Boolean , default:false},
-    panier:[String]
+    firstname: String
+    , lastname: String
+    , username: String
+    , password: String
+    , photo: String,
+
+    statut: {
+        type: Boolean
+        , default: false
+    }
+    , panier: [String]
 
 });
 
 // Passport Local Mongoose
 User.plugin(passportLocalMongoose);
 
-//exportis the User model
+//exportation the User model
 module.exports = mongoose.model('User', User);

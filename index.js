@@ -3,7 +3,7 @@ var express = require('express');
 // declaration de mongoose pour se connecter a mongodb
 var mongoose = require('mongoose');
 // declaration de bodyParser pour lire body et le parser en jason object
-var  bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 // declaration de passport pour l'authentification
 var passport = require('passport');
 var hash = require('bcrypt-nodejs');
@@ -11,7 +11,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var localStrategy = require('passport-local' ).Strategy;
+var localStrategy = require('passport-local').Strategy;
 // declaration de port
 var port = process.env.PORT || 8000;
 // connexion a mongodb avec la Base de données bookAPI
@@ -21,18 +21,22 @@ var app = express();
 var http = require('http').Server(app);
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 // initialisation et declaration de session pour utiliser passport
-app.use(session({secret: 'secrhnfghhhdbdbdbgbgdbdet',
-resave:false,
-saveUninitialized:false}));
+app.use(session({
+    secret: 'secrhnfghhhdbdbdbgbgdbdet'
+    , resave: false
+    , saveUninitialized: false
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 // declaration d'un model et route de produit
-var Produit = require ('./models/productModel');
+var Produit = require('./models/productModel');
 produitRouter = require('./routes/productRoutes')(Produit);
 app.use('/produits', produitRouter);
 // declaration d'un model et route de user
@@ -51,10 +55,10 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use(express.static(__dirname));
-app.get('/', function(req, res){
-	res.sendFile(__dirname+'/index.html');
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(port, function(){
-	console.log("gulp is running Server on port "+port);
+app.listen(port, function () {
+    console.log("gulp is running Server on port " + port);
 });

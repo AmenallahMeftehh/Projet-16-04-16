@@ -1,81 +1,67 @@
 <nav class="navbar navbar-link " style="margin:0px;" role="navigation">
-    <div class="container">
-        <div id="top">
-            <div class="container">
-                <div class="col-md-6 offer" data-animate="fadeInDown">
-                  <a href="#home"><img style="width:40px;height:40px"  src="public/images/stretching-exercises (1).png" /></a>
+    <div class="container" id="top">
 
-                    <a href="#produits" class="btn btn-default btn-sm" style="margin-top:1em;margin-left:5em" data-animate-hover="shake">Offer of the day</a>
-                </div>
-                <div class="col-md-6" data-animate="fadeInDown">
-                    <ul class="nav navbar-nav">
-                        <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a ng-href="/#register">CREER UN COMPTE</a></li>
-                        <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a ng-href="/#login">S'AUTHENTIFIER</a></li>
-                        <li style="float:rigth" ng-show="islogged" class=""><a href="" class="ng-binding" >BIENVENUE&nbsp{{user.username}}</a></li>
-                        <li style="float:rigth" class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>VOTRE COMPTE<b class="caret"></b></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li ng-if="islogged" class="">
-                                    <a href="/#profil"><img class="img-circle"style="width:50px;heigth:50px;"ng-src="{{user.photo}}" alt="Image indisponible" /></a>
-                                </li>
-                                <li ng-show="isadmin"class=""><a ng-href="/#products"><i class="fa fa-truck">&nbsp;</i>GESTION DES PRODUITS</a></li>
-                                <li ng-show="isadmin"class=""><a ng-href="/#user"><i class="fa fa-user">&nbsp;</i>GESTION DES UTILISATEURS</a></li>
-                                <li ng-show="isadmin"class=""><a ng-href="/#reservations"><i class="fa fa-user">&nbsp;</i>GESTION DES RESERVATIONS</a></li>
-                                <li ng-if="isadmin" class=""><a ng-href="/#offre"><i class="fa fa-wrench">&nbsp;</i>PARAMETRES DU COMPTE</a></li>
-                                <li ng-show="islogged"><a ng-href="/#logout">&nbspSE DECONNECTER</a></li>
-                                <li class="divider"></li>
-                            </ul>
-                        </li>
-                        <li style="float:rigth"><a href="/#contact">CONTACT</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="col-md-6 offer" data-animate="fadeInDown">
+            <a href="#home"><img style="width:40px;height:40px" src="public/images/stretching-exercises (1).png" /></a>
 
+            <a href="#produits" class="btn btn-default btn-sm" style="margin-top:1em;margin-left:5em" data-animate-hover="shake">Offer of the day</a>
         </div>
-
-
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <buttontype="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                <span style="background-color:white"class="sr-only">Toggle navigation</span>
+                <span style="background-color:white"class="icon-bar"></span>
+                <span style="background-color:white"class="icon-bar"></span>
+                <span style="background-color:white"class="icon-bar"></span>
             </button>
         </div>
+        <div class="col-md-6" data-animate="fadeInDown">
+            <ul class="nav navbar-nav" id="nav">
+                <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a ng-href="/#register">CREER UN COMPTE</a></li>
+                <li style="float:rigth" ng-hide="islogged" class="ng-hide"><a ng-href="/#login">S'IDENTIFIER</a></li>
+                <li style="float:rigth" ng-show="islogged" class=""><a href="" class="ng-binding">{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
+                <li style="float:rigth" class="dropdown" ng-show="islogged" dropdown=""><a dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dashboard">&nbsp;</i>VOTRE COMPTE<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-show="isadmin" class=""><a ng-href="/#products"><i class="fa fa-truck">&nbsp;</i>GESTION DES PRODUITS</a></li>
+                        <li ng-show="isadmin" class=""><a ng-href="/#user"><i class="fa fa-user">&nbsp;</i>GESTION DES UTILISATEURS</a></li>
+                        <li ng-show="isadmin" class=""><a ng-href="/#reservations"><i class="fa fa-user">&nbsp;</i>GESTION DES RESERVATIONS</a></li>
+                        <li ng-if="isadmin" class=""><a ng-href="/#offre"><i class="fa fa-wrench">&nbsp;</i>PARAMETRES DU COMPTE</a></li>
+                        <li ng-show="islogged"><a ng-href="/#logout">&nbspSE DECONNECTER</a></li>
+                        <li class="divider"></li>
+                    </ul>
+                </li>
+                <li style="float:rigth"><a href="/#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-        <md-content class="md-padding">
+
+
+
+
+<md-content class="md-padding">
     <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
 
-<md-tab><a  href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png" style="margin-right:0.2em;"/>FOOTBALL</strong></a></md-tab>
-<md-tab><a  href="#tennis"><strong><img src="public/images/tennis.png" style="margin-right:0.2em;"/>TENNIS</strong></a></md-tab>
-<md-tab><a  href="#golf"><strong><img src="public/images/golf-player.png" style="margin-right:0.2em;"/>GOLF</strong></a></md-tab>
-<md-tab><a  href="#cyclisme"><strong><img src="public/images/bicycle-rider.png" style="margin-right:0.2em;"/>CYCLISME</strong></a></md-tab>
-<md-tab><a  href="#produits"><strong><img src="public/images/man-sprinting.png" style="margin-right:0.2em;"/>TOUS NOS PRODUITS</strong></a></md-tab>
-<md-tab><a  href="#prodlocation"><strong><img src="public/images/rent.png" style="margin-right:0.2em;"/> PRODUITS A LOUER</strong></a></md-tab>
-<md-tab ng-disabled="!islogged"><a  ng-click="panier()" href="/#panier">  <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />CART</strong></a></md-tab>
+        <md-tab><a style='margin-right:2em' href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png" style="margin-right:0.2em;"/>FOOTBALL</strong></a></md-tab>
+        <md-tab><a  style='margin-right:2em'href="#tennis"><strong><img src="public/images/tennis.png" style="margin-right:0.2em;"/>TENNIS</strong></a></md-tab>
+        <md-tab><a style='margin-right:2em':href="#golf"><strong><img src="public/images/golf-player.png" style="margin-right:0.2em;"/>GOLF</strong></a></md-tab>
+        <md-tab><a  style='margin-right:2em'href="#cyclisme"><strong><img src="public/images/bicycle-rider.png" style="margin-right:0.2em;"/>CYCLISME</strong></a></md-tab>
+        <md-tab><a  style='margin-right:2em'href="#produits"><strong><img src="public/images/man-sprinting.png" style="margin-right:0.2em;"/>TOUS NOS PRODUITS</strong></a></md-tab>
+        <md-tab><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" style="margin-right:0.2em;"/> PRODUITS A LOUER</strong></a></md-tab>
+        <md-tab ng-disabled="!islogged">
+            <a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />PANIER</strong></a>
+        </md-tab>
 
 
 
         <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-          <div ng-bind="tab.content"></div>
-          <br/>
-          <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
+            <div ng-bind="tab.content"></div>
+            <br/>
+            <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
         </div>
-      </md-tab>
+        </md-tab>
     </md-tabs>
-  </md-content>
-            <!-- <ul class="nav navbar-nav ">
-                <a class="a-li" href="#home"><img class="logo1" src="public/images/gym.png" /></a>
-                <li><a  href="#football">FOOTBALL</a></li>
-                <li><a  href="#tennis">TENNIS</a></li>
-                <li><a  href="#golf">GOLF</a></li>
-                <li><a  href="#cyclisme">CYCLISME</a></li>
-                <li><a  href="#produits">ALL PRODUCTS</a></li>
-                <li><a  href="#prodlocation">PRODUCTS FOR RENTING</a></li>
+</md-content>
 
-                <li>
-                    <a class="btn btn-info navbar-btn" ng-click="panier()" href="/#panier"><i class="fa fa-shopping-cart">&nbsp;</i> <img src="public/images/shopping-cart.png" style="margin-right:1em;" />Panier</a>
-                </li>
-            </ul> -->
-        </div>
-    </div>
-</nav>
+</div>
+</div>

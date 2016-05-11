@@ -1,30 +1,31 @@
 <div class="col-md-5">
-<input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
 </div>
-  <div class=" slider col-md-7" >
+<div class=" slider col-md-7">
 
-    <b style="float:left">$ 0</b><md-slider style="float:left"flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+    <b style="float:left">$ 0</b>
+    <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
     </md-slider><b>$ 500</b>
-  </div>
+</div>
 <md-content class="col-md-12">
     <div>
-<md-card  class="portion col-md-3" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
+        <md-card class="portion col-md-3" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!cyc.location">
-        <md-card-title>
-          <md-card-title-text style="text-align:center">
-          <h3>{{cyc.nom}}</h3>
-          <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-md card-media"><img ng-src="{{cyc.image}}" /></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-  <md-button href="#/details/{{cyc._id}}" class="md-raised md-primary">Details </md-button>
-        </md-card-actions>
-      </md-card>
+            <md-card-title>
+                <md-card-title-text style="text-align:center">
+                    <h3>{{cyc.nom}}</h3>
+                    <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media"><img ng-src="{{cyc.image}}" /></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button href="#/details/{{cyc._id}}" class="md-raised md-primary">Details </md-button>
+            </md-card-actions>
+        </md-card>
     </div>
 </md-content>
 <div class="col-md-12">
-  <uib-pagination total-items="cyclisme.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination total-items="cyclisme.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>

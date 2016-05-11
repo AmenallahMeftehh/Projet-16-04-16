@@ -3,31 +3,32 @@
     <div ng-model="produit" class="dtl col-md-6 col-xs-12 col-lg-offset-3">
         <div class="thumbnail">
             <h1 style="text-align:center">{{produit.nom}}</h1>
-            <h2 style="text-align:center"ng-hide="produit.location"class="prix">PRICE : {{produit.prix}} $</h2>
-            <h2 style="text-align:center"ng-show="produit.location"class="prix">Prix Location : {{produit.prixlocation}} $</h2>
+            <h2 style="text-align:center" ng-hide="produit.location" class="prix">PRICE : {{produit.prix}} $</h2>
+            <h2 style="text-align:center" ng-show="produit.location" class="prix">Prix Location : {{produit.prixlocation}} $</h2>
 
-            <img ng-src="{{produit.image}}" alt="{{p.nom}}"/>
+            <img ng-src="{{produit.image}}" alt="{{p.nom}}" />
 
             <div class="caption">
-            <button class="button"style="margin-left:30%;margin-top:2em"ng-hide="produit.location"ng-click="showConfirm1($event,produit)"">
-                <strong><img style="width:30px;heigth:30px"src="public/images/shopping.png" >Ajouter au panier</strong></div>
-              </button>
-        <div class="details" ng-show="produit.location" >
-          <md-datepicker md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut">
-          </md-datepicker>
-            <button  class="button"style="margin-left:30%;margin-top:2em"ng-click="showConfirm($event,date,produit)" >
-                Reserver votre article
+                <button class="button" style="margin-left:30%;margin-top:2em" ng-hide="produit.location" ng-click="showConfirm1($event,produit)">
+                    <strong><img style="width:30px;heigth:30px "src="public/images/shopping.png " >Ajouter au panier</strong>
+                </button>
+            </div>
+            <div class="details " ng-show="produit.location ">
+                <md-datepicker md-date-filter="onlyAvailable " ng-model="date " md-placeholder="Date debut ">
+                </md-datepicker>
+                <button class="button " style="margin-left:30%;margin-top:2em " ng-click="showConfirm($event,date,produit) ">
+                    Reserver votre article
 
-            </button>
-            <h4 style="color:blue;" ng-show="message"> {{message}}</h4>
-        </div>
-
-
-
-
+                </button>
+                <h4 style="color:blue; " ng-show="message "> {{message}}</h4>
             </div>
 
 
 
-      </div>
+
+        </div>
+
+
+
+    </div>
 </section>

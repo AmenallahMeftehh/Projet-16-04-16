@@ -1,31 +1,32 @@
 <div class="col-md-5">
-<input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
 </div>
-  <div class=" slider col-md-7" >
+<div class=" slider col-md-7">
 
-    <b style="float:left">$ 0</b><md-slider style="float:left" flex="10" min="0" max="500" ng-model="prix"  id="red-slider">
+    <b style="float:left">$ 0</b>
+    <md-slider style="float:left" flex="10" min="0" max="500" ng-model="prix" id="red-slider">
     </md-slider><b>$ 500</b>
-  </div>
+</div>
 
 <md-content class="col-md-12">
     <div>
-<md-card  class="portion col-md-3" ng-repeat="location in locations | displayMe:prix | filter:lettres
+        <md-card class="portion col-md-3" ng-repeat="location in locations | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">  <h3>{{location.nom}}</h3></span>
-            <span class="md-subhead"><h5 class='prix'>Prix/Jour : {{location.prixlocation}} $</h5></span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-md card-media"><img ng-src="{{location.image}}" /></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-  <md-button href="#/details/{{location._id}}" class="md-raised md-primary"> Reserver</md-button>
-        </md-card-actions>
-      </md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">  <h3>{{location.nom}}</h3></span>
+                    <span class="md-subhead"><h5 class='prix'>Prix/Jour : {{location.prixlocation}} $</h5></span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media"><img ng-src="{{location.image}}" /></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button href="#/details/{{location._id}}" class="md-raised md-primary"> Reserver</md-button>
+            </md-card-actions>
+        </md-card>
     </div>
 </md-content>
 <div class="col-md-12">
-  <uib-pagination total-items="golfs.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination total-items="golfs.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>
