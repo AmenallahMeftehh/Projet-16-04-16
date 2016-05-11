@@ -17,9 +17,23 @@ header {
   border-radius: 4px;
 
 }
+button.button {
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 12px;
+    background: black;
+    border: 0;
+    border-radius: 3px;
+
+
+    position: relative;
+    height: 42px;
+    box-shadow: 3px 3px 0px 0px #E1E1E1;
+    width: 40%;
+}
 .signin {
     width: 50% !important;
-    margin: 8em auto ;
+    margin: 1em auto ;
     background-color:white;
     padding: 2em;
     text-align: center;
@@ -276,7 +290,7 @@ h1 {
     color: #105986;
 }
 
-.signin {
+/*.signin {
 
     margin: 5em auto ;
     background-color: rgba(230,230,230,0.13);;
@@ -288,7 +302,7 @@ h1 {
 	-webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
 	box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
 	border-bottom: none;
-}
+}*/
 a{
 color: red;
 }

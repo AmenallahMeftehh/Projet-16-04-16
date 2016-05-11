@@ -105,6 +105,7 @@ var iduser=req.params.id;
 User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
   if (err) {
     console.log(err);
+    alert("il faut s'authentifier pour effecturer cette operation");
   } else {
     res.status(200).json({
         status: true

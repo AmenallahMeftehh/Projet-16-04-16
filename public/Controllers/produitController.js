@@ -2,14 +2,14 @@ angular.module('app').controller('produitController',['$scope', '$http',function
   var getAll = function () {
       $http.get('/produits').success(function (response) {
           $scope.produits = response;
-          console.log('i received the data i requested');
+          console.log('i received all products');
       });
   };
   getAll();
-  $scope.maxSize = 9;
+  $scope.maxSize = 10;
   $scope.currentPage = 1;
-  $scope.totalItems = 0;
-  $scope.prix=500
+  $scope.totalItems = 3;
+  $scope.prix=500;
 
   $scope.recup = function (id) {
       console.log(id);

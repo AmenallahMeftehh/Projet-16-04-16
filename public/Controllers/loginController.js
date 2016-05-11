@@ -1,25 +1,36 @@
 //Login Controller
 angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthService', '$rootScope','$http'
-        , function ($scope, $location, AuthService, $rootScope,$http) {
+      ,'$mdBottomSheet' , function ($scope, $location, AuthService, $rootScope,$http,$mdBottomSheet) {
 // recuperer tous les utilisateurs
 $(document).ready(function() {
             $('.carousel').carousel({
                 interval: 2000
             })
         });
-
+    $(document).ready(function() {
+              $('#MainMenu').append('<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports</a></li>');
+        });
 $rootScope.islogged = false;
+$rootScope.isadmin = false;
 
-$http.get('/users/session').success(function(response){
-console.log(response);
-  if(response){
-           $rootScope.islogged = true;
-}
-  });
+
+
+  $http.get('/users/session').success(function(response){
+    console.log(response);
+          if(response){
+            $rootScope.islogged = true;
+
+          }
+          if(response.statut){
+                  $rootScope.isadmin = true;
+                }
+        });
+
+
           var getAll = function () {
               $http.get('/users').success(function (response) {
                   $scope.users = response;
-                  console.log('i received the data i requested');
+                  console.log('i received all users');
               });
           };
 
@@ -38,6 +49,33 @@ console.log(response);
 
               });
             };
+// exemple menu
+$scope.showListBottomSheet = function() {
+$scope.alert = '';
+$mdBottomSheet.show({
+  templateUrl: 'public/pages/nav.html',
+  controller: 'LoginCtrl'
+}).then(function(clickedItem) {
+  $scope.alert = clickedItem['name'] + ' clicked!';
+});
+};
+// menu exemple
+    $scope.items = [
+      { name: 'Share', icon: 'share-arrow' },
+      { name: 'Upload', icon: 'upload' },
+      { name: 'Copy', icon: 'copy' },
+      { name: 'Print this page', icon: 'print' },
+    ];
+
+    $scope.listItemClick = function($index) {
+      var clickedItem = $scope.items[$index];
+      $mdBottomSheet.hide(clickedItem);
+    };
+
+
+
+
+
             // se connecter avec facebook
             $scope.FBLogin = function () {
               FB.login(function (response) {

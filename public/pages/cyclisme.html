@@ -11,9 +11,9 @@
 <md-card  class="portion col-md-3" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!cyc.location">
         <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">  <h3>{{cyc.nom}}</h3></span>
-            <span class="md-subhead"><h5 class='prix'>PRICE : {{cyc.prix}} $</h5></span>
+          <md-card-title-text style="text-align:center">
+          <h3>{{cyc.nom}}</h3>
+          <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-md card-media"><img ng-src="{{cyc.image}}" /></div>

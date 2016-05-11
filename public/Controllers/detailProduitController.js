@@ -1,6 +1,7 @@
 // controlleur details produit
 angular.module('app').controller('DetailsProduitController', ['$location','$scope', '$http','$routeParams',
-    '$rootScope','$mdDialog',function($location,$scope, $http, $routeParams,$rootScope,$mdDialog){
+    '$rootScope','$mdDialog',function($location,$scope, $http, $routeParams,$rootScope
+      ,$mdDialog,$mdBottomSheet){
         $scope.produit={};
         var id =$routeParams.itemId;
         // console.log(id);
@@ -77,7 +78,7 @@ $scope.reserver=function(date,produit){
   });
 }
 
-// fonction pour le dialog pour la reservation
+// fonction de pop up pour la reservation
   $scope.showConfirm = function(ev,date,produit) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
@@ -95,6 +96,23 @@ $scope.reserver=function(date,produit){
     });
   };
 
+  // fonction de pop up pour ajouter au panier
+    $scope.showConfirm1 = function(ev,produit) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.confirm()
+            .title('Voulez vous ajouter ce produit a votre panier?')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Ajouter')
+            .cancel('Annuler');
+
+      $mdDialog.show(confirm).then(function() {
+        $scope.status = 'Ajout avec succès.';
+        $scope.addpanier(produit);
+      }, function() {
+        $scope.status = 'You decided to keep your debt.';
+      });
+    };
 
 
 // ajouter un produit dans un panier
