@@ -19,7 +19,9 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
             var available = true;
             if ($scope.produit.reservation) {
                 for (var i = 0; i < $scope.produit.reservation.length; i++) {
-                    if ((new Date($scope.produit.reservation[i].dateReservation).getFullYear() === date.getFullYear()) && (new Date($scope.produit.reservation[i].dateReservation).getMonth() === date.getMonth()) && (new Date($scope.produit.reservation[i].dateReservation).getDate() === date.getDate())) {
+                    if ((new Date($scope.produit.reservation[i].dateReservation).getFullYear() === date.getFullYear())
+                    && (new Date($scope.produit.reservation[i].dateReservation).getMonth() === date.getMonth())
+                    && (new Date($scope.produit.reservation[i].dateReservation).getDate() === date.getDate())) {
                         available = false;
                     }
                 }

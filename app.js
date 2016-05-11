@@ -1,6 +1,6 @@
 angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
     $mdThemingProvider.theme('default')
-        .primaryPalette('blue-grey')
+        .primaryPalette('blue')
         .accentPalette('blue');
 
     $routeProvider.when('/login', {

@@ -14,18 +14,18 @@
         </div>
         <div class="navbar-right"  id="nav">
             <ul class="nav navbar-nav navbar-right" >
-                <li  ng-hide="islogged" ><a ng-href="/#register">CREER UN COMPTE<span class="sr-only">(current)</span></a></li>
-                <li  ng-hide="islogged" ><a ng-href="/#login">S'IDENTIFIER<span class="sr-only">(current)</span></a></li>
-                <li ng-show="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /><span class="sr-only">(current)</span></a></li>
+                <li  ng-if="!islogged" ><a ng-href="/#register">CREER UN COMPTE<span class="sr-only">(current)</span></a></li>
+                <li  ng-if="!islogged" ><a ng-href="/#login">S'IDENTIFIER<span class="sr-only">(current)</span></a></li>
+                <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /><span class="sr-only">(current)</span></a></li>
                 <li class="dropdown" ng-show="islogged"><a  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VOTRE COMPTE<span class="sr-only">(current)</span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li ng-show="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
+                        <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
                         <li role="separator" class="divider"></li>
-                        <li ng-show="isadmin" class=""><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
-                        <li ng-show="isadmin" class=""><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>
+                        <li ng-if="isadmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
+                        <li ng-if="isadmin" ><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>
                         <li role="separator" class="divider"></li>
-                        <li ng-show="islogged"><a ng-href="/#">&nbsp PARAMETRES</a></li>
-                        <li ng-show="islogged"><a ng-href="/#logout">&nbsp SE DECONNECTER</a></li>
+                        <li ng-if="islogged"><a ng-href="/#">&nbsp PARAMETRES</a></li>
+                        <li ng-if="islogged"><a ng-href="/#logout">&nbsp SE DECONNECTER</a></li>
                         <li class="divider"></li>
                     </ul>
                 </li>

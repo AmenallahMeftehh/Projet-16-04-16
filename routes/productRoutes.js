@@ -154,7 +154,8 @@ var routes = function (Produit) {
     produitRouter.post('/:idProduit/reservation/:username/date/:dateReservation', function (req, res) {
         var idProduit = req.params.idProduit;
         var username = req.params.username;
-        var dateReservation = req.params.dateReservation + 1;
+        var dateReservation=req.params.dateReservation;
+
 
         Produit.update({
             _id: idProduit

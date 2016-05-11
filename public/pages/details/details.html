@@ -9,14 +9,14 @@
             <img ng-src="{{produit.image}}" alt="{{p.nom}}" />
 
             <div class="caption">
-                <button class="button" style="margin-left:30%;margin-top:2em" ng-hide="produit.location" ng-click="showConfirm1($event,produit)">
+                <button class="button" style="background-color:#337ab7;margin-left:30%;margin-top:2em" ng-hide="produit.location" ng-click="showConfirm1($event,produit)">
                     <strong><img style="width:30px;heigth:30px "src="public/images/shopping.png " >Ajouter au panier</strong>
                 </button>
             </div>
             <div class="details " ng-show="produit.location ">
-                <md-datepicker md-date-filter="onlyAvailable " ng-model="date " md-placeholder="Date debut ">
+                <md-datepicker class="md-raised md-primary"md-date-filter="onlyAvailable " ng-model="date " md-placeholder="Date debut ">
                 </md-datepicker>
-                <button class="button " style="margin-left:30%;margin-top:2em " ng-click="showConfirm($event,date,produit) ">
+                <button class="button " style="background-color:#337ab7;margin-left:30%;margin-top:2em " ng-click="showConfirm($event,date,produit) ">
                     Reserver votre article
 
                 </button>
