@@ -116,14 +116,15 @@ var routes = function (User) {
         });
     });
     // add product in panier
-    router.get('/:id/panier/:idproduct', function (req, res) {
-            var idproduct = req.params.idproduct;
+    router.get('/:id/panier/:idproduit/:qt', function (req, res) {
+            var idproduit = req.params.idproduit;
             var iduser = req.params.id;
+            var qt = req.params.qt;
             User.update({
                 _id: iduser
             }, {
                 $push: {
-                    panier: idproduct
+                    panier: {idproduit:idproduit,qt:qt}
                 }
             }, function (err) {
                 if (err) {
@@ -140,6 +141,31 @@ var routes = function (User) {
 
 
 
+        router.get('/:id/panierreserve', function (req, res) {
+                var panier = req.params.panier;
+                var iduser = req.params.id;
+                User.update({
+                    _id: iduser
+                }, {
+                    $push: {
+                        panierReserve: panier
+                    }
+                }, function (err) {
+                    if (err) {
+                        alert("il faut s'authentifier pour effecturer cette operation");
+                    } else {
+                        res.status(200).json({
+                            status: true
+                        });
+                    }
+
+                });
+
+            })
+
+
+
+
     // delete product from panier
     router.delete('/:id/panier/:prodid', function (req, res) {
         User.id = req.params.id;
@@ -149,7 +175,7 @@ var routes = function (User) {
             _id: User.id
         }, {
             $pull: {
-                panier: prodid
+                panier: {idproduit:prodid}
             }
         }, function (err) {
             if (err)

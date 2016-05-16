@@ -15,8 +15,8 @@
             <td>Retirer</td>
         </tr>
     </thead>
-    <tbody>
-        <tr ng-repeat="produit in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+
+        <tr ng-repeat="produit in produits  | limitTo:maxSize:(currentPage - 1) * maxSize">
             <td>{{produit.nom}}</td>
             <td>{{produit.prix}}</td>
             <td>
@@ -24,14 +24,16 @@
 
 
             </td>
+            <td >
+                <label style="color:black"> {{qt}}</label>
+            </td>
+
             <td>
-                <md-input-container>
-                    <label> Quantité </label>
-                    <input type="number" min="1" max="{{produit.quantite}}" ng-model="quantite" placeholder="age" aria-label="age" required/>
-                </md-input-container>
+                <label style="color:black">{{qt*produit.prix}}</label>
             </td>
             <td>
-                <label style="color:black">{{quantite*produit.prix}}</label>
+                <label style="color:black">
+              {{somme}}</label>
             </td>
 
             <td>

@@ -18,7 +18,7 @@
                 <li  ng-if="!islogged" ><a ng-href="/#login">S'IDENTIFIER<span class="sr-only">(current)</span></a></li>
                 <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /><span class="sr-only">(current)</span></a></li>
                 <li class="dropdown" ng-show="islogged"><a  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VOTRE COMPTE<span class="sr-only">(current)</span></a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu multi-column columns-3" role="menu">
                         <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
                         <li role="separator" class="divider"></li>
                         <li ng-if="isadmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
@@ -49,7 +49,7 @@
         <md-tab><a  style='margin-right:2em'href="#produits"><strong><img src="public/images/man-sprinting.png" style="margin-right:0.2em;"/>TOUS NOS PRODUITS</strong></a></md-tab>
         <md-tab><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" style="margin-right:0.2em;"/> PRODUITS A LOUER</strong></a></md-tab>
         <md-tab ng-disabled="!islogged">
-            <a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />PANIER</strong></a>
+            <a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a>
         </md-tab>
 
 
@@ -62,6 +62,3 @@
         </md-tab>
     </md-tabs>
 </md-content>
-
-</div>
-</div>

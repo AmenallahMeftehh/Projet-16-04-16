@@ -8,4 +8,5 @@ angular.module('app').controller('cyclismeController', ['$scope', '$http', funct
     $scope.currentPage = 1;
     $scope.totalItems = 0;
     $scope.prix = 500;
+
 }]);

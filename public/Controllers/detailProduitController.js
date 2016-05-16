@@ -5,6 +5,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         , $mdDialog, $mdBottomSheet) {
 
         $scope.produit = {};
+    
         var id = $routeParams.itemId;
         // recuperer un produit par id
         $http.get('/produits/' + id).success(function (data) {
@@ -31,14 +32,20 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
 
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
+          $scope.qts= [];
             $scope.produits = [];
             $http.get('/users/session').success(function (response) {
                 $http.get('/users/' + response._id).success(function (user) {
                     $scope.cart = user[0].panier;
                     console.log($scope.cart);
                     for (var i = 0; i < $scope.cart.length; i++) {
-                        $http.get('/produits/' + $scope.cart[i]).success(function (data) {
+                      $scope.qts.push($scope.cart[i].qt);
+                      console.log($scope.qts);
+                        $http.get('/produits/' + $scope.cart[i].idproduit).success(function (data) {
+                          console.log(data);
+
                             $scope.produits.push(data);
+
 
                             console.log("c'est bon !!");
 
@@ -96,7 +103,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         };
 
         // fonction de pop up pour ajouter au panier
-        $scope.showConfirm1 = function (ev, produit) {
+        $scope.showConfirm1 = function (ev, produit,qt) {
             // Appending dialog to document.body to cover sidenav in docs app
             var confirm = $mdDialog.confirm()
                 .title('Voulez vous ajouter ce produit a votre panier?')
@@ -107,7 +114,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
 
             $mdDialog.show(confirm).then(function () {
                 $scope.status = 'Ajout avec succès.';
-                $scope.addpanier(produit);
+                $scope.addpanier(produit,qt);
             }, function () {
                 $scope.status = 'You decided to keep your debt.';
             });
@@ -115,13 +122,14 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
 
 
         // ajouter un produit dans un panier
-        $scope.addpanier = function (produit) {
+        $scope.addpanier = function (produit,qt) {
             console.log(produit._id);
             $http.get('/users/session').success(function (response) {
                 $scope.user = response;
-                $http.get('/users/' + $scope.user._id + '/panier/' + produit._id).success(function (res) {
+                $http.get('/users/' + $scope.user._id + '/panier/' + produit._id+ '/' + qt).success(function (res) {
                     console.log("callback ajout produit au panier");
                     getAll();
+
                 })
 
             })
@@ -133,6 +141,7 @@ $scope.validePanier = function(){
       $http.get('/users/' + response._id).success(function (data) {
         $scope.user=data[0];
       console.log($scope.user);
+        $http.get('users/'+$scope.user._id+'/panierreserve')
         $http.delete('/users/' + $scope.user._id+'/panier').success(function (data) {
 
       });

@@ -17,7 +17,8 @@ var User = new Schema({
         type: Boolean
         , default: false
     }
-    , panier: [String]
+    , panier: [{idproduit:{type:String},qt:{type:Number}}]
+    // panierValide:[[String]]
 
 });
 
