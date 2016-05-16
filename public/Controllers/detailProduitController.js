@@ -11,7 +11,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
             $scope.produit = data;
         });
         // initialisation de la quantité demandée dans le panier
-        $scope.quantite = 1;
+        // $scope.quantite = 1;
         $scope.date = new Date();
 
         // fonction pour enlever les dates déja reservées pour un produit bien determiné
@@ -131,18 +131,12 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
 $scope.validePanier = function(){
   $http.get('/users/session').success(function (response) {
       $http.get('/users/' + response._id).success(function (data) {
-          console.log(data[0]);
-          $scope.user=data[0];
+        $scope.user=data[0];
       console.log($scope.user);
-      for(var i =0;i<$scope.user.panier.length;i++){
-        $http.get('/produits/' + $scope.user.panier[i]).success(function (data) {
-            $scope.produit = data;
-        console.log($scope.produit.quantite);
-        console.log($scope.quantite);
+        $http.delete('/users/' + $scope.user._id+'/panier').success(function (data) {
 
-        $scope.produit.quantite-=$scope.quantite;
       });
-      }
+
         $scope.user.panier = null;
         console.log('panier validé');
         getAll();

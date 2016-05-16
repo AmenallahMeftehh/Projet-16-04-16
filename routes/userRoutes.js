@@ -165,8 +165,8 @@ var routes = function (User) {
         User.update({
             _id: User.id
         }, {
-            $pull: {
-                panier:User.id
+            $set: {
+                panier: []
             }
         }, function (err) {
             if (err)
