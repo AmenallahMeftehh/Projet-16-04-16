@@ -15,7 +15,7 @@
   <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="produit in produits | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!produit.location">
 <a href="#/details/{{produit._id}}" >
-    <img ng-src="{{produit.image}}" alt="" class="prods img-responsive"/>
+    <img ng-src="{{produit.image}}" alt="" class="imageproduit img-responsive"/>
 </a>
 <figcaption style="height:4em;">
   <h3 style="text-align: center">{{produit.nom}}</h3>

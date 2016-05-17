@@ -2,7 +2,7 @@
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <button type="button" style="background-color:#006DF0"class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand" href="#home"> <img  src="public/images/stretching-exercises.png" /></a>
@@ -31,7 +31,7 @@
     </li>
     <li><a  style='margin-right:2em'href="#produits"><strong><img style="margin-right:5px;"src="public/images/man-sprinting.png" />TOUS NOS PRODUITS</strong></a></li>
     <li><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" /> PRODUITS A LOUER</strong></a></li>
-    <li><a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png"  />&nbsp PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a></li>
+    <li><a ng-hide="!islogged" ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png"  />&nbsp PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a></li>
 
     <li class="dropdown">
       <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img src="public/images/add-button.png" alt="" />&nbsp MORE <b class="caret"></b></a>

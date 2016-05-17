@@ -57,6 +57,7 @@ button.button {
 .form-control1 {
     width: 150px;
     margin: 1em auto;
+    background-color: white;
 }
 
 .drop {
@@ -275,8 +276,14 @@ tr {
     border: 2px solid;
     border-radius: 4px 2px;
 }
-.prods{display: block;
-margin: 1em auto;}
+.prods{
+display: block;
+margin: 1em auto;
+}
+.imageproduit{
+  width: 200px;
+  height: 200px;
+}
 
 .register {
     min-height: 40em;

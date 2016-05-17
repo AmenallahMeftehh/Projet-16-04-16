@@ -1,42 +1,44 @@
-<table class="table table-bordered table-striped"style="margin-top:20em;">
+<div class="table-bordered table-striped table-responsive col-md-10 col-xs-6 col-md-offset-1"style="margin-top:10em;">
+
+<table class="col-md-12 col-xs-12 table table-responsive">
     <thead>
 
 
 
         <tr>
-            <td>Article</td>
-            <td>Prix</td>
-            <td>
+            <td  style="text-align:center">Article</td>
+            <td  style="text-align:center">Prix</td>
+            <td  style="text-align:center">
                 Image
             </td>
-            <td>Quantité</td>
+            <td  style="text-align:center">Quantité</td>
 
-            <td>Total</td>
-            <td>Retirer</td>
+            <td  style="text-align:center">Total</td>
+            <td style="text-align:center">Retirer</td>
         </tr>
     </thead>
 
         <tr ng-repeat="prod in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
-            <td>{{prod.produit.nom}}</td>
-            <td>{{prod.produit.prix}}</td>
-            <td>
+            <td style="text-align:center">{{prod.produit.nom}}</td>
+            <td style="text-align:center">{{prod.produit.prix}}</td>
+            <td style="text-align:center">
                 <img style="heigth:25%;width:40%" ng-src="{{prod.produit.image}}" />
 
 
             </td>
-            <td ng-repea>
+            <td style="text-align:center">
                 <label style="color:black"> {{prod.qt}}</label>
             </td>
 
-            <td>
+            <td style="text-align:center">
                 <label style="color:black">{{prod.qt*prod.produit.prix}}</label>
             </td>
-          
+
 
             <td>
 
 
-                <button class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(prod.produit)">Delete</button>
+                <button style="margin-right:10em;"class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(prod.produit)">Delete</button>
             </td>
 
 
@@ -47,4 +49,5 @@
 
 </tfoot>
 </table>
-<button class="btn btn-skin pull-right" id="btnContactUs" ng-click="validePanier()">Valider votre panier</button>
+<button class="btn btn-skin pull-right" id="btnContactUs" style="margin:6em;"ng-click="validePanier()">Valider votre panier</button>
+</div>
