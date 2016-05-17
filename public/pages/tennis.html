@@ -1,33 +1,33 @@
-<div class="divproduits col-md-12">
+<div class="container-fluid row divproduit" id="navbar">
 
-<div class="col-md-2">
+
+<div class="col-md-12 col-xs-12"style="border-bottom:1px solid;padding:1em;">
+  <label style="float:left;margin:1em">Cherchez votre produit</label>
     <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-    <b style="float:left">$ 0</b>
+    <label style="float:left;margin:1em">Cherchez par prix</label>
+
+    <b style="float:left;margin:1em">$ 0</b>
     <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
-    </md-slider><b>$ 500</b>
+    </md-slider><b style="float:left;margin:1em">$ 500</b>
 </div>
-<md-content class="col-md-10">
-    <div>
-        <md-card class="portion col-md-3" ng-repeat="ten in tennis | displayMe:prix | filter:lettres
+
+<ul>
+  <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="ten in tennis | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!ten.location">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">  <h3>{{ten.nom}}</h3></span>
-                    <span class="md-subhead"><h5 class='prix'>PRICE : {{ten.prix}} $</h5></span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-md card-media"><img ng-src="{{ten.image}}" /></div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button href="#/details/{{ten._id}}" class="md-raised md-primary">Details </md-button>
+<a href="#/details/{{ten._id}}" >
+    <img ng-src="{{ten.image}}" alt="" class="prods img-responsive"/>
+</a>
+<figcaption style="height:4em;">
+  <h3 style="text-align: center">{{ten.nom}}</h3>
+</figcaption>
+<h4 style="text-align: center;color:red">$ &nbsp{{ten.prix}}</h4>
 
-            </md-card-actions>
-        </md-card>
-    </div>
-</md-content>
-
-</div>
+<button type="button" class="btn btn-skin pull-right" id="btnContactUs"><a  href="#/details/{{ten._id}}">
+  <strong>‎DETAILS</strong>
+</a></button>
+</li>
+</ul>
 <div class="col-md-12">
-    <uib-pagination total-items="golfs.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination total-items="tennis.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>
 </div>

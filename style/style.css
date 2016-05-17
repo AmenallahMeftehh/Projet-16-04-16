@@ -1,9 +1,8 @@
 html,
 body,
 header {
-
     font-family: 'Open Sans', sans-serif;
-    background-color: #f5f5f5;
+background-color: white;
 
 }
 
@@ -87,9 +86,9 @@ button.button {
 }
 
 .portion {
-    width: 32em;
+
     height: 19em;
-    margin: 2em;
+
 }
 
 .navbar-btn {
@@ -271,10 +270,13 @@ tr {
 }
 
 .divproduit {
-  background-color: #f5f5f5;
-    margin: 6em;
-    padding: 1em;
+  background-color: white;
+    margin-top : 7em;
+    border: 2px solid;
+    border-radius: 4px 2px;
 }
+.prods{display: block;
+margin: 1em auto;}
 
 .register {
     min-height: 40em;

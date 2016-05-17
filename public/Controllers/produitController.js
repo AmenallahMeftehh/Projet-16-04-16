@@ -9,7 +9,7 @@ angular.module('app').controller('produitController', ['$scope', '$http', functi
     };
     //    appel a la fonction getAll
     getAll();
-    $scope.maxSize = 9;
+    $scope.maxSize = 12;
     $scope.currentPage = 1;
     $scope.totalItems = 1;
     $scope.prix = 500;

@@ -1,32 +1,33 @@
-<div class="col-md-5">
+<div class="container-fluid row divproduit" id="navbar">
+
+
+<div class="col-md-12 col-xs-12"style="border-bottom:1px solid;padding:1em;">
+  <label style="float:left;margin:1em">Cherchez votre produit</label>
     <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-</div>
-<div class=" slider col-md-7">
+    <label style="float:left;margin:1em">Cherchez par prix</label>
 
-    <b style="float:left">$ 0</b>
-    <md-slider style="float:left" flex="10" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
-    </md-slider><b>$ 500</b>
+    <b style="float:left;margin:1em">$ 0</b>
+    <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+    </md-slider><b style="float:left;margin:1em">$ 500</b>
 </div>
 
-<md-content class="col-md-12">
-    <div>
-        <md-card class="portion col-md-3" ng-repeat="golf in golfs | displayMe:prix | filter:lettres
+<ul>
+  <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="golf in golfs | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!golf.location">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">  <h3>{{golf.nom}}</h3></span>
-                    <span class="md-subhead"><h5 class='prix'>PRICE : {{golf.prix}} $</h5></span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-md card-media"><img ng-src="{{golf.image}}" /></div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button href="#/details/{{golf._id}}" class="md-raised md-primary">Details </md-button>
-            </md-card-actions>
-        </md-card>
-    </div>
-</md-content>
+<a href="#/details/{{golf._id}}" >
+    <img ng-src="{{golf.image}}" alt="" class="prods img-responsive"/>
+</a>
+<figcaption style="height:4em;">
+  <h3 style="text-align: center">{{golf.nom}}</h3>
+</figcaption>
+<h4 style="text-align: center;color:red">$ &nbsp{{golf.prix}}</h4>
+
+<button type="button" class="btn btn-skin pull-right" id="btnContactUs"><a  href="#/details/{{golf._id}}">
+  <strong>‎DETAILS</strong>
+</a></button>
+</li>
+</ul>
 <div class="col-md-12">
     <uib-pagination total-items="golfs.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>
 </div>
