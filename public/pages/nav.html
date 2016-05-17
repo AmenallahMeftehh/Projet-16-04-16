@@ -1,89 +1,40 @@
-<!-- <nav class="navbar navbar-link "  role="navigation">
-    <div class="container-fluid" >
-
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" aria-expanded="false"data-toggle="collapse"data-target="#nav">
-                <span class="sr-only">Toggle navigation</span>
-                <span style="background-color:white"class="icon-bar"></span>
-                <span style="background-color:white"class="icon-bar"></span>
-                <span style="background-color:white"class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#home"> <img  src="public/images/stretching-exercises (1).png" /></a>
-            <a class="navbar-brand" href="#home"> SPORT SHOP</a>
-        </div>
-        <div   id="nav">
-            <ul class="nav navbar-nav navbar-right" >
-                <li  ng-if="!islogged" ><a ng-href="/#register">CREER UN COMPTE<span class="sr-only">(current)</span></a></li>
-                <li  ng-if="!islogged" ><a ng-href="/#login">S'IDENTIFIER<span class="sr-only">(current)</span></a></li>
-                <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /><span class="sr-only">(current)</span></a></li>
-                <li class="dropdown" ng-show="islogged"><a  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VOTRE COMPTE<span class="sr-only">(current)</span></a>
-                    <ul class="dropdown-menu multi-column columns-3" role="menu">
-                        <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
-                        <li role="separator" class="divider"></li>
-                        <li ng-if="isadmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
-                        <li ng-if="isadmin" ><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li ng-if="islogged"><a ng-href="/#">&nbsp PARAMETRES</a></li>
-                        <li ng-if="islogged"><a ng-href="/#logout">&nbsp SE DECONNECTER</a></li>
-                        <li class="divider"></li>
-                    </ul>
-                </li>
-                <li ><a href="/#contact">CONTACT&nbsp&nbsp</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-
-
-
-<md-content style="text-align:center;padding-left:2m;background-color:transparent">
-    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
-
-        <md-tab><a style='margin-right:2em' href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png" style="margin-right:0.2em;"/>FOOTBALL</strong></a></md-tab>
-        <md-tab><a  style='margin-right:2em'href="#tennis"><strong><img src="public/images/tennis.png" style="margin-right:0.2em;"/>TENNIS</strong></a></md-tab>
-        <md-tab><a style='margin-right:2em'href="#golf"><strong><img src="public/images/golf-player.png" style="margin-right:0.2em;"/>GOLF</strong></a></md-tab>
-        <md-tab><a  style='margin-right:2em'href="#cyclisme"><strong><img src="public/images/bicycle-rider.png" style="margin-right:0.2em;"/>CYCLISME</strong></a></md-tab>
-        <md-tab><a  style='margin-right:2em'href="#produits"><strong><img src="public/images/man-sprinting.png" style="margin-right:0.2em;"/>TOUS NOS PRODUITS</strong></a></md-tab>
-        <md-tab><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" style="margin-right:0.2em;"/> PRODUITS A LOUER</strong></a></md-tab>
-        <md-tab ng-disabled="!islogged">
-            <a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a>
-        </md-tab>
-
-
-
-        <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-            <div ng-bind="tab.content"></div>
-            <br/>
-            <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
-        </div>
-        </md-tab>
-    </md-tabs>
-</md-content> -->
 
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#home"> <img  src="public/images/stretching-exercises (1).png" /></a>
-            <a class="navbar-brand" href="#home">
-                <h1>SPORT SHOP</h1>
-            </a>
+            <a class="navbar-brand" href="#home"> <img  src="public/images/stretching-exercises.png" /></a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse ">
   <ul class="nav navbar-nav">
     <li  ng-if="!islogged" ><a ng-href="/#register">REGISTER</a></li>
     <li  ng-if="!islogged" ><a ng-href="/#login">LOGIN</a></li>
-    <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /><span class="sr-only">(current)</span></a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}" /></a></li>
     <li class="dropdown">
-      <a href="" class="dropdown-toggle" data-toggle="dropdown"> MORE <b class="caret"></b></a>
+      <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img style="margin-right:5px;"src="public/images/different-squares.png" alt="" />CATEGORIES <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+
+        <li><a href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png"/>FOOTBALL</strong></a></li>
+          <li class="divider"></li>
+        <li><a href="#tennis"><strong><img src="public/images/tennis.png" />TENNIS</strong></a></li>
+          <li class="divider"></li>
+        <li><a href="#golf"><strong><img src="public/images/golf-player.png" />GOLF</strong></a></li>
+        <li class="divider"></li>
+        <li><a  href="#cyclisme"><strong><img src="public/images/bicycle-rider.png" />CYCLISME</strong></a></li>
+        <li class="divider"></li>
+      </ul>
+    </li>
+    <li><a  style='margin-right:2em'href="#produits"><strong><img style="margin-right:5px;"src="public/images/man-sprinting.png" />TOUS NOS PRODUITS</strong></a></li>
+    <li><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" /> PRODUITS A LOUER</strong></a></li>
+    <li><a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png"  />&nbsp PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a></li>
+
+    <li class="dropdown">
+      <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img src="public/images/add-button.png" alt="" />&nbsp MORE <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
         <li role="separator" class="divider"></li>
@@ -95,35 +46,19 @@
         <li class="divider"></li>
       </ul>
     </li>
+    <li><a href="#contact"><img src="public/images/group-button.png" alt="" />&nbsp Contact</a></li>
+
+
+
+
+
   </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
+  </nav>
     <!-- /.container -->
 
-    <md-content style="text-align:center;padding-left:2m;background-color:transparent">
-        <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
 
-            <md-tab><a style='margin-right:2em' href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png" style="margin-right:0.2em;"/>FOOTBALL</strong></a></md-tab>
-            <md-tab><a  style='margin-right:2em'href="#tennis"><strong><img src="public/images/tennis.png" style="margin-right:0.2em;"/>TENNIS</strong></a></md-tab>
-            <md-tab><a style='margin-right:2em'href="#golf"><strong><img src="public/images/golf-player.png" style="margin-right:0.2em;"/>GOLF</strong></a></md-tab>
-            <md-tab><a  style='margin-right:2em'href="#cyclisme"><strong><img src="public/images/bicycle-rider.png" style="margin-right:0.2em;"/>CYCLISME</strong></a></md-tab>
-            <md-tab><a  style='margin-right:2em'href="#produits"><strong><img src="public/images/man-sprinting.png" style="margin-right:0.2em;"/>TOUS NOS PRODUITS</strong></a></md-tab>
-            <md-tab><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" style="margin-right:0.2em;"/> PRODUITS A LOUER</strong></a></md-tab>
-            <md-tab ng-disabled="!islogged">
-                <a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a>
-            </md-tab>
-
-
-
-            <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-                <div ng-bind="tab.content"></div>
-                <br/>
-                <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
-            </div>
-            </md-tab>
-        </md-tabs>
-    </md-content>
-</nav>
 
 <!-- Section: intro -->

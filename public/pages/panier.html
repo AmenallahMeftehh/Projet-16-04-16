@@ -1,4 +1,4 @@
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped"style="margin-top:20em;">
     <thead>
 
 
@@ -31,15 +31,12 @@
             <td>
                 <label style="color:black">{{prod.qt*prod.produit.prix}}</label>
             </td>
-            <td>
-                <label style="color:black">
-              {{somme}}</label>
-            </td>
+          
 
             <td>
 
 
-                <md-button class="md-raised md-warn" ng-click="delete(prod.produit)">Delete</md-button>
+                <button class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(prod.produit)">Delete</button>
             </td>
 
 
@@ -50,4 +47,4 @@
 
 </tfoot>
 </table>
-<md-button class="md-raised md-warn" ng-click="validePanier()">Valider votre panier</md-button>
+<button class="btn btn-skin pull-right" id="btnContactUs" ng-click="validePanier()">Valider votre panier</button>

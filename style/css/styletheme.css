@@ -92,9 +92,9 @@ a:focus {
 
 
 .navbar-custom ul.nav li a {
-	font-size: 12px;
+	font-size: 14px;
 	letter-spacing: 1px;
-    color: #444;
+    color: #0E0C5D;
 	text-transform: uppercase;
 	font-weight: 700;
 }
@@ -124,7 +124,7 @@ a:focus {
 }
 
 .navbar-custom ul.nav ul.dropdown-menu li a:hover {
-	background: #fefefe;
+	background: #000;
 }
 
 .navbar-custom.top-nav-collapse ul.nav ul.dropdown-menu li a {
@@ -177,7 +177,7 @@ a:focus {
 
 
 #loaderInner {
-    background:#ffffff url(../img/spinner.gif) center center no-repeat;
+    background:#ffffff url(../public/images/spinner.gif) center center no-repeat;
     height: 60px;
     left: 50%;
     margin: -50px 0 0 -50px;
