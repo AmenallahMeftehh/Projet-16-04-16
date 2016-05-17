@@ -5,7 +5,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         , $mdDialog, $mdBottomSheet) {
 
         $scope.produit = {};
-    
+
         var id = $routeParams.itemId;
         // recuperer un produit par id
         $http.get('/produits/' + id).success(function (data) {
@@ -29,22 +29,32 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
             }
             return available;
         };
+        $scope.qt=1;
+        $scope.prod={};
+
 
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
-          $scope.qts= [];
             $scope.produits = [];
+
             $http.get('/users/session').success(function (response) {
                 $http.get('/users/' + response._id).success(function (user) {
                     $scope.cart = user[0].panier;
                     console.log($scope.cart);
-                    for (var i = 0; i < $scope.cart.length; i++) {
-                      $scope.qts.push($scope.cart[i].qt);
-                      console.log($scope.qts);
-                        $http.get('/produits/' + $scope.cart[i].idproduit).success(function (data) {
-                          console.log(data);
 
-                            $scope.produits.push(data);
+                    for (var i = 0; i < $scope.cart.length; i++) {
+                      $scope.qt=$scope.cart[i].qt
+
+                      console.log($scope.qt);
+                        $http.get('/produits/' + $scope.cart[i].idproduit).success(function (data) {
+                          $scope.prod.produit = data;
+                          $scope.prod.qt = $scope.qt;
+                          $scope.qt =0;
+
+                          console.log($scope.prod);
+
+                            $scope.produits.push($scope.prod);
+                            $scope.prod={};
 
 
                             console.log("c'est bon !!");
@@ -119,7 +129,6 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
                 $scope.status = 'You decided to keep your debt.';
             });
         };
-
 
         // ajouter un produit dans un panier
         $scope.addpanier = function (produit,qt) {

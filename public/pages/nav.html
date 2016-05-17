@@ -1,18 +1,18 @@
-<nav class="navbar navbar-inverse"  role="navigation">
+<!-- <nav class="navbar navbar-link "  role="navigation">
     <div class="container-fluid" >
 
 
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" aria-expanded="false"data-toggle="collapse"data-target="#nav">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span style="background-color:white"class="icon-bar"></span>
+                <span style="background-color:white"class="icon-bar"></span>
+                <span style="background-color:white"class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#home"> <img  src="public/images/stretching-exercises (1).png" /></a>
             <a class="navbar-brand" href="#home"> SPORT SHOP</a>
         </div>
-        <div class="navbar-right"  id="nav">
+        <div   id="nav">
             <ul class="nav navbar-nav navbar-right" >
                 <li  ng-if="!islogged" ><a ng-href="/#register">CREER UN COMPTE<span class="sr-only">(current)</span></a></li>
                 <li  ng-if="!islogged" ><a ng-href="/#login">S'IDENTIFIER<span class="sr-only">(current)</span></a></li>
@@ -39,7 +39,7 @@
 
 
 
-<md-content style="text-align:center;padding-left:2m;">
+<md-content style="text-align:center;padding-left:2m;background-color:transparent">
     <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
 
         <md-tab><a style='margin-right:2em' href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png" style="margin-right:0.2em;"/>FOOTBALL</strong></a></md-tab>
@@ -61,4 +61,69 @@
         </div>
         </md-tab>
     </md-tabs>
-</md-content>
+</md-content> -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#home"> <img  src="public/images/stretching-exercises (1).png" /></a>
+            <a class="navbar-brand" href="#home">
+                <h1>SPORT SHOP</h1>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+  <ul class="nav navbar-nav">
+    <li  ng-if="!islogged" ><a ng-href="/#register">REGISTER</a></li>
+    <li  ng-if="!islogged" ><a ng-href="/#login">LOGIN</a></li>
+    <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /><span class="sr-only">(current)</span></a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li class="dropdown">
+      <a href="" class="dropdown-toggle" data-toggle="dropdown"> MORE <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
+        <li role="separator" class="divider"></li>
+        <li ng-if="isadmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
+        <li ng-if="isadmin" ><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>
+        <li role="separator" class="divider"></li>
+        <li ng-if="islogged"><a ng-href="/#">&nbsp PARAMETRES</a></li>
+        <li ng-if="islogged"><a ng-href="/#logout">&nbsp SE DECONNECTER</a></li>
+        <li class="divider"></li>
+      </ul>
+    </li>
+  </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+
+    <md-content style="text-align:center;padding-left:2m;background-color:transparent">
+        <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+
+            <md-tab><a style='margin-right:2em' href="#football"><strong><img src="public/images/football-player-running-behind-the-ball.png" style="margin-right:0.2em;"/>FOOTBALL</strong></a></md-tab>
+            <md-tab><a  style='margin-right:2em'href="#tennis"><strong><img src="public/images/tennis.png" style="margin-right:0.2em;"/>TENNIS</strong></a></md-tab>
+            <md-tab><a style='margin-right:2em'href="#golf"><strong><img src="public/images/golf-player.png" style="margin-right:0.2em;"/>GOLF</strong></a></md-tab>
+            <md-tab><a  style='margin-right:2em'href="#cyclisme"><strong><img src="public/images/bicycle-rider.png" style="margin-right:0.2em;"/>CYCLISME</strong></a></md-tab>
+            <md-tab><a  style='margin-right:2em'href="#produits"><strong><img src="public/images/man-sprinting.png" style="margin-right:0.2em;"/>TOUS NOS PRODUITS</strong></a></md-tab>
+            <md-tab><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" style="margin-right:0.2em;"/> PRODUITS A LOUER</strong></a></md-tab>
+            <md-tab ng-disabled="!islogged">
+                <a ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png" style="margin-right:0.2em;" />PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a>
+            </md-tab>
+
+
+
+            <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+                <div ng-bind="tab.content"></div>
+                <br/>
+                <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
+            </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</nav>
+
+<!-- Section: intro -->

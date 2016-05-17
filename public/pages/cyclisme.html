@@ -1,13 +1,11 @@
-<div class="col-md-5">
+<div class="col-md-3">
     <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-</div>
-<div class=" slider col-md-7">
 
     <b style="float:left">$ 0</b>
     <md-slider style="float:left" flex="50" min="1" max="500" ng-model="prix" aria-label="red" id="red-slider" >
     </md-slider><b>$ 500</b>
 </div>
-<md-content class="col-md-12">
+<md-content class="col-md-8">
     <div>
         <md-card class="portion col-md-3" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!cyc.location">
@@ -26,6 +24,7 @@
         </md-card>
     </div>
 </md-content>
+
 <div class="col-md-12">
     <uib-pagination total-items="cyclisme.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>

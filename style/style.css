@@ -1,8 +1,9 @@
 html,
 body,
 header {
-    background: #fff;
+
     font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
 
 }
 
@@ -16,6 +17,11 @@ header {
     display: block;
     border: 1px groove;
     border-radius: 4px;
+}
+.home{
+  background-image: url("../public/images/banner.jpg") ;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 button.button {
@@ -178,10 +184,11 @@ h1 {
 }
 
 .textrecherche {
-    margin: 1em;
-    width: 25em;
+    margin: 0.3em;
+    width: 15em;
     height: 3em;
     padding: 1em;
+    float: left;
 }
 
 .imgcarousel {
@@ -260,8 +267,7 @@ tr {
 }
 
 .divproduit {
-    width: 30em;
-    height: 28em;
+  background-color: #f5f5f5;
     margin: 6em;
     padding: 1em;
 }
@@ -270,13 +276,7 @@ tr {
     min-height: 40em;
 }
 
-body {
-    background: url("../images/bg.jpg") no-repeat;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-}
+
 
 .container {
     margin-top: 0px;
@@ -311,7 +311,7 @@ h1 {
 a, abbr, acronym, address, b, big, blockquote, cite, code, dd, del, dfn, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, i, img, ins, kbd, label, legend, li, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, tt, u, ul, var {
     line-height: 1em;
 }
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -330,7 +330,7 @@ Inherited from p
 a, abbr, acronym, address, b, big, blockquote, cite, code, dd, del, dfn, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, i, img, ins, kbd, label, legend, li, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, tt, u, ul, var {
     line-height: 1em;
 }
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     margin: 0;
     padding: 0;
     border: 0;

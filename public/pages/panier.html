@@ -16,20 +16,20 @@
         </tr>
     </thead>
 
-        <tr ng-repeat="produit in produits  | limitTo:maxSize:(currentPage - 1) * maxSize">
-            <td>{{produit.nom}}</td>
-            <td>{{produit.prix}}</td>
+        <tr ng-repeat="prod in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+            <td>{{prod.produit.nom}}</td>
+            <td>{{prod.produit.prix}}</td>
             <td>
-                <img style="heigth:25%;width:40%" ng-src="{{produit.image}}" />
+                <img style="heigth:25%;width:40%" ng-src="{{prod.produit.image}}" />
 
 
             </td>
-            <td >
-                <label style="color:black"> {{qt}}</label>
+            <td ng-repea>
+                <label style="color:black"> {{prod.qt}}</label>
             </td>
 
             <td>
-                <label style="color:black">{{qt*produit.prix}}</label>
+                <label style="color:black">{{prod.qt*prod.produit.prix}}</label>
             </td>
             <td>
                 <label style="color:black">
@@ -39,15 +39,15 @@
             <td>
 
 
-                <md-button class="md-raised md-warn" ng-click="delete(produit)">Delete</md-button>
+                <md-button class="md-raised md-warn" ng-click="delete(prod.produit)">Delete</md-button>
             </td>
 
 
         </tr>
 
     </tbody>
-    <md-button class="md-raised md-warn" ng-click="validePanier()">Valider votre panier</md-button>
     <tfoot>
 
 </tfoot>
 </table>
+<md-button class="md-raised md-warn" ng-click="validePanier()">Valider votre panier</md-button>

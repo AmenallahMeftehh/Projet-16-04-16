@@ -1,13 +1,12 @@
-<div class="col-md-5">
-    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-</div>
-<div class="slider col-md-7">
+<div class="divproduits col-md-12">
 
+<div class="col-md-2">
+    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
     <b style="float:left">$ 0</b>
     <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
     </md-slider><b>$ 500</b>
 </div>
-<md-content class="col-md-12">
+<md-content class="col-md-10">
     <div>
         <md-card class="portion col-md-3" ng-repeat="ten in tennis | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!ten.location">
@@ -27,6 +26,8 @@
         </md-card>
     </div>
 </md-content>
+
+</div>
 <div class="col-md-12">
     <uib-pagination total-items="golfs.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>
