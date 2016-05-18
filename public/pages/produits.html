@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid row divproduit" id="navbar">
 
 
@@ -7,10 +8,19 @@
     <label style="float:left;margin:1em">Cherchez par prix</label>
 
     <b style="float:left;margin:1em">$ 0</b>
+=======
+<div class="col-md-12"style="background-color:#f5f5f5">
+
+
+<div class="col-md-2"style="background-color:#f5f5f5;margin-top:9em">
+    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+    <b style="float:left">$ 0</b>
+>>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
     <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
     </md-slider><b style="float:left;margin:1em">$ 500</b>
 </div>
 
+<<<<<<< HEAD
 <ul>
   <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="produit in produits | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!produit.location">
@@ -30,4 +40,30 @@
 <div class="col-md-12">
     <uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>
+=======
+
+
+
+<div style="background-color:#f5f5f5" class="col-md-10">
+
+        <md-card class="portion col-md-3 col-xs-12" ng-repeat="produit in produits | displayMe:prix | filter:lettres
+| limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!produit.location">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">  <h3>{{produit.nom}}</h3></span>
+                    <span class="md-subhead"><h5 class='prix'>PRICE : {{produit.prix}} $</h5></span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media"> <img ng-src="{{produit.image}}" /></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button href="#/details/{{produit._id}}" class="md-raised md-primary">Details </md-button>
+            </md-card-actions>
+        </md-card>
+
+</div>
+<uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+
+>>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
 </div>

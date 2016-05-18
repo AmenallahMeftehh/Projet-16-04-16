@@ -8,12 +8,24 @@
 
             <img ng-src="{{produit.image}}" alt="{{p.nom}}" />
 
+<<<<<<< HEAD
             <div class="caption" ng-show="!produit.location">
               <label style="margin-left:20px;"> Quantité :</label>
               <input type="number" min="1" max="{{produit.quantite}}" ng-model="qt" placeholder="quantité" style="width:70px;" aria-label="quantité" required/>
                 <button class="btn btn-skin pull-right" id="btnContactUs"   ng-click="addpanier(produit,qt)">
                     <strong>Ajouter au panier</strong>
                 </button>
+=======
+            <div class="caption">
+
+                <button class="button" style="background-color:#337ab7;margin-left:10%;margin-top:2em" ng-hide="produit.location" ng-click="addpanier(produit,qt)">
+                    <strong><img style="width:30px;heigth:30px "src="public/images/shopping.png " >Ajouter au panier</strong>
+                </button>
+
+                    <label style="width:100px;margin-left:5%"> Quantité :</label>
+                    <input type="number" min="1" max="{{produit.quantite}}" ng-model="qt" placeholder="quantité" style="width:100px;" aria-label="quantité" required/>
+
+>>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
             </div>
             <div class="details " ng-show="produit.location ">
                 <md-datepicker class="md-raised md-primary" md-date-filter="onlyAvailable " ng-model="date " md-placeholder="Date debut ">

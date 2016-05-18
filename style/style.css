@@ -1,8 +1,16 @@
 html,
 body,
 header {
+<<<<<<< HEAD
     font-family: 'Open Sans', sans-serif;
 background-color: white;
+=======
+  background-image: url("../public/images/banner.jpg") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+>>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
 
 }
 

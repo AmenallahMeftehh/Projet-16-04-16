@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid row divproduit" id="navbar">
 
 
@@ -5,11 +6,16 @@
   <label style="float:left;margin:1em">Cherchez votre produit</label>
     <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
     <label style="float:left;margin:1em">Cherchez par prix</label>
+=======
+<div class="col-md-3">
+    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+>>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
 
     <b style="float:left;margin:1em">$ 0</b>
     <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
     </md-slider><b style="float:left;margin:1em">$ 500</b>
 </div>
+<<<<<<< HEAD
 
 <ul>
   <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
@@ -27,6 +33,28 @@
 </a></button>
 </li>
 </ul>
+=======
+<md-content class="col-md-8">
+    <div>
+        <md-card class="portion col-md-3" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
+| limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!cyc.location">
+            <md-card-title>
+                <md-card-title-text style="text-align:center">
+                    <h3>{{cyc.nom}}</h3>
+                    <h5 class='prix'>PRICE : {{cyc.prix}} $</h5>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media"><img ng-src="{{cyc.image}}" /></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button href="#/details/{{cyc._id}}" class="md-raised md-primary">Details </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>
+
+>>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
 <div class="col-md-12">
     <uib-pagination total-items="cyclisme.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>
