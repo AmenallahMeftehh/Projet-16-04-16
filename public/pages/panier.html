@@ -3,8 +3,6 @@
 <table class="col-md-12 col-xs-12 table table-responsive">
     <thead>
 
-
-
         <tr>
             <td  style="text-align:center">Article</td>
             <td  style="text-align:center">Prix</td>
@@ -19,49 +17,39 @@
     </thead>
 
         <tr ng-repeat="prod in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
-<<<<<<< HEAD
             <td style="text-align:center">{{prod.produit.nom}}</td>
             <td style="text-align:center">{{prod.produit.prix}}</td>
             <td style="text-align:center">
-=======
+
             <td>{{prod.produit.nom}}</td>
             <td>{{prod.produit.prix}}</td>
             <td>
->>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
                 <img style="heigth:25%;width:40%" ng-src="{{prod.produit.image}}" />
 
 
             </td>
-<<<<<<< HEAD
             <td style="text-align:center">
                 <label style="color:black"> {{prod.qt}}</label>
             </td>
 
             <td style="text-align:center">
                 <label style="color:black">{{prod.qt*prod.produit.prix}}</label>
-=======
-            <td ng-repea>
-                <label style="color:black"> {{prod.qt}}</label>
-            </td>
 
-            <td>
-                <label style="color:black">{{prod.qt*prod.produit.prix}}</label>
-            </td>
+
+
+
             <td>
                 <label style="color:black">
               {{somme}}</label>
->>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
             </td>
 
 
             <td>
 
 
-<<<<<<< HEAD
+
                 <button style="margin-right:10em;"class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(prod.produit)">Delete</button>
-=======
-                <md-button class="md-raised md-warn" ng-click="delete(prod.produit)">Delete</md-button>
->>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
+
             </td>
 
 
@@ -72,9 +60,6 @@
 
 </tfoot>
 </table>
-<<<<<<< HEAD
+
 <button class="btn btn-skin pull-right" id="btnContactUs" style="margin:6em;"ng-click="validePanier()">Valider votre panier</button>
 </div>
-=======
-<md-button class="md-raised md-warn" ng-click="validePanier()">Valider votre panier</md-button>
->>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a

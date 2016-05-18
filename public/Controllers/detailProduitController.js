@@ -5,13 +5,11 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         , $mdDialog, $mdBottomSheet) {
 
         $scope.produit = {};
-<<<<<<< HEAD
         // $scope.minDate = new Date(
         //       $scope.Date.now().getFullYear(),
         //       $scope.Date.now().getMonth() ,
         //       $scope.Date.now().getDate());
-=======
->>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
+
 
         var id = $routeParams.itemId;
         // recuperer un produit par id
@@ -62,16 +60,15 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
                         $http.get('/produits/' + $scope.cart[i].idproduit).success(function (data) {
                           $scope.prod.produit = data;
                           $scope.prod.qt = $scope.qt;
-                          $scope.qt =0;
-<<<<<<< HEAD
+
+
 
                           console.log($scope.prod);
 
-=======
+
 
                           console.log($scope.prod);
 
->>>>>>> 01ececd75704796097d3922b78fb9c37354aff9a
                             $scope.produits.push($scope.prod);
                             $scope.prod={};
 
