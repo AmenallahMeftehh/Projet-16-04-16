@@ -100,13 +100,14 @@ var routes = function (Produit) {
                 , {
 
                     $set: {
-                        nom: req.body.nom
+                          nom: req.body.nom
                         , image: req.body.image
                         , prix: req.body.prix
                         , prixlocation: req.body.prixlocation
                         , quantite: req.body.quantite
                         , categorie: req.body.categorie
                         , location: req.body.location
+                        , reservation: req.body.reservation
 
                     }
 

@@ -18,6 +18,9 @@ background-color: white;
     border-radius: 4px;
 
 }
+tr{
+  height: 103px;
+}
 .home{
   background-image: url("../public/images/fond.jpg") ;
   background-size: cover;
@@ -112,7 +115,7 @@ button.button {
 }
 
 .details {
-    margin: 1em;
+    margin: 0.1em;
     padding: 3em;
     border: 2px groove;
     border-radius: 4px 2px;

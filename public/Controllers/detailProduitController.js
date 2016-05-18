@@ -5,6 +5,10 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         , $mdDialog, $mdBottomSheet) {
 
         $scope.produit = {};
+        // $scope.minDate = new Date(
+        //       $scope.Date.now().getFullYear(),
+        //       $scope.Date.now().getMonth() ,
+        //       $scope.Date.now().getDate());
 
         var id = $routeParams.itemId;
         // recuperer un produit par id
@@ -17,7 +21,13 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
 
         // fonction pour enlever les dates déja reservées pour un produit bien determiné
         $scope.onlyAvailable = function (date) {
-            var available = true;
+          var available = true;
+
+          // if((date.getFullYear()<Date.now().getFullYear())
+          // &&(date.getMonth()<Date.now().getMonth())
+          // &&(date.getDate()<Date.now().getDate())){
+          //   available=false;
+          // }
             if ($scope.produit.reservation) {
                 for (var i = 0; i < $scope.produit.reservation.length; i++) {
                     if ((new Date($scope.produit.reservation[i].dateReservation).getFullYear() === date.getFullYear())

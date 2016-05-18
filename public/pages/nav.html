@@ -12,8 +12,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse ">
   <ul class="nav navbar-nav">
-    <li  ng-if="!islogged" ><a ng-href="/#register">REGISTER</a></li>
-    <li  ng-if="!islogged" ><a ng-href="/#login">LOGIN</a></li>
+
     <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}" /></a></li>
     <li class="dropdown">
       <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img style="margin-right:5px;"src="public/images/different-squares.png" alt="" />CATEGORIES <b class="caret"></b></a>
@@ -33,7 +32,7 @@
     <li><a  style='margin-right:2em'href="#prodlocation"><strong><img src="public/images/rent.png" /> PRODUITS A LOUER</strong></a></li>
     <li><a ng-hide="!islogged" ng-click="panier()" href="/#panier"> <strong><img src="public/images/shopping-cart.png"  />&nbsp PANIER</strong>&nbsp<span class="badge red"style="background-color:red;">{{user.panier.length}}</span></a></li>
 
-    <li class="dropdown">
+    <li class="dropdown" ng-if="islogged">
       <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img src="public/images/add-button.png" alt="" />&nbsp MORE <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
@@ -46,6 +45,8 @@
         <li class="divider"></li>
       </ul>
     </li>
+    <li  ng-if="!islogged" ><a ng-href="/#register">REGISTER</a></li>
+    <li  ng-if="!islogged" ><a ng-href="/#login">LOGIN</a></li>
     <li><a href="#contact"><img src="public/images/group-button.png" alt="" />&nbsp Contact</a></li>
 
 
