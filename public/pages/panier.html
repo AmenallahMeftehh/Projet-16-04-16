@@ -29,18 +29,10 @@
             <td style="text-align:center">
                 <label style="color:black">{{produit.qt*produit.prix}}</label>
 
-
-
-
-            <td>
-                <label style="color:black">
-              {{somme}}</label>
             </td>
 
 
             <td>
-
-
 
                 <button style="margin-right:10em;"class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(produit.idproduit)">Delete</button>
 
@@ -48,12 +40,20 @@
 
 
         </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total :{{tot}}</label></td>
 
+
+        </tr>
     </tbody>
     <tfoot>
 
 </tfoot>
 </table>
-
+    <button class="btn btn-skin pull-right" id="btnContactUs"  ng-click="total()">Total Panier</button>
 <button class="btn btn-skin pull-right" id="btnContactUs" style="margin:6em;"ng-click="validePanier()">Valider votre panier</button>
 </div>

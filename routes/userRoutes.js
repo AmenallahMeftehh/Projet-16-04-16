@@ -176,7 +176,6 @@ var routes = function (User) {
     router.delete('/:id/panier/:prodid', function (req, res) {
         User.id = req.params.id;
         prodid = req.params.prodid;
-
         User.update({
             _id: User.id
         }, {

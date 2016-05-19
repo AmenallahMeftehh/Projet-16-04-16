@@ -42,8 +42,24 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         };
         $scope.qt=1;
         $scope.prod={};
+        $scope.tot=0;
 
+    $scope.total=function(){
+        $http.get('/users/session').success(function(response) {
+            $http.get('/users/' + response._id).success(function(user) {
+                $scope.cart = user[0].panier;
+                console.log($scope.cart);
 
+                for (var i = 0; i < $scope.cart.length; i++) {
+                    $scope.tot += $scope.cart[i].qt * $scope.cart[i].prix;
+                    console.log($scope.tot);
+                }
+                ;
+
+            });
+        });
+        return tot;
+    }
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
             $scope.produits = [];
