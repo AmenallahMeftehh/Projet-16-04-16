@@ -116,15 +116,21 @@ var routes = function (User) {
         });
     });
     // add product in panier
-    router.get('/:id/panier/:idproduit/:qt', function (req, res) {
-            var idproduit = req.params.idproduit;
-            var iduser = req.params.id;
+    router.get('/:id/panier/:idproduit/:quantite/:nom/:prix/:image/:qt', function (req, res) {
+
+            var id = req.params.id;
             var qt = req.params.qt;
+            var idproduit = req.params.idproduit;
+            var quantite = req.params.quantite;
+            var image = req.params.image;
+            var nom = req.params.nom;
+            var prix= req.params.prix;
+            var statut = req.params.statut;
             User.update({
-                _id: iduser
+                _id: id
             }, {
                 $push: {
-                    panier: {idproduit:idproduit,qt:qt}
+                    panier: {idproduit:idproduit,quantite:quantite,nom:nom,prix:prix,image:image,qt:qt,statut:statut}
                 }
             }, function (err) {
                 if (err) {

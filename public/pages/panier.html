@@ -16,24 +16,18 @@
         </tr>
     </thead>
 
-        <tr ng-repeat="prod in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
-            <td style="text-align:center">{{prod.produit.nom}}</td>
-            <td style="text-align:center">{{prod.produit.prix}}</td>
+        <tr ng-repeat="produit in produits | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+            <td style="text-align:center">{{produit.nom}}</td>
+            <td style="text-align:center">{{produit.prix}}</td>
             <td style="text-align:center">
-
-            <td>{{prod.produit.nom}}</td>
-            <td>{{prod.produit.prix}}</td>
-            <td>
-                <img style="heigth:25%;width:40%" ng-src="{{prod.produit.image}}" />
-
-
+                <img style="heigth:25%;width:40%" ng-src="{{produit.image}}" />
             </td>
             <td style="text-align:center">
-                <label style="color:black"> {{prod.qt}}</label>
+                <label style="color:black"> {{produit.qt}}</label>
             </td>
 
             <td style="text-align:center">
-                <label style="color:black">{{prod.qt*prod.produit.prix}}</label>
+                <label style="color:black">{{produit.qt*produit.prix}}</label>
 
 
 
@@ -48,7 +42,7 @@
 
 
 
-                <button style="margin-right:10em;"class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(prod.produit)">Delete</button>
+                <button style="margin-right:10em;"class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(produit.idproduit)">Delete</button>
 
             </td>
 

@@ -17,8 +17,7 @@ var User = new Schema({
         type: Boolean
         , default: false
     }
-    , panier: [{idproduit:{type:String},qt:{type:Number}}]
-    // panierValide:[[String]]
+    , panier: [{idproduit:{type:String},quantite:{type:Number},nom:{type:String},prix:{type:Number},image:{type:String},qt:{type:String},statut:{type:Boolean,default:false}}]
 
 });
 

@@ -47,35 +47,20 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
             $scope.produits = [];
-
             $http.get('/users/session').success(function (response) {
                 $http.get('/users/' + response._id).success(function (user) {
                     $scope.cart = user[0].panier;
                     console.log($scope.cart);
 
                     for (var i = 0; i < $scope.cart.length; i++) {
-                      $scope.qt=$scope.cart[i].qt
 
-                      console.log($scope.qt);
-                        $http.get('/produits/' + $scope.cart[i].idproduit).success(function (data) {
-                          $scope.prod.produit = data;
-                          $scope.prod.qt = $scope.qt;
+                            $scope.produits.push($scope.cart[i]);
 
-
-
-                          console.log($scope.prod);
-
-
-
-                          console.log($scope.prod);
-
-                            $scope.produits.push($scope.prod);
-                            $scope.prod={};
 
 
                             console.log("c'est bon !!");
 
-                        });
+
 
                     }
                     console.log('i received the data i requested');
@@ -149,9 +134,10 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         // ajouter un produit dans un panier
         $scope.addpanier = function (produit,qt) {
             console.log(produit._id);
+
             $http.get('/users/session').success(function (response) {
                 $scope.user = response;
-                $http.get('/users/' + $scope.user._id + '/panier/' + produit._id+ '/' + qt).success(function (res) {
+                $http.get('/users/' + $scope.user._id + '/panier/' + produit._id+ '/'+produit.quantite+'/'+produit.nom+'/'+produit.prix+'/'+produit.image+'/'+qt).success(function (res) {
                     console.log("callback ajout produit au panier");
                     getAll();
 
@@ -178,10 +164,10 @@ $scope.validePanier = function(){
 
       }
 
-        $scope.delete = function (produit) {
+        $scope.delete = function (id) {
             $http.get('/users/session').success(function (response) {
                 $scope.user = response;
-                $http.delete('/users/' + $scope.user._id + '/panier/' + produit._id).success(function (data) {
+                $http.delete('/users/' + $scope.user._id + '/panier/' + id).success(function (data) {
                     $scope.produit = null;
                     console.log('panier validé');
                     getAll();
