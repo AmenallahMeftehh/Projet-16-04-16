@@ -125,16 +125,16 @@ var routes = function (User) {
             var image = req.params.image;
             var nom = req.params.nom;
             var prix= req.params.prix;
-            var statut = req.params.statut;
+            var totalprixproduit = qt*prix;
             User.update({
                 _id: id
             }, {
                 $push: {
-                    panier: {idproduit:idproduit,quantite:quantite,nom:nom,prix:prix,image:image,qt:qt,statut:statut}
+                    panier:{idproduit:idproduit,quantite:quantite,nom:nom,prix:prix,image:image,qt:qt,totalprixproduit:totalprixproduit}
                 }
             }, function (err) {
                 if (err) {
-                    alert("il faut s'authentifier pour effecturer cette operation");
+                    console.log("il faut s'authentifier pour effecturer cette operation");
                 } else {
                     res.status(200).json({
                         status: true
@@ -146,15 +146,15 @@ var routes = function (User) {
         })
 
 
-
-        router.get('/:id/panierreserve', function (req, res) {
+// reserver un panier
+        router.post('/:id/panierreserve', function (req, res) {
                 var panier = req.params.panier;
                 var iduser = req.params.id;
-                User.update({
+                User.FindandUpdate({
                     _id: iduser
                 }, {
-                    $push: {
-                        panierReserve: panier
+                    $push: {produitsAchetes:panier
+
                     }
                 }, function (err) {
                     if (err) {
@@ -180,7 +180,7 @@ var routes = function (User) {
             _id: User.id
         }, {
             $pull: {
-                panier: {idproduit:prodid}
+                panier: {idproduit: prodid}
             }
         }, function (err) {
             if (err)
@@ -216,7 +216,7 @@ var routes = function (User) {
         User.find({
             _id: User.id
         }, {
-            panier: User.id
+            panier: []
         }, function (err, data) {
             if (err)
                 res.status(500).send(err);

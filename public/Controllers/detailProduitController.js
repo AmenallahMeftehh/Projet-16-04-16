@@ -44,21 +44,21 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         $scope.prod={};
         $scope.tot=0;
 
-    $scope.total=function(){
-        $http.get('/users/session').success(function(response) {
-            $http.get('/users/' + response._id).success(function(user) {
+    $scope.total=function() {
+        $http.get('/users/session').success(function (response) {
+            $http.get('/users/' + response._id).success(function (user) {
                 $scope.cart = user[0].panier;
                 console.log($scope.cart);
 
                 for (var i = 0; i < $scope.cart.length; i++) {
-                    $scope.tot += $scope.cart[i].qt * $scope.cart[i].prix;
+                    $scope.tot += $scope.cart[i].totalprixproduit;
                     console.log($scope.tot);
                 }
                 ;
 
             });
         });
-        return tot;
+        return $scope.tot;
     }
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
@@ -162,16 +162,15 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
             })
         };
 
-
 $scope.validePanier = function(){
   $http.get('/users/session').success(function (response) {
       $http.get('/users/' + response._id).success(function (data) {
         $scope.user=data[0];
       console.log($scope.user);
         $http.get('users/'+$scope.user._id+'/panierreserve')
-        $http.delete('/users/' + $scope.user._id+'/panier').success(function (data) {
-
-      });
+      //   $http.delete('/users/' + $scope.user._id+'/panier').success(function (data) {
+      //
+      // });
 
         $scope.user.panier = null;
         console.log('panier validé');
