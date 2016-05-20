@@ -147,13 +147,13 @@ var routes = function (User) {
 
 
 // reserver un panier
-        router.post('/:id/panierreserve', function (req, res) {
+        router.get('/:id/panierreserve', function (req, res) {
                 var panier = req.params.panier;
                 var iduser = req.params.id;
-                User.FindandUpdate({
+                User.update({
                     _id: iduser
-                }, {
-                    $push: {produitsAchetes:panier
+                },{
+                    $push: { produitsAchetes : panier
 
                     }
                 }, function (err) {

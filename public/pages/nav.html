@@ -36,8 +36,9 @@
 
     <li class="dropdown" ng-if="islogged">
       <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img src="public/images/add-button.png" alt="" />&nbsp MORE <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
+      <ul class="dropdown-menu"> <li uib-dropdown ng-show="!status">
+
+        <li ng-if="islogged" ><a uib-dropdown-toggle>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
         <li role="separator" class="divider"></li>
         <li ng-if="isadmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
         <li ng-if="isadmin" ><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>

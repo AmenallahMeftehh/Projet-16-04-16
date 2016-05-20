@@ -172,7 +172,7 @@ $scope.validePanier = function(){
       //
       // });
 
-        $scope.user.panier = null;
+
         console.log('panier validé');
         getAll();
       });  });
