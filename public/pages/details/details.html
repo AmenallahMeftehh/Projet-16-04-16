@@ -17,7 +17,7 @@
 
             </div>
             <div  ng-show="produit.location">
-                <md-datepicker  md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut" md-min-date="minDate" ng-disabled="disable">
+                <md-datepicker  md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut" md-min-date="minDate" >
                 </md-datepicker>
                 <button class="btn btn-skin pull-right" id=""  ng-click="showConfirm($event,date,produit)"  >
                     Reserver votre article

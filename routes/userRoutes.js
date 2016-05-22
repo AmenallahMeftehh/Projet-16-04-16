@@ -139,32 +139,24 @@ var routes = function (User) {
                        status: true
                    });
                }
-
-
-
-
             });
-
-
-
-
-
         })
 
 
 // reserver un panier
-        router.get('/:id/panierreserve', function (req, res) {
-                var panier = req.params.panier;
+        router.get('/:id/panierreserve/:idproduit/:qt/:totalprixproduit', function (req, res) {
+                var idproduit = req.params.idproduit;
+                var qt = req.params.qt;
                 var iduser = req.params.id;
+                var totalprixproduit = req.params.totalprixproduit;
                 User.update({
                     _id: iduser
                 },{
-                    $push: { produitsAchetes : panier
+                    $push: { Commande : {idproduit:idproduit,qt:qt,totalprixproduit:totalprixproduit}
 
                     }
                 }, function (err) {
                     if (err) {
-                        alert("il faut s'authentifier pour effecturer cette operation");
                     } else {
                         res.status(200).json({
                             status: true
@@ -172,6 +164,18 @@ var routes = function (User) {
                     }
 
                 });
+            User.update({
+                _id: User.id
+            }, {
+                $set: {
+                    panier: []
+                }
+            }, function (err) {
+                if (err)
+                    res.status(500).send(err);
+                else
+                    res.status(204).send('panier validé ');
+            });
 
             })
 

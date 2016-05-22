@@ -1,6 +1,6 @@
 //Login Controller
-angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
-    , function ($scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
+angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
+    , function ($route,$scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
       
         $(document).ready(function () {
             $('.carousel').carousel({
@@ -88,8 +88,10 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$location', 'AuthServi
                     console.log('edd');
                     $scope.disabled = false;
                     $rootScope.islogged = true;
-
                     $location.path('/home');
+                    $route.reload();
+
+
                     if ($scope.user.statut === "admin") {
                         $rootScope.isAdmin = true;
                         $scope.user = {};

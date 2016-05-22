@@ -2,7 +2,7 @@ angular.module('app').directive('navmenu', function () {
     return {
         restrict: 'E'
         , templateUrl: 'public/pages/nav.html'
-        , controller: ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+        , controller: ['$route','$scope', '$http', '$rootScope', function ($route,$scope, $http, $rootScope) {
             $rootScope.islogged = false;
             $rootScope.isadmin = false;
             $http.get('/users/session').success(function (response) {
@@ -10,18 +10,20 @@ angular.module('app').directive('navmenu', function () {
                 $scope.user = response;
                 $http.get('/users/' + $scope.user._id).success(function (user) {
                     console.log(user);
-                     $scope.user.panier.length;
+                     $rootScope.user.panier.length;
                     if (user) {
                         $rootScope.islogged = true;
+                        $route.reload();
+
                     }
                     if (user.statut) {
                         $rootScope.isadmin = true;
 
-
                     }
 
                 });
-            });
-    }]
+            });                    $route.reload();
+
+        }]
     };
 });

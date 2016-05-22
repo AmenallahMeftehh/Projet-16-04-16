@@ -22,15 +22,10 @@ var User = new Schema({
 
 
     ,
-        produitsAchetes:[
-            {idproduit:{type:String},
-            quantite:{type:Number},
-                nom:{type:String},
-              prix:{type:Number},
-             image:{type:String},
-             qt:{type:String},
-             totalprixproduit:{type:Number},
-            dateReservation:{type:Date,default:Date.now}}]
+        Commande:[
+            {   dateValidation:{type:Date,default:Date.now},
+                idproduit: {type: mongoose.Schema.Types.ObjectId, ref: 'Produit'},qt:{type:String}, totalprixproduit:{type:Number}}
+            ]
 
 
 });

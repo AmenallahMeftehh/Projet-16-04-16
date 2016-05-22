@@ -1,7 +1,7 @@
 // controlleur details produit
-angular.module('app').controller('DetailsProduitController', ['$location', '$scope', '$http', '$routeParams', '$rootScope', '$mdDialog'
+angular.module('app').controller('DetailsProduitController', ['$route','$location', '$scope', '$http', '$routeParams', '$rootScope', '$mdDialog'
 
-    , function ($location, $scope, $http, $routeParams, $rootScope
+    , function ($route,$location, $scope, $http, $routeParams, $rootScope
         , $mdDialog, $mdBottomSheet) {
 
         $scope.produit = {};
@@ -105,8 +105,11 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
                         $scope.date = "";
 
                         console.log("callback produit reservé pour la date" + date);
+                        $route.reload();
+
                     });
-                });
+                });                    $route.reload();
+
             });
         }
 
@@ -157,29 +160,44 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
                 console.log(response)
                 $http.get('/users/' + $scope.user._id + '/panier/' + produit._id+'/'+qt+'/'+produit.prix).success(function (res) {
                     console.log("callback ajout produit au panier");
-                    getAll();
-
+                    $route.reload();
                 })
 
             })
         };
+        // methode vider le panier
+$scope.viderpanier=function(){
+    $http.get('/users/session').success(function (response) {
+        $http.get('/users/' + response._id).success(function (data) {
+            $scope.user=data[0];
+            console.log($scope.user);
+            $http.delete('users/'+$scope.user._id+'/panier').success(function (data){
+                $route.reload()
+            });
+        })
+    })
+}
 
-$scope.validePanier = function(){
+$scope.validepanier = function(){
   $http.get('/users/session').success(function (response) {
       $http.get('/users/' + response._id).success(function (data) {
         $scope.user=data[0];
       console.log($scope.user);
-        $http.get('users/'+$scope.user._id+'/panierreserve')
-      //   $http.delete('/users/' + $scope.user._id+'/panier').success(function (data) {
-      //
-      // });
-
-
-        console.log('panier validé');
-        getAll();
+          $http.get('users/'+$scope.user._id+'/panier').success(function (data) {
+              console.log(data)
+              $scope.panier= data[0].panier;
+              // console.log($scope.panier)
+              for (var i = 0; i < $scope.panier.length; i++) {
+                  console.log($scope.user.panier[i]);
+                  console.log($scope.user.Commande);
+              $scope.user.Commande.push($scope.user.panier[i]);
+                  $scope.viderpanier();
+              console.log('panier validé');
+              $route.reload();}
+          });
       });  });
 
-      }
+      };
 
         $scope.delete = function (id) {
             $http.get('/users/session').success(function (response) {
@@ -187,8 +205,7 @@ $scope.validePanier = function(){
                 $http.delete('/users/' + $scope.user._id + '/panier/' + id).success(function (data) {
                     $scope.produit = null;
                     console.log('produit supprimés');
-                    getAll();
-                });
+                    $route.reload();          });
             });
         }
 
