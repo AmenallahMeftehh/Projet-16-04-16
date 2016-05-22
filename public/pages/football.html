@@ -15,9 +15,9 @@
   <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="foot in footballs | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!foot.location">
 <a href="#/details/{{foot._id}}" >
-    <img ng-src="{{foot.image}}" alt="" class="prods img-responsive"/>
+    <img style="margin:auto 20%"ng-src="{{foot.image}}" alt="" class="prods img-responsive"/>
 </a>
-<figcaption style="height:4em;">
+<figcaption style="height:6em;">
   <h3 style="text-align: center">{{foot.nom}}</h3>
 </figcaption>
 <h4 style="text-align: center;color:red">$ &nbsp{{foot.prix}}</h4>

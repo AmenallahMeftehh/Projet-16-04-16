@@ -16,7 +16,3 @@ gulp.task('default', function () {
         });
     
 });
-gulp.task('metadata', function() {
-    gulp.src('./donnees/*.json')
-        .pipe(mongodbData({ mongoUrl: 'mongodb://amenallahmefteh:mefteh@ds025762.mlab.com:25762/bdchallenge' }));
-});

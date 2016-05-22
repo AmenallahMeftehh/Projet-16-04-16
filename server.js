@@ -14,9 +14,11 @@ var session = require('express-session');
 var localStrategy = require('passport-local').Strategy;
 // declaration de port
 var port = process.env.PORT || 3000;
-// connexion a mongodb avec la Base de données bookAPI
-var url = "mongodb://amenallahmefteh:mefteh@ds025762.mlab.com:25762/bdchallenge";
-mongoose.connect(url);
+// connexion mongodb depuis le local
+mongoose.connect('mongodb://localhost/bdchallenge');
+// connexion mongodb depuis mongolab
+// var urlmongolab = "mongodb://amenallahmefteh:mefteh@ds025762.mlab.com:25762/bdchallenge";
+// mongoose.connect(urlmongolab);
 // instantiation d'express
 var app = express();
 var http = require('http').Server(app);

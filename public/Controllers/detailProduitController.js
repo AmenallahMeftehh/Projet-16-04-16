@@ -19,7 +19,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         // initialisation de la quantité demandée dans le panier
         // $scope.quantite = 1;
         $scope.date = new Date();
-
+        $scope.minDate = new Date();
         // fonction pour enlever les dates déja reservées pour un produit bien determiné
         $scope.onlyAvailable = function (date) {
           var available = true;
@@ -60,28 +60,27 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         });
         return $scope.tot;
     }
+      $scope.produits=[];
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
-            $scope.produits = [];
+
             $http.get('/users/session').success(function (response) {
                 $http.get('/users/' + response._id).success(function (user) {
-                    $scope.cart = user[0].panier;
-                    console.log($scope.cart);
+                    $scope.iduser = user[0]._id;
+                    $http.get('users/'+$scope.iduser+'/panier').success(function (data) {
+                        console.log(data)
+                        $scope.panier= data[0].panier;
+                        // console.log($scope.panier)
+                    for (var i = 0; i < $scope.panier.length; i++) {
+                            $scope.produits.push($scope.panier[i]);
+                        }
+                            console.log('i received the data i requested');
 
-                    for (var i = 0; i < $scope.cart.length; i++) {
+                    })
 
-                            $scope.produits.push($scope.cart[i]);
-
-
-
-                            console.log("c'est bon !!");
-
-
-
-                    }
-                    console.log('i received the data i requested');
-                });
+                    });
             });
+
         };
         // appel au fonction getAll()
         getAll();
@@ -114,6 +113,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
         // fonction de pop up pour la reservation
         $scope.showConfirm = function (ev, date, produit) {
             // Appending dialog to document.body to cover sidenav in docs app
+           $scope.disable = false;
             var confirm = $mdDialog.confirm()
                 .title('Voulez vous reserver cet produit?')
                 .ariaLabel('Lucky day')
@@ -124,6 +124,7 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
             $mdDialog.show(confirm).then(function () {
                 $scope.status = 'reservation confirmée.';
                 $scope.reserver(date, produit);
+                $scope.disable = true;
             }, function () {
                 $scope.status = 'You decided to keep your debt.';
             });
@@ -153,7 +154,8 @@ angular.module('app').controller('DetailsProduitController', ['$location', '$sco
 
             $http.get('/users/session').success(function (response) {
                 $scope.user = response;
-                $http.get('/users/' + $scope.user._id + '/panier/' + produit._id+ '/'+produit.quantite+'/'+produit.nom+'/'+produit.prix+'/'+produit.image+'/'+qt).success(function (res) {
+                console.log(response)
+                $http.get('/users/' + $scope.user._id + '/panier/' + produit._id+'/'+qt+'/'+produit.prix).success(function (res) {
                     console.log("callback ajout produit au panier");
                     getAll();
 
@@ -184,7 +186,7 @@ $scope.validePanier = function(){
                 $scope.user = response;
                 $http.delete('/users/' + $scope.user._id + '/panier/' + id).success(function (data) {
                     $scope.produit = null;
-                    console.log('panier validé');
+                    console.log('produit supprimés');
                     getAll();
                 });
             });

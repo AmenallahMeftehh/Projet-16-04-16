@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 //schema du produit
 var produitModel = new Schema({
     nom: {
@@ -36,5 +37,7 @@ var produitModel = new Schema({
         }
     }]
 });
+// var User  = mongoose.model('User',User);
+
 //exportation du module Produit
 module.exports = mongoose.model('Produit', produitModel);

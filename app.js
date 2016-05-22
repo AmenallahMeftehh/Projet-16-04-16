@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages','ngMaterialDatePicker']).config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('blue');

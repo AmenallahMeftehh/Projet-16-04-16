@@ -15,9 +15,9 @@
   <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!cyc.location">
 <a href="#/details/{{cyc._id}}" >
-    <img ng-src="{{cyc.image}}" alt="" class="prods img-responsive"/>
+    <img style="margin:auto 20%"ng-src="{{cyc.image}}" alt="" class="prods img-responsive"/>
 </a>
-<figcaption style="height:4em;">
+<figcaption style="height:6em;">
   <h3 style="text-align: center">{{cyc.nom}}</h3>
 </figcaption>
 <h4 style="text-align: center;color:red">$ &nbsp{{cyc.prix}}</h4>

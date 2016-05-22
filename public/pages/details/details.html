@@ -6,7 +6,7 @@
             <h2 style="text-align:center" ng-hide="produit.location" class="prix">PRICE : {{produit.prix}} $</h2>
             <h2 style="text-align:center" ng-show="produit.location" class="prix">Prix/Jour : {{produit.prixlocation}} $</h2>
 
-            <img ng-src="{{produit.image}}" alt="{{p.nom}}" />
+            <img ng-src="{{produit.image}}" alt="photo-non-disponible.jpg" />
 
             <div class="caption" ng-show="!produit.location">
               <label style="margin-left:20px;"> Quantité :</label>
@@ -16,13 +16,16 @@
                 </button>
 
             </div>
-            <div class="details " ng-show="produit.location ">
-                <md-datepicker class="md-raised md-primary" md-date-filter="onlyAvailable " ng-model="date " md-placeholder="Date debut ">
+            <div  ng-show="produit.location">
+                <md-datepicker  md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut" md-min-date="minDate" ng-disabled="disable">
                 </md-datepicker>
-                <button class="btn btn-skin pull-right" id="btnContactUs"  ng-click="showConfirm($event,date,produit) ">
+                <button class="btn btn-skin pull-right" id=""  ng-click="showConfirm($event,date,produit)"  >
                     Reserver votre article
                 </button>
 
                 <h4 style="color:blue; " ng-show="message "> {{message}}</h4>
             </div>
     
+</div>
+    </div>
+        </section>

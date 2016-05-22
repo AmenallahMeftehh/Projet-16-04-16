@@ -15,9 +15,9 @@
   <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="golf in golfs | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!golf.location">
 <a href="#/details/{{golf._id}}" >
-    <img ng-src="{{golf.image}}" alt="" class="prods img-responsive"/>
+    <img style="margin:auto 20%"ng-src="{{golf.image}}" alt="" class="prods img-responsive"/>
 </a>
-<figcaption style="height:4em;">
+<figcaption style="height:6em;">
   <h3 style="text-align: center">{{golf.nom}}</h3>
 </figcaption>
 <h4 style="text-align: center;color:red">$ &nbsp{{golf.prix}}</h4>

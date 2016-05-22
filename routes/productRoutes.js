@@ -64,7 +64,7 @@ var routes = function (Produit) {
         User.find({
             _id: idUser
         }, {
-            panier
+            panier:idUser
         }, function (data) {
             if (err)
                 res.status(500).send(err);
