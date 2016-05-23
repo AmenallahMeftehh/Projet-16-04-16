@@ -245,7 +245,6 @@ var routes = function (User) {
 
 
     // recuper les produits de la commande d'un utilisateur'
-    // recuperer les produits d'un panier
     router.get('/:id/commande', function (req, res) {
         id = req.params.id;
         User.find({

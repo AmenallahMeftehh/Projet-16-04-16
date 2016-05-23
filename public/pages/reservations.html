@@ -1,3 +1,5 @@
+<div class="container-fluid row divproduit" id="navbar">
+
 <div class="container col-md-8 col-lg-offset-2" ng-model="produit" style="margin-top:5em;">
 
     <table class="col-md-8 col-xs-12 table table-responsive table-hover ">
@@ -20,4 +22,5 @@
         </tbody>
     </table>
     <uib-pagination total-items="produit.reservation.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>
 </div>

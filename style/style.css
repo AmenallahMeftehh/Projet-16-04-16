@@ -276,7 +276,7 @@ tr {
 }
 
 .divproduit {
-  background-color: white;
+    background-color: white;
     margin-top : 7em;
     border: 2px solid;
     border-radius: 4px 2px;
@@ -294,10 +294,13 @@ margin: 1em auto;
     min-height: 40em;
 }
 .contact{
-    margin-top:7em;background-color:white;height:40em;
+    margin-top:7em;
+    background-color:white;
+    height:40em;
     border:2px solid;
     border-radius: 2px 4px;
     margin-left:1em;
+    max-height:37em;
 }
 
 

@@ -4,7 +4,7 @@ angular.module('app').directive('navmenu', function () {
         , templateUrl: 'public/pages/nav.html'
         , controller: ['$route','$scope', '$http', '$rootScope', function ($route,$scope, $http, $rootScope) {
             $rootScope.islogged = false;
-            $rootScope.isadmin = false;
+            $scope.isadmin = false;
             $route.reload();
             $http.get('/users/session').success(function (response) {
                 console.log(response);
@@ -19,7 +19,7 @@ angular.module('app').directive('navmenu', function () {
 
                     }
                     if (user.statut) {
-                        $rootScope.isadmin = true;
+                        $scope.isadmin = true;
 
                     }
 

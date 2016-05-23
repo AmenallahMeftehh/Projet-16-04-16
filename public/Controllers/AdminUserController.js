@@ -84,9 +84,25 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
         $scope.deselect = function () {
             $scope.user = "";
         }
-    // $scope.user ={};
-    //     $http.get('users/'+user._id+'/commande').success(function(data){
-    //
-    //     $scope.user=data})
+
+
+        // Dashboard pour l'dministrateur
+        $scope.user ={};
+        $scope.data =[[1,5,8,41,25,98,35],[15,55,28,41,225,8,5]];
+        $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+        $scope.series = ['Series A', 'Series B'];
+        $scope.onClick = function (points, evt) {
+            console.log(points, evt);
+        };
+
+        // $http.get('users/'+user._id+'/commande').success(function(data){
+        //
+        // $scope.user=data;
+        //     for(var i= 0; i<data.Commande.length;i++){
+        //         $scope.quantite.push(data.Commande[i].qt);
+        //
+        //     }
+        //
+        // })
 
     }]);

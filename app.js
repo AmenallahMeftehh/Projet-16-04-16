@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
+angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMessages']).config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('blue');
@@ -13,7 +13,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).c
         })
         .when('/home', {
             templateUrl: 'public/pages/home.html'
-            , controller: 'LoginCtrl'
+            , controller: 'emailController'
 
         })
         .when('/reservations/:itemId', {
@@ -54,6 +54,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).c
         })
         .when('/user', {
             templateUrl: 'public/pages/users.html'
+            , controller: 'AdminUserCtrl'
+
+        })
+        .when('/dash', {
+            templateUrl: 'public/pages/dashbord.html'
             , controller: 'AdminUserCtrl'
 
         })

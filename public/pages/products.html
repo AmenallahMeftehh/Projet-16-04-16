@@ -1,4 +1,6 @@
-<div class="table-bordered table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1"style="margin-top:10em;">
+<div class="container-fluid row divproduit" id="navbar">
+
+<div class="table-bordered table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1"style="margin-top:5em;">
 
     <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin: 30px">
     <table class="col-md-12 col-xs-12 table table-responsive">
@@ -71,4 +73,5 @@
         </tbody>
     </table>
     <uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>
 </div>

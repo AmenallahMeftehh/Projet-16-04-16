@@ -147,7 +147,7 @@
                         <div class="form-group">
                             <label for="name">
                                 Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" data-ng-model="cf.contactName" />
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" ng-model="email.contactName" />
                         </div>
                         <div class="form-group">
                             <label for="email">
@@ -155,12 +155,12 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" data-ng-model="cf.contactEmail"/></div>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" ng-model="email.contactEmail"/></div>
                         </div>
                         <div class="form-group">
                             <label for="subject">
                                 Subject</label>
-                            <select id="subject" name="subject" class="form-control" required="required" data-ng-model="cf.contactSubject">
+                            <select id="subject" name="subject" class="form-control" required="required" ng-model="email.contactSubject">
                                 <option value="na" selected="">Choose One:</option>
                                 <option value="service">General Customer Service</option>
                                 <option value="suggestions">Suggestions</option>
@@ -173,11 +173,11 @@
                             <label for="name">
                                 Message</label>
                             <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message" data-ng-model="cf.contactMsg"></textarea>
+                                placeholder="Message" ng-model="email.contactMsg"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs" data-ng-click="cf.sendEmail()">
+                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs" data-ng-click="send(email)">
                             Envoyer mail</button>
 
                     </div>

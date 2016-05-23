@@ -1,3 +1,5 @@
+<div class="container-fluid row divproduit" id="navbar">
+
 <div class="container col-md-8 col-lg-offset-2" ng-model="user" style="margin-top:5em;">
 
     <table class="col-md-8 col-xs-12 table table-responsive table-hover ">
@@ -5,7 +7,6 @@
         <tr>
             <th>Nom du Produit</th>
             <th>quantité</th>
-            <th>prix</th>
             <th>prixTotal</th>
             <th>Date de commande</th>
 
@@ -16,7 +17,7 @@
         <tr ng-repeat="com in user.Commande  | limitTo:maxSize:(currentPage - 1) * maxSize">
             <td>{{com.idproduit}}</td>
             <td>{{com.qt}}</td>
-            <td>{{com.idproduit.prix}}</td>
+            <!--<td>{{com.idproduit.prix}}</td>-->
             <td>{{com.totalprixproduit}}</td>
             <td>{{com.dateValidation}}</td>
 
@@ -24,4 +25,5 @@
         </tbody>
     </table>
     <uib-pagination total-items="user.Commande.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+</div>
 </div>

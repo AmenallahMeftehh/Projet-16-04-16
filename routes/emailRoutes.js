@@ -15,7 +15,7 @@ var routes = function (Email) {
         var name = req.params.contactName;
         sendgrid.send({
             to:       'amenallah.mefteh@esprit.tn',
-            from:     'reply@craftacademy.com',
+            from:     'craftacademy@craftacademy.com',
             subject:  sub,
             text:     msg,
             name: name,
