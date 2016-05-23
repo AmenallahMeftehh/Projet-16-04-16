@@ -293,7 +293,12 @@ margin: 1em auto;
 .register {
     min-height: 40em;
 }
-
+.contact{
+    margin-top:7em;background-color:white;height:40em;
+    border:2px solid;
+    border-radius: 2px 4px;
+    margin-left:1em;
+}
 
 
 .container {

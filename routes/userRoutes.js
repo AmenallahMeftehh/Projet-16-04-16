@@ -92,19 +92,19 @@ var routes = function (User) {
             }
         });
     });
-// email sendgrid method
-router.get('/mail',function(req,res){
-    sendgrid.send({
-        to:       'amenallah.mefteh@esprit.tn',
-        from:     'craftacademy@craftacademy.com',
-        subject:  'Hello World',
-        text:     'My first email through SendGrid.'
-    }, function(err, json) {
-        if (err) { return res.send("no mail"); }
-        res.send("mail oki");
-    });
-
-});
+// // email sendgrid method
+// router.get('/mail',function(req,res){
+//     sendgrid.send({
+//         to:       'amenallah.mefteh@esprit.tn',
+//         from:     'craftacademy@craftacademy.com',
+//         subject:  'Hello World',
+//         text:     'My first email through SendGrid.'
+//     }, function(err, json) {
+//         if (err) { return res.send("no mail"); }
+//         res.send("mail oki");
+//     });
+//
+// });
 
     // recuperer un utilisateur
         router.get('/:id', function (req, res) {

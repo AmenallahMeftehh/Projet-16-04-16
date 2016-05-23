@@ -8,10 +8,10 @@ var emailModel = new Schema({
         type: String
     }
     , contactSubject: {
-        type: Number
+        type: String
     }
     , contactMsg: {
-        type: Number
+        type: String
     }
 });
 // var User  = mongoose.model('User',User);

@@ -1,28 +1,84 @@
-<div style="margin-top:10em;background-color:white;height:40em"class="col-md-10 col-md-offset-1">
+<div class="col-md-6 contact">
 <div class="col-md-12">
   <h1>Contact</h1>
   <br>
-  <h4>Are you curious about something ? Do you have some kind of problem with our products?</h4>
+  <h5>Are you curious about something ? Do you have some kind of problem with our products?</h5>
   <h5>Please feel free to contact us, our customer service center is working for you 24/7.</h5>
-  <br>
-  <br>
 </div>
 
-    <div style="float:left" class="col-md-4">
-        <h3>Address</h3>
+    <div style="float:left" class="col-md-12">
+        <h4>Address</h4>
         <h5>5 Rue Louis Braille 1003,Tunis Tunisie</h5>
     </div>
-    <div style="float:left" class="col-md-4">
-        <h3> Call center</h3>
+    <div style="float:left" class="col-md-12">
+        <h4> Call center</h4>
         <h5>This number is toll free if calling from Tunisia </h5>
         <h5>  otherwise we advise you to use the electronic form of communication.</h5>
         <h5>+216 54 158 286</h5>
     </div>
-    <div style="float:left" class="col-md-4">
-        <h3>Electronic support</h3>
+    <div style="float:left" class="col-md-12">
+        <h4>Electronic support</h4>
 
         <h5>Please feel free to write an email to us or to use our electronic ticketing system.</h5>
 
-        <h4>amenallah.mefteh@esprit.tn</h4>
+        <h5>amenallah.mefteh@esprit.tn</h5>
     </div>
-  </div>
+</div>
+    <div class="col-md-5 contact">
+
+        <!--<div class="row">-->
+            <!--<div class="col-lg-4 col-lg-offset-5">-->
+                <!--<hr class="marginbot-50">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-8">-->
+                <div class="boxed-grey"style="margin-top:2em;">
+                    <form id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" ng-model="email.contactName" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        Email Address</label>
+                                    <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" ng-model="email.contactEmail"/></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                        Subject</label>
+                                    <select id="subject" name="subject" class="form-control" required="required" ng-model="email.contactSubject">
+                                        <option value="na" selected="">Choose One:</option>
+                                        <option value="service">General Customer Service</option>
+                                        <option value="suggestions">Suggestions</option>
+                                        <option value="product">Product Support</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                      placeholder="Message" ng-model="email.contactMsg"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-skin pull-right" id="btnContactUs" data-ng-click="send(email)">
+                                    Envoyer mail</button>
+</div></div>
+
+
+                    </form>
+                </div></div>
+            </div>
+
+
+
+

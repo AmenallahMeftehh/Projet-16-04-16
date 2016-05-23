@@ -32,7 +32,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).c
 
         })
         .when('/contact', {
-            templateUrl: 'public/pages/contact.html'
+            templateUrl: 'public/pages/contact.html',
+            controller : 'emailController'
 
 
         })
@@ -92,6 +93,24 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).c
     })
 
 }]);
+
+// restriction pour l'acces aux pages'
+// run(function ($rootScope, $location, $route, $cookies, AuthService) {
+//     $rootScope.$on('$routeChangeStart',
+//         function (event, next, current) {
+//             AuthService.getUserStatus()
+//                 .then(function(){
+//                     if (next.access.restricted && !AuthService.isLoggedIn()){
+//                         $location.path('/login');
+//                         $route.reload();
+//                     }
+//                 });
+//         });
+// });
+//
+//
+//
+
 // affichage de popup pour se connecter a facebook et verification de l'application par un id génénrée de fb
 window.fbAsyncInit = function () {
     FB.init({
