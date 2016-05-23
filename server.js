@@ -12,6 +12,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var localStrategy = require('passport-local').Strategy;
+// var sendgrid  = require('sendgrid')('amenallahmefteh','mefteh90');
+var nodemailer = require("nodemailer");
+
 // declaration de port
 var port = process.env.PORT || 3000;
 // connexion mongodb depuis le local
@@ -21,6 +24,13 @@ mongoose.connect('mongodb://localhost/bdchallenge');
 // mongoose.connect(urlmongolab);
 // instantiation d'express
 var app = express();
+// var transporter = nodemailer.createTransport({
+//     service: "Gmail",
+//     auth: {
+//         user: "meftah.amenallah@gmail.tn",
+//         pass: "mefteh29"
+//     }
+// });
 var http = require('http').Server(app);
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -46,6 +56,11 @@ app.use('/produits', produitRouter);
 var User = require('./models/user');
 routes = require('./routes/userRoutes')(User);
 app.use('/users', routes);
+// declaration d'un model Email et le route'
+var Email = require('./models/emailModel');
+emailRouter = require('./routes/emailRoutes')(Email);
+app.use('/email', emailRouter);
+
 // pour le logging on a utiliser morgan
 app.use(logger('dev'));
 // body-parser pour parser en json

@@ -1,5 +1,6 @@
 var express = require('express');
 var User = require('../models/user');
+
 var routes = function (Produit) {
     var produitRouter = express.Router();
     produitRouter.route('/')
