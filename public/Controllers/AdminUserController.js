@@ -1,8 +1,13 @@
-angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$http'
+angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$http','$routeParams'
 
-    , function ($scope, $location, AuthService, $http) {
-
-
+    , function ($scope, $location, AuthService, $http,$routeParams) {
+        $scope.user={};
+        var id = $routeParams.itemId;
+        // recuperer un produit par id
+        $http.get('/users/' + id).success(function (data) {
+            $scope.user = data[0];
+            console.log($scope.user)
+        });
         // recuperer tous les utilisateurs
         var getAll = function () {
             $http.get('/users').success(function (response) {
@@ -79,4 +84,9 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
         $scope.deselect = function () {
             $scope.user = "";
         }
+    // $scope.user ={};
+    //     $http.get('users/'+user._id+'/commande').success(function(data){
+    //
+    //     $scope.user=data})
+
     }]);

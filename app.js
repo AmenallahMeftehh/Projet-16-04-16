@@ -41,6 +41,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngMaterial', 'ngMessages']).c
             templateUrl: 'public/pages/products.html'
             , controller: 'produitController'
 
+        }).when('/commandes/:itemId', {
+            templateUrl: 'public/pages/commandes.html'
+            , controller: 'AdminUserCtrl'
+
         })
         .when('/logout', {
             templateUrl: 'public/pages/vide.html'

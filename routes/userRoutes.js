@@ -164,18 +164,7 @@ var routes = function (User) {
                     }
 
                 });
-            User.update({
-                _id: User.id
-            }, {
-                $set: {
-                    panier: []
-                }
-            }, function (err) {
-                if (err)
-                    res.status(500).send(err);
-                else
-                    res.status(204).send('panier validé ');
-            });
+           
 
             })
 
@@ -233,6 +222,27 @@ var routes = function (User) {
 
         }).populate('panier.idproduit').exec(function(error, produits) {
             console.log(JSON.stringify(produits, null, "\t"))
+        });
+
+
+    });
+
+
+    // recuper les produits de la commande d'un utilisateur'
+    // recuperer les produits d'un panier
+    router.get('/:id/commande', function (req, res) {
+        id = req.params.id;
+        User.find({
+            _id: id
+        }, function (err, data) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.json(data);
+            }
+
+        }).populate('Commande.idproduit').exec(function(error, commandes) {
+            console.log(JSON.stringify(commandes, null, "\t"))
         });
 
 

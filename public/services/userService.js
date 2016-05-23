@@ -102,7 +102,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
             return deferred.promise;
         }
 
-        function register(firstname, lastname, username, password) {
+        function register(firstname, lastname, username, password,photo) {
 
             // create a new instance of deferred
             var deferred = $q.defer();
@@ -113,6 +113,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
                     , lastname: lastname
                     , username: username
                     , password: password
+                    , photo: photo
                 })
                 // handle success
                 .success(function (data, status) {

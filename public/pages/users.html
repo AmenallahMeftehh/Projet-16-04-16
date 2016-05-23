@@ -50,6 +50,9 @@
                 <td><img class="img-circle" style="width:100px;height:100px" ng-src='{{user.photo}}' /></td>
                 <td>{{user.statut}}</td>
                 <td>
+                    <md-card-actions layout="row">
+                        <md-button  href="#/commandes/{{user._id}}" class="md-raised md-primary">Liste des commandes</md-button>
+                    </md-card-actions>
 
                     <md-button class="md-raised md-primary" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
                     <md-button class="md-raised md-primary" ng-click="recup(user._id)"><span><img src="public/images/sign.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>EDIT</md-button>

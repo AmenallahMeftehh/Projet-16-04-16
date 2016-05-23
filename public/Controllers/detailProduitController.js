@@ -42,25 +42,9 @@ angular.module('app').controller('DetailsProduitController', ['$route','$locatio
         };
         $scope.qt=1;
         $scope.prod={};
-        $scope.tot=0;
 
-    $scope.total=function() {
-        $http.get('/users/session').success(function (response) {
-            $http.get('/users/' + response._id).success(function (user) {
-                $scope.cart = user[0].panier;
-                console.log($scope.cart);
-
-                for (var i = 0; i < $scope.cart.length; i++) {
-                    $scope.tot += $scope.cart[i].totalprixproduit;
-                    console.log($scope.tot);
-                }
-                ;
-
-            });
-        });
-        return $scope.tot;
-    }
       $scope.produits=[];
+        $scope.tot=0;
         // fonction pour recuperer tous les produits dans le panier d'un user
         var getAll = function () {
 
@@ -73,7 +57,9 @@ angular.module('app').controller('DetailsProduitController', ['$route','$locatio
                         // console.log($scope.panier)
                     for (var i = 0; i < $scope.panier.length; i++) {
                             $scope.produits.push($scope.panier[i]);
-                        }
+                        $scope.tot += $scope.panier[i].totalprixproduit;
+
+                    }
                             console.log('i received the data i requested');
 
                     })
@@ -100,7 +86,7 @@ angular.module('app').controller('DetailsProduitController', ['$route','$locatio
                 $http.get('/users/' + response._id).success(function (user) {
                     console.log(user[0]);
 
-                    $http.post('produits/' + produit._id + '/reservation/' + user[0].username + '/date/' + date).success(function (res) {
+                    $http.post('produits/'+ produit._id+'/reservation/'+user[0].username +'/date/'+date).success(function (res) {
                         $scope.onlyAvailable(date);
                         $scope.date = "";
 
@@ -190,7 +176,9 @@ $scope.validepanier = function(){
               for (var i = 0; i < $scope.panier.length; i++) {
                   console.log($scope.user.panier[i]);
                   console.log($scope.user.Commande);
-              $scope.user.Commande.push($scope.user.panier[i]);
+$http.get('users/'+$scope.user._id+'/panierreserve/'+$scope.user.panier[i].idproduit+'/'+$scope.user.panier[i].qt+'/'+$scope.user.panier[i].totalprixproduit).success(function(data){
+
+})
                   $scope.viderpanier();
               console.log('panier validé');
               $route.reload();}
