@@ -95,6 +95,10 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
             console.log(points, evt);
         };
 
+        $scope.labelspie = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+ $scope.datapie = [300, 500, 100];
+
+
         // $http.get('users/'+user._id+'/commande').success(function(data){
         //
         // $scope.user=data;

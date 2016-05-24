@@ -1,9 +1,20 @@
 
-<div class="container-fluid row divproduit" id="navbar" >
+<div class="col-md-12 col-xs-12 container-fluid row divproduit" id="navbar"style="margin-left:0.1%">
 
-    dashboard
-<canvas id="line" class="chart chart-line" chart-data="data"
+    <div class="col-md-6 col-xs-12 ">
+
+
+<canvas  id="line" class="chart chart-line" chart-data="data"
         chart-labels="labels" chart-legend="true" chart-series="series"
-        chart-click="onClick" >
+        chart-click="onClick">
+</canvas></div>
+<div class="col-md-6 col-xs-12 ">
+
+<canvas id="pie" class="col-md-5 col-xs-12 chart chart-pie"
+  chart-data="datapie" chart-labels="labelspie">
 </canvas>
+
+
+</div>
+
     </div>

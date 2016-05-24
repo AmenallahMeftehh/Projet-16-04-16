@@ -1,7 +1,7 @@
 //Set an angular Service for handling authentication
 
 angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
-    
+
     , function ($q, $timeout, $http) {
 
         // create user variable
@@ -9,13 +9,14 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
 
         // return available functions for use in the controllers
         return ({
-            isAdmin: isAdmin
+              isAdmin: isAdmin
             , isLoggedIn: isLoggedIn
             , getUserStatus: getUserStatus
             , login: login
             , logout: logout
             , register: register
         });
+
 
         function isLoggedIn() {
             if (user) {
