@@ -1,7 +1,7 @@
 //Login Controller
 angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
     , function ($route,$scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
-      
+
         $(document).ready(function () {
             $('.carousel').carousel({
                 interval: 2000
@@ -9,7 +9,6 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
         });
 
         $rootScope.islogged = false;
-        $rootScope.isadmin = false;
 
 
 

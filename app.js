@@ -1,138 +1,130 @@
-var app = angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMessages']);
-
-
-
-app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
+angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMessages']).config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('blue');
 
     $routeProvider.when('/login', {
             templateUrl: 'public/pages/login.html'
-            , controller: 'LoginCtrl',
-            access: {restricted: false}
-
+            , controller: 'LoginCtrl'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
         })
         .when('/register', {
             templateUrl: 'public/pages/register.html'
-            , controller: 'RegisterCtrl',
-            access: {restricted: false}
-
+            , controller: 'RegisterCtrl'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
         })
         .when('/home', {
             templateUrl: 'public/pages/home.html'
-            , controller: 'emailController',
-            access: {restricted: false}
-
+            , controller: 'emailController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
         })
+        .when('/reservations/:itemId', {
+            templateUrl: 'public/pages/reservations.html'
+            , controller: 'DetailsProduitController'
+            ,  access: {restricted: true},
+                admin: {restricted: true}
 
+        })
         .when('/produits', {
             templateUrl: 'public/pages/produits.html'
-            , controller: 'produitController',
-            access: {restricted: false}
-
+            , controller: 'produitController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
         })
         .when('/prodlocation', {
             templateUrl: 'public/pages/prodlocation.html'
-            , controller: 'produitLocationController',
-            access: {restricted: false}
-
+            , controller: 'produitLocationController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
         })
         .when('/contact', {
             templateUrl: 'public/pages/contact.html',
-            controller : 'emailController',
-            access: {restricted: false}
-
+            controller : 'emailController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
 
         })
 
     .when('/products', {
             templateUrl: 'public/pages/products.html'
-            , controller: 'produitController',
-            access: {restricted: true}
+            , controller: 'produitController'
+            ,  access: {restricted: true},
+                admin: {restricted: true}
 
-
-        })
-        .when('/reservations/:itemId', {
-            templateUrl: 'public/pages/reservations.html'
-            , controller: 'DetailsProduitController',
-            access: {restricted: true}
-
-
-        })
-        .when('/user', {
-            templateUrl: 'public/pages/users.html'
-            , controller: 'AdminUserCtrl',
-            access: {restricted: true}
-
-
-        })
-        .when('/commandes/:itemId', {
+        }).when('/commandes/:itemId', {
             templateUrl: 'public/pages/commandes.html'
-            , controller: 'AdminUserCtrl',
-            access: {restricted: true}
-
+            , controller: 'AdminUserCtrl'
+            ,  access: {restricted: true},
+                admin: {restricted: true}
 
         })
         .when('/logout', {
             templateUrl: 'public/pages/vide.html'
-            , controller: 'LogoutCtrl',
-            access: {restricted: true}
-
+            , controller: 'LogoutCtrl'
+            ,  access: {restricted: true},
+                admin: {restricted: false}
 
         })
+        .when('/user', {
+            templateUrl: 'public/pages/users.html'
+            , controller: 'AdminUserCtrl'
+            ,  access: {restricted: true},
+                admin: {restricted: true}
 
+        })
         .when('/dash', {
             templateUrl: 'public/pages/dashbord.html'
-            , controller: 'AdminUserCtrl',
-            access: {restricted: true}
-
+            , controller: 'AdminUserCtrl'
+            ,  access: {restricted: true},
+                admin: {restricted: true}
 
         })
         .when('/panier', {
             templateUrl: 'public/pages/panier.html'
-            , controller: 'DetailsProduitController',
-            access: {restricted: true}
-
+            , controller: 'DetailsProduitController'
+            ,  access: {restricted: true},
+                admin: {restricted: false}
 
         })
         .when('/football', {
             templateUrl: 'public/pages/football.html'
-            , controller: 'footballController',
-            access: {restricted: false}
-
+            , controller: 'footballController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
         })
         .when('/golf', {
             templateUrl: 'public/pages/golf.html'
-            , controller: 'golfController',
-            access: {restricted: false}
-
-
+            , controller: 'golfController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
         })
         .when('/cyclisme', {
             templateUrl: 'public/pages/cyclisme.html'
-            , controller: 'cyclismeController',
-            access: {restricted: false}
-
+            , controller: 'cyclismeController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
         })
         .when('/tennis', {
             templateUrl: 'public/pages/tennis.html'
-            , controller: 'tennisController',
-            access: {restricted: false}
-
+            , controller: 'tennisController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
 
         })
         .when('/details/:itemId', {
             templateUrl: 'public/pages/details/details.html'
-            , controller: 'DetailsProduitController',
-            access: {restricted: false}
-
+            , controller: 'DetailsProduitController'
+            ,  access: {restricted: false},
+                admin: {restricted: false}
         })
 
 
@@ -140,22 +132,26 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
         redirectTo: '/home'
     })
 
-}]);
-
-// restriction pour l'acces aux pages'
-app.run(function ($rootScope, $location, $route, AuthService) {
-    $rootScope.$on('$locationChangeStart',
-        function (scope, next, current) {
-            AuthService.getUserStatus()
-                .then(function(){
-                    if (next.access.restricted && !AuthService.isLoggedIn()){
-                        $location.path('/login');
-                        $route.reload();
-                    }
-                });
-        });
-});
-
+}]).run(function ($rootScope, $location, $route, AuthService) {
+  $rootScope.$on('$routeChangeStart',
+    function (event, next, current) {
+      AuthService.getUserStatus()
+           .then(function(){
+          if (next.access.restricted
+            && !AuthService.isLoggedIn()) {
+            $location.path('/login');
+            // $route.reload();
+          }
+          //admin restriction
+          if (next.admin.restricted
+            && $rootScope.isAdmin === false
+            && !AuthService.isLoggedIn()) {
+            alert('This page is accessed only by admins');
+            $location.path('/football');
+            // $route.reload();
+          }
+    });
+});});
 
 // affichage de popup pour se connecter a facebook et verification de l'application par un id génénrée de fb
 window.fbAsyncInit = function () {

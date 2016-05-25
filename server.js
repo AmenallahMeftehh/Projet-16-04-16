@@ -40,8 +40,8 @@ app.use(bodyParser.urlencoded({
 // initialisation et declaration de session pour utiliser passport
 app.use(session({
     secret: 'secrhnfghhhdbdbdbgbgdbdet'
-    , resave: false
-    , saveUninitialized: false
+    , resave: true
+    , saveUninitialized: true
 }));
 
 app.use(passport.initialize());
