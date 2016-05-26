@@ -18,7 +18,7 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                 $rootScope.islogged = true;
 
             }
-            if (response.statut) {
+            if (response.isAdmin) {
                 $rootScope.isadmin = true;
             }
         });
@@ -87,11 +87,13 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                     console.log('edd');
                     $scope.disabled = false;
                     $rootScope.islogged = true;
+                    $rootScope.status = true;
+
                     $location.path('/home');
                     $route.reload();
 
 
-                    if ($scope.user.statut === "admin") {
+                    if ($scope.user.isAdmin) {
                         $rootScope.isAdmin = true;
                         $scope.user = {};
 
@@ -105,7 +107,7 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                     $scope.user = {};
                     $rootScope.islogged = false;
                 });
-
+                console.log(AuthService.getUserStatus());
 
         };
 
@@ -121,7 +123,6 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                 });
 
         };
-
 
 
     }])

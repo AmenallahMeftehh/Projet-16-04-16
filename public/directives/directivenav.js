@@ -18,7 +18,7 @@ angular.module('app').directive('navmenu', function () {
                         $route.reload();
 
                     }
-                    if (user.statut) {
+                    if (user.isAdmin) {
                         $scope.isadmin = true;
 
                     }

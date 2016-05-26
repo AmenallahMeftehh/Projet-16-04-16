@@ -11,9 +11,15 @@ var User = new Schema({
     , lastname: String
     , username: String
     , password: String
-    , photo: String,
-
-    statut: {
+    , photo: {
+      type:String
+      ,default: './public/images/non_logo.png'
+    },
+    status: {
+        type: Boolean
+    }
+    ,
+    isAdmin:{
         type: Boolean
         , default: false
     }

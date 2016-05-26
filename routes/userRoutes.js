@@ -53,8 +53,9 @@ var routes = function (User) {
                 }
                 req.session.user = user;
                 res.status(200).json({
-                    status: 'Login Successful!!'
-                , });
+                    status: 'Login successful!',
+                    user: user //retourne les infos de l'utilisateur
+                 });
             });
         })(req, res, next); //passport.authenticate method
     }); //router.post method

@@ -6,7 +6,6 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
 
         // create user variable
         var user = null;
-
         // return available functions for use in the controllers
         return ({
               isAdmin: isAdmin
@@ -27,7 +26,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
         }
 
         function isAdmin(user) {
-            if (user.statut) {
+            if (user.isAdmin) {
                 return true;
             } else {
                 return false;
@@ -132,5 +131,8 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
             // return promise object
             return deferred.promise;
 
+        }
+        function getUser() {
+            return user;
         }
         }]);
