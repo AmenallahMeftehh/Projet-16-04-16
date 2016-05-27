@@ -18,19 +18,13 @@ var nodemailer = require("nodemailer");
 // declaration de port
 var port = process.env.PORT || 3000;
 // connexion mongodb depuis le local
-mongoose.connect('mongodb://localhost/bdchallenge');
+// mongoose.connect('mongodb://localhost/bdchallenge');
 // connexion mongodb depuis mongolab
-// var urlmongolab = "mongodb://amenallahmefteh:mefteh@ds025762.mlab.com:25762/bdchallenge";
-// mongoose.connect(urlmongolab);
+var urlmongolab = "mongodb://amenallahmefteh:mefteh@ds025762.mlab.com:25762/bdchallenge";
+mongoose.connect(urlmongolab);
 // instantiation d'express
 var app = express();
-// var transporter = nodemailer.createTransport({
-//     service: "Gmail",
-//     auth: {
-//         user: "meftah.amenallah@gmail.tn",
-//         pass: "mefteh29"
-//     }
-// });
+
 var http = require('http').Server(app);
 app.use(bodyParser.json());
 app.use(cookieParser());

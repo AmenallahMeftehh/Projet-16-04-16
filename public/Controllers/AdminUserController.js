@@ -173,7 +173,7 @@ var getnomProd = function () {
 
 
 $scope.labelnomproduit= getnomProd();
-$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+// $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
         // $scope.series = ['Series A', 'Series B'];
         $scope.onClick = function (points, evt) {
             console.log(points, evt);
