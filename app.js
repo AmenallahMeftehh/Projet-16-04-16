@@ -131,27 +131,27 @@ angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMes
     .otherwise({
         redirectTo: '/home'
     })
-
-}]).run(function ($rootScope, $location, $route, AuthService) {
-  $rootScope.$on('$routeChangeStart',
-    function (event, next, current) {
-      AuthService.getUserStatus()
-           .then(function(){
-          if (next.access.restricted
-            && !AuthService.isLoggedIn()) {
-            $location.path('/login');
-            // $route.reload();
-          }
-          //admin restriction
-          if (next.admin.restricted
-            && $rootScope.isAdmin === false
-            && !AuthService.isLoggedIn()) {
-            alert('This page is accessed only by admins');
-            $location.path('/football');
-            // $route.reload();
-          }
-    });
-});});
+}])
+// .run(function ($rootScope, $location, $route, AuthService) {
+//   $rootScope.$on('$routeChangeStart',
+//     function (event, next, current) {
+//       AuthService.getUserStatus()
+//            .then(function(){
+//           if (next.access.restricted
+//             && !AuthService.isLoggedIn()) {
+//             $location.path('/login');
+//             // $route.reload();
+//           }
+//           //admin restriction
+//           if (next.admin.restricted
+//             && $rootScope.isAdmin === false
+//             && !AuthService.isLoggedIn()) {
+//             alert('This page is accessed only by admins');
+//             $location.path('/football');
+//             // $route.reload();
+//           }
+//     });
+// });});
 
 // affichage de popup pour se connecter a facebook et verification de l'application par un id génénrée de fb
 window.fbAsyncInit = function () {

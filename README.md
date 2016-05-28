@@ -1,20 +1,23 @@
 # Projet-16-04-16
  SPORT SHOP est un site e-commerce de vente en ligne des produits sportifs construit avec MEAN Technologies.
- Technologies : 
+ Technologies :
  - MongoDB.
  - AngularJS.
  - ExpressJS.
  - NodeJS.
- 
+
 Pour lancer le serveur vous devez:
 
 Installer NODEJS.
 - git clone https://github.com/AmenallahMeftehh/Projet-16-04-16.git.
+- pour se connecter a Mlab:
+1-commenter (Ctrl + /) la ligne 21 dans server.js.
+2-enlever les commentaires sur les  lignes 23 et 24 (Ctrl + /).
 - Accéder au répertoire Projet-16-04-16.
 - exécuter la commande: npm install.
 - lancer le serveur avec: gulp.
 
-1.Pour accéder à l'application en tant que administrateur{ username:"amenallah","password":"ali"} 
+1.Pour accéder à l'application en tant que administrateur{ username:"amenallah","password":"ali"}
 -> vous pouvez:
 - Consulter la page DASHBOARD
 - Gérer les produits et leurs réservations .

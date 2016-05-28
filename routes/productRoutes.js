@@ -91,12 +91,13 @@ var routes = function (Produit) {
     produitRouter.route('/:id')
         .get(function (req, res) {
             res.json(req.produit);
-        })
-        .put(function (req, res) {
-            Produit.id = req.params.id;
+        });
+
+        produitRouter.route('/:id').put(function (req, res) {
+            req.produit.id = req.params.id;
 
             Produit.findOneAndUpdate({
-                    _id: Produit.id
+                    _id: req.produit.id
                 }
                 , {
 

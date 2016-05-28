@@ -165,26 +165,40 @@ $scope.viderpanier=function(){
 }
 
 $scope.validepanier = function(){
+    $scope.produit={}
   $http.get('/users/session').success(function (response) {
-      $http.get('/users/' + response._id).success(function (data) {
-        $scope.user=data[0];
+        $scope.user=response;
       console.log($scope.user);
-          $http.get('users/'+$scope.user._id+'/panier').success(function (data) {
-              console.log(data)
-              $scope.panier= data[0].panier;
-              // console.log($scope.panier)
-              for (var i = 0; i < $scope.panier.length; i++) {
-                  console.log($scope.user.panier[i]);
-                  console.log($scope.user.Commande);
-$http.get('users/'+$scope.user._id+'/panierreserve/'+$scope.user.panier[i].idproduit+'/'+$scope.user.panier[i].qt+'/'+$scope.user.panier[i].totalprixproduit).success(function(data){
+              for (var i = 0; i <$scope.user.panier.length; i++) {
+                $scope.product={};
+                $scope.product =  $scope.user.panier[i]
+                  console.log($scope.product);
+                  $http.get('/produits/'+$scope.product.idproduit).success(function(data){
+                    console.log(data);
+                  $scope.produit = data;
+                  console.log($scope.product);
+                  $scope.produit.quantite -= $scope.product.qt;
+                  $http.put('/produits/'+$scope.produit._id).success(function(data){
+                console.log(data);
+              });
+                  console.log($scope.produit.quantite);
+                  console.log($scope.produit);
+
+$http.get('users/'+$scope.user._id+'/panierreserve/'+$scope.product.idproduit+'/'+$scope.product.qt+'/'+$scope.product.totalprixproduit).success(function(data){
 
 })
-                  $scope.viderpanier();
-              console.log('panier validé');
-              $route.reload();}
-          });
-      });  });
 
+
+
+              $scope.viderpanier();
+              console.log($scope.produit.quantite);
+              $route.reload();
+
+})
+
+
+  }
+});
       };
 
         $scope.delete = function (id) {

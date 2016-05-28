@@ -98,12 +98,12 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
                 $scope.users = response;
                 console.log(response);
                 for(var i=0;i<$scope.users.length;i++){
-                  console.log($scope.users[i]);
-                  console.log($scope.users[i].Commande);
+                  // console.log($scope.users[i]);
+                  // console.log($scope.users[i].Commande);
                   for (var j = 0; j < $scope.users[i].Commande.length; j++) {
 
                   $scope.dataqt.push($scope.users[i].Commande[j].qt);
-                  console.log($scope.data);
+                  // console.log($scope.data);
                     }
                 }
             });
@@ -115,12 +115,12 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
                 $scope.users = response;
                 console.log(response);
                 for(var i=0;i<$scope.users.length;i++){
-                  console.log($scope.users[i]);
-                  console.log($scope.users[i].Commande);
+                  // console.log($scope.users[i]);
+                  // console.log($scope.users[i].Commande);
                   for (var j = 0; j < $scope.users[i].Commande.length; j++) {
 
                   $scope.dataqtpie.push($scope.users[i].Commande[j].qt);
-                  console.log($scope.data);
+                  // console.log($scope.data);
                     }
                 }
             });
@@ -136,12 +136,12 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
                 $scope.users = response;
                 console.log(response);
                 for(var i=0;i<$scope.users.length;i++){
-                  console.log($scope.users[i]);
-                  console.log($scope.users[i].Commande);
+                  // console.log($scope.users[i]);
+                  // console.log($scope.users[i].Commande);
                   for (var j = 0; j < $scope.users[i].Commande.length; j++) {
 
                   $scope.labelsdate.push(new Date($scope.users[i].Commande[j].dateValidation).getDate());
-                  console.log($scope.labelsdate);
+                  // console.log($scope.labelsdate);
                     }
                 }
             });
@@ -155,13 +155,12 @@ var getnomProd = function () {
         $scope.users = response;
         console.log(response);
         for(var i=0;i<$scope.users.length;i++){
-          console.log($scope.users[i]);
-          console.log($scope.users[i].Commande);
+          // console.log($scope.users[i]);
+          // console.log($scope.users[i].Commande);
           for (var j = 0; j < $scope.users[i].Commande.length; j++) {
             $http.get('produits/'+$scope.users[i].Commande[j].idproduit).success(function(data){
-              console.log(data);
               $scope.labelnomproduit.push(data.nom);
-              console.log($scope.labelnomproduit);
+              // console.log($scope.labelnomproduit);
 
             })
 
@@ -173,14 +172,24 @@ var getnomProd = function () {
 
 
 $scope.labelnomproduit= getnomProd();
-// $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-        // $scope.series = ['Series A', 'Series B'];
+
+
+$scope.produits=[];
+// des KPI indicateurs de performance pour la gestion des stock
+$http.get('produits/').success(function(data){
+$scope.produits=data;
+console.log($scope.produits);
+for(var i=0;i<$scope.produits.length;i++){
+
+}
+
+})
+
+
         $scope.onClick = function (points, evt) {
             console.log(points, evt);
         };
 
- //        $scope.labelspie = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
- // $scope.datapie = [300, 500, 100];
 
 
         // $http.get('users/'+user._id+'/commande').success(function(data){
