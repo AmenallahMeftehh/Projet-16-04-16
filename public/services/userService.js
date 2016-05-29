@@ -26,7 +26,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
         }
 
         function isAdmin(user) {
-            if (user.isAdmin) {
+            if (user.role==="admin") {
                 return true;
             } else {
                 return false;

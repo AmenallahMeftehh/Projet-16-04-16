@@ -14,14 +14,11 @@ var User = new Schema({
     , photo: {
       type:String
       ,default: './public/images/non_logo.png'
-    },
-    status: {
-        type: Boolean
     }
     ,
-    isAdmin:{
-        type: Boolean
-        , default: false
+    role:{
+        type: String
+        , default: "client"
     }
     ,   panier:[{idproduit: {type: mongoose.Schema.Types.ObjectId, ref: 'Produit'},qt:{type:String},
         totalprixproduit:{type:Number}}]

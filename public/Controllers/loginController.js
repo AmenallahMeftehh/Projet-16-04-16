@@ -2,14 +2,15 @@
 angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
     , function ($route,$scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
 
-        $(document).ready(function () {
-            $('.carousel').carousel({
-                interval: 2000
-            })
-        });
+        // $(document).ready(function () {
+        //     $('.carousel').carousel({
+        //         interval: 2000
+        //     })
+        // });
+        $rootScope.user=$scope.user;
 
         $rootScope.islogged = false;
-
+        $rootScope.isadmin = false;
 
 
         $http.get('/users/session').success(function (response) {
@@ -18,7 +19,7 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                 $rootScope.islogged = true;
 
             }
-            if (response.isAdmin) {
+            if (response.role==="admin") {
                 $rootScope.isadmin = true;
             }
         });
@@ -88,14 +89,13 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                     $scope.disabled = false;
                     $rootScope.islogged = true;
                     $rootScope.status = true;
-
+                    $rootScope.user=$scope.user;
                     $location.path('/home');
                     $route.reload();
 
 
-                    if ($scope.user.isAdmin) {
-                        $rootScope.isAdmin = true;
-                        $scope.user = {};
+                    if ($scope.user.role==="admin") {
+                        $rootScope.isadmin = true;
 
                     }
                 })
@@ -119,7 +119,7 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                 .then(function () {
                     $location.path('/login');
                     $rootScope.islogged = false;
-
+                    $rootScope.isadmin=false;
                 });
 
         };

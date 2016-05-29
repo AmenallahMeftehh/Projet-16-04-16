@@ -17,11 +17,12 @@ angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMes
         })
         .when('/home', {
             templateUrl: 'public/pages/home.html'
-            , controller: 'emailController'
+            , controller: 'LoginCtrl'
             ,  access: {restricted: false},
                 admin: {restricted: false}
 
         })
+
         .when('/reservations/:itemId', {
             templateUrl: 'public/pages/reservations.html'
             , controller: 'DetailsProduitController'
@@ -83,7 +84,7 @@ angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMes
             templateUrl: 'public/pages/dashbord.html'
             , controller: 'AdminUserCtrl'
             ,  access: {restricted: true},
-                admin: {restricted: true}
+            admin: {restricted: true}
 
         })
         .when('/panier', {
@@ -132,26 +133,34 @@ angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMes
         redirectTo: '/home'
     })
 }])
-// .run(function ($rootScope, $location, $route, AuthService) {
-//   $rootScope.$on('$routeChangeStart',
-//     function (event, next, current) {
-//       AuthService.getUserStatus()
-//            .then(function(){
-//           if (next.access.restricted
-//             && !AuthService.isLoggedIn()) {
-//             $location.path('/login');
-//             // $route.reload();
-//           }
-//           //admin restriction
-//           if (next.admin.restricted
-//             && $rootScope.isAdmin === false
-//             && !AuthService.isLoggedIn()) {
-//             alert('This page is accessed only by admins');
-//             $location.path('/football');
-//             // $route.reload();
-//           }
-//     });
-// });});
+.run(function ($rootScope, $location, $route, AuthService) {
+  $rootScope.$on('$routeChangeStart',
+    function (event, next, current) {
+    //   AuthService.getUserStatus()
+    //        .then(function(){
+          if (next.access.restricted
+            && !AuthService.isLoggedIn()) {
+            $location.path('/login');
+            $route.reload();
+          }
+          //admin restriction
+        if (next.admin.restricted
+            && $rootScope.isAdmin === false
+            && !AuthService.isLoggedIn()) {
+            alert('This page is accessed only by admins');
+            $location.path('/home');
+            $route.reload();
+        }
+
+        if (next.admin.restricted
+            && $rootScope.isAdmin === false
+            && AuthService.isLoggedIn()) {
+            alert('This page is accessed only by admins');
+            $location.path('/home');
+            $route.reload();
+        }
+    // });
+});})
 
 // affichage de popup pour se connecter a facebook et verification de l'application par un id génénrée de fb
 window.fbAsyncInit = function () {

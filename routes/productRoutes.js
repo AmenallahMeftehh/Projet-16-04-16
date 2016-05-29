@@ -91,37 +91,27 @@ var routes = function (Produit) {
     produitRouter.route('/:id')
         .get(function (req, res) {
             res.json(req.produit);
+        })
+
+    .put(function (req, res) {
+        req.produit.nom = req.body.nom;
+        req.produit.image = req.body.image;
+        req.produit.prix = req.body.prix;
+        req.produit.prixlocation = req.body.prixlocation;
+        req.produit.quantite = req.body.quantite;
+        req.produit.categorie = req.body.categorie;
+        req.produit.location = req.body.location;
+
+        req.produit.save(function(err){
+            if(err){
+                res.status(500).send(err);
+            } else {
+                //send back product to display it as a json frmt
+                res.json(req.produit);
+            }
         });
 
-        produitRouter.route('/:id').put(function (req, res) {
-            req.produit.id = req.params.id;
-
-            Produit.findOneAndUpdate({
-                    _id: req.produit.id
-                }
-                , {
-
-                    $set: {
-                          nom: req.body.nom
-                        , image: req.body.image
-                        , prix: req.body.prix
-                        , prixlocation: req.body.prixlocation
-                        , quantite: req.body.quantite
-                        , categorie: req.body.categorie
-                        , location: req.body.location
-                        , reservation: req.body.reservation
-
-                    }
-
-                }
-                , function (err) {
-                    if (err)
-                        res.status(500).send(err);
-                    else {
-                        res.json(req.produit);
-                    }
-                });
-        })
+    })
         .delete(function (req, res) {
             Produit.id = req.params.id;
             Produit.findOneAndRemove({

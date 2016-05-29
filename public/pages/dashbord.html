@@ -1,14 +1,15 @@
 
 <div class="col-md-12 col-xs-12 container-fluid row divproduit" id="navbar"style="margin-left:0.1%">
 
-<div class="col-md-12 col-xs-12 ">
-
+<div class="col-md-6 col-xs-12 ">
+    <h4 style="text-align:center">les quantités vendues de chaque produit</h4>
 <canvas id="pie" class="col-md-12 col-xs-12 chart chart-pie"
   chart-data="dataqtpie" chart-labels="labelnomproduit">
 </canvas>
 </div>
-<div class="col-md-12 col-xs-12 ">
-<canvas  id="line" class="chart chart-line" chart-data="dataqt"
+<div class="col-md-6 col-xs-12 ">
+    <h4 style="text-align:center">Evaluation des achats de chaque produit</h4>
+    <canvas  id="line" class="chart chart-line" chart-data="dataqt"
     chart-labels="labelnomproduit" chart-legend="true" chart-series="produit.nom"
     chart-click="onClick">
 </canvas></div>
@@ -19,6 +20,7 @@
 <div class="container-fluid row divproduit" id="navbar">
 
 <div class="table-bordered table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1"style="margin-top:5em;">
+    <h4 style="text-align:center;margin-top:5em;">Gestion des stocks</h4>
 
     <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin: 30px">
     <table class="col-md-12 col-xs-12 table table-responsive">

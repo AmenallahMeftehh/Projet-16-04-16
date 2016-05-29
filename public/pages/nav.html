@@ -1,4 +1,4 @@
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" ng-controller="LoginCtrl">
     <div class="container-fluid">
         <div class="navbar-header page-scroll">
             <button type="button" style="background-color:#006DF0"class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse ">
   <ul class="nav navbar-nav">
 
-    <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}" /></a></li>
+    <li ng-if="islogged" ><a>{{user.username}}<img class="img-circle" style="width:35px;heigth:35px;" ng-src="{{user.photo}}"/></a></li>
     <li class="dropdown">
       <a href="" class="dropdown-toggle" data-toggle="dropdown"> <img style="margin-right:5px;"src="public/images/different-squares.png" alt="" />CATEGORIES <b class="caret"></b></a>
       <ul class="dropdown-menu">
@@ -38,9 +38,9 @@
 
         <li ng-if="islogged" ><a uib-dropdown-toggle>{{user.username}}<img class="img-circle" style="width:25px;heigth:25px;" ng-src="{{user.photo}}"  /></a></li>
         <li role="separator" class="divider"></li>
-        <li ng-show="user.isAdmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
-        <li ng-show="user.isAdmin" ><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>
-        <li ng-show="user.isAdmin" ><a ng-href="/#dash"><i>&nbsp;</i>DASHBOARD</a></li>
+        <li ng-show="isadmin" ><a ng-href="/#products"><i>&nbsp;</i>GESTION DES PRODUITS</a></li>
+        <li ng-show="isadmin" ><a ng-href="/#user"><i>&nbsp;</i>GESTION DES UTILISATEURS</a></li>
+        <li ng-show="isadmin" ><a ng-href="/#dash"><i>&nbsp;</i>DASHBOARD</a></li>
         <li role="separator" class="divider"></li>
         <li ng-if="islogged"><a ng-href="/#">&nbsp PARAMETRES</a></li>
         <li ng-if="islogged"><a ng-href="/#logout">&nbsp SE DECONNECTER</a></li>

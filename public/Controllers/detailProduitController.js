@@ -164,42 +164,43 @@ $scope.viderpanier=function(){
     })
 }
 
-$scope.validepanier = function(){
-    $scope.produit={}
-  $http.get('/users/session').success(function (response) {
-        $scope.user=response;
-      console.log($scope.user);
-              for (var i = 0; i <$scope.user.panier.length; i++) {
-                $scope.product={};
-                $scope.product =  $scope.user.panier[i]
-                  console.log($scope.product);
-                  $http.get('/produits/'+$scope.product.idproduit).success(function(data){
-                    console.log(data);
-                  $scope.produit = data;
-                  console.log($scope.product);
-                  $scope.produit.quantite -= $scope.product.qt;
-                  $http.put('/produits/'+$scope.produit._id).success(function(data){
-                console.log(data);
-              });
-                  console.log($scope.produit.quantite);
-                  console.log($scope.produit);
+        $scope.validepanier = function(){
+            $scope.produit={}
+            $http.get('/users/session').success(function (response) {
+                $scope.user=response;
+                console.log($scope.user);
+                for (var i = 0; i <$scope.panier.length; i++) {
+                    let product =  $scope.panier[i]
+                    console.log(product);
+                    $http.get('/produits/'+product.idproduit._id).success(function(data){
+                        console.log(data);
+                        $scope.produit = data;
+                        console.log(product);
+                        $scope.produit.quantite -= product.qt;
+                        $http.put('/produits/'+$scope.produit._id,$scope.produit).success(function(data){
+                            console.log(data.quantite);
+                        });
+                        console.log($scope.produit.quantite);
+                        console.log($scope.produit);
+                        console.log(product);
 
-$http.get('users/'+$scope.user._id+'/panierreserve/'+$scope.product.idproduit+'/'+$scope.product.qt+'/'+$scope.product.totalprixproduit).success(function(data){
+                        $http.get('users/'+$scope.user._id+'/panierreserve/'+product.idproduit._id+'/'+product.qt+'/'+product.totalprixproduit).success(function(data){
 
-})
-
-
-
-              $scope.viderpanier();
-              console.log($scope.produit.quantite);
-              $route.reload();
-
-})
+                        })
 
 
-  }
-});
-      };
+
+                        $scope.viderpanier();
+                        console.log($scope.produit.quantite);
+                        $route.reload();
+
+                    })
+
+
+                }
+            });
+
+        };
 
         $scope.delete = function (id) {
             $http.get('/users/session').success(function (response) {
