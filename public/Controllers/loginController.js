@@ -2,11 +2,11 @@
 angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
     , function ($route,$scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
 
-        // $(document).ready(function () {
-        //     $('.carousel').carousel({
-        //         interval: 2000
-        //     })
-        // });
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 3000
+            })
+        });
         $rootScope.user=$scope.user;
 
         $rootScope.islogged = false;

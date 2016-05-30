@@ -22,6 +22,13 @@ angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMes
                 admin: {restricted: false}
 
         })
+        .when('/email', {
+            templateUrl: 'public/pages/email.html'
+            , controller: 'emailController'
+            ,  access: {restricted: true},
+                admin: {restricted: true}
+
+        })
 
         .when('/reservations/:itemId', {
             templateUrl: 'public/pages/reservations.html'

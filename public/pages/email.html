@@ -1,0 +1,27 @@
+<div class="container-fluid row divproduit" id="navbar">
+
+    <div class="table-bordered table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1"style="margin-top:5em;">
+
+        <input type="text" class="form-control" placeholder="Search email" ng-model="searchemail" style="width: 30%; margin: 30px">
+        <table class="col-md-12 col-xs-12 table table-responsive">
+            <thead>
+            <tr>
+                <th>Contact Name</th>
+                <th>Contact Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="email in emails | filter:searchemail | limitTo:maxSize:(currentPage - 1) * maxSize">
+                <td>{{email.contactName}}</td>
+                <td>{{email.contactEmail}}</td>
+                <td>{{email.contactSubject}}</td>
+                <td>{{email.contactMsg}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <uib-pagination total-items="emails.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
+</div>

@@ -11,5 +11,9 @@ $scope.send = function(email){
         $scope.email.contactSubject ="";
     });
 }
+    $scope.emails=[];
+    $http.get('email/').success(function(data){
+        $scope.emails=data;
+    })
 
 }])

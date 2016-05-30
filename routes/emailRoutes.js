@@ -28,7 +28,19 @@ var routes = function (Email) {
         mail.save();
 
     });
-
+// reuperer tous les emails
+    emailRouter.get('/', function (req, res) {
+        var query = {};
+        if (req.query.id) {
+            query.id = req.query.id;
+        }
+        Email.find(query, function (err, users) {
+            if (err)
+                res.status(500).send(err);
+            else
+                res.json(users);
+        });
+    });
 
 
     return emailRouter;

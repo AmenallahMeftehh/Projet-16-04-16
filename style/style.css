@@ -11,7 +11,10 @@ background-color: white;
 .header-bottom {
     padding: 0.7em 1em;
 }
-
+.descri{
+  font-size:32px;
+  text-shadow:2px 2px #006DF0;
+}
 #top {
     background-color: black;
     width: 100%;
@@ -314,4 +317,3 @@ h1 {
     font-family: Lemon-Regular;
     color: #105986;
 }
-
