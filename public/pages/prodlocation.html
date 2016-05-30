@@ -2,7 +2,7 @@
 
 
 <div class="col-md-12 col-xs-12"style="border-bottom:1px solid;padding:1em;">
-  <label style="float:left;margin:1em">Cherchez votre location</label>
+  <label style="float:left;margin:1em">Cherchez votre produit a louer</label>
     <input class="textrecherche" type="text" placeholder="Cherchez votre location" ng-model="lettres">
     <label style="float:left;margin:1em">Cherchez par prix</label>
 
@@ -12,8 +12,8 @@
 </div>
 
 <ul>
-  <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="location in locations | displayMe:prix | filter:lettres
-| limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!produit.location">
+  <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="location in locations | filter:lettres
+| limitTo:maxSize:(currentPage - 1) * maxSize">
 <a href="#/details/{{location._id}}" >
     <img style="margin:auto 20%"ng-src="{{location.image}}" alt="" class="imageproduit "/>
 </a>

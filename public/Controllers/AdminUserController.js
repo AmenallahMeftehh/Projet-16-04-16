@@ -26,7 +26,7 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
         $scope.recup = function (id) {
             console.log(id);
             $http.get('/users/' + id).success(function (response) {
-                $scope.user = response;
+                $scope.user = response[0];
                 console.log($scope.user);
 
             });

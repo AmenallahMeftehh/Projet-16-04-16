@@ -291,8 +291,9 @@ var routes = function (User) {
                         , username: req.body.username
                         , password: req.body.password
                         , photo: req.body.photo
-                        , statut: req.body.statut
+                        , role: req.body.role
                         , panier: req.body.panier
+                        , Commande: req.body.Commande
 
                     }
 

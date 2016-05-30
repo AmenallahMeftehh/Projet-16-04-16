@@ -143,8 +143,8 @@ angular.module('app', ['chart.js','ngRoute','ui.bootstrap', 'ngMaterial', 'ngMes
 .run(function ($rootScope, $location, $route, AuthService) {
   $rootScope.$on('$routeChangeStart',
     function (event, next, current) {
-    //   AuthService.getUserStatus()
-    //        .then(function(){
+      // AuthService.getUserStatus()
+      //      .then(function(){
           if (next.access.restricted
             && !AuthService.isLoggedIn()) {
             $location.path('/login');

@@ -1,4 +1,4 @@
-angular.module('app').controller('produitController', ['$scope', '$http', function ($scope, $http) {
+angular.module('app').controller('produitController', ['$scope', '$http','$route', function ($scope, $http,$route) {
 
     //    recuperer tous les produits
     var getAll = function () {
@@ -6,9 +6,11 @@ angular.module('app').controller('produitController', ['$scope', '$http', functi
             $scope.produits = response;
             console.log('i received all products');
         });
+        // $route.reload();
     };
     //    appel a la fonction getAll
     getAll();
+    // pagination
     $scope.maxSize = 12;
     $scope.currentPage = 1;
     $scope.totalItems = 1;
