@@ -1,62 +1,63 @@
 <div class="container-fluid table-responsive row divproduit" id="navbar">
 
-<div class="table-striped table-responsive col-md-10 col-xs-6 col-md-offset-1"style="margin-top:10em;">
+    <div class="table-striped table-responsive col-md-10 col-xs-6 col-md-offset-1" style="margin-top:10em;">
 
-<table class="col-md-12 col-xs-12 table table-responsive">
-    <thead>
+        <table class="col-md-12 col-xs-12 table table-responsive">
+            <thead>
 
-        <tr>
-            <td  style="text-align:center">Article</td>
-            <td  style="text-align:center">Prix</td>
-            <td  style="text-align:center">
-                Image
-            </td>
-            <td  style="text-align:center">Quantité</td>
+                <tr>
+                    <td style="text-align:center">Article</td>
+                    <td style="text-align:center">Prix</td>
+                    <td style="text-align:center">
+                        Image
+                    </td>
+                    <td style="text-align:center">Quantité</td>
 
-            <td  style="text-align:center">Total</td>
-            <td style="text-align:center">Retirer</td>
-        </tr>
-    </thead>
+                    <td style="text-align:center">Total</td>
+                    <td style="text-align:center">Retirer</td>
+                </tr>
+            </thead>
 
-        <tr ng-repeat="p in produits track by $index ">
-            <td style="text-align:center">{{p.idproduit.nom}}</td>
-            <td style="text-align:center">{{p.idproduit.prix}}</td>
-            <td style="text-align:center">
-                <img style="heigth:25%;width:40%" ng-src="{{p.idproduit.image}}" />
-            </td>
-            <td style="text-align:center">
-                <label style="color:black"> {{p.qt}}</label>
-            </td>
+            <tr ng-repeat="p in produits track by $index ">
+                <td style="text-align:center">{{p.idproduit.nom}}</td>
+                <td style="text-align:center">{{p.idproduit.prix}}</td>
+                <td style="text-align:center">
+                    <img style="heigth:25%;width:40%" ng-src="{{p.idproduit.image}}" />
+                </td>
+                <td style="text-align:center">
+                    <label style="color:black"> {{p.qt}}</label>
+                </td>
 
-            <td style="text-align:center">
-                <label style="color:black">{{p.totalprixproduit}}</label>
+                <td style="text-align:center">
+                    <label style="color:black">{{p.totalprixproduit}}</label>
 
-            </td>
-
-
-            <td>
-
-                <button style="margin-right:10em;"class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(p._id)">Delete</button>
-
-            </td>
+                </td>
 
 
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><h4>Total :&nbsp{{tot}}</h4></td>
-            <td></td>
+                <td>
 
-        </tr>
-    </tbody>
-    <tfoot>
+                    <button style="margin-right:10em;" class="btn btn-skin pull-right" id="btnContactUs" ng-click="delete(p._id)">Delete</button>
 
-</tfoot>
-</table>
-<button class="btn btn-skin pull-right"  style="margin:1em;"ng-click="validepanier()">Valider votre panier</button>
-<button class="btn btn-skin pull-right"  style="margin:1em;"ng-click="viderpanier()">Vider votre panier</button>
-</div>
+                </td>
+
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <h4>Total :&nbsp{{tot}}</h4></td>
+                <td></td>
+
+            </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+        <button class="btn btn-skin pull-right" style="margin:1em;" ng-click="validepanier()">Valider votre panier</button>
+        <button class="btn btn-skin pull-right" style="margin:1em;" ng-click="viderpanier()">Vider votre panier</button>
+    </div>
 </div>

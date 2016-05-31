@@ -12,22 +12,46 @@ var User = new Schema({
     , username: String
     , password: String
     , photo: {
-      type:String
-      ,default: './public/images/non_logo.png'
+        type: String
+        , default: './public/images/non_logo.png'
     }
-    ,
-    role:{
+    , role: {
         type: String
         , default: "client"
     }
-    ,   panier:[{idproduit: {type: mongoose.Schema.Types.ObjectId, ref: 'Produit'},qt:{type:String},
-        totalprixproduit:{type:Number}}]
+    , panier: [{
+        idproduit: {
+            type: mongoose.Schema.Types.ObjectId
+            , ref: 'Produit'
+        }
+        , qt: {
+            type: String
+        }
+        , totalprixproduit: {
+            type: Number
+        }
+    }]
 
 
-    ,
-        Commande:[
-            {   dateValidation:{type:Date,default:Date.now},
-                idproduit: {type: mongoose.Schema.Types.ObjectId, ref: 'Produit'},qt:{type:String}, totalprixproduit:{type:Number}}
+
+    
+    , Commande: [
+        {
+            dateValidation: {
+                type: Date
+                , default: Date.now
+            }
+            , idproduit: {
+                type: mongoose.Schema.Types.ObjectId
+                , ref: 'Produit'
+            }
+            , qt: {
+                type: String
+            }
+            , totalprixproduit: {
+                type: Number
+            }
+        }
             ]
 
 

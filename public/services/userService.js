@@ -1,14 +1,12 @@
 //Set an angular Service for handling authentication
 
-angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
-
-    , function ($q, $timeout, $http) {
+angular.module('app').factory('AuthService', ['$q', '$timeout', '$http', function ($q, $timeout, $http) {
 
         // create user variable
         var user = null;
         // return available functions for use in the controllers
         return ({
-              isAdmin: isAdmin
+            isAdmin: isAdmin
             , isLoggedIn: isLoggedIn
             , getUserStatus: getUserStatus
             , login: login
@@ -16,7 +14,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
             , register: register
         });
 
-
+        //fonction pour verifier est ce que l'utilisateur est authentifié ou pas
         function isLoggedIn() {
             if (user) {
                 return true;
@@ -24,15 +22,17 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
                 return false;
             }
         }
+        //fonction pour verifier est ce que l'utilisateur est admin ou pas
 
         function isAdmin(user) {
-            if (user.role==="admin") {
+            if (user.role === "admin") {
                 return true;
             } else {
                 return false;
             }
         }
 
+        //fonction pour verifier les status de l'utilisateur true ou false
         function getUserStatus() {
             return $http.get('/users/status')
                 // handle success
@@ -49,7 +49,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
                     user = false;
                 });
         }
-
+        //fonction login
         function login(username, password) {
 
             // create a new instance of deferred
@@ -80,7 +80,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
             return deferred.promise;
 
         }
-
+        //fonction logout
         function logout() {
 
             // création d'une nouvelle instance de deferred
@@ -102,7 +102,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
             return deferred.promise;
         }
 
-        function register(firstname, lastname, username, password,photo) {
+        function register(firstname, lastname, username, password, photo) {
 
             // create a new instance of deferred
             var deferred = $q.defer();
@@ -132,6 +132,7 @@ angular.module('app').factory('AuthService', ['$q', '$timeout', '$http'
             return deferred.promise;
 
         }
+        //recuperer l'utilisateur connecté
         function getUser() {
             return user;
         }

@@ -1,33 +1,35 @@
 <div class="container-fluid row divproduit" id="navbar">
 
 
-<div class="col-md-12 col-xs-12"style="border-bottom:1px solid;padding:1em;">
-  <label style="float:left;margin:1em">Cherchez votre produit</label>
-    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-    <label style="float:left;margin:1em">Cherchez par prix</label>
+    <div class="col-md-12 col-xs-12" style="border-bottom:1px solid;padding:1em;">
+        <label style="float:left;margin:1em">Cherchez votre produit</label>
+        <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+        <label style="float:left;margin:1em">Cherchez par prix</label>
 
-    <b style="float:left;margin:1em">$ 0</b>
-    <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
-    </md-slider><b style="float:left;margin:1em">$ 500</b>
-</div>
+        <b style="float:left;margin:1em">$ 0</b>
+        <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+        </md-slider><b style="float:left;margin:1em">$ 500</b>
+    </div>
 
-<ul>
-  <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="ten in tennis | displayMe:prix | filter:lettres
+    <ul>
+        <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="ten in tennis | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!ten.location">
-<a href="#/details/{{ten._id}}" >
-    <img style="margin:auto 20%" ng-src="{{ten.image}}" alt="" class="prods img-responsive"/>
-</a>
-<figcaption style="height:6em;">
-  <h3 style="text-align: center">{{ten.nom}}</h3>
-</figcaption>
-<h4 style="text-align: center;color:red">$ &nbsp{{ten.prix}}</h4>
+            <a href="#/details/{{ten._id}}">
+                <img style="margin:auto 20%" ng-src="{{ten.image}}" alt="" class="prods img-responsive" />
+            </a>
+            <figcaption style="height:6em;">
+                <h3 style="text-align: center">{{ten.nom}}</h3>
+            </figcaption>
+            <h4 style="text-align: center;color:red">$ &nbsp{{ten.prix}}</h4>
 
-<button type="button" class="btn btn-skin pull-right" id="btnContactUs"><a  href="#/details/{{ten._id}}">
-  <strong>‎DETAILS</strong>
-</a></button>
-</li>
-</ul>
-<div class="col-md-12">
-    <uib-pagination total-items="tennis.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
-</div>
+            <button type="button" class="btn btn-skin pull-right" id="btnContactUs">
+                <a href="#/details/{{ten._id}}">
+                    <strong>‎DETAILS</strong>
+                </a>
+            </button>
+        </li>
+    </ul>
+    <div class="col-md-12">
+        <uib-pagination total-items="tennis.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
 </div>

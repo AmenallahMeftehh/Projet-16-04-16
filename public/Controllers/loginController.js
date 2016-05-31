@@ -1,25 +1,25 @@
 //Login Controller
-angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
-    , function ($route,$scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
+angular.module('app').controller('LoginCtrl', ['$route', '$scope', '$location', 'AuthService', '$rootScope', '$http', '$mdBottomSheet'
+    , function ($route, $scope, $location, AuthService, $rootScope, $http, $mdBottomSheet) {
 
         $(document).ready(function () {
             $('.carousel').carousel({
                 interval: 3000
             })
         });
-        $rootScope.user=$scope.user;
+        $rootScope.user = $scope.user;
 
         $rootScope.islogged = false;
         $rootScope.isadmin = false;
 
-
+        //recuperer la session d'un utilisateur'
         $http.get('/users/session').success(function (response) {
             console.log(response);
             if (response) {
                 $rootScope.islogged = true;
 
             }
-            if (response.role==="admin") {
+            if (response.role === "admin") {
                 $rootScope.isadmin = true;
             }
         });
@@ -58,21 +58,16 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                             console.log('Good to see you, ' + response.name + '.');
                             console.log(response);
                             $rootScope.islogged = true;
+                            $rootScope.status = true;
+                            $rootScope.user = response;
                             $location.path('/home');
-                            console.log("aa")
-                            $scope.disabled = false;
-                            $scope.user = {};
+                            $route.reload();
                         });
                     } else {
                         console.log('User cancelled login or did not fully authorize.');
                     }
                 }, {
                     scope: 'publish_actions'
-
-
-
-
-
                     , return_scopes: true
                 });
             }
@@ -89,12 +84,12 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                     $scope.disabled = false;
                     $rootScope.islogged = true;
                     $rootScope.status = true;
-                    $rootScope.user=$scope.user;
+                    $rootScope.user = $scope.user;
                     $location.path('/home');
                     $route.reload();
 
 
-                    if ($scope.user.role==="admin") {
+                    if ($scope.user.role === "admin") {
                         $rootScope.isadmin = true;
 
                     }
@@ -107,7 +102,7 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                     $scope.user = {};
                     $rootScope.islogged = false;
                 });
-                console.log(AuthService.getUserStatus());
+            console.log(AuthService.getUserStatus());
 
         };
 
@@ -119,10 +114,22 @@ angular.module('app').controller('LoginCtrl', ['$route','$scope', '$location', '
                 .then(function () {
                     $location.path('/login');
                     $rootScope.islogged = false;
-                    $rootScope.isadmin=false;
+                    $rootScope.isadmin = false;
                 });
 
         };
+        $scope.email = {};
+        //    fonction envoyer un email
+        $scope.send = function (email) {
+            $http.get('email/send/' + email.contactEmail + '/' + email.contactName + '/' + email.contactSubject + '/' + email.contactMsg).success(function (data) {
+                console.log(data)
+                $scope.email = data;
+                $scope.email.contactEmail = "";
+                $scope.email.contactMsg = "";
+                $scope.email.contactName = "";
+                $scope.email.contactSubject = "";
+            });
+        }
 
 
     }])

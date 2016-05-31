@@ -9,23 +9,23 @@
             <img ng-src="{{produit.image}}" alt="photo-non-disponible.jpg" />
 
             <div class="caption" ng-show="!produit.location">
-              <label style="margin-left:20px;"> Quantité :</label>
-              <input type="number" min="1" max="{{produit.quantite}}" ng-model="qt" placeholder="quantité" style="width:70px;" aria-label="quantité" required/>
-                <button class="btn btn-skin pull-right" id="btnContactUs"   ng-click="showConfirm1($event,produit,qt)">
+                <label style="margin-left:20px;"> Quantité :</label>
+                <input type="number" min="1" max="{{produit.quantite}}" ng-model="qt" placeholder="quantité" style="width:70px;" aria-label="quantité" required/>
+                <button class="btn btn-skin pull-right" id="btnContactUs" ng-click="showConfirm1($event,produit,qt)">
                     <strong>Ajouter au panier</strong>
                 </button>
 
             </div>
-            <div  ng-show="produit.location" style="margin-top:2em;">
-                <md-datepicker  md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut" md-min-date="minDate" >
+            <div ng-show="produit.location" style="margin-top:2em;">
+                <md-datepicker md-date-filter="onlyAvailable" ng-model="date" md-placeholder="Date debut" md-min-date="minDate">
                 </md-datepicker>
-                <button class="btn btn-skin pull-right" id=""  ng-click="showConfirm($event,date,produit)"  >
+                <button class="btn btn-skin pull-right" id="" ng-click="showConfirm($event,date,produit)">
                     Reserver votre article
                 </button>
 
                 <h4 style="color:blue; " ng-show="message "> {{message}}</h4>
             </div>
 
-</div>
+        </div>
     </div>
-        </section>
+</section>

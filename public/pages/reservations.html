@@ -1,26 +1,26 @@
 <div class="container-fluid row divproduit" id="navbar">
 
-<div class="container col-md-8 col-lg-offset-2" ng-model="produit" style="margin-top:5em;">
+    <div class="container col-md-8 col-lg-offset-2" ng-model="produit" style="margin-top:5em;">
 
-    <table class="col-md-8 col-xs-12 table table-responsive table-hover ">
-        <thead>
-            <tr>
-                <th>Utilisateur</th>
-                <th>produit</th>
-                <th>Date de réservation</th>
+        <table class="col-md-8 col-xs-12 table table-responsive table-hover ">
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>produit</th>
+                    <th>Date de réservation</th>
 
-            </tr>
-        </thead>
-        <tbody>
+                </tr>
+            </thead>
+            <tbody>
 
-            <tr ng-repeat="reservation in produit.reservation  | limitTo:maxSize:(currentPage - 1) * maxSize">
-                <td>{{reservation.username}}</td>
-                <td>{{reservation.idProduit}}</td>
-                <td>{{reservation.dateReservation}}</td>
+                <tr ng-repeat="reservation in produit.reservation  | limitTo:maxSize:(currentPage - 1) * maxSize">
+                    <td>{{reservation.username}}</td>
+                    <td>{{reservation.idProduit}}</td>
+                    <td>{{reservation.dateReservation}}</td>
 
-            </tr>
-        </tbody>
-    </table>
-    <uib-pagination total-items="produit.reservation.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
-</div>
+                </tr>
+            </tbody>
+        </table>
+        <uib-pagination total-items="produit.reservation.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
 </div>

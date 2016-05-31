@@ -1,4 +1,4 @@
-angular.module('app').controller('produitController', ['$scope', '$http','$route', function ($scope, $http,$route) {
+angular.module('app').controller('produitController', ['$scope', '$http', '$route', function ($scope, $http, $route) {
 
     //    recuperer tous les produits
     var getAll = function () {
@@ -17,10 +17,8 @@ angular.module('app').controller('produitController', ['$scope', '$http','$route
     $scope.prix = 500;
     //fonction pour recuperer un produit par id
     $scope.recup = function (id) {
-        console.log(id);
         $http.get('/produits/' + id).success(function (response) {
             $scope.produit = response;
-            console.log($scope.produit);
 
         });
     };
@@ -32,7 +30,6 @@ angular.module('app').controller('produitController', ['$scope', '$http','$route
             for (var i = 0; i < $scope.reservations.length; i++) {
                 $scope.reservation = $scope.reservations[i];
                 $scope.reservations.push(reservation);
-                // $http.get('/produits/'+$scope.produit+'reservation')
 
             }
         })

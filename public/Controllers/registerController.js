@@ -1,5 +1,6 @@
 angular.module('app').controller('RegisterCtrl', ['$scope', '$location', 'AuthService'
-        , function ($scope, $location, AuthService) {
+        
+    , function ($scope, $location, AuthService) {
 
         $scope.register = function () {
 

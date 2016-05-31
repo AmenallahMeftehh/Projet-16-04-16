@@ -1,6 +1,6 @@
 angular.module('app').controller('footballController', ['$scope', '$http', function ($scope, $http) {
-    
-        //    recuperer tous les produits par categorie football
+
+    //    recuperer tous les produits par categorie football
 
     $http.get('/produits/categorie/football').success(function (data) {
         $scope.footballs = data;

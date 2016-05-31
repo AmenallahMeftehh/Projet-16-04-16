@@ -1,42 +1,42 @@
 <div class="home">
 
 
-        <form name="myform" ng-submit="register()" novalidate>
+    <form name="myform" ng-submit="register()" novalidate>
 
 
-            <!-- <h1 style="color:black;font-size:42px;font-family:sans-serif">Sign up please</h1> -->
+        <!-- <h1 style="color:black;font-size:42px;font-family:sans-serif">Sign up please</h1> -->
 
-            <div class="signin col-md-4 col-md-offset-3" style="margin-top:10em">
+        <div class="signin col-md-4 col-md-offset-3" style="margin-top:10em">
 
-                <md-input-container class="md-block">
-                    <label>Firstname</label>
-                    <input type="text" class="" name="firstname" placeholder="First Name" ng-model="registerForm.firstname" required md-no-asterisk>
+            <md-input-container class="md-block">
+                <label>Firstname</label>
+                <input type="text" class="" name="firstname" placeholder="First Name" ng-model="registerForm.firstname" required md-no-asterisk>
 
-                </md-input-container>
+            </md-input-container>
 
-                <md-input-container class="md-block">
-                    <label>Lastname</label>
-                    <input type="text" class="form-control1 form-control" name="firstname" placeholder="Last Name" ng-model="registerForm.lastname" required md-no-asterisk>
+            <md-input-container class="md-block">
+                <label>Lastname</label>
+                <input type="text" class="form-control1 form-control" name="firstname" placeholder="Last Name" ng-model="registerForm.lastname" required md-no-asterisk>
 
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Username</label>
-                    <input type="text" class="form-control1 form-control" name="firstname" placeholder="Username" ng-model="registerForm.username" required md-no-asterisk>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Username</label>
+                <input type="text" class="form-control1 form-control" name="firstname" placeholder="Username" ng-model="registerForm.username" required md-no-asterisk>
 
-                    <div ng-show="error">{{errorMessage}}</div>
-                </md-input-container>
-
-
-                <md-input-container class="md-block">
-                    <label>Password</label>
-                    <input type="password" class="form-control1 form-control" name="firstname" placeholder="Password" ng-model="registerForm.password" required md-no-asterisk>
+                <div ng-show="error">{{errorMessage}}</div>
+            </md-input-container>
 
 
-                </md-input-container>
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input type="password" class="form-control1 form-control" name="firstname" placeholder="Password" ng-model="registerForm.password" required md-no-asterisk>
 
-                <md-button type="button" class="md-raised md-primary" ng-click="register()">Register</md-button>
-            </div>
+
+            </md-input-container>
+
+            <md-button type="button" class="md-raised md-primary" ng-click="register()">Register</md-button>
+        </div>
 
 
-        </form>
+    </form>
 </div>

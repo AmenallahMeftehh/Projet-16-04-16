@@ -8,11 +8,10 @@ gulp.task('default', function () {
             , env: {
                 PORT: 8000
             }
-            // ,
-            // ignore:['./node_modules/**']
+
         })
         .on('restart', function () {
             console.log('restarting');
         });
-    
+
 });

@@ -1,34 +1,32 @@
 <div class="container-fluid row divproduit" id="navbar">
 
 
-<div class="col-md-12 col-xs-12"style="border-bottom:1px solid;padding:1em;">
-  <label style="float:left;margin:1em">Cherchez votre produit</label>
-    <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
-    <label style="float:left;margin:1em">Cherchez par prix</label>
+    <div class="col-md-12 col-xs-12" style="border-bottom:1px solid;padding:1em;">
+        <label style="float:left;margin:1em">Cherchez votre produit</label>
+        <input class="textrecherche" type="text" placeholder="Cherchez votre produit" ng-model="lettres">
+        <label style="float:left;margin:1em">Cherchez par prix</label>
 
-    <b style="float:left;margin:1em">$ 0</b>
-    <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
-    </md-slider><b style="float:left;margin:1em">$ 500</b>
-</div>
+        <b style="float:left;margin:1em">$ 0</b>
+        <md-slider style="float:left" flex="50" min="0" max="500" ng-model="prix" aria-label="red" id="red-slider" class>
+        </md-slider><b style="float:left;margin:1em">$ 500</b>
+    </div>
 
-<ul>
-  <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
+    <ul>
+        <li class="col-lg-3 col-md-3 col-sm-12 col-xs-12 prods" ng-repeat="cyc in cyclisme | displayMe:prix | filter:lettres
 | limitTo:maxSize:(currentPage - 1) * maxSize" ng-show="!cyc.location">
-<a href="#/details/{{cyc._id}}" >
-    <img style="margin:auto 20%"ng-src="{{cyc.image}}" alt="" class="prods img-responsive"/>
-</a>
-<figcaption style="height:6em;">
-  <h3 style="text-align: center">{{cyc.nom}}</h3>
-</figcaption>
-<h4 style="text-align: center;color:red">$ &nbsp{{cyc.prix}}</h4>
+            <a href="#/details/{{cyc._id}}">
+                <img style="margin:auto 20%" ng-src="{{cyc.image}}" alt="" class="prods img-responsive" />
+            </a>
+            <figcaption style="height:6em;">
+                <h3 style="text-align: center">{{cyc.nom}}</h3>
+            </figcaption>
+            <h4 style="text-align: center;color:red">$ &nbsp{{cyc.prix}}</h4>
 
-<button type="button" class="btn btn-skin pull-right" id="btnContactUs"><a  href="#/details/{{cyc._id}}">
-  <strong>‎DETAILS</strong>
-</a></button>
-</li>
-</ul>
+            <button type="submit" class="btn btn-skin pull-right" id="btnContactUs"><a href="#/details/{{cyc._id}}">DETAILS</a></button>
+        </li>
+    </ul>
 
-<div class="col-md-12">
-    <uib-pagination total-items="cyclisme.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
-</div>
+    <div class="col-md-12">
+        <uib-pagination total-items="cyclisme.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
 </div>

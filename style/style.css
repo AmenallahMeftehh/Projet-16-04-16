@@ -3,7 +3,7 @@ body,
 header {
 
     font-family: 'Open Sans', sans-serif;
-background-color: white;
+background-color: #FAFAFA;
 
 
 }
@@ -51,7 +51,7 @@ button.button {
 .signin {
     width: 50% !important;
     margin: 2em auto;
-    background-color: white;
+    background-color: #FAFAFA;
     padding: 2em;
     text-align: center;
     border: 2px ridge rgba(238, 238, 238, 0.13);

@@ -1,52 +1,45 @@
+<div class="col-md-12 col-xs-12 container-fluid row divproduit" id="navbar" style="margin-left:0.1%">
 
-<div class="col-md-12 col-xs-12 container-fluid row divproduit" id="navbar"style="margin-left:0.1%">
-
-<div class="col-md-6 col-xs-12 ">
-    <h4 style="text-align:center">les quantités vendues de chaque produit</h4>
-<canvas id="pie" class="col-md-12 col-xs-12 chart chart-pie"
-  chart-data="dataqtpie" chart-labels="labelnomproduit">
-</canvas>
-</div>
-<div class="col-md-6 col-xs-12 ">
-    <h4 style="text-align:center">Evaluation des achats de chaque produit</h4>
-    <canvas  id="line" class="chart chart-line" chart-data="dataqt"
-    chart-labels="labelnomproduit" chart-legend="true" chart-series="produit.nom"
-    chart-click="onClick">
-</canvas></div>
-
-
-
+    <div class="col-md-6 col-xs-12 ">
+        <h4 style="text-align:center">les quantités vendues de chaque produit</h4>
+        <canvas id="pie" class="col-md-12 col-xs-12 chart chart-pie" chart-data="dataqtpie" chart-labels="labelnomproduit">
+        </canvas>
+    </div>
+    <div class="col-md-6 col-xs-12 ">
+        <h4 style="text-align:center">Evaluation des achats de chaque produit</h4>
+        <canvas id="line" class="chart chart-line" chart-data="dataqt" chart-labels="labelnomproduit" chart-legend="true" chart-series="produit.nom" chart-click="onClick">
+        </canvas>
+    </div>
 </div>
 <div class="container-fluid row divproduit" id="navbar">
 
-<div class="table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1">
-    <h4 style="text-align:center;margin-top:5em;">Gestion des stocks</h4>
-
-    <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin: 30px">
-    <table class="col-md-12 col-xs-12 table table-responsive">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Image</th>
-                <th>Quantité</th>
-                <th>
-                  Indicateur de performance
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="produit in produits | filter:searchProduit | limitTo:maxSize:(currentPage - 1) * maxSize" ng-hide="produit.location">
-                <td>{{produit.nom}}</td>
-                <td><img style="width:150px;height:150px" ng-src='{{produit.image}}' /></td>
-                <td>{{produit.quantite}}</td>
-                <td>
-                  <img ng-src="public/images/kpi/pressure-indicator (4).png" ng-show="{{produit.quantite<=5}}"alt="" />
-                  <img ng-src="public/images/kpi/pressure-indicator (3).png" ng-show="{{produit.quantite<20 && produit.quantite>5}}"alt="" />
-                  <img ng-src="public/images/kpi/pressure-indicator (5).png" ng-show="{{20<=produit.quantite}}"alt="" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
-</div>
+    <div class="table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1">
+        <h4 style="text-align:center;margin-top:5em;">Gestion des stocks</h4>
+        <input type="text" class="form-control" placeholder="Search produit" ng-model="searchProduit" style="width: 30%; margin: 30px">
+        <table class="col-md-12 col-xs-12 table table-responsive">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Image</th>
+                    <th>Quantité</th>
+                    <th>
+                        Indicateur de performance
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="produit in produits | filter:searchProduit | limitTo:maxSize:(currentPage - 1) * maxSize" ng-hide="produit.location">
+                    <td>{{produit.nom}}</td>
+                    <td><img style="width:150px;height:150px" ng-src='{{produit.image}}' /></td>
+                    <td>{{produit.quantite}}</td>
+                    <td>
+                        <img ng-src="public/images/kpi/pressure-indicator (4).png" ng-show="{{produit.quantite<=5}}" alt="" />
+                        <img ng-src="public/images/kpi/pressure-indicator (3).png" ng-show="{{produit.quantite<20 && produit.quantite>5}}" alt="" />
+                        <img ng-src="public/images/kpi/pressure-indicator (5).png" ng-show="{{20<=produit.quantite}}" alt="" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <uib-pagination total-items="produits.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
 </div>

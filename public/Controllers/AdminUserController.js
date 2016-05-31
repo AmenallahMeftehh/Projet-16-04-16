@@ -1,7 +1,9 @@
-angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$http','$routeParams'
+angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthService', '$http', '$routeParams'
 
-    , function ($scope, $location, AuthService, $http,$routeParams) {
-        $scope.user={};
+
+    
+    , function ($scope, $location, AuthService, $http, $routeParams) {
+        $scope.user = {};
         var id = $routeParams.itemId;
         // recuperer un produit par id
         $http.get('/users/' + id).success(function (data) {
@@ -80,126 +82,101 @@ angular.module('app').controller('AdminUserCtrl', ['$scope', '$location', 'AuthS
 
             });
         };
-        //    fonction deselectionner un livre
-        $scope.deselect = function () {
-            $scope.user = "";
-        }
 
 
-        // Dashboard pour l'dministrateur
+        // Partie Dashboard pour l'dministrateur
 
-        $scope.user ={};
-        $scope.dataqt =[];
-        $scope.dataqtpie =[];
+        $scope.user = {};
+        $scope.dataqt = [];
+        $scope.dataqtpie = [];
         $scope.labelsdate = []
         $scope.labelnomproduit = []
+            //        fonction pour recuperer les quantités vendues pour la courbe
         var dataqt = function () {
             $http.get('/users').success(function (response) {
                 $scope.users = response;
                 console.log(response);
-                for(var i=0;i<$scope.users.length;i++){
-                  // console.log($scope.users[i]);
-                  // console.log($scope.users[i].Commande);
-                  for (var j = 0; j < $scope.users[i].Commande.length; j++) {
+                for (var i = 0; i < $scope.users.length; i++) {
+                    for (var j = 0; j < $scope.users[i].Commande.length; j++) {
 
-                  $scope.dataqt.push($scope.users[i].Commande[j].qt);
-                  // console.log($scope.data);
+                        $scope.dataqt.push($scope.users[i].Commande[j].qt);
                     }
                 }
             });
             return $scope.dataqt;
         };
-
+        //        fonction pour recuperer les quantités vendues pour le chart pie
         var dataqtpie = function () {
             $http.get('/users').success(function (response) {
                 $scope.users = response;
                 console.log(response);
-                for(var i=0;i<$scope.users.length;i++){
-                  // console.log($scope.users[i]);
-                  // console.log($scope.users[i].Commande);
-                  for (var j = 0; j < $scope.users[i].Commande.length; j++) {
+                for (var i = 0; i < $scope.users.length; i++) {
 
-                  $scope.dataqtpie.push($scope.users[i].Commande[j].qt);
-                  // console.log($scope.data);
+                    for (var j = 0; j < $scope.users[i].Commande.length; j++) {
+
+                        $scope.dataqtpie.push($scope.users[i].Commande[j].qt);
                     }
                 }
             });
             return $scope.dataqtpie;
         };
-        $scope.dataqt=[dataqt()];
-        $scope.dataqtpie=dataqtpie();
+        $scope.dataqt = [dataqt()];
+        $scope.dataqtpie = dataqtpie();
 
         console.log($scope.dataqt);
-        // fonction pour recupere les date de validation de chaque commande pour tous les utilisateurs
+        // fonction pour recupere les date de validation de chaque commande 
         var getDateVal = function () {
             $http.get('/users').success(function (response) {
                 $scope.users = response;
                 console.log(response);
-                for(var i=0;i<$scope.users.length;i++){
-                  // console.log($scope.users[i]);
-                  // console.log($scope.users[i].Commande);
-                  for (var j = 0; j < $scope.users[i].Commande.length; j++) {
+                for (var i = 0; i < $scope.users.length; i++) {
 
-                  $scope.labelsdate.push(new Date($scope.users[i].Commande[j].dateValidation).getDate());
-                  // console.log($scope.labelsdate);
+                    for (var j = 0; j < $scope.users[i].Commande.length; j++) {
+
+                        $scope.labelsdate.push(new Date($scope.users[i].Commande[j].dateValidation).getDate());
                     }
                 }
             });
             return $scope.labelsdate;
         };
-$scope.labelsdate=getDateVal();
-console.log($scope.labels);
-// recuperer tous les produits dans les commandes
-var getnomProd = function () {
-    $http.get('/users').success(function (response) {
-        $scope.users = response;
-        console.log(response);
-        for(var i=0;i<$scope.users.length;i++){
-          // console.log($scope.users[i]);
-          // console.log($scope.users[i].Commande);
-          for (var j = 0; j < $scope.users[i].Commande.length; j++) {
-            $http.get('produits/'+$scope.users[i].Commande[j].idproduit).success(function(data){
-              $scope.labelnomproduit.push(data.nom);
-              // console.log($scope.labelnomproduit);
+        $scope.labelsdate = getDateVal();
+        console.log($scope.labels);
+        // recuperer tous les produits dans les commandes
+        var getnomProd = function () {
+            $http.get('/users').success(function (response) {
+                $scope.users = response;
+                console.log(response);
+                for (var i = 0; i < $scope.users.length; i++) {
+                    for (var j = 0; j < $scope.users[i].Commande.length; j++) {
+                        $http.get('produits/' + $scope.users[i].Commande[j].idproduit).success(function (data) {
+                            $scope.labelnomproduit.push(data.nom);
 
-            })
+                        })
 
-            }
-        }
-    });
-    return $scope.labelnomproduit;
-};
+                    }
+                }
+            });
+            return $scope.labelnomproduit;
+        };
 
 
-$scope.labelnomproduit= getnomProd();
+        $scope.labelnomproduit = getnomProd();
 
 
-$scope.produits=[];
-// des KPI indicateurs de performance pour la gestion des stock
-$http.get('produits/').success(function(data){
-$scope.produits=data;
-console.log($scope.produits);
-for(var i=0;i<$scope.produits.length;i++){
+        $scope.produits = [];
 
-}
+        // des KPI indicateurs de performance pour la gestion des stock
+        $http.get('produits/').success(function (data) {
+            $scope.produits = data;
+            console.log($scope.produits);
+            for (var i = 0; i < $scope.produits.length; i++) {}
 
-})
+        })
 
-
+        //fonction pour indiquer les informations dans les chart
         $scope.onClick = function (points, evt) {
             console.log(points, evt);
         };
 
-
-
-        // $http.get('users/'+user._id+'/commande').success(function(data){
-        //
-        // $scope.user=data;
-        //     for(var i= 0; i<data.Commande.length;i++){
-        //         $scope.quantite.push(data.Commande[i].qt);
-        //
-        //     }
-        //
-        // })
 
     }]);

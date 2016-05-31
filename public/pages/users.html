@@ -1,68 +1,68 @@
 <div class="container-fluid row divproduit" id="navbar">
 
-<div class="table-bordered table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1"style="margin-top:5em;">
-    <input type="text" class="form-control" placeholder="Search user" ng-model="searchUser" style="width: 30%; margin: 30px">
-    <!-- <pagination total-items="{{users.length}}" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination> -->
-    <table class="col-md-12 col-xs-12 table table-responsive">
+    <div class="table-bordered table-striped table-responsive col-md-10 col-xs-12 col-md-offset-1" style="margin-top:5em;">
+        <input type="text" class="form-control" placeholder="Search user" ng-model="searchUser" style="width: 30%; margin: 30px">
+        <!-- <pagination total-items="{{users.length}}" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination> -->
+        <table class="col-md-12 col-xs-12 table table-responsive">
 
-        <thead>
-            <tr>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Photo</th>
-                <th>Statut</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="col-md-2">
-                    <input type="text" id="title" placeholder="User firstname" class="form-control" ng-model="user.firstname">
-                </td>
-                <td class="col-md-2">
-                    <input type="text" id="title" placeholder="User lastname" class="form-control" ng-model="user.lastname">
-                </td>
-                <td class="col-md-2">
-                    <input type="text" id="title" placeholder="User username" class="form-control" ng-model="user.username">
-                </td>
-                <td class="col-md-2">
-                    <input type="text" id="title" placeholder="User password" class="form-control" ng-model="user.password">
-                </td>
-                <td class="col-md-2">
-                    <input type="text" id="title" placeholder="User photo" class="form-control" ng-model="user.photo">
-                </td>
-                <td class="col-md-2">
-                    <select class="form-control" name="multipleSelect" id="multipleSelect" ng-model="user.role" multiple>
-                        <option value="admin">Admin</option>
-                        <option value="client">Client</option>
-                    </select>
-                </td>
-                <td class="col-md-2 col-xs-1">
-                    <md-button class="md-raised md-primary" placeholder="add user" class="btn btn-success" ng-click="add()"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>Add</md-button>
-                    <md-button class="md-raised md-primary" placeholder="update user" class="btn btn-success" ng-click="update(user)"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>UPDATE</md-button>
-                </td>
-            </tr>
-            <tr ng-repeat="user in users | filter:searchUser | limitTo:maxSize:(currentPage - 1) * maxSize">
-                <td>{{user.firstname}}</td>
-                <td>{{user.lastname}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.password}}</td>
-                <td><img class="img-circle" style="width:100px;height:100px" ng-src='{{user.photo}}' /></td>
-                <td>{{user.statut}}</td>
-                <td>
-                    <md-card-actions layout="row">
-                        <md-button  href="#/commandes/{{user._id}}" class="md-raised md-primary">Liste des commandes</md-button>
-                    </md-card-actions>
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Photo</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <input type="text" id="title" placeholder="User firstname" class="form-control" ng-model="user.firstname">
+                    </td>
+                    <td class="col-md-2">
+                        <input type="text" id="title" placeholder="User lastname" class="form-control" ng-model="user.lastname">
+                    </td>
+                    <td class="col-md-2">
+                        <input type="text" id="title" placeholder="User username" class="form-control" ng-model="user.username">
+                    </td>
+                    <td class="col-md-2">
+                        <input type="text" id="title" placeholder="User password" class="form-control" ng-model="user.password">
+                    </td>
+                    <td class="col-md-2">
+                        <input type="text" id="title" placeholder="User photo" class="form-control" ng-model="user.photo">
+                    </td>
+                    <td class="col-md-2">
+                        <select class="form-control" name="multipleSelect" id="multipleSelect" ng-model="user.role" multiple>
+                            <option value="admin">Admin</option>
+                            <option value="client">Client</option>
+                        </select>
+                    </td>
+                    <td class="col-md-2 col-xs-1">
+                        <md-button class="md-raised md-primary" placeholder="add user" class="btn btn-success" ng-click="add()"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>Add</md-button>
+                        <md-button class="md-raised md-primary" placeholder="update user" class="btn btn-success" ng-click="update(user)"><span><img style="width:15px;height:15px;"src="public/images/plus-button.png" alt="" /></span>UPDATE</md-button>
+                    </td>
+                </tr>
+                <tr ng-repeat="user in users | filter:searchUser | limitTo:maxSize:(currentPage - 1) * maxSize">
+                    <td>{{user.firstname}}</td>
+                    <td>{{user.lastname}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                    <td><img class="img-circle" style="width:100px;height:100px" ng-src='{{user.photo}}' /></td>
+                    <td>{{user.statut}}</td>
+                    <td>
+                        <md-card-actions layout="row">
+                            <md-button href="#/commandes/{{user._id}}" class="md-raised md-primary">Liste des commandes</md-button>
+                        </md-card-actions>
 
-                    <md-button class="md-raised md-primary" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
-                    <md-button class="md-raised md-primary" ng-click="recup(user._id)"><span><img src="public/images/sign.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>EDIT</md-button>
-                </td>
+                        <md-button class="md-raised md-primary" ng-click="delete(user._id)"><span><img src="public/images/minus.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>Delete</md-button>
+                        <md-button class="md-raised md-primary" ng-click="recup(user._id)"><span><img src="public/images/sign.png" style="text-align:center;width:15px;height:15px;"alt="" /></span>EDIT</md-button>
+                    </td>
 
-            </tr>
-        </tbody>
-    </table>
-    <uib-pagination total-items="users.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
-</div>
+                </tr>
+            </tbody>
+        </table>
+        <uib-pagination total-items="users.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
 </div>
